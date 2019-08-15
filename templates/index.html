@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+        <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type='text/javascript' src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script type='text/javascript' src="https://cdn.jsdelivr.net/planck/0.1/planck.js"></script>
+        <script type='text/javascript' src="https://rawgit.com/bgrins/TinyColor/master/tinycolor.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+    <!--body onload="doIt('cso_result_general_wordNet.json', 'cso_result_specific_wordNet.json')"-->
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between" style="padding-left: 0px">
+            <div class="container-fluid" style="padding-left: 0px">
+                <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                    <span> ☰ </span>
+                </button>
+
+                <a href="#" class="navbar-brand mr-3">DocViewer</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">File</a>
+                        <a href="#" class="nav-item nav-link">Views</a>
+                        <a href="#" class="nav-item nav-link">About</a>
+                    </div>
+                </div>
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>   
+                        </span>
+                    </div>
+                </form>
+            </div>    
+        </nav>
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar" class="bg-dark">
+                <!--ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ordering</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Advanced Search</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul-->
+            </div>
+
+            <div class="graphView">
+                <div class="left_col" id="svgCirclesContainer1">
+                    <svg id="svgCircles1" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                </div>
+        
+                <div class="right_col" id="svgCirclesContainer2">
+                    <svg id="svgCircles2" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                </div>
+            </div>
+            
+            <!--div class="row">
+                <div class="left_col" id="svgCirclesContainer1">
+                    <svg id="svgCircles1" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                </div>
+                <div class="right_col" id="svgCirclesContainer2">
+                    <svg id="svgCircles2" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                </div>
+            </div-->
+        </div>
+            
+        <!--div id="svgCirclesContainer">
+            <svg id="svgCircles" style="border:1px solid black; position: fixed;" width="960" height="1280"></svg>
+        </div-->
+        
+        <!--div id = "text" class="textView">
+            <div id="docAbstractions">
+                <div id="transGraphTitle" class="header timeSequenceVizTitle">
+                    <p class="vizText">
+                    Text
+                    </p>
+                </div>
+                <div id="transGraph" class="timeSequenceViz">
+                    <div id="transGraphContent" class="timeSequenceVizContent">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graphView">
+            <div class="left_col" id="svgCirclesContainer1">
+                <svg id="svgCircles1" style="border:1px solid black; position: fixed;" width="1024" height="1280"></svg>
+            </div>
+
+            <!--div class="right_col" id="svgCirclesContainer2">
+                <svg id="svgCircles2" style="border:1px solid black; position: fixed;" width="1024" height="1280"></svg>
+            </div>
+        </div>
+
+        <button type="button" id="button-submit">Click Me!</button-->
+    
+        <script src="{{ url_for('static',filename='js/bubbletreemap.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estimate Pi</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    //str to json
+    function strToJson(str){
+       var json = eval('(' + str + ')');
+       return json;
+    }
+
+    //jQuery
+    $("document").ready(function() {
+
+      //submit click function
+      $("#button-submit").click(function(){
+          var text = $("#text-input").val();
+          if(/^[0-9]+$/.test(text)){
+
+            //send data to the server
+            var data = {};
+            data['str'] = text
+            
+            $.post("/request",data,
+            function(data,status){
+                $("#pi-result").text(data);
+            },"json");
+
+          }else
+          {
+            alert('Please enter an integer');
+          }
+      });
+    });
+    </script>
+ </head>
+
+  <body>
+     <div class="container">
+     	 <nav class="navbar navbar-default" role="navigation">
+	        <div class="container-fluid">
+	        <div class="navbar-header">
+		        <a class="navbar-brand" href="#">Esitimate Pi</a>
+	        </div>
+	       </div>
+      </nav>
+      <div class="panel panel-default">
+          <div class="panel-heading">Please enter the iteration:</div>
+          <div class="panel-body" align="center">
+               <input name="text" id = "text-input">
+               <input type="submit" id = "button-submit">
+         </div>
+     </div>
+
+     <div class="panel panel-default">
+         <div class="panel-heading">Pi is:</div>
+         <div class="panel-body" align="center">
+            <p id = "pi-result"></p>
+         </div>
+      </div>
+    </div>
+  </body>
+</html>

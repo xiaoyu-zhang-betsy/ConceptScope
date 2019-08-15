@@ -1,0 +1,1434 @@
+{
+  "name": "<https://cso.kmi.open.ac.uk/topics/computer_science>",
+  "uncertainty": 3,
+  "children": [
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_system>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/database>",
+          "origin": "information",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/database>",
+          "uncertainty": 3,
+          "sentence": [
+            "We examine how animating a viewpoint change in a spatial information system affects a user\u2019s ability to build a mental map of the information in the space",
+            "However, the user may then spend some time after an abrupt transition adjusting to the new representation of information and relating it to the previous representation",
+            "This metric was chosen because users could start planning their response as soon as the first data were displayed",
+            "\nIn many application domains, the system may need some time to gather data (such as with the World Wide Web), or to process it",
+            "These changes can be in the data within the interface or in the interface itself",
+            "Some systems that use animation of the data include the Information Visualizer [9], Cone Trees [19], the Continuous Zoom system [20], and WebBook and WebForager [10]",
+            "A ZUI lets users zoom in and out, or pan around to view much more information than can normally fit on a single screen",
+            "\nAs we started to design a study that would help us to\nunderstand the benefits of ZUIs, we realized that the animation we employ is orthogonal to the use of zoom to organize data",
+            "Our hypothesis was that animation would improve subjects\u2019 ability to navigate through the information space, recall information, and to reconstruct the information space",
+            "In a pilot test, subjects specifically stated that the nine-node tree was a reasonable amount of information to try and learn \u2013 a challenge, but not impossible",
+            "The satisfaction level of animation and non-animation was based on a series of questions: overall reaction, locating information, and remembering relationships",
+            "Further, while subjects did not prefer the animated transitions to the non-animated transitions, 75% of them specifically stated that they thought the animations helped them learn the relationships between the data, and only 25% of them said that the animations slowed them down",
+            "\nWe find these data to support our hypothesis that animated transitions help users built mental maps of spatial information",
+            "While our dataset is small, the visual space that was navigated relative to the screen size was fairly large, and so while it would be useful to run another study with more data, we think this experiment\u2019s results can be generalized to other information systems where the space is larger than the display",
+            "\nOur explanation is that although animation directly aids in learning spatial relationships, it does not directly help learning more complex relationships among data",
+            "\nSo, why does animation appear to improve people\u2019s ability to learn spatial position and relationships of data",
+            "While our experiment was for 2D data, our experience leads us to think that our results will generalize to other spatial formats such as 1D and 3D data (although we do not have any data to support this belief)"
+          ],
+          "size": 17,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/information_technology>",
+            "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
+            "<https://cso.kmi.open.ac.uk/topics/database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>",
+            "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/medical_database>",
+            "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>"
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                              "origin": "space",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>&-&<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_links>&-&<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "We examine how animating a viewpoint change in a spatial information system affects a user\u2019s ability to build a mental map of the information in the space",
+                                "While our dataset is small, the visual space that was navigated relative to the screen size was fairly large, and so while it would be useful to run another study with more data, we think this experiment\u2019s results can be generalized to other information systems where the space is larger than the display",
+                                "It is interesting, however, that subjects did not perform better navigating the space, or recalling relationships about family members"
+                              ],
+                              "size": 3,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/distributed_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/parallel_architectures>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/parallel_programming>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/programming_models>",
+                              "origin": "researchers",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/distributed_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_architectures>&-&<https://cso.kmi.open.ac.uk/topics/parallel_programming>&-&<https://cso.kmi.open.ac.uk/topics/programming_models>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces"
+                              ],
+                              "size": 1,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/programming_models>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/multiprocessing_systems>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                          "origin": "This design",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/distributed_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>&-&<https://cso.kmi.open.ac.uk/topics/multiprocessing_systems>&-&<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "This design has the risk that users would remember the structure of the tree"
+                          ],
+                          "size": 1,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                            "<https://cso.kmi.open.ac.uk/topics/architecture_knowledge_exploiting>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/software_as_a_service>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/saas>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/iaas>",
+                      "origin": "Users",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/cloud_computing>&-&<https://cso.kmi.open.ac.uk/topics/software_as_a_service>&-&<https://cso.kmi.open.ac.uk/topics/saas>&-&<https://cso.kmi.open.ac.uk/topics/iaas>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users\u2019 performance",
+                        "\nA commonly held belief is that animation helps users maintain object constancy and thus helps users to relate the two states of the system",
+                        "\nA commonly held belief is that animation helps users maintain object constancy and thus helps users to relate the two states of the system",
+                        "Users spend all of their time using the system",
+                        "While developers of animated systems hope that this animation makes it easier for users to relate the different states of the system, there is clearly a trade-off in how much time is actually spent on the transition",
+                        "If the transition is too fast, users may not be able to make the connection, and if the transition is too long, the users\u2019 time will be wasted",
+                        "This metric was chosen because users could start planning their response as soon as the first data were displayed",
+                        "In these cases, inserting an animation where a delay is necessitated is not likely to harm productivity because users would have to wait anyway",
+                        "One paper showed that users pick different interaction strategies depending on system response times [25]",
+                        "\nIn general, animation is often used to help users relate different states in the interface",
+                        "A ZUI lets users zoom in and out, or pan around to view much more information than can normally fit on a single screen",
+                        "\nWe believe that animating changes of viewpoint during hyperlinks are the most important kind of animation in Pad++, since these animations appear to help users understand where they are in the information space",
+                        "This study found that both a dissolve transition affect and animated motion of objects within a scene independently helped users to solve problems",
+                        "This design has the risk that users would remember the structure of the tree",
+                        "\nWe find these data to support our hypothesis that animated transitions help users built mental maps of spatial information",
+                        "It might be expected that if users really had built better mental maps of the information space, then performance would have been improved on this task",
+                        "We think that animation helps users to maintain object constancy, and that without animation, users must spend time rebuilding an understanding of which object is which",
+                        "We think that animation helps users to maintain object constancy, and that without animation, users must spend time rebuilding an understanding of which object is which",
+                        "When an object does not appear in all the views, then animation may be even more important because users can see which direction it is going, and so they can build a mental map of where things are",
+                        "If a task requires subjects to know something about objects\u2019 spatial position, and the viewpoint is changed, then animating that change in viewpoint appears to helps users"
+                      ],
+                      "size": 20,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+                        "<https://cso.kmi.open.ac.uk/topics/iaas>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_data>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
+                        "<https://cso.kmi.open.ac.uk/topics/cloud_computing>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/feedback_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/feedback_control>",
+              "origin": "comments",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/feedback_systems>&-&<https://cso.kmi.open.ac.uk/topics/feedback_control>",
+              "uncertainty": 3,
+              "sentence": [
+                "Each comment was categorized, and we report the totals of all of the comments in Table 3"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/feedback_control>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/computational_linguistics>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/text_processing>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/word_processing>",
+                      "origin": "word processors",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/database_systems>&-&<https://cso.kmi.open.ac.uk/topics/computational_linguistics>&-&<https://cso.kmi.open.ac.uk/topics/text_processing>&-&<https://cso.kmi.open.ac.uk/topics/word_processing>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "This has direct implications for many applications that present linear data \u2013 including word processors, spreadsheets, and Web browsers"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/word_processing>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/software>",
+      "origin": "applications",
+      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software>",
+      "uncertainty": 3,
+      "sentence": [
+        "We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space",
+        "Typically, system response time is defined to mean the time between when the user initiates an action, and when the computer starts to display the result",
+        "The bigger problem is when the computer could have responded instantly, and the animation slows down computer\u2019s response time",
+        "The bigger problem is when the computer could have responded instantly, and the animation slows down computer\u2019s response time",
+        "Chang and Ungar discussed the application of animation principles from the arts and cartoons to user interfaces, showing that more than just simple movement of interface objects is possible [11]",
+        "The questions and tasks that were presented to the subjects were automated and recorded by a program that we wrote",
+        "\nThe task of reconstructing the family tree was performed away from a computer using printed photographs of each family member without the name of the person",
+        "15% of subjects reported spending under 10 hours per week using a computer, 20% reported averaging 11-20 hours, 35% reported averaging 21-30 hours, 30% reported over 31 hours",
+        "This has direct implications for many applications that present linear data \u2013 including word processors, spreadsheets, and Web browsers"
+      ],
+      "size": 9,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/gis>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/spatial_data>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/vector_data>",
+                  "origin": "addition",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software>&-&<https://cso.kmi.open.ac.uk/topics/gis>&-&<https://cso.kmi.open.ac.uk/topics/spatial_data>&-&<https://cso.kmi.open.ac.uk/topics/vector_data>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "In addition, we hypothesized that subjects would prefer animation to the non-animated condition",
+                    "In addition, we wanted to test memory, and if we had hundreds of family members, it would be more difficult to test how well subjects could learn the whole tree"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/vector_data>",
+                    "<https://cso.kmi.open.ac.uk/topics/steering_vector>",
+                    "<https://cso.kmi.open.ac.uk/topics/support_vector>",
+                    "<https://cso.kmi.open.ac.uk/topics/fuzzy_arithmetics>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "candidates": [
+        "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
+        "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
+        "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
+        "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+        "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
+        "<https://cso.kmi.open.ac.uk/topics/software>",
+        "<https://cso.kmi.open.ac.uk/topics/computer_application>",
+        "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+        "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
+        "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>"
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/user_interfaces>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+              "origin": "user",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interfaces>&-&<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+              "uncertainty": 3,
+              "sentence": [
+                "We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space",
+                "This kind of animation was used to provide a continuous transition from one state of the interface to another, and has become increasingly common, both in research and commercial user interfaces",
+                "The perceptual phenomenon of object constancy enables the user to track substructure relationships without thinking about it",
+                "\nOne potential drawback of adding animation to an interface or visualization is that animation, by definition, takes time",
+                "This brings up a fundamental trade-off between the time spent animating and the time spent using the interface",
+                "However, the user may then spend some time after an abrupt transition adjusting to the new representation of information and relating it to the previous representation",
+                "\nAt the other extreme, each visual change in the interface is accompanied by a smooth transition that relates the old representation to the new one",
+                "The ideal animation time is likely to be dependent on a number of factors, including task type, and the user\u2019s experience with the interface and the data",
+                "Typically, system response time is defined to mean the time between when the user initiates an action, and when the computer starts to display the result",
+                "With many animations, however, the user does not see the relevant data until the animation is nearly finished, and thus the animation time is an important part of system response",
+                "\nIn general, animation is often used to help users relate different states in the interface",
+                "These changes can be in the data within the interface or in the interface itself",
+                "These changes can be in the data within the interface or in the interface itself",
+                "It is possible to have an interface with or without animation, and with or without a multi-scale structure",
+                "\nThere have been few studies that looked specifically at how animation affects user\u2019s abilities to use interfaces",
+                "The goals of the training exercise were to verify that our subjects understood family relationships, and to orient them to the interface used in the experiment",
+                "Subjects were also asked to give their opinions of the advantages and disadvantages of an interface with animation",
+                "However, this animation is not controllable by the user, and is not consistent across other interactions (such as Back)"
+              ],
+              "size": 18,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
+                "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
+                "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
+                "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+                "<https://cso.kmi.open.ac.uk/topics/hmi>",
+                "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/user_interface>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/interactive_computer_graphics>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/computer_game>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/non-player_character>",
+                      "origin": "individuals",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interface>&-&<https://cso.kmi.open.ac.uk/topics/interactive_computer_graphics>&-&<https://cso.kmi.open.ac.uk/topics/computer_game>&-&<https://cso.kmi.open.ac.uk/topics/non-player_character>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "\nWe created family trees with nine individuals in each tree, and displayed only one or two nodes at a time"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/non-player_character>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+              "origin": "performance",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/cognitive_systems>&-&<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+              "uncertainty": 3,
+              "sentence": [
+                "Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users\u2019 performance",
+                "However, this satisfaction does not necessarily correlate with performance",
+                "We examine how animated changes of viewpoint during hyperlink transitions affects users\u2019 ability to build a mental map of a flat information space",
+                "That study compared users\u2019 ability to find items where more items than could fit in a single display were used",
+                "\nWithin both of the family trees, subjects were given three kinds of tasks",
+                "\nThe second set of tasks evaluated recall memory",
+                "\nThe third set of tasks evaluated reconstruction ability",
+                "There was no statistically significant difference in any of the other tasks or subjective satisfaction by animation",
+                "If the animation treatment was second, however, then performance was significantly better with animation (Figure 4)",
+                "Subjects did not perform navigation and recall tasks better with animation, although the animation did not change their response time either",
+                "\nThe fact that the animated transitions did not slow down performance implies that either subjects were able to find what they were looking for while following fewer links, or by following each link quicker",
+                "It might be expected that if users really had built better mental maps of the information space, then performance would have been improved on this task"
+              ],
+              "size": 12,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/man_machine_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+                  "origin": "computer interfaces",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/cognitive_systems>&-&<https://cso.kmi.open.ac.uk/topics/man_machine_systems>&-&<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "\nAnimation in computer interfaces can actually mean many different things"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+                    "<https://cso.kmi.open.ac.uk/topics/human-computer_interface>",
+                    "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
+                    "<https://cso.kmi.open.ac.uk/topics/computer_interface>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-computer_interfaces_%28bci%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-machine_interface>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-computer_interface_%28bci%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain_computer_interface_%28bci%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-computer_interfacing>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-computer_interfaces>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain_computer_interface>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain-computer_interface>",
+                    "<https://cso.kmi.open.ac.uk/topics/brain_machine_interface>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/operating_system>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/windows_operating_system>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/microsoft_windows>",
+              "origin": "system",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/operating_system>&-&<https://cso.kmi.open.ac.uk/topics/windows_operating_system>&-&<https://cso.kmi.open.ac.uk/topics/microsoft_windows>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nA commonly held belief is that animation helps users maintain object constancy and thus helps users to relate the two states of the system",
+                "Users spend all of their time using the system",
+                "While developers of animated systems hope that this animation makes it easier for users to relate the different states of the system, there is clearly a trade-off in how much time is actually spent on the transition",
+                "\nIn many application domains, the system may need some time to gather data (such as with the World Wide Web), or to process it",
+                "We have developed a system called Pad++ to explore ZUIs",
+                "The PC had 17\u201d monitor and was running at a resolution of 1280x1024",
+                "\nAfter the entire experiment, subjects were asked to write down what they thought were the advantages and disadvantages of animation, and they were asked to give suggestions to improve the system"
+              ],
+              "size": 7,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/microsoft_windows>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+      "origin": "developers",
+      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+      "uncertainty": 3,
+      "sentence": [
+        "While developers of animated systems hope that this animation makes it easier for users to relate the different states of the system, there is clearly a trade-off in how much time is actually spent on the transition"
+      ],
+      "size": 1,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/software_design>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/software_architecture>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/viewpoint>",
+                  "origin": "viewpoint",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/software_architecture>&-&<https://cso.kmi.open.ac.uk/topics/viewpoint>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "A scene may be larger than can fit on the screen, and the viewpoint can be changed with animated movement by rendering \"in-between frames\" part way between the starting and ending state",
+                    "The three types of animated movement are motion of objects within a scene, manual change of viewpoint (through various steering mechanisms), and automatic change of viewpoint (during hyperlinks)",
+                    "The three types of animated movement are motion of objects within a scene, manual change of viewpoint (through various steering mechanisms), and automatic change of viewpoint (during hyperlinks)",
+                    "\nWe believe that animating changes of viewpoint during hyperlinks are the most important kind of animation in Pad++, since these animations appear to help users understand where they are in the information space",
+                    "We examine how animated changes of viewpoint during hyperlink transitions affects users\u2019 ability to build a mental map of a flat information space",
+                    "However, this study did not address animation of viewpoint which is the primary focus of the current study",
+                    "\nAnother study that is perhaps more relevant looked at animating the viewpoint of a spatial information visualization [13]",
+                    "\nWe performed a study to test the effectiveness of animation of viewpoint on subjects\u2019 ability to build mental maps of spatial information spaces",
+                    "The animated condition would smoothly move the viewpoint to the destination, showing all of the places in-between the source and destination along the way",
+                    "This eliminated the time spent animating the viewpoint as a factor",
+                    "If a task requires subjects to know something about objects\u2019 spatial position, and the viewpoint is changed, then animating that change in viewpoint appears to helps users",
+                    "If a task requires subjects to know something about objects\u2019 spatial position, and the viewpoint is changed, then animating that change in viewpoint appears to helps users"
+                  ],
+                  "size": 12,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/quality_of_softwares>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/verification_and_validation>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/verification>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/program_verification>",
+                          "origin": "correctness",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/quality_of_softwares>&-&<https://cso.kmi.open.ac.uk/topics/verification_and_validation>&-&<https://cso.kmi.open.ac.uk/topics/verification>&-&<https://cso.kmi.open.ac.uk/topics/program_verification>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "There was also no significant difference in correctness on this first task"
+                          ],
+                          "size": 1,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/program_verification>",
+                            "<https://cso.kmi.open.ac.uk/topics/formal_verification>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "candidates": [
+        "<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+        "<https://cso.kmi.open.ac.uk/topics/software_engineering_education>",
+        "<https://cso.kmi.open.ac.uk/topics/global_software_engineering>",
+        "<https://cso.kmi.open.ac.uk/topics/software_engineering_course>"
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_networks>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/communication_channels_%28information_theory%29>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/channel_capacity>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/superposition_coding>",
+                      "origin": "different states",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/communication_channels_%28information_theory%29>&-&<https://cso.kmi.open.ac.uk/topics/channel_capacity>&-&<https://cso.kmi.open.ac.uk/topics/superposition_coding>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "While developers of animated systems hope that this animation makes it easier for users to relate the different states of the system, there is clearly a trade-off in how much time is actually spent on the transition",
+                        "\nIn general, animation is often used to help users relate different states in the interface"
+                      ],
+                      "size": 2,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/superposition_coding>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/local_area_networks>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/wireless_local_area_network_%28wlan%29>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/wifi>",
+                      "origin": "connection",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/local_area_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_local_area_network_%28wlan%29>&-&<https://cso.kmi.open.ac.uk/topics/wifi>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "If the transition is too fast, users may not be able to make the connection, and if the transition is too long, the users\u2019 time will be wasted",
+                        "Zoomable User Interfaces (ZUIs) are a visualization technique that provides access to spatially organized information"
+                      ],
+                      "size": 2,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/wi-fi>",
+                        "<https://cso.kmi.open.ac.uk/topics/wi-fi_signals>",
+                        "<https://cso.kmi.open.ac.uk/topics/wifi>",
+                        "<https://cso.kmi.open.ac.uk/topics/wi_fi_networks>",
+                        "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                        "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
+                        "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
+                        "<https://cso.kmi.open.ac.uk/topics/social_network>",
+                        "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                        "<https://cso.kmi.open.ac.uk/topics/social_graphs>"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/wireless_local_area_networks>",
+                  "origin": "links",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/local_area_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_local_area_networks>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "Unfortunately, we did not record the number of links followed, and so can not report on this"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/internet_protocol>",
+                    "<https://cso.kmi.open.ac.uk/topics/voice_over_internet_protocol>",
+                    "<https://cso.kmi.open.ac.uk/topics/internet_protocol_%28ip%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/voice_over_internet_protocol_%28voip%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_local_area_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_cameras>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_body_area_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_mobile_ad-hoc_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_access_points>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_cellular_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_communication_systems>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_atm>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_communications>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_multicast>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_communication_system>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_personal_area_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_body_area_network>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_metropolitan_area_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/wireless_nodes>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/gesture_recognition>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/facial_expression>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/emotional_expression>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                      "origin": "response",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/gesture_recognition>&-&<https://cso.kmi.open.ac.uk/topics/facial_expression>&-&<https://cso.kmi.open.ac.uk/topics/emotional_expression>&-&<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "This metric was chosen because users could start planning their response as soon as the first data were displayed"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_detection>",
+                        "<https://cso.kmi.open.ac.uk/topics/human_emotion>",
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_models>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/computer_interface>",
+          "origin": "computer interface",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/computer_interface>",
+          "uncertainty": 3,
+          "sentence": [
+            "The subjects were given a stack of the nine photographs of the family tree members, and were asked to duplicate the family tree that they had seen in the computer interface"
+          ],
+          "size": 1,
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/internet>",
+      "origin": "Web",
+      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>",
+      "uncertainty": 3,
+      "sentence": [
+        "However, since the delay associated with the Web is often hard to predict, matching animations to the Web retrieval time could be difficult"
+      ],
+      "size": 1,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/world_wide_web>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/hypertext_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/hyperlinks>",
+                  "origin": "hyperlinks",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/hypertext_systems>&-&<https://cso.kmi.open.ac.uk/topics/hyperlinks>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "The three types of animated movement are motion of objects within a scene, manual change of viewpoint (through various steering mechanisms), and automatic change of viewpoint (during hyperlinks)",
+                    "\nWe believe that animating changes of viewpoint during hyperlinks are the most important kind of animation in Pad++, since these animations appear to help users understand where they are in the information space",
+                    "Subjects navigated these trees clicking on hyperlinks that were represented by yellow arrows",
+                    "This task involved clicking on hyperlinks to explore the tree"
+                  ],
+                  "size": 4,
+                  "children": []
+                },
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                  "origin": "document",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/hypertext_systems>&-&<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "We suggest that when a movement is made within a document, that movement should be animated"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                    "<https://cso.kmi.open.ac.uk/topics/xml_%28extensible_markup_language%29>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/social_network>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                  "origin": "link",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/social_network>&-&<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "In the non-animated condition, clicking on a link would result in the destination of the link immediately appearing on the screen",
+                    "In the non-animated condition, clicking on a link would result in the destination of the link immediately appearing on the screen",
+                    "\nThe fact that the animated transitions did not slow down performance implies that either subjects were able to find what they were looking for while following fewer links, or by following each link quicker"
+                  ],
+                  "size": 3,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                    "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/social_network>",
+                    "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/social_graphs>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "candidates": [
+        "<https://cso.kmi.open.ac.uk/topics/internet>",
+        "<https://cso.kmi.open.ac.uk/topics/weblogs>",
+        "<https://cso.kmi.open.ac.uk/topics/blogging>",
+        "<https://cso.kmi.open.ac.uk/topics/web_log_mining>",
+        "<https://cso.kmi.open.ac.uk/topics/blog>",
+        "<https://cso.kmi.open.ac.uk/topics/weblog>"
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/hardware>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/microprocessor_chips>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/integrated_circuit_layout>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/delay_circuits>",
+                  "origin": "delays",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/microprocessor_chips>&-&<https://cso.kmi.open.ac.uk/topics/integrated_circuit_layout>&-&<https://cso.kmi.open.ac.uk/topics/delay_circuits>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "One typical study shows productivity increasing as delays decreased for data entry tasks [12]",
+                    "However, another study found an increase in data entry productivity when delays increased to a point [3]"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/delay_circuits>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/program_processors>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/multi-cores>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                      "origin": "memory",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/microprocessor_chips>&-&<https://cso.kmi.open.ac.uk/topics/program_processors>&-&<https://cso.kmi.open.ac.uk/topics/multi-cores>&-&<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "In addition, we wanted to test memory, and if we had hundreds of family members, it would be more difficult to test how well subjects could learn the whole tree",
+                        "\nThe second set of tasks evaluated recall memory",
+                        "\nThe questions for the second task were answered from memory after the subjects had explored the family tree"
+                      ],
+                      "size": 3,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
+                        "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
+                        "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
+                        "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
+                        "<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                        "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>",
+                        "<https://cso.kmi.open.ac.uk/topics/embedded_memory>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/sensors>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/optical_fibers>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/optical_materials>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/pulsed_laser_applications>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/pulsed_laser_deposition>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/pulsed_laser>",
+                              "origin": "treatment",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensors>&-&<https://cso.kmi.open.ac.uk/topics/optical_fibers>&-&<https://cso.kmi.open.ac.uk/topics/optical_materials>&-&<https://cso.kmi.open.ac.uk/topics/pulsed_laser_applications>&-&<https://cso.kmi.open.ac.uk/topics/pulsed_laser_deposition>&-&<https://cso.kmi.open.ac.uk/topics/pulsed_laser>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "These five effects were not consistent in that they did not each show that one treatment performed better than another based on order",
+                                "One explanation for this is that the subjects learned the structure better with the animated treatment, and because the family trees for each treatment had the identical structure, they could remember that structure from one treatment to the next",
+                                "One explanation for this is that the subjects learned the structure better with the animated treatment, and because the family trees for each treatment had the identical structure, they could remember that structure from one treatment to the next"
+                              ],
+                              "size": 3,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/pulsed_laser>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_beam_shaping>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_induced_fluorescence_detection>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_induced>",
+                                "<https://cso.kmi.open.ac.uk/topics/femto-second_laser>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_induced_damage_thresholds>",
+                                "<https://cso.kmi.open.ac.uk/topics/vertical-cavity_surface_emitting_laser>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_plasma>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_excitation>",
+                                "<https://cso.kmi.open.ac.uk/topics/pulsed_laser_applications>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_doppler_vibrometry>",
+                                "<https://cso.kmi.open.ac.uk/topics/laser_produced_plasmas>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_systems>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/classification_system>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/music_genre_classification>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/music_genre>",
+                  "origin": "kinds",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/classification_system>&-&<https://cso.kmi.open.ac.uk/topics/music_genre_classification>&-&<https://cso.kmi.open.ac.uk/topics/music_genre>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "Since they may, in fact, reduce cognitive effort, as suggested by Robertson and others, we believe that animation may improve some kinds of task performance",
+                    "\nWithin both of the family trees, subjects were given three kinds of tasks",
+                    "Our goal was to try to understand if the kinds of errors that were made were different in the two conditions",
+                    "This effect was particularly strong because not only were the number of errors smaller, but the kinds of errors were less serious"
+                  ],
+                  "size": 4,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/music_genre_classification>",
+                    "<https://cso.kmi.open.ac.uk/topics/music_genre>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/information_systems>",
+          "origin": "information systems",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/information_systems>",
+          "uncertainty": 3,
+          "sentence": [
+            "While our dataset is small, the visual space that was navigated relative to the screen size was fairly large, and so while it would be useful to run another study with more data, we think this experiment\u2019s results can be generalized to other information systems where the space is larger than the display"
+          ],
+          "size": 1,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/management_information_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/database_management>",
+                  "origin": "instance",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/information_systems>&-&<https://cso.kmi.open.ac.uk/topics/management_information_systems>&-&<https://cso.kmi.open.ac.uk/topics/database_management>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "For instance, we would like to run an animation experiment on a larger data set, and we would like to know what the factors are in determining an optimal time to be spent for the animated transitions",
+                    "0, for instance, animates page-up and page-down actions"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/database>",
+                    "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
+                    "<https://cso.kmi.open.ac.uk/topics/database_management>",
+                    "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+                    "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+                    "<https://cso.kmi.open.ac.uk/topics/medical_database>",
+                    "<https://cso.kmi.open.ac.uk/topics/video_database>",
+                    "<https://cso.kmi.open.ac.uk/topics/transaction_database>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/embedded_systems>",
+          "origin": "overview",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/embedded_systems>",
+          "uncertainty": 3,
+          "sentence": [
+            "Most subjects wanted some way to see an overview of the entire family (see Table 3)",
+            "The point of our experiment was to study how people navigated spaces where they could not see an overview"
+          ],
+          "size": 2,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/embedded_systems>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_system_design>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_systems_design>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_device>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_system>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_processor>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_computing>"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_programming>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/object_oriented_programming>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+              "origin": "objects",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming>&-&<https://cso.kmi.open.ac.uk/topics/object_oriented_programming>&-&<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+              "uncertainty": 3,
+              "sentence": [
+                "Baecker and Small summarized many of the ways that objects can be animated on computer screens [1]",
+                "Animation can consist of moving a static object within a scene, or the object may change its appearance as it is moved",
+                "The three types of animated movement are motion of objects within a scene, manual change of viewpoint (through various steering mechanisms), and automatic change of viewpoint (during hyperlinks)",
+                "One study looked at transition effects (such as a dissolve) and animation of an object within the view [16]",
+                "This study found that both a dissolve transition affect and animated motion of objects within a scene independently helped users to solve problems",
+                "We think that animation helps users to maintain object constancy, and that without animation, users must spend time rebuilding an understanding of which object is which",
+                "When an object does not appear in all the views, then animation may be even more important because users can see which direction it is going, and so they can build a mental map of where things are"
+              ],
+              "size": 7,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/object_oriented_design>",
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+                "<https://cso.kmi.open.ac.uk/topics/object_oriented_programming>",
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_languages>",
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_security>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/security_of_data>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/computer_crime>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/digital_forensics>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/computer_forensics>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                          "origin": "scene",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/security_of_data>&-&<https://cso.kmi.open.ac.uk/topics/computer_crime>&-&<https://cso.kmi.open.ac.uk/topics/digital_forensics>&-&<https://cso.kmi.open.ac.uk/topics/computer_forensics>&-&<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "Animation can consist of moving a static object within a scene, or the object may change its appearance as it is moved",
+                            "A scene may be larger than can fit on the screen, and the viewpoint can be changed with animated movement by rendering \"in-between frames\" part way between the starting and ending state",
+                            "The three types of animated movement are motion of objects within a scene, manual change of viewpoint (through various steering mechanisms), and automatic change of viewpoint (during hyperlinks)",
+                            "This study found that both a dissolve transition affect and animated motion of objects within a scene independently helped users to solve problems"
+                          ],
+                          "size": 4,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                            "<https://cso.kmi.open.ac.uk/topics/forensic_analysis>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/security_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/surveillance_cameras>",
+                  "origin": "eyes",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/security_of_data>&-&<https://cso.kmi.open.ac.uk/topics/security_systems>&-&<https://cso.kmi.open.ac.uk/topics/surveillance_cameras>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "As one child using KidPad (an authoring tool for children within Pad++) said, \u201cWith [traditional hypertext] it is like closing your eyes and when you open them you\u2019re in a new place",
+                    "Zooming lets you keep your eyes open\u201d [14]"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/surveillance_cameras>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/cryptography>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/chaotic_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>",
+                  "origin": "An example",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/cryptography>&-&<https://cso.kmi.open.ac.uk/topics/chaotic_systems>&-&<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "An example of a relationship question was \"Who was Billy\u2019s mother",
+                    "An example of a photograph question was \"Who was holding a puppy"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>",
+                    "<https://cso.kmi.open.ac.uk/topics/chaotic_systems>",
+                    "<https://cso.kmi.open.ac.uk/topics/chaotic_system>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/robotics>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/robot>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/manipulators>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/inverse_kinematics>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/motion_editing>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>",
+                          "origin": "screen",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/robotics>&-&<https://cso.kmi.open.ac.uk/topics/robot>&-&<https://cso.kmi.open.ac.uk/topics/manipulators>&-&<https://cso.kmi.open.ac.uk/topics/inverse_kinematics>&-&<https://cso.kmi.open.ac.uk/topics/motion_editing>&-&<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "A scene may be larger than can fit on the screen, and the viewpoint can be changed with animated movement by rendering \"in-between frames\" part way between the starting and ending state",
+                            "In the non-animated condition, clicking on a link would result in the destination of the link immediately appearing on the screen",
+                            "\nFor the third task of reconstruction, animation did have a significant effect, reducing the errors that subjects made reconstructing the tree given pictures of the family members' faces"
+                          ],
+                          "size": 3,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/data_mining>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/association_rule_mining>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/mining_frequent_itemsets>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/fp_tree>",
+                  "origin": "trees",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/data_mining>&-&<https://cso.kmi.open.ac.uk/topics/association_rule_mining>&-&<https://cso.kmi.open.ac.uk/topics/mining_frequent_itemsets>&-&<https://cso.kmi.open.ac.uk/topics/fp_tree>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "Subjects navigated these trees clicking on hyperlinks that were represented by yellow arrows",
+                    "We matched the two treatments by creating two family trees that were exactly alike in both the structure and the number of family members the tree contained, although the names and photographs of the family members varied (Figure 3)",
+                    "This design has the risk that users would remember the structure of the tree",
+                    "\nWe created family trees with nine individuals in each tree, and displayed only one or two nodes at a time",
+                    "In addition, we wanted to test memory, and if we had hundreds of family members, it would be more difficult to test how well subjects could learn the whole tree",
+                    "\nThis experiment shows that, for the spatial map of the family tree that we used, animation improved subjects\u2019 ability to learn the spatial position of family members within the tree without a speed penalty",
+                    "This task involved clicking on hyperlinks to explore the tree",
+                    "\nFor the third task of reconstruction, animation did have a significant effect, reducing the errors that subjects made reconstructing the tree given pictures of the family members' faces",
+                    "However, there were few enough people in the trees that subjects realized\nthis was an unrealistic situation, and thus apparently felt\nthat with or without animation, there were better alternatives for exploring family trees"
+                  ],
+                  "size": 9,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/fp_tree>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_vision>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/image_processing>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>",
+              "origin": "photograph",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>",
+              "uncertainty": 3,
+              "sentence": [
+                "Above the photograph, subjects saw the family member\u2019s first name and yellow hyperlink arrows with the words \u201cparent\u201d, \u201cchild\u201d, \u201csibling\u201d, and \u201cspouse\u201d, where appropriate (Figure 2)",
+                "The subjects were given a stack of the nine photographs of the family tree members, and were asked to duplicate the family tree that they had seen in the computer interface"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/image_reconstruction>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/reconstruction>",
+                  "origin": "reconstruction",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_reconstruction>&-&<https://cso.kmi.open.ac.uk/topics/reconstruction>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "\nFor the third task of reconstruction, animation did have a significant effect, reducing the errors that subjects made reconstructing the tree given pictures of the family members' faces"
+                  ],
+                  "size": 1,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/image_analysis>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/image_quality>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/cone_beam_computed_tomography>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/radiotherapy%2C_image-guided>",
+                      "origin": "treatments",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_analysis>&-&<https://cso.kmi.open.ac.uk/topics/image_quality>&-&<https://cso.kmi.open.ac.uk/topics/cone_beam_computed_tomography>&-&<https://cso.kmi.open.ac.uk/topics/radiotherapy%2C_image-guided>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "We matched the two treatments by creating two family trees that were exactly alike in both the structure and the number of family members the tree contained, although the names and photographs of the family members varied (Figure 3)",
+                        "Thus, subjects reported their dissatisfaction equally between treatments"
+                      ],
+                      "size": 2,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/radiotherapy%2C_image-guided>",
+                        "<https://cso.kmi.open.ac.uk/topics/image-guided_radiotherapy>",
+                        "<https://cso.kmi.open.ac.uk/topics/radiotherapy_setup_errors>",
+                        "<https://cso.kmi.open.ac.uk/topics/image_guided_radiotherapy>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/operating_systems>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/device_driver>",
+          "origin": "stack",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/operating_systems>&-&<https://cso.kmi.open.ac.uk/topics/device_driver>",
+          "uncertainty": 3,
+          "sentence": [
+            "The subjects were given a stack of the nine photographs of the family tree members, and were asked to duplicate the family tree that they had seen in the computer interface"
+          ],
+          "size": 1,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/device_driver>",
+            "<https://cso.kmi.open.ac.uk/topics/ip_network>",
+            "<https://cso.kmi.open.ac.uk/topics/internet_protocols>"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/graph_theory>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/polynomial_approximation>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/polynomial_time_algorithm>",
+                  "origin": "optimal time",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/polynomial_approximation>&-&<https://cso.kmi.open.ac.uk/topics/polynomial_time_algorithm>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "For instance, we would like to run an animation experiment on a larger data set, and we would like to know what the factors are in determining an optimal time to be spent for the animated transitions"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/polynomial_time_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/linear_time_temporal_logic>",
+                    "<https://cso.kmi.open.ac.uk/topics/polynomial_time_approximation_schemes>",
+                    "<https://cso.kmi.open.ac.uk/topics/fully_polynomial_time_approximation_schemes>",
+                    "<https://cso.kmi.open.ac.uk/topics/polynomial-time_algorithm>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

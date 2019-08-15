@@ -1,0 +1,2164 @@
+{
+  "name": "<https://cso.kmi.open.ac.uk/topics/computer_science>",
+  "uncertainty": 3,
+  "children": [
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_systems>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/database>",
+          "origin": "data",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/database>",
+          "uncertainty": 3,
+          "sentence": [
+            "An- imations present an interactive movie of the data where positions of nodes are smoothly in- terpolated as the graph evolves",
+            "Nodes fade in/out as they are added/removed from the data set",
+            "Small multiples presents the data like a comic book with the graph at various states in separate windows",
+            "The user scans these windows to see how the data evolves",
+            "In a recent experiment, drawing stability (known more widely as the \u201cmental map\u201d) was shown to help users follow speci\ufb01c nodes or long paths in dynamically evolving data",
+            "In this paper, we look at data where the nodes in the graph have low drawing stability and analyse it with new error metrics: measuring how close the given answer is from the correct answer on a con- tinuous scale",
+            "\nAn important factor to consider when visualising a dynamic graph is how the information is presented",
+            "An animation of the dy- namic graph presents the data like an interactive movie whereby the user has complete control of the animation through the use of a slider and a play/pause button",
+            "Smooth linear interpolations transition node positions between timeslices and nodes and edges are faded in/faded out if they are inserted/removed from the data",
+            "A small multiples presentation of the graph depicts each timeslice of the data in its own window [55]",
+            "Recent experiments have shown that drawing stability can help with tasks that involve determining the insertion order of speci\ufb01c nodes [29], revisitation to speci\ufb01c nodes in a graph at later times [3], and following long paths through the data [3]",
+            "In many areas of the graph visualisation and information visualisation literature [10,46,8], animated transitions have been shown to be helpful when there are signi\ufb01cant changes to the data and/or how it is arranged on the screen",
+            "\nIn addressing this question, we analyse the data for dynamic graphs with low drawing stability\u2013graphs with a high de- gree of node movement between timeslices",
+            "As the mental map or cognitive map in psychology corresponds to the internal representation of the data inside the human mind, we advocate the use of the term drawing stability for this concept to avoid confusion between our disciplines",
+            "Maps are externalizations of this information that help support the cognitive map of the human",
+            "Palmer [42] de\ufb01nes information equivalence as the extent to which the two embody the same information",
+            "Overviews [51,33] of the data provide an equivalent concept to maps in this area \u2013 a lay of the land or map of the information landscape being explored",
+            "Tasks either involved an explanation of something in the data to the participant or using the visualisation to discover something in the data",
+            "Tasks either involved an explanation of something in the data to the participant or using the visualisation to discover something in the data",
+            "Shanmugasundaram and Irani [48] found that animated transitions could help reduce error rates when commuters were trying to \ufb01nd paths from source to destination stations on metro maps",
+            "For these low stability drawings, no information about node positions in one timeslice was used to in\ufb02uence their positions in the next",
+            "Questions were selected such that no node or edge involved in the question was removed from the data set during evolution",
+            "The practice tasks presented each data set once, each question four times, and each target level at least twice",
+            "\nIn order to determine if animation has an effect on performance when the dynamic graph drawings have low stability, we analyse our data from a different perspective, using a new series of metrics that measure continuous distance to the correct answer rather than discrete correctness",
+            "It quan- ti\ufb01es if they took the right turns at the right time while navigating through the data",
+            "Also, it measures whether or not the participant was able to get the general direction of the path through the data at a high level",
+            "\nIn this section, we analyse our data with respect to our research question: \u201cFor diagrams which have low drawing stability, can animation provide better support for complex task performance than small multiples",
+            "\u201d We analyse this data with respect to the metrics de\ufb01ned above",
+            "However, by considering different measures of error and the low stability drawings, we can begin to see effects when there are drastic changes in orientation in the data",
+            "\nThis result provides evidence that animation, when compared to small multiples, can improve the ability of participants to follow long paths through the data for drawings of low stability",
+            "The selected nodes are, on average, closer to the intended path and generally the entered path has the correct direction through the data",
+            "\nFor the path task, when considering piecewise angle and geodesic, we found that animation could help the participant get closer to the correct direction through the data overall and for paths of length three and seven, but not for \ufb01ve",
+            "Finally, two of our metrics measure the direction of paths through the data, a quantity not previously measured, and animation, under low stability conditions, may be able to help users follow this change in direction",
+            "Further analysis of this data for graph drawings of low stability \ufb01nds that animation can improve participant performance, when compared to small multiples, on these tasks",
+            "[56], for dynamic graphs, that animation is useful in conveying real time changes and reorientations in space when many such reorientations occur in the data over short periods of time"
+          ],
+          "size": 35,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>",
+            "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
+            "<https://cso.kmi.open.ac.uk/topics/medical_database>",
+            "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_network>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_communication_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_networks>"
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/data_communication_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/ip_multicast>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/ad_hoc_networks>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/mobile_ad-hoc_network>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/mobility_models>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/node_movement>",
+                              "origin": "node movement",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/data_communication_systems>&-&<https://cso.kmi.open.ac.uk/topics/ip_multicast>&-&<https://cso.kmi.open.ac.uk/topics/ad_hoc_networks>&-&<https://cso.kmi.open.ac.uk/topics/mobile_ad-hoc_network>&-&<https://cso.kmi.open.ac.uk/topics/mobility_models>&-&<https://cso.kmi.open.ac.uk/topics/node_movement>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "\nIn addressing this question, we analyse the data for dynamic graphs with low drawing stability\u2013graphs with a high de- gree of node movement between timeslices"
+                              ],
+                              "size": 1,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/embedded_system>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/embedded_device>",
+              "origin": "real time",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/embedded_system>&-&<https://cso.kmi.open.ac.uk/topics/embedded_device>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nBoth interfaces were rendered in real time using the Tulip framework [7]"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/embedded_device>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_processor>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_computing>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_systems_design>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_system>",
+                "<https://cso.kmi.open.ac.uk/topics/embedded_system_design>",
+                "<https://cso.kmi.open.ac.uk/topics/computer_modelling>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/graph_theory>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/graph_colorings>",
+              "origin": "nodes",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/graph_colorings>",
+              "uncertainty": 3,
+              "sentence": [
+                "An- imations present an interactive movie of the data where positions of nodes are smoothly in- terpolated as the graph evolves",
+                "An- imations present an interactive movie of the data where positions of nodes are smoothly in- terpolated as the graph evolves",
+                "Nodes fade in/out as they are added/removed from the data set",
+                "Small multiples presents the data like a comic book with the graph at various states in separate windows",
+                "In this paper, we look at data where the nodes in the graph have low drawing stability and analyse it with new error metrics: measuring how close the given answer is from the correct answer on a con- tinuous scale",
+                "In this paper, we look at data where the nodes in the graph have low drawing stability and analyse it with new error metrics: measuring how close the given answer is from the correct answer on a con- tinuous scale",
+                "Nodes and edges can be added and removed",
+                "Dynamic graphs are usually represented using a series of timeslices or time steps whereby snapshots of the graph are taken over given time intervals",
+                "For graphs with this representation, dynamic graph drawing algorithms assign coordinates to the nodes in the timeslices in order to depict the structural evolution of the graph over time",
+                "For graphs with this representation, dynamic graph drawing algorithms assign coordinates to the nodes in the timeslices in order to depict the structural evolution of the graph over time",
+                "A small multiples presentation of the graph depicts each timeslice of the data in its own window [55]",
+                "However, interaction is required and the user must rely on memory to understand how the graph evolves",
+                "However, the number of pixels devoted to each timeslice is much less and could potentially make the graph more di\ufb03cult to read",
+                "\nIn dynamic graph drawing, there is always a compromise between the drawing quality of the graph in each timeslice and the stability of the node positions in the drawing as the graph evolves through time",
+                "\nIn dynamic graph drawing, there is always a compromise between the drawing quality of the graph in each timeslice and the stability of the node positions in the drawing as the graph evolves through time",
+                "Preserving the mental map [23,41], or drawing stability, is a property of the dynamic graph that does not allow nodes to move too far in the plane between consecutive timeslices when a change is made to the graph",
+                "Preserving the mental map [23,41], or drawing stability, is a property of the dynamic graph that does not allow nodes to move too far in the plane between consecutive timeslices when a change is made to the graph",
+                "Recent experiments have shown that drawing stability can help with tasks that involve determining the insertion order of speci\ufb01c nodes [29], revisitation to speci\ufb01c nodes in a graph at later times [3], and following long paths through the data [3]",
+                "Recent experiments have shown that drawing stability can help with tasks that involve determining the insertion order of speci\ufb01c nodes [29], revisitation to speci\ufb01c nodes in a graph at later times [3], and following long paths through the data [3]",
+                "\nFor tasks where drawing stability is important and the positions of nodes remain relatively stable throughout graph evolution, animation can provide little bene\ufb01t as the identity of each node is disambiguated through its position",
+                "However, if the nodes of the drawing move substantially as the graph evolves, animated transitions might provide a larger bene\ufb01t when compared to small multiples",
+                "However, if the nodes of the drawing move substantially as the graph evolves, animated transitions might provide a larger bene\ufb01t when compared to small multiples",
+                "Drawing stability excludes the perception of the dynamic graph by the human and refers solely to the positions of the nodes on the external representation of the dynamic graph (usually the computer screen)",
+                "\nWe use the de\ufb01nition of Coleman and Parker [20]:\nThe placement of existing nodes and edges should change as little as possible when a change is made to the graph",
+                "\nAs nodes can be viewed as moving points when a dynamic graph is animated, these experiments have relevance to the investigation of the bene\ufb01ts of drawing stability",
+                "Firstly, collisions between nodes are not avoided by the standard, algorithmic approaches to dynamic graph drawing in the literature [14]",
+                "Therefore, for drawings that have low stability in terms of node positions, collisions between parts of the graph often occur",
+                "Paths in the graph will exhibit coordinated motion as their nodes are connected by chains of edges",
+                "Paths in the graph will exhibit coordinated motion as their nodes are connected by chains of edges",
+                "Paths in the graph will exhibit coordinated motion as their nodes are connected by chains of edges",
+                "[49] tested animated transitions in a pan and zoom setting where a graph could not entirely \ufb01t inside a viewport, \ufb01nding that animation did help in this setting",
+                "[5] found that animated transitions were possibly helpful when determining the number of insertions or deletions that had been made to a graph",
+                "\nIn general, animated transitions have shown to be useful quantitatively on a variety of tasks in dynamic graphs, speci\ufb01cally when interacting with a graph",
+                "They examine changes in node degree, simultaneous appearance of nodes/edges, growth and shrinking of the graph, and shrinking of shortest path distances",
+                "Although highlighting helped participants to identify nodes pertinent to the question easily, no other form of visual highlighting assisted them in this question",
+                "Experiments [3,29] have demonstrated that for certain tasks drawing stability is bene\ufb01cial, suggesting that these tasks are su\ufb03ciently complex that they require the use of a stable external repre- sentation for understanding the graph",
+                "If the nodes pertinent to the question are highlighted through the full time series of the graph, a more stable drawing provides little bene\ufb01t [6]",
+                "If the nodes pertinent to the question are highlighted through the full time series of the graph, a more stable drawing provides little bene\ufb01t [6]",
+                "If the nodes pertinent to the question are visually distinguishable from all other nodes using colour, stability in terms of node position provides little bene\ufb01t as the nodes can be retrieved visually by their colour",
+                "If the nodes pertinent to the question are visually distinguishable from all other nodes using colour, stability in terms of node position provides little bene\ufb01t as the nodes can be retrieved visually by their colour",
+                "If the nodes pertinent to the question are visually distinguishable from all other nodes using colour, stability in terms of node position provides little bene\ufb01t as the nodes can be retrieved visually by their colour",
+                "These tasks include reconstructing the insertion/deletion order of particular vertices in animated visualisations from memory [29], following long paths through a graph [3], and revisiting one of many speci\ufb01c nodes in a graph [3]",
+                "These tasks include reconstructing the insertion/deletion order of particular vertices in animated visualisations from memory [29], following long paths through a graph [3], and revisiting one of many speci\ufb01c nodes in a graph [3]",
+                "These tasks, in some sense, use the dynamic drawing of the graph as a dynamic map for location of graph elements",
+                "\nWe have found that for two complex tasks (revisiting speci\ufb01c locations and following long, speci\ufb01c paths as the graph evolves) drawing stability helps with graph interpretation [3]",
+                "Target level refers to the number of nodes of interest in the question posed to the participant and corresponds to the number of individual nodes or the length of the path tested",
+                "3 Smooth, linear interpolations transitioned node positions as the graph evolved",
+                "Nodes and edges that were inserted/deleted from the graph were faded in/out of the display",
+                "Nodes and edges that were inserted/deleted from the graph were faded in/out of the display",
+                "The graph encodes online newsgroup discussions and their evolution over time",
+                "Nodes are users and edges are replies to posts",
+                "The maximum of number of additions/deletions between timeslices was \ufb01ve for nodes and four for edges",
+                "The maximum of number of additions/deletions between timeslices was \ufb01ve for nodes and four for edges",
+                "\nThe location task tested the ability of the participant to revisit a speci\ufb01c node in the graph",
+                "The targets were spread through the graph and were independently moving nodes, initially coloured in isoluminant shades of blue, red, yellow, green, or purple",
+                "The targets were spread through the graph and were independently moving nodes, initially coloured in isoluminant shades of blue, red, yellow, green, or purple",
+                "After the \ufb01rst timeslice, the colours of the targets were set the same light grey colour as all other nodes in the experiment",
+                "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice",
+                "Nodes were highlighted in the \ufb01rst timeslice but not in subsequent timeslices",
+                "After the \ufb01rst timeslice, these nodes faded to the same light grey colour as all other nodes used in the experiment",
+                "After the \ufb01rst timeslice, these nodes faded to the same light grey colour as all other nodes used in the experiment",
+                "As paths are connected, the motion of these targets was coordinated and a larger number of nodes were tested",
+                "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice",
+                "In phase 2, participants were asked:\nClick on the vertices of the path in order (X vertices)",
+                "The value of X was the number of vertices on the path",
+                "For the path task, correctness was determined using (X \u2212 d)/X where X was the length of the path in the answer and d was the Levenshtein distance (edit distance) [39] between the nodes of the entered answer and the correct answer",
+                "This measure only considered exact matches to the nodes highlighted in the \ufb01rst timeslice of the task",
+                "\nThe Euclidean metric measures the distance between the answer entered by the participant and the correct answer in the \ufb01nal timeslice as the distance between the Euclidean coordinates of the two nodes (Fig",
+                "\nThe shortest path metric measures the shortest path distance between the answer entered by the participant and the correct answer as the shortest path between the two nodes in the \ufb01nal timeslice (Fig",
+                "\nPiecewise angle measures how closely the participants followed the general direction of the path through the graph",
+                "For each pair of nodes along the paths of the entered and correct answers, the angle between the vectors is computed and averaged",
+                "\nPrevious experiments [35] suggest that participants use the straight line between the start and end node of a speci\ufb01c path as an estimate of the path between two nodes",
+                "This result could probably be due to the fact that generally force-directed algorithms try and keep nodes that are close, in a shortest path sense, to each other in the drawing",
+                "Secondly, low stability animations result in nodes moving large distances, and animation helps the user follow nodes as they move",
+                "\nOur experiment was designed to test animation and small multiples in the case of low drawing stability on two questions: revisiting nodes in a graph and tracing long speci\ufb01c paths in a graph",
+                "\nOur experiment was designed to test animation and small multiples in the case of low drawing stability on two questions: revisiting nodes in a graph and tracing long speci\ufb01c paths in a graph",
+                "\nOur experiment was designed to test animation and small multiples in the case of low drawing stability on two questions: revisiting nodes in a graph and tracing long speci\ufb01c paths in a graph",
+                "\nOur experiments are conducted on data sets where the number of nodes in the graph is in the hundreds",
+                "\nOur experiments are conducted on data sets where the number of nodes in the graph is in the hundreds",
+                "Although this is small when compared to real data sets, the approach to deal with larger graphs often relies on either \ufb01ltering or aggregation across the nodes of the graph to reduce them to a reasonable level",
+                "Although this is small when compared to real data sets, the approach to deal with larger graphs often relies on either \ufb01ltering or aggregation across the nodes of the graph to reduce them to a reasonable level",
+                "In a context where colour is used for the encoding of attributes or other data on the nodes and edges of the graph, differencing methods cannot be used",
+                "In a context where colour is used for the encoding of attributes or other data on the nodes and edges of the graph, differencing methods cannot be used",
+                "\nArchambault and Purchase [3] found that drawing stability was important for disambiguating the identities of speci\ufb01c nodes in a graph and long speci\ufb01c paths"
+              ],
+              "size": 84,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/graph_colorings>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_g>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_transformations>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_theory>",
+                "<https://cso.kmi.open.ac.uk/topics/general_graph>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/graphic_methods>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/graph_structures>",
+                  "origin": "graph structure",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/graphic_methods>&-&<https://cso.kmi.open.ac.uk/topics/graph_structures>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "Thus, stable parts of the graph structure remain in similar positions in the plane during graph evolution"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/graph_structures>"
+                  ]
+                },
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/graph_visualization>",
+                  "origin": "graph drawings",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/graphic_methods>&-&<https://cso.kmi.open.ac.uk/topics/graph_visualization>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "As is appropriate for drawings with low stability, the dynamic graphs were drawn by \ufb01rst laying out each of their constituent timeslices independently using a force-directed algorithm, creating a set of graph drawings which can be viewed as a time series",
+                    "Further analysis of this data for graph drawings of low stability \ufb01nds that animation can improve participant performance, when compared to small multiples, on these tasks"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/graph_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/graph_drawing>",
+                    "<https://cso.kmi.open.ac.uk/topics/network_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/graph_layout>",
+                    "<https://cso.kmi.open.ac.uk/topics/layout_algorithms>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/shortest_path>",
+              "origin": "shortest path",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/shortest_path>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nThe shortest path metric measures the shortest path distance between the answer entered by the participant and the correct answer as the shortest path between the two nodes in the \ufb01nal timeslice (Fig"
+              ],
+              "size": 1,
+              "children": []
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/approximation_algorithm>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/combinatorial_op-timization_problem>",
+                  "origin": "identities",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/graph_theory>&-&<https://cso.kmi.open.ac.uk/topics/approximation_algorithm>&-&<https://cso.kmi.open.ac.uk/topics/combinatorial_op-timization_problem>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "\nArchambault and Purchase [3] found that drawing stability was important for disambiguating the identities of speci\ufb01c nodes in a graph and long speci\ufb01c paths"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/combinatorial_op-timization_problem>",
+                    "<https://cso.kmi.open.ac.uk/topics/combinatorial_mathematics>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/automata_theory>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/finite_automata>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/finite_state_machines>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/contour_followers>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/uml_state_machine>",
+                          "origin": "diagrams",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/theoretical_computer_science>&-&<https://cso.kmi.open.ac.uk/topics/automata_theory>&-&<https://cso.kmi.open.ac.uk/topics/finite_automata>&-&<https://cso.kmi.open.ac.uk/topics/finite_state_machines>&-&<https://cso.kmi.open.ac.uk/topics/contour_followers>&-&<https://cso.kmi.open.ac.uk/topics/uml_state_machine>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "In this paper, we investigate a question arising from this result:\nFor diagrams which have low drawing stability, can animation provide better support for complex task performance than small multiples",
+                            "Shepard and Metzler [50] demonstrated that the internal represen- tations of these diagrams were images rather than logical models",
+                            "\nWith respect to diagrams, the implications of cognitive maps have been studied in the context of reasoning [30,53], and for the purposes of learning [21,1] and thinking [11,16]",
+                            "\nIn this section, we analyse our data with respect to our research question: \u201cFor diagrams which have low drawing stability, can animation provide better support for complex task performance than small multiples"
+                          ],
+                          "size": 4,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/uml_state_machine>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_class_diagrams>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_profile>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_sequence_diagrams>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_model>",
+                            "<https://cso.kmi.open.ac.uk/topics/unified_modeling_language_%28uml%29>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_diagrams>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_activity_diagrams>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_models>",
+                            "<https://cso.kmi.open.ac.uk/topics/unified_modelling_language>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_modeling>",
+                            "<https://cso.kmi.open.ac.uk/topics/unified_modeling_language>",
+                            "<https://cso.kmi.open.ac.uk/topics/uml_2.0>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/user_interface>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+              "origin": "The user",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interface>&-&<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+              "uncertainty": 3,
+              "sentence": [
+                "The user scans these windows to see how the data evolves",
+                "An animation of the dy- namic graph presents the data like an interactive movie whereby the user has complete control of the animation through the use of a slider and a play/pause button",
+                "However, interaction is required and the user must rely on memory to understand how the graph evolves",
+                "Small multiples has the advantage that all timeslices are visible on the screen simultaneously and the user does not need to rely on memory",
+                "In the animation condition, the interface was similar to a movie player (Fig",
+                "\nEach participant answered all questions under one presentation method \ufb01rst and the other second, reducing any cognitive shift required to move from one interface to another as it occurred only once"
+              ],
+              "size": 6,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
+                "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
+                "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+                "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
+                "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+                "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
+                "<https://cso.kmi.open.ac.uk/topics/hmi>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/interactive_computer_graphics>",
+              "origin": "graphs",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interface>&-&<https://cso.kmi.open.ac.uk/topics/interactive_computer_graphics>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nDynamic graph drawing deals with the depiction of graphs that evolve over time in terms of their structure",
+                "For graphs with this representation, dynamic graph drawing algorithms assign coordinates to the nodes in the timeslices in order to depict the structural evolution of the graph over time",
+                "For graphs with this representation, dynamic graph drawing algorithms assign coordinates to the nodes in the timeslices in order to depict the structural evolution of the graph over time",
+                "Animated transitions have been shown to provide improvements over no transitions [8] and the interaction between animation and encoding differences with colour [46] has also been explored",
+                "Also, key nodes in the questions were usually highlighted using colour through the full time series, causing animated transitions to have less of an effect: if the node pertinent to the question was red, it did not matter where it appeared in the display as it could be retrieved easily by its colour",
+                "This was, in part, due to the fact that the effect of drawing stability was so strong for these tasks",
+                "\nIn order to determine if animation has an effect on performance when the dynamic graph drawings have low stability, we analyse our data from a different perspective, using a new series of metrics that measure continuous distance to the correct answer rather than discrete correctness",
+                "\nIn Archambault and Purchase [3], the effect of drawing stability was pronounced and the only differences found between the factors of the experiment were between the low and high stability factors",
+                "In this case, it helps to understand graphs without these encodings",
+                "This effect was seen both for animation and small multiples"
+              ],
+              "size": 10,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/interactive_computer_graphics>",
+                "<https://cso.kmi.open.ac.uk/topics/three_dimensional_computer_graphics>",
+                "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
+                "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                "<https://cso.kmi.open.ac.uk/topics/social_network>",
+                "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
+                "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_colorings>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_g>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_transformations>",
+                "<https://cso.kmi.open.ac.uk/topics/graph_theory>",
+                "<https://cso.kmi.open.ac.uk/topics/general_graph>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/video_games>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/first_person_shooter>",
+              "origin": "target",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/video_games>&-&<https://cso.kmi.open.ac.uk/topics/first_person_shooter>",
+              "uncertainty": 3,
+              "sentence": [
+                "4)\nAnimation produced answers closer to the correct answer overall and for one target on all measures",
+                "5), animation was faster overall and for one target",
+                "It provides even stronger evidence that animation, under these same conditions, helps the participant answer closer to the target"
+              ],
+              "size": 3,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/first_person_shooter>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/operating_system>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/windows_operating_system>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/microsoft_windows>",
+              "origin": "windows",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/operating_system>&-&<https://cso.kmi.open.ac.uk/topics/windows_operating_system>&-&<https://cso.kmi.open.ac.uk/topics/microsoft_windows>",
+              "uncertainty": 3,
+              "sentence": [
+                "The user scans these windows to see how the data evolves",
+                "The windows are arranged in chronological order like a comic book to depict the evolving data"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/microsoft_windows>",
+                "<https://cso.kmi.open.ac.uk/topics/windows_vista>",
+                "<https://cso.kmi.open.ac.uk/topics/xp>",
+                "<https://cso.kmi.open.ac.uk/topics/windows_xp>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/windows_vista>",
+              "origin": "window",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/operating_system>&-&<https://cso.kmi.open.ac.uk/topics/windows_operating_system>&-&<https://cso.kmi.open.ac.uk/topics/windows_vista>",
+              "uncertainty": 3,
+              "sentence": [
+                "A small multiples presentation of the graph depicts each timeslice of the data in its own window [55]",
+                "Small multiples [55] presents each timeslice in its own window, and the participant reads the timeslices left to right and top to bottom to see the evolution of the dynamic graph"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/windows_vista>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/information_technology>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/iaas>",
+          "origin": "users",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/information_technology>&-&<https://cso.kmi.open.ac.uk/topics/iaas>",
+          "uncertainty": 3,
+          "sentence": [
+            "In a recent experiment, drawing stability (known more widely as the \u201cmental map\u201d) was shown to help users follow speci\ufb01c nodes or long paths in dynamically evolving data",
+            "Finally, two of our metrics measure the direction of paths through the data, a quantity not previously measured, and animation, under low stability conditions, may be able to help users follow this change in direction"
+          ],
+          "size": 2,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+            "<https://cso.kmi.open.ac.uk/topics/iaas>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_data>"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_security>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/security_of_data>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/computer_crime>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/digital_forensics>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/computer_forensics>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                          "origin": "evidence",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/security_of_data>&-&<https://cso.kmi.open.ac.uk/topics/computer_crime>&-&<https://cso.kmi.open.ac.uk/topics/digital_forensics>&-&<https://cso.kmi.open.ac.uk/topics/computer_forensics>&-&<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "We \ufb01nd evidence that when the stability of the drawing is low and important nodes in the task cannot be highlighted throughout the time series, animation can improve task performance when compared to the use of small multiples",
+                            "The experiment provided evidence that scene coordinates (the position of objects in the two or three dimensional virtual space) were used instead of image coordinates (the position of those objects on the screen) to perform the task",
+                            "\nAs nodes can be viewed as moving points when a dynamic graph is animated, these experiments have relevance to the investigation of the bene\ufb01ts of drawing stability",
+                            "Experiments [44,59,40] have provided evidence that humans can track up to \ufb01ve targets in parallel against a \ufb01eld of distractors with both targets and distractors having the same visual encoding",
+                            "\nThe experiment was divided into two, counterbalanced blocks (animation and small multiples) of 3 target levels \u00d7 2 data sets (subsequences of Threads2) \u00d7 2 questions, resulting in twelve tasks for each of the two presentation methods under investigation",
+                            "\nThis result provides evidence that animation can improve participant performance, when compared to small multiples, for drawings with low stability",
+                            "\nThis result provides evidence that animation, when compared to small multiples, can improve the ability of participants to follow long paths through the data for drawings of low stability",
+                            "However, this result provides evidence that animated transitions, when compared to small multiples, on low stability data can help improve performance",
+                            "However, most techniques to visualise dynamic graphs with long time series usually employ either \ufb01ltering or aggregation across the number of timeslices to reduce this number to a reasonable size",
+                            "In future, it would be interesting to investigate techniques and evaluations that are able to visualise long time series more directly",
+                            "\nA number of techniques, as previously mentioned, employ differencing methods and staged animations",
+                            "Therefore, the results here may not be further impacted by these techniques"
+                          ],
+                          "size": 12,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/forensic_investigation>",
+                            "<https://cso.kmi.open.ac.uk/topics/forensic_analysis>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/secret_sharing>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/visual_cryptography>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/pixel_expansion>",
+                      "origin": "pixels",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/security_of_data>&-&<https://cso.kmi.open.ac.uk/topics/secret_sharing>&-&<https://cso.kmi.open.ac.uk/topics/visual_cryptography>&-&<https://cso.kmi.open.ac.uk/topics/pixel_expansion>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "However, the number of pixels devoted to each timeslice is much less and could potentially make the graph more di\ufb03cult to read",
+                        "These moving nodes can be viewed as moving points against a \ufb01eld of distractors",
+                        "The entire scene was set into motion where points moved in random directions selected from eight equal divisions of the compass directions",
+                        "\nIn follow up experiments, Yantis [59] con\ufb01rmed these results and extended them by demonstrating that coordinated motion of the points increased accuracy further",
+                        "\nAs nodes can be viewed as moving points when a dynamic graph is animated, these experiments have relevance to the investigation of the bene\ufb01ts of drawing stability"
+                      ],
+                      "size": 5,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/pixel_expansion>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/encryption_methods>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/data_encryption>",
+                  "origin": "algorithm",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/security_of_data>&-&<https://cso.kmi.open.ac.uk/topics/encryption_methods>&-&<https://cso.kmi.open.ac.uk/topics/data_encryption>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "As is appropriate for drawings with low stability, the dynamic graphs were drawn by \ufb01rst laying out each of their constituent timeslices independently using a force-directed algorithm, creating a set of graph drawings which can be viewed as a time series"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/tracking_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/boosting_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/fcm_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/rls_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/encryption_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/slam_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/dijkstra_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/mean_shift_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/path-planning_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/svm_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/map-matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/fuzzy_c-means_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/recognition_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/restoration_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/de-noising_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/localization_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/k-nn_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/nlms_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/training_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/off-line_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/sa_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/image_matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/power_control_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/broadcasting_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/cryptography>",
+                    "<https://cso.kmi.open.ac.uk/topics/identity-based_cryptography>",
+                    "<https://cso.kmi.open.ac.uk/topics/cryptographic_devices>",
+                    "<https://cso.kmi.open.ac.uk/topics/pairing-based_cryptography>",
+                    "<https://cso.kmi.open.ac.uk/topics/cryptographic_primitives>",
+                    "<https://cso.kmi.open.ac.uk/topics/image_encryption_scheme>",
+                    "<https://cso.kmi.open.ac.uk/topics/image_encryption>",
+                    "<https://cso.kmi.open.ac.uk/topics/encryption_schemes>",
+                    "<https://cso.kmi.open.ac.uk/topics/data_encryption>",
+                    "<https://cso.kmi.open.ac.uk/topics/encryption_system>",
+                    "<https://cso.kmi.open.ac.uk/topics/video_encryption>",
+                    "<https://cso.kmi.open.ac.uk/topics/searchable_encryption>",
+                    "<https://cso.kmi.open.ac.uk/topics/large-scale_distributed_system>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_application>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_architecture>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_computing_environment>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_systems>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_system>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_processing>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_computing_systems>",
+                    "<https://cso.kmi.open.ac.uk/topics/distributed_computing>",
+                    "<https://cso.kmi.open.ac.uk/topics/parallel_and_distributed_processing>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/cryptography>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/chaotic_system>",
+              "origin": "example",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_security>&-&<https://cso.kmi.open.ac.uk/topics/cryptography>&-&<https://cso.kmi.open.ac.uk/topics/chaotic_system>",
+              "uncertainty": 3,
+              "sentence": [
+                "Secondly, these targets should not be preattentively highlighted, for example by using colour, as this highlighting would disambiguate object identity"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/chaotic_system>",
+                "<https://cso.kmi.open.ac.uk/topics/chaotic_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/hardware>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/sensors>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/accelerometer>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/gyroscope>",
+                  "origin": "stability",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensors>&-&<https://cso.kmi.open.ac.uk/topics/accelerometer>&-&<https://cso.kmi.open.ac.uk/topics/gyroscope>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "We \ufb01nd evidence that when the stability of the drawing is low and important nodes in the task cannot be highlighted throughout the time series, animation can improve task performance when compared to the use of small multiples",
+                    "Preserving the mental map [23,41], or drawing stability, is a property of the dynamic graph that does not allow nodes to move too far in the plane between consecutive timeslices when a change is made to the graph",
+                    "\nMany dynamic graph drawing approaches use this de\ufb01nition of drawing stability as a basis for algorithm design\n[15,22,24,26,13,27,12,14]",
+                    "\nNumerous experiments have been run in the \ufb01eld of psychology that provide insight into the factors that in\ufb02uence the usefulness of drawing stability",
+                    "There have been a number of experiments on the ability of humans to track objects moving in parallel and the results of these experiments could help us better understand the implications of drawing stability",
+                    "\nAs nodes can be viewed as moving points when a dynamic graph is animated, these experiments have relevance to the investigation of the bene\ufb01ts of drawing stability",
+                    "Experiments [3,29] have demonstrated that for certain tasks drawing stability is bene\ufb01cial, suggesting that these tasks are su\ufb03ciently complex that they require the use of a stable external repre- sentation for understanding the graph",
+                    "If the nodes pertinent to the question are visually distinguishable from all other nodes using colour, stability in terms of node position provides little bene\ufb01t as the nodes can be retrieved visually by their colour",
+                    "\nWhen does drawing stability help",
+                    "\nArchambault and Purchase [3] found that there were strong effects of drawing stability for both animation and small multiples but no statistically signi\ufb01cant differences between them"
+                  ],
+                  "size": 10,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/macroeconomic_factors>",
+                    "<https://cso.kmi.open.ac.uk/topics/mems_gyroscope>",
+                    "<https://cso.kmi.open.ac.uk/topics/gyro_sensors>",
+                    "<https://cso.kmi.open.ac.uk/topics/gyroscope>",
+                    "<https://cso.kmi.open.ac.uk/topics/gyroscopes>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/mems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/electrostatic_actuators>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/pull-in>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/pull-in_voltage>",
+                          "origin": "difference",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensors>&-&<https://cso.kmi.open.ac.uk/topics/mems>&-&<https://cso.kmi.open.ac.uk/topics/electrostatic_actuators>&-&<https://cso.kmi.open.ac.uk/topics/pull-in>&-&<https://cso.kmi.open.ac.uk/topics/pull-in_voltage>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "Also, for this case small multiples is consistently faster than animation with no difference in error rate [6,25]",
+                            "In the experiments described above, animation and small multiples were not compared or no difference was found",
+                            "In previous experiments which have tested animation and small multiples, animation required signi\ufb01cantly more time with no difference in terms of error rate",
+                            "In previous experiments which have tested animation and small multiples, animation required signi\ufb01cantly more time with no difference in terms of error rate",
+                            "As our research question was primarily interested in the difference between an- imation and small multiples in this context, we chose the simplest form of animation"
+                          ],
+                          "size": 5,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/pull-in_voltage>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/composite_micromechanics>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/micromachining>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/electric_discharge_machining>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/ecm_proteins>",
+                              "origin": "new series",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensors>&-&<https://cso.kmi.open.ac.uk/topics/mems>&-&<https://cso.kmi.open.ac.uk/topics/composite_micromechanics>&-&<https://cso.kmi.open.ac.uk/topics/micromachining>&-&<https://cso.kmi.open.ac.uk/topics/electric_discharge_machining>&-&<https://cso.kmi.open.ac.uk/topics/ecm_proteins>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "\nIn order to determine if animation has an effect on performance when the dynamic graph drawings have low stability, we analyse our data from a different perspective, using a new series of metrics that measure continuous distance to the correct answer rather than discrete correctness"
+                              ],
+                              "size": 1,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/ecm_proteins>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/underwater_acoustics>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/passive_sonar>",
+                  "origin": "location",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensors>&-&<https://cso.kmi.open.ac.uk/topics/underwater_acoustics>&-&<https://cso.kmi.open.ac.uk/topics/passive_sonar>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "These tasks, in some sense, use the dynamic drawing of the graph as a dynamic map for location of graph elements",
+                    "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice",
+                    "\nIn phase 1 of this question, participants were asked:\nPlease determine the location of all targets in the \ufb01nal timeslice",
+                    "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice",
+                    "Our \ufb01rst observation is a methodological one: we believe that continuous error metrics are more valid than the binary ones (used in previous experiments) when the task is to identify a location or path \u2013 they do not simply discard incorrect responses, but take into account the extent to which the response is almost correct"
+                  ],
+                  "size": 5,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/passive_sonar>",
+                    "<https://cso.kmi.open.ac.uk/topics/sonar_sensor>",
+                    "<https://cso.kmi.open.ac.uk/topics/sonar_system>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/sensor>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/optical_fibers>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/fiber_lasers>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/erbium>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/co-doped>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/energy_transfer_process>",
+                              "origin": "use",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensor>&-&<https://cso.kmi.open.ac.uk/topics/optical_fibers>&-&<https://cso.kmi.open.ac.uk/topics/fiber_lasers>&-&<https://cso.kmi.open.ac.uk/topics/erbium>&-&<https://cso.kmi.open.ac.uk/topics/co-doped>&-&<https://cso.kmi.open.ac.uk/topics/energy_transfer_process>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "We \ufb01nd evidence that when the stability of the drawing is low and important nodes in the task cannot be highlighted throughout the time series, animation can improve task performance when compared to the use of small multiples",
+                                "An animation of the dy- namic graph presents the data like an interactive movie whereby the user has complete control of the animation through the use of a slider and a play/pause button",
+                                "As the mental map or cognitive map in psychology corresponds to the internal representation of the data inside the human mind, we advocate the use of the term drawing stability for this concept to avoid confusion between our disciplines",
+                                "Experiments [3,29] have demonstrated that for certain tasks drawing stability is bene\ufb01cial, suggesting that these tasks are su\ufb03ciently complex that they require the use of a stable external repre- sentation for understanding the graph"
+                              ],
+                              "size": 4,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/energy_transfer_process>",
+                                "<https://cso.kmi.open.ac.uk/topics/energy_savings>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/information_fusion>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/probability_hypothesis_density_filter>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/phd_filters>",
+                      "origin": "degree",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensor>&-&<https://cso.kmi.open.ac.uk/topics/information_fusion>&-&<https://cso.kmi.open.ac.uk/topics/probability_hypothesis_density_filter>&-&<https://cso.kmi.open.ac.uk/topics/phd_filters>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "\nThe Euclidean error tries to quantify the degree of error in the simplest way through the straight line distance between the entered and correct solution",
+                        "\nThe shortest path error tries to quantify the degree of error using only the connectivity of the node-link diagram independent of its drawing"
+                      ],
+                      "size": 2,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/phd_filters>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/target_tracking>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/tracking_algorithm>",
+                  "origin": "procedure",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/sensor>&-&<https://cso.kmi.open.ac.uk/topics/target_tracking>&-&<https://cso.kmi.open.ac.uk/topics/tracking_algorithm>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "017 and\nused the same procedure as described above"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/tracking_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/boosting_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/fcm_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/rls_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/encryption_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/slam_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/dijkstra_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/mean_shift_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/path-planning_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/svm_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/map-matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/fuzzy_c-means_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/recognition_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/restoration_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/de-noising_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/localization_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/k-nn_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/nlms_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/training_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/off-line_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/sa_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/image_matching_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/power_control_algorithm>",
+                    "<https://cso.kmi.open.ac.uk/topics/broadcasting_algorithm>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/microprocessor_chips>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/multiprocessing_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                  "origin": "design",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/hardware>&-&<https://cso.kmi.open.ac.uk/topics/microprocessor_chips>&-&<https://cso.kmi.open.ac.uk/topics/multiprocessing_systems>&-&<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "We would strongly encourage the design and evaluation of other novel and effective interaction methods with dynamic graphs"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/multi_processor_architecture>",
+                    "<https://cso.kmi.open.ac.uk/topics/architecture_knowledge_exploiting>"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/machine_learning_techniques>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/forecasting_models>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/fuzzy_time_series>",
+                  "origin": "time series",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/machine_learning_techniques>&-&<https://cso.kmi.open.ac.uk/topics/forecasting_models>&-&<https://cso.kmi.open.ac.uk/topics/fuzzy_time_series>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "We \ufb01nd evidence that when the stability of the drawing is low and important nodes in the task cannot be highlighted throughout the time series, animation can improve task performance when compared to the use of small multiples",
+                    "Also, key nodes in the questions were usually highlighted using colour through the full time series, causing animated transitions to have less of an effect: if the node pertinent to the question was red, it did not matter where it appeared in the display as it could be retrieved easily by its colour",
+                    "If the nodes pertinent to the question are highlighted through the full time series of the graph, a more stable drawing provides little bene\ufb01t [6]",
+                    "For an interactive animation condition, this would mean that the pertinent nodes are highlighted through the full time series in a way that makes them visually distinguishable from all other graph elements",
+                    "If the pertinent nodes cannot be highlighted throughout the full time series making them visually distinguishable, drawing stability has a positive effect for some tasks [3,29]",
+                    "As is appropriate for drawings with low stability, the dynamic graphs were drawn by \ufb01rst laying out each of their constituent timeslices independently using a force-directed algorithm, creating a set of graph drawings which can be viewed as a time series",
+                    "1(b)) displayed all six timeslices of the time series as a matrix of images",
+                    "Thus, our results apply to time series of about this length and real data sets can often be larger",
+                    "This result suggests that if there are many reorientations in a dynamic graph drawing and important nodes in the task cannot be highlighted using colour through the full time series, animation can help the participant better answer these tasks"
+                  ],
+                  "size": 9,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/fuzzy_time_series>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+              "origin": "tasks",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/cognitive_systems>&-&<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+              "uncertainty": 3,
+              "sentence": [
+                "This presentation method has been shown to be more effective than an animation for dynamic graphs on a variety of tasks [6,25]",
+                "Recent experiments have shown that drawing stability can help with tasks that involve determining the insertion order of speci\ufb01c nodes [29], revisitation to speci\ufb01c nodes in a graph at later times [3], and following long paths through the data [3]",
+                "\nFor tasks where drawing stability is important and the positions of nodes remain relatively stable throughout graph evolution, animation can provide little bene\ufb01t as the identity of each node is disambiguated through its position",
+                "[56], strong critics of the usefulness of animation for many tasks in several disciplines, admit that animated transitions can be useful for very speci\ufb01c purposes",
+                "However, when comparing animation to small multiples directly on tasks where drawing stability has been shown to help, the question as to whether or not animated transitions provide a bene\ufb01t when drawing stability is low remains unanswered",
+                "Most of these de\ufb01nitions are consistent across a wide range of experiments that test these factors for a variety of tasks [4]",
+                "There have been a number of experiments on the ability of humans to track objects moving in parallel and the results of these experiments could help us better understand the implications of drawing stability",
+                "Tasks either involved an explanation of something in the data to the participant or using the visualisation to discover something in the data",
+                "Small multiples was found to be the most effective presentation method for all of the tasks studied",
+                "\nIn general, animated transitions have shown to be useful quantitatively on a variety of tasks in dynamic graphs, speci\ufb01cally when interacting with a graph",
+                "[5] have small multiples and animation conditions in their experiment, but do not test tasks where drawing stability is required",
+                "In this work, we compare animation and small multiples for tasks where drawing stability is known to help [3]",
+                "For most tasks and overall, small multiples was signi\ufb01cantly faster than animation without in\ufb02uencing error rate",
+                "The study found that small multiples was signi\ufb01cantly faster than animation for all tasks with no signi\ufb01cant difference in terms of error rate",
+                "Experiments [3,29] have demonstrated that for certain tasks drawing stability is bene\ufb01cial, suggesting that these tasks are su\ufb03ciently complex that they require the use of a stable external repre- sentation for understanding the graph",
+                "If the pertinent nodes cannot be highlighted throughout the full time series making them visually distinguishable, drawing stability has a positive effect for some tasks [3,29]",
+                "In this paper, we consider only the low stability condition of Archambault and Purchase [3] in order to determine whether animation can provide better support than small multiples for these tasks",
+                "Performance improves if the motion is coordinated",
+                "The \ufb01rst of these tasks was essentially a revisitation task [52,28], but in a dynamic graph drawing context",
+                "In both cases, the tasks had two phases",
+                "\nThe location task tested the ability of the participant to revisit a speci\ufb01c node in the graph",
+                "\nThe path task tested the ability of the participant to follow a long, directed path through the evolving graph",
+                "\nThe experiment was divided into two, counterbalanced blocks (animation and small multiples) of 3 target levels \u00d7 2 data sets (subsequences of Threads2) \u00d7 2 questions, resulting in twelve tasks for each of the two presentation methods under investigation",
+                "The results of the practice tasks were discarded and participants were not made aware that these tasks did not form part of the experiment",
+                "This was, in part, due to the fact that the effect of drawing stability was so strong for these tasks",
+                "\nIn order to determine if animation has an effect on performance when the dynamic graph drawings have low stability, we analyse our data from a different perspective, using a new series of metrics that measure continuous distance to the correct answer rather than discrete correctness",
+                "\nThis result provides evidence that animation, when compared to small multiples, can improve the ability of participants to follow long paths through the data for drawings of low stability",
+                "However, this result provides evidence that animated transitions, when compared to small multiples, on low stability data can help improve performance",
+                "However, a recent experiment has found that staged transitions for certain tasks do not bring large bene\ufb01ts and can sometimes worsen performance [19]",
+                "Further analysis of this data for graph drawings of low stability \ufb01nds that animation can improve participant performance, when compared to small multiples, on these tasks",
+                "This result suggests that if there are many reorientations in a dynamic graph drawing and important nodes in the task cannot be highlighted using colour through the full time series, animation can help the participant better answer these tasks",
+                "\nWe conclude that given a choice between presentation method and drawing stability, drawing stability is likely to provide the largest bene\ufb01t for these tasks"
+              ],
+              "size": 32,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+                "<https://cso.kmi.open.ac.uk/topics/cognitive_models>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/game_theory>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/utility_function>",
+              "origin": "usefulness",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/game_theory>&-&<https://cso.kmi.open.ac.uk/topics/utility_function>",
+              "uncertainty": 3,
+              "sentence": [
+                "[56], strong critics of the usefulness of animation for many tasks in several disciplines, admit that animated transitions can be useful for very speci\ufb01c purposes",
+                "\nNumerous experiments have been run in the \ufb01eld of psychology that provide insight into the factors that in\ufb02uence the usefulness of drawing stability",
+                "Formal experiments that test the usefulness of drawing stability should use a su\ufb03ciently large number of targets in order to be complex enough so that the participant cannot solely rely on his or her cognitive map"
+              ],
+              "size": 3,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/utility_function>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/game-theoretic>",
+              "origin": "plots",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>&-&<https://cso.kmi.open.ac.uk/topics/game_theory>&-&<https://cso.kmi.open.ac.uk/topics/game-theoretic>",
+              "uncertainty": 3,
+              "sentence": [
+                "In their experiment, a variety of animated transitions were tested for bar charts, pie charts, and scatter plots",
+                "The response time reported was that of the sum of the times spent in phase one and phase two"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/game-theoretic>",
+                "<https://cso.kmi.open.ac.uk/topics/cooperative_game_theory>",
+                "<https://cso.kmi.open.ac.uk/topics/game-theoretic_model>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+      "origin": "software engineering",
+      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+      "uncertainty": 3,
+      "sentence": [
+        "Dynamic graphs exist in many application areas including: software engineering [17], computer networks [12], distributed systems [47], sociology and social networks [57,14], systems biology [9], \ufb01nancial networks [58] and many others",
+        "In this experiment, the authors found that animation was bene\ufb01cial in helping illustrate these changes to the document when compared to slideshow \u2013 similar to a Powerpoint slideshow that does not use animated transitions"
+      ],
+      "size": 2,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/software_design>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/software_architectures>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/software_development>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/prototyping>",
+                      "origin": "models",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/software_architectures>&-&<https://cso.kmi.open.ac.uk/topics/software_development>&-&<https://cso.kmi.open.ac.uk/topics/prototyping>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "\nIn terms of cognitive maps of diagrammatic representations, Johnson-Laird [36] proposed such models existed for logical propositions in order to facilitate explanation and reasoning"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/prototyping>",
+                        "<https://cso.kmi.open.ac.uk/topics/prototyping_process>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/software_quality>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/verification_and_validation>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/verification>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/formal_verification>",
+                          "origin": "correctness",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/software_quality>&-&<https://cso.kmi.open.ac.uk/topics/verification_and_validation>&-&<https://cso.kmi.open.ac.uk/topics/verification>&-&<https://cso.kmi.open.ac.uk/topics/formal_verification>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "Thus, correctness was measured as a binary value with answers being correct or incorrect only",
+                            "For the path task, correctness was determined using (X \u2212 d)/X where X was the length of the path in the answer and d was the Levenshtein distance (edit distance) [39] between the nodes of the entered answer and the correct answer"
+                          ],
+                          "size": 2,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/formal_verification>",
+                            "<https://cso.kmi.open.ac.uk/topics/program_verification>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/visualization>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/data_visualization>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/scientific_visualization>",
+                  "origin": "visualisation",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/visualization>&-&<https://cso.kmi.open.ac.uk/topics/data_visualization>&-&<https://cso.kmi.open.ac.uk/topics/scientific_visualization>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "Animation and small multiples are the two most common, basic methods for the visualisation of dynamic graphs",
+                    "Tasks either involved an explanation of something in the data to the participant or using the visualisation to discover something in the data",
+                    "Participants read this visualisation left to right top to bottom to determine graph evolution",
+                    "\nFor the \ufb01rst phase of the task, the participants used the visualisation method to locate the individual nodes or the path in the \ufb01nal timeslice of the visualisation",
+                    "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice",
+                    "The participant used the visualisation to determine the location of all nodes in the \ufb01nal timeslice"
+                  ],
+                  "size": 6,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/scientific_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/volume_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/graph_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/graph_drawing>",
+                    "<https://cso.kmi.open.ac.uk/topics/network_visualization>",
+                    "<https://cso.kmi.open.ac.uk/topics/graph_layout>",
+                    "<https://cso.kmi.open.ac.uk/topics/layout_algorithms>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/user_interfaces>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/usability_engineering>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/usability_problems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/usability_evaluation_methods>",
+                      "origin": "ease",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interfaces>&-&<https://cso.kmi.open.ac.uk/topics/usability_engineering>&-&<https://cso.kmi.open.ac.uk/topics/usability_problems>&-&<https://cso.kmi.open.ac.uk/topics/usability_evaluation_methods>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "This paper considers this situation, investigating whether the method of presentation (animation or small multiples) might affect the ease with which these complex tasks are performed in dynamic graphs with low drawing stability"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/usability_evaluation_methods>",
+                        "<https://cso.kmi.open.ac.uk/topics/usability_evaluation>",
+                        "<https://cso.kmi.open.ac.uk/topics/system_usability>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/robotics>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/robots>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/manipulators>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/inverse_kinematics>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/motion_editing>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>",
+                          "origin": "screen",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/robotics>&-&<https://cso.kmi.open.ac.uk/topics/robots>&-&<https://cso.kmi.open.ac.uk/topics/manipulators>&-&<https://cso.kmi.open.ac.uk/topics/inverse_kinematics>&-&<https://cso.kmi.open.ac.uk/topics/motion_editing>&-&<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "\nAnimations have the advantage that the full screen can be devoted to a single timeslice at a given time",
+                            "Small multiples has the advantage that all timeslices are visible on the screen simultaneously and the user does not need to rely on memory",
+                            "In many areas of the graph visualisation and information visualisation literature [10,46,8], animated transitions have been shown to be helpful when there are signi\ufb01cant changes to the data and/or how it is arranged on the screen",
+                            "\nPylyshyn and Storm [44] performed an experiment where participants were to track one to \ufb01ve randomly moving crosses on a screen",
+                            "The entire scene was set into motion where points moved in random directions selected from eight equal divisions of the compass directions",
+                            "The experiment provided evidence that scene coordinates (the position of objects in the two or three dimensional virtual space) were used instead of image coordinates (the position of those objects on the screen) to perform the task",
+                            "These experiments compare animated transitions to no transitions for visualisations where the current timeslice take up the full screen",
+                            "Performance improves if the motion is coordinated",
+                            "In phase two, the \ufb01nal timeslice was shown full screen to the participant and the participant could not return to the previous visualisation",
+                            "As paths are connected, the motion of these targets was coordinated and a larger number of nodes were tested",
+                            "However, a warning label appeared on the screen after \ufb01fty seconds had elapsed for each task, and participants were encouraged to \ufb01nish the task after that point"
+                          ],
+                          "size": 11,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/motion_picture_editing_machines>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_system>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/distributed_system>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/parallel_architecture>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                          "origin": "memory",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/distributed_system>&-&<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_architecture>&-&<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "However, interaction is required and the user must rely on memory to understand how the graph evolves",
+                            "Small multiples has the advantage that all timeslices are visible on the screen simultaneously and the user does not need to rely on memory",
+                            "The experiment found that animated transitions can help in recalling parts of a tree drawing from memory",
+                            "These tasks include reconstructing the insertion/deletion order of particular vertices in animated visualisations from memory [29], following long paths through a graph [3], and revisiting one of many speci\ufb01c nodes in a graph [3]"
+                          ],
+                          "size": 4,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/memory_access>",
+                            "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>",
+                            "<https://cso.kmi.open.ac.uk/topics/embedded_memory>",
+                            "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
+                            "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
+                            "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
+                            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_traffic>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/routers>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/networks_on_chips>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/virtual_channels>",
+                              "origin": "Maps",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_traffic>&-&<https://cso.kmi.open.ac.uk/topics/routers>&-&<https://cso.kmi.open.ac.uk/topics/networks_on_chips>&-&<https://cso.kmi.open.ac.uk/topics/virtual_channels>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "Maps are externalizations of this information that help support the cognitive map of the human"
+                              ],
+                              "size": 1,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/virtual_channels>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/computer_modelling>",
+          "origin": "parameters",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/computer_modelling>",
+          "uncertainty": 3,
+          "sentence": [
+            "The generalisation is therefore limited by these parameters and further experimentation is needed",
+            "\nThe conclusions of any experiment are bounded by its parameters"
+          ],
+          "size": 2,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/computer_modelling>"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_vision>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/image_processing>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/image_reconstruction>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/imaging_systems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar_%28sar%29_images>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/radar_imaging>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/radar_measurement>",
+                              "uncertainty": 3,
+                              "children": [
+                                {
+                                  "name": "<https://cso.kmi.open.ac.uk/topics/electromagnetic_wave_backscattering>",
+                                  "origin": "transitions",
+                                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_reconstruction>&-&<https://cso.kmi.open.ac.uk/topics/imaging_systems>&-&<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar_%28sar%29_images>&-&<https://cso.kmi.open.ac.uk/topics/radar_imaging>&-&<https://cso.kmi.open.ac.uk/topics/radar_measurement>&-&<https://cso.kmi.open.ac.uk/topics/electromagnetic_wave_backscattering>",
+                                  "uncertainty": 3,
+                                  "sentence": [
+                                    "\nIn terms of dynamic graph drawing, animated transitions have been found to be useful when compared to no transitions (like \ufb02ipping through the slides of a Powerpoint presentation) [10,8]",
+                                    "Heer and Robertson [32] \ufb01nd that animated transitions, speci\ufb01cally staged transitions, can help track changing values in animated statistical graphics",
+                                    "Animated transitions have been shown to provide improvements over no transitions [8] and the interaction between animation and encoding differences with colour [46] has also been explored",
+                                    "Nearly all of these results compare animated transitions to no transitions (similar to a Powerpoint presentation without transitions) and do not consider small multiples",
+                                    "Nearly all of these results compare animated transitions to no transitions (similar to a Powerpoint presentation without transitions) and do not consider small multiples",
+                                    "Animated transitions have been shown to help when compared to no transitions for many types of dynamic graphs and tasks [10,48,8,46]",
+                                    "These experiments compare animated transitions to no transitions for visualisations where the current timeslice take up the full screen",
+                                    "However, a recent experiment has found that staged transitions for certain tasks do not bring large bene\ufb01ts and can sometimes worsen performance [19]",
+                                    "\nThese results complement those that demonstrate that animation can provide bene\ufb01ts over no transitions for full screen and hybrid visualisation techniques [10,46,8] and techniques that encode changes with colour [5,46,8]"
+                                  ],
+                                  "size": 9,
+                                  "children": [],
+                                  "candidates": [
+                                    "<https://cso.kmi.open.ac.uk/topics/electromagnetic_wave_backscattering>",
+                                    "<https://cso.kmi.open.ac.uk/topics/electromagnetic_wave_attenuation>",
+                                    "<https://cso.kmi.open.ac.uk/topics/electromagnetic_wave_refraction>",
+                                    "<https://cso.kmi.open.ac.uk/topics/sound_spectrography>"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/tracking_radar>",
+                              "uncertainty": 3,
+                              "children": [
+                                {
+                                  "name": "<https://cso.kmi.open.ac.uk/topics/continuous_wave_radar>",
+                                  "uncertainty": 3,
+                                  "children": [
+                                    {
+                                      "name": "<https://cso.kmi.open.ac.uk/topics/frequency-modulated_continuous_waves>",
+                                      "origin": "The maximum",
+                                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_reconstruction>&-&<https://cso.kmi.open.ac.uk/topics/imaging_systems>&-&<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar_%28sar%29_images>&-&<https://cso.kmi.open.ac.uk/topics/radar_imaging>&-&<https://cso.kmi.open.ac.uk/topics/tracking_radar>&-&<https://cso.kmi.open.ac.uk/topics/continuous_wave_radar>&-&<https://cso.kmi.open.ac.uk/topics/frequency-modulated_continuous_waves>",
+                                      "uncertainty": 3,
+                                      "sentence": [
+                                        "The maximum of number of additions/deletions between timeslices was \ufb01ve for nodes and four for edges"
+                                      ],
+                                      "size": 1,
+                                      "children": [],
+                                      "candidates": [
+                                        "<https://cso.kmi.open.ac.uk/topics/frequency-modulated_continuous_waves>"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/geodetic_satellites>",
+                          "origin": "geodesic",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_reconstruction>&-&<https://cso.kmi.open.ac.uk/topics/imaging_systems>&-&<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar_%28sar%29_images>&-&<https://cso.kmi.open.ac.uk/topics/geodetic_satellites>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "The measure compares the geodesic of the entered path to the correct path as an angle",
+                            "For our data sets, it is probably the case that our paths of length \ufb01ve strayed further from the geodesic during evolution, making it more di\ufb03cult to follow the direction of the path, but further study is required to answer this question"
+                          ],
+                          "size": 2,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/geodetic_satellites>"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/image_quality>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/radiographic_image_enhancement>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/x-ray_intensifying_screens>",
+                      "origin": "X",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_quality>&-&<https://cso.kmi.open.ac.uk/topics/radiographic_image_enhancement>&-&<https://cso.kmi.open.ac.uk/topics/x-ray_intensifying_screens>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "The value of X was the number of vertices on the path",
+                        "For the path task, correctness was determined using (X \u2212 d)/X where X was the length of the path in the answer and d was the Levenshtein distance (edit distance) [39] between the nodes of the entered answer and the correct answer"
+                      ],
+                      "size": 2,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/x-ray_intensifying_screens>",
+                        "<https://cso.kmi.open.ac.uk/topics/hypertext_markup_language_%28html%29>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/image_segmentation>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/optical_character_recognition_%28ocr%29>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/connected_component_analysis>",
+                      "origin": "connectivity",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/image_segmentation>&-&<https://cso.kmi.open.ac.uk/topics/optical_character_recognition_%28ocr%29>&-&<https://cso.kmi.open.ac.uk/topics/connected_component_analysis>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "\nThe shortest path error tries to quantify the degree of error using only the connectivity of the node-link diagram independent of its drawing"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/connected_component_analysis>",
+                        "<https://cso.kmi.open.ac.uk/topics/next-generation_wireless_network>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>",
+              "origin": "pairs",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nIn all bar charts, black lines connect pairs with statistically signi\ufb01cant differences and below such differences the p-value is\nindicated"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/imaging%2C_three-dimensional>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/digital_watermarking>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/digital_rights_management_%28drm%29>",
+                  "origin": "measures",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_processing>&-&<https://cso.kmi.open.ac.uk/topics/digital_watermarking>&-&<https://cso.kmi.open.ac.uk/topics/digital_rights_management_%28drm%29>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "4)\nAnimation produced answers closer to the correct answer overall and for one target on all measures",
+                    "6)\nAnimation produced answers closer to the correct answer overall and for paths of length three on all measures",
+                    "\nFor paths of length seven, animation produced closer answers for all measures"
+                  ],
+                  "size": 3,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/digital_rights_management_%28drm%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/digital_rights_management>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/gesture_recognition>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/facial_expressions>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/emotional_expressions>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                      "origin": "response",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/gesture_recognition>&-&<https://cso.kmi.open.ac.uk/topics/facial_expressions>&-&<https://cso.kmi.open.ac.uk/topics/emotional_expressions>&-&<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "In phase one, the participant tracked graph elements through the evolving data and in phase two they entered a response",
+                        "The response to the question was recorded by clicking on a single node or the nodes along the path in the \ufb01nal timeslice",
+                        "Our \ufb01rst observation is a methodological one: we believe that continuous error metrics are more valid than the binary ones (used in previous experiments) when the task is to identify a location or path \u2013 they do not simply discard incorrect responses, but take into account the extent to which the response is almost correct"
+                      ],
+                      "size": 3,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_models>",
+                        "<https://cso.kmi.open.ac.uk/topics/human_emotion>",
+                        "<https://cso.kmi.open.ac.uk/topics/emotion_detection>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/three_dimensional_computer_graphics>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/triangle_meshes>",
+              "origin": "angle",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/three_dimensional_computer_graphics>&-&<https://cso.kmi.open.ac.uk/topics/triangle_meshes>",
+              "uncertainty": 3,
+              "sentence": [
+                "For each pair of nodes along the paths of the entered and correct answers, the angle between the vectors is computed and averaged",
+                "The measure compares the geodesic of the entered path to the correct path as an angle"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/triangle_meshes>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/internet>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/distance_education>",
+          "origin": "distance",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/distance_education>",
+          "uncertainty": 3,
+          "sentence": [
+            "We consider task performance not only in terms of response time and error rate, but we also measure the distance between the answer entered by the participant and the correct solution",
+            "\nThe Euclidean metric measures the distance between the answer entered by the participant and the correct answer in the \ufb01nal timeslice as the distance between the Euclidean coordinates of the two nodes (Fig",
+            "\nFor the path task, this distance is the average, pairwise distance between corresponding nodes of the directed paths in entered and correct answer (Fig",
+            "This distance is the unweighted shortest path distance between the entered and correct solution"
+          ],
+          "size": 4,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/distance_education>",
+            "<https://cso.kmi.open.ac.uk/topics/virtual_classroom>",
+            "<https://cso.kmi.open.ac.uk/topics/distance_learning>",
+            "<https://cso.kmi.open.ac.uk/topics/distance_education_and_telelearning>"
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/world_wide_web>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/social_networks>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                  "origin": "concept",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/social_networks>&-&<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "As the mental map or cognitive map in psychology corresponds to the internal representation of the data inside the human mind, we advocate the use of the term drawing stability for this concept to avoid confusion between our disciplines",
+                    "\nThe term cognitive maps has been studied in a variety of \ufb01elds with a number of terms for the same concept"
+                  ],
+                  "size": 2,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+                    "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
+                    "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+                    "<https://cso.kmi.open.ac.uk/topics/social_network>",
+                    "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
+                    "<https://cso.kmi.open.ac.uk/topics/online_social_networks>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/semantic_technologies>",
+              "origin": "explanation",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/semantic_technologies>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nIn terms of cognitive maps of diagrammatic representations, Johnson-Laird [36] proposed such models existed for logical propositions in order to facilitate explanation and reasoning",
+                "Tasks either involved an explanation of something in the data to the participant or using the visualisation to discover something in the data"
+              ],
+              "size": 2,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/semantic_technologies>",
+                "<https://cso.kmi.open.ac.uk/topics/semantic_annotations>"
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/hypertext_systems>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                  "origin": "document",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/hypertext_systems>&-&<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "In this experiment, the authors found that animation was bene\ufb01cial in helping illustrate these changes to the document when compared to slideshow \u2013 similar to a Powerpoint slideshow that does not use animated transitions"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/extensible_markup_language>",
+                    "<https://cso.kmi.open.ac.uk/topics/xml_%28extensible_markup_language%29>"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/social_network>",
+              "origin": "social network",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/social_network>",
+              "uncertainty": 3,
+              "sentence": [
+                "Farrugia and Quigley [25] tested animation and small multiples in a social network setting"
+              ],
+              "size": 1,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/network_protocols>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/mobile_computing>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/mobile_device>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/short_message_service>",
+                      "origin": "text",
+                      "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/network_protocols>&-&<https://cso.kmi.open.ac.uk/topics/mobile_computing>&-&<https://cso.kmi.open.ac.uk/topics/mobile_device>&-&<https://cso.kmi.open.ac.uk/topics/short_message_service>",
+                      "uncertainty": 3,
+                      "sentence": [
+                        "[18] describe an experiment to test animation as a method for highlighting changes in text"
+                      ],
+                      "size": 1,
+                      "children": [],
+                      "candidates": [
+                        "<https://cso.kmi.open.ac.uk/topics/short_message_service>",
+                        "<https://cso.kmi.open.ac.uk/topics/short_message_service_%28sms%29>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/information_retrieval>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/vector_space_models>",
+          "origin": "basis",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/information_retrieval>&-&<https://cso.kmi.open.ac.uk/topics/vector_space_models>",
+          "uncertainty": 3,
+          "sentence": [
+            "\nMany dynamic graph drawing approaches use this de\ufb01nition of drawing stability as a basis for algorithm design\n[15,22,24,26,13,27,12,14]",
+            "For each pair of nodes along the paths of the entered and correct answers, the angle between the vectors is computed and averaged"
+          ],
+          "size": 2,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/vector_space_models>"
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/recommender_system>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/content-based_filtering>",
+              "origin": "relevance",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/information_retrieval>&-&<https://cso.kmi.open.ac.uk/topics/recommender_system>&-&<https://cso.kmi.open.ac.uk/topics/content-based_filtering>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nAs nodes can be viewed as moving points when a dynamic graph is animated, these experiments have relevance to the investigation of the bene\ufb01ts of drawing stability"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/content-based_filtering>",
+                "<https://cso.kmi.open.ac.uk/topics/personalized_recommendation_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/recommender_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/recommendation_system>",
+                "<https://cso.kmi.open.ac.uk/topics/recommendation_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/context-aware_recommender_systems>",
+                "<https://cso.kmi.open.ac.uk/topics/recommender_system>",
+                "<https://cso.kmi.open.ac.uk/topics/hybrid_recommender_systems>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_programming>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/computer_programming_languages>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/logic_programming>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/propositional_logic>",
+                  "origin": "logical propositions",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming_languages>&-&<https://cso.kmi.open.ac.uk/topics/logic_programming>&-&<https://cso.kmi.open.ac.uk/topics/propositional_logic>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "\nIn terms of cognitive maps of diagrammatic representations, Johnson-Laird [36] proposed such models existed for logical propositions in order to facilitate explanation and reasoning"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/propositional_logic>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+              "origin": "objects",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming>&-&<https://cso.kmi.open.ac.uk/topics/object-oriented_programming>&-&<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+              "uncertainty": 3,
+              "sentence": [
+                "There have been a number of experiments on the ability of humans to track objects moving in parallel and the results of these experiments could help us better understand the implications of drawing stability",
+                "This result is most likely explained by the Gestalt law of common fate that implies that objects engaged in coordinated motion tend to be perceived together",
+                "The experiment provided evidence that scene coordinates (the position of objects in the two or three dimensional virtual space) were used instead of image coordinates (the position of those objects on the screen) to perform the task",
+                "The experiment provided evidence that scene coordinates (the position of objects in the two or three dimensional virtual space) were used instead of image coordinates (the position of those objects on the screen) to perform the task"
+              ],
+              "size": 4,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_languages>",
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming_languages>",
+                "<https://cso.kmi.open.ac.uk/topics/object_oriented_design>",
+                "<https://cso.kmi.open.ac.uk/topics/object-oriented_programming>",
+                "<https://cso.kmi.open.ac.uk/topics/object_oriented_programming>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/high-level_programming_language>",
+          "origin": "high level",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming>&-&<https://cso.kmi.open.ac.uk/topics/high-level_programming_language>",
+          "uncertainty": 3,
+          "sentence": [
+            "Also, it measures whether or not the participant was able to get the general direction of the path through the data at a high level"
+          ],
+          "size": 1,
+          "children": [],
+          "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/high-level_programming_language>"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer-aided_design>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/drawings>",
+          "origin": "drawings",
+          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer-aided_design>&-&<https://cso.kmi.open.ac.uk/topics/drawings>",
+          "uncertainty": 3,
+          "sentence": [
+            "Therefore, for drawings that have low stability in terms of node positions, collisions between parts of the graph often occur",
+            "As is appropriate for drawings with low stability, the dynamic graphs were drawn by \ufb01rst laying out each of their constituent timeslices independently using a force-directed algorithm, creating a set of graph drawings which can be viewed as a time series",
+            "\nThis result provides evidence that animation can improve participant performance, when compared to small multiples, for drawings with low stability",
+            "However, in this experiment, all drawings had low stability",
+            "\nThis result provides evidence that animation, when compared to small multiples, can improve the ability of participants to follow long paths through the data for drawings of low stability",
+            "If the drawings can be rendered with reasonable stability or the pertinent nodes to the task can be highlighted using colour, small multiples often has signi\ufb01cant advantages in terms of response time as shown in previous experiments on dynamic graphs [6,25], experiments in other areas of information visualisation [45], and in surveys on the topic [56]"
+          ],
+          "size": 6,
+          "children": []
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/b-splines>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/cubic-spline_interpolation>",
+              "origin": "interpolations",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer-aided_design>&-&<https://cso.kmi.open.ac.uk/topics/b-splines>&-&<https://cso.kmi.open.ac.uk/topics/cubic-spline_interpolation>",
+              "uncertainty": 3,
+              "sentence": [
+                "3 Smooth, linear interpolations transitioned node positions as the graph evolved"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/cubic-spline_interpolation>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/computer_networks>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/communication_channels_%28information_theory%29>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>",
+                  "uncertainty": 3,
+                  "children": [
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/hand_over>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/hierarchical_mobile_ipv6>",
+                          "origin": "hierarchy",
+                          "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/communication_channels_%28information_theory%29>&-&<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/hand_over>&-&<https://cso.kmi.open.ac.uk/topics/hierarchical_mobile_ipv6>",
+                          "uncertainty": 3,
+                          "sentence": [
+                            "\nBederson and Boltman [10] tested whether or not animated transitions could help with understanding a tree representation of a hierarchy when interacting with it"
+                          ],
+                          "size": 1,
+                          "children": [],
+                          "candidates": [
+                            "<https://cso.kmi.open.ac.uk/topics/hierarchical_mobile_ipv6>",
+                            "<https://cso.kmi.open.ac.uk/topics/hierarchical_models>",
+                            "<https://cso.kmi.open.ac.uk/topics/hierarchical_modeling>"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>",
+                      "uncertainty": 3,
+                      "children": [
+                        {
+                          "name": "<https://cso.kmi.open.ac.uk/topics/communication_satellites>",
+                          "uncertainty": 3,
+                          "children": [
+                            {
+                              "name": "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
+                              "origin": "space",
+                              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_networks>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/communication_channels_%28information_theory%29>&-&<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>&-&<https://cso.kmi.open.ac.uk/topics/communication_satellites>&-&<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
+                              "uncertainty": 3,
+                              "sentence": [
+                                "[56], for dynamic graphs, that animation is useful in conveying real time changes and reorientations in space when many such reorientations occur in the data over short periods of time"
+                              ],
+                              "size": 1,
+                              "children": [],
+                              "candidates": [
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
+                                "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<https://cso.kmi.open.ac.uk/topics/data_mining>",
+      "uncertainty": 3,
+      "children": [
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/association_rule>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/frequent_itemset_mining>",
+              "uncertainty": 3,
+              "children": [
+                {
+                  "name": "<https://cso.kmi.open.ac.uk/topics/fp_tree>",
+                  "origin": "tree",
+                  "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/data_mining>&-&<https://cso.kmi.open.ac.uk/topics/association_rule>&-&<https://cso.kmi.open.ac.uk/topics/frequent_itemset_mining>&-&<https://cso.kmi.open.ac.uk/topics/fp_tree>",
+                  "uncertainty": 3,
+                  "sentence": [
+                    "The experiment found that animated transitions can help in recalling parts of a tree drawing from memory"
+                  ],
+                  "size": 1,
+                  "children": [],
+                  "candidates": [
+                    "<https://cso.kmi.open.ac.uk/topics/fp_tree>"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/intelligence_analysis>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/intelligence_analysts>",
+              "origin": "estimate",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/data_mining>&-&<https://cso.kmi.open.ac.uk/topics/intelligence_analysis>&-&<https://cso.kmi.open.ac.uk/topics/intelligence_analysts>",
+              "uncertainty": 3,
+              "sentence": [
+                "\nPrevious experiments [35] suggest that participants use the straight line between the start and end node of a speci\ufb01c path as an estimate of the path between two nodes"
+              ],
+              "size": 1,
+              "children": [],
+              "candidates": [
+                "<https://cso.kmi.open.ac.uk/topics/intelligence_analysts>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "<https://cso.kmi.open.ac.uk/topics/clustering_algorithm>",
+          "uncertainty": 3,
+          "children": [
+            {
+              "name": "<https://cso.kmi.open.ac.uk/topics/real_data_sets>",
+              "origin": "real data sets",
+              "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/data_mining>&-&<https://cso.kmi.open.ac.uk/topics/clustering_algorithm>&-&<https://cso.kmi.open.ac.uk/topics/real_data_sets>",
+              "uncertainty": 3,
+              "sentence": [
+                "Although this is small when compared to real data sets, the approach to deal with larger graphs often relies on either \ufb01ltering or aggregation across the nodes of the graph to reduce them to a reasonable level"
+              ],
+              "size": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
