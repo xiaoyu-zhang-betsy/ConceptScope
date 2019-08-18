@@ -2,44 +2,61 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Test</title>
+        <title>DocViewer</title>
         <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type='text/javascript' src="https://d3js.org/d3.v4.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type='text/javascript' src="https://cdn.jsdelivr.net/planck/0.1/planck.js"></script>
         <script type='text/javascript' src="https://rawgit.com/bgrins/TinyColor/master/tinycolor.js"></script>
 
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </head>
 
     <body>
     <!--body onload="doIt('cso_result_general_wordNet.json', 'cso_result_specific_wordNet.json')"-->
         <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between" style="padding-left: 0px">
+        <nav class="navbar navbar-expand-md navbar-dark justify-content-between" style="background-color: #6C757D; padding-left: 0px">
             <div class="container-fluid" style="padding-left: 0px">
-                <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <button type="button" id="sidebarButton" class="btn btn-outline-light">
                     <span> ☰ </span>
                 </button>
 
-                <a href="#" class="navbar-brand mr-3">DocViewer</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <a href="#" class="navbar-brand mr-3" style="padding-left: 20px"> DocViewer </a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
-                        <a href="#" class="nav-item nav-link">File</a>
-                        <a href="#" class="nav-item nav-link">Views</a>
-                        <a href="#" class="nav-item nav-link">About</a>
-                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                File
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">Load graph ...</a>
+                                <a class="dropdown-item" href="#">Load text file ...</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Remove all</a>
+                            </div>
+                        </li>
+                        
+                        <li><a href="#" class="nav-item nav-link">Views</a></li>
+                        <li><a href="#" class="nav-item nav-link">About</a></li>
+
+                        <!--button type="button" id="button-submit">Click Me!</button-->
+                    </ul>
                 </div>
+
 
                 <form class="navbar-form navbar-left" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>   
+                            <button type="button" class="btn btn-dark"><i class="fa fa-search"></i></button>   
                         </span>
                     </div>
                 </form>
@@ -48,7 +65,38 @@
 
         <div class="wrapper">
             <!-- Sidebar -->
-            <div id="sidebar" class="bg-dark">
+            <div id="sidebar" class="bg-secondary">
+                <div class="accordion" id="accordionExample">
+                    <div class="card-dark">
+                        <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <a class="dropdown-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Filtering
+                            </a>
+                        </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-transparent">
+                        <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Ordering
+                            </button>
+                        </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <!--ul class="list-unstyled components">
                     <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ordering</a>
@@ -83,22 +131,47 @@
 
             <div class="graphView">
                 <div class="left_col" id="svgCirclesContainer1">
-                    <svg id="svgCircles1" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                    <svg id="svgCircles1" style="background: #f0f0f0; border:1px solid gray; position: fixed;" width="1024" height="1280"></svg>
                 </div>
         
                 <div class="right_col" id="svgCirclesContainer2">
-                    <svg id="svgCircles2" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                    <svg id="svgCircles2" style="  background: #f0f0f0; border:1px solid gray; position: fixed;" width="1024" height="1280"></svg>
                 </div>
             </div>
-            
-            <!--div class="row">
-                <div class="left_col" id="svgCirclesContainer1">
-                    <svg id="svgCircles1" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Load graph... </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="right_col" id="svgCirclesContainer2">
-                    <svg id="svgCircles2" style="border:1px solid white; position: fixed;" width="1024" height="1280"></svg>
+                <div class="modal-body">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="graphFile1"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose graph 1</label>
+                    </div>
+                    <div><br/></div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="graphFile2"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose graph 2</label>
+                    </div>
+                    <!--input type="file" class="form-control-file" id="fileSelector"-->
                 </div>
-            </div-->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="loadGraphFile" data-dismiss="modal">Load</button>
+                </div>
+              </div>
+            </div>
         </div>
             
         <!--div id="svgCirclesContainer">

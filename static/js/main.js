@@ -1,26 +1,30 @@
 //jQuery
 $("document").ready(function() {
   //submit click function
-  $("#button-submit").click(function(){
-      var text = "cso_test.json";
+  $('#loadGraphFile').on('click', function () {
+      console.log($('#graphFile1').val().replace("C:\\fakepath\\", "")); 
+      var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
 
+      if (text != "") {
       //send data to the server
-      var data = {};
-      data['filename'] = text
-      
-      $.post("/request",data,
-      function(jsonData1,status){
-          console.log(jsonData1);
-          let svg1 = d3.select("#svgCircles1");
-          jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-          drawChart(jsonData1, svg1);
-      },"json");
+        var data = {};
+        data['filename'] = text
+        
+        $.post("/request",data,
+        function(jsonData1,status){
+            console.log(jsonData1);
+            let svg1 = d3.select("#svgCircles1");
+            jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
+            drawChart(jsonData1, svg1);
+        },"json");
+      }
 
   });
-
-  $('#sidebarCollapse').on('click', function () {
+  
+  $('#sidebarButton').on('click', function () {
     $('#sidebar').toggleClass('active');
   });
+
 });
 
 function doIt(fileName1, fileName2 = null) {
