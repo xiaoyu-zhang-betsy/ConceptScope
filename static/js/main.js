@@ -3,21 +3,38 @@ $("document").ready(function() {
   //submit click function
   $('#loadGraphFile').on('click', function () {
       console.log($('#graphFile1').val().replace("C:\\fakepath\\", "")); 
-      var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
+      var text1 = $('#graphFile1').val().replace("C:\\fakepath\\", "");
+      var text2 = $('#graphFile2').val().replace("C:\\fakepath\\", "");
 
-      if (text != "") {
+      if (text1 != "") {
       //send data to the server
         var data = {};
-        data['filename'] = text
+        data['filename'] = text1;
         
         $.post("/request",data,
         function(jsonData1,status){
             console.log(jsonData1);
             let svg1 = d3.select("#svgCircles1");
+            svg1.selectAll("*").remove();
             jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
             drawChart(jsonData1, svg1);
         },"json");
       }
+
+      if (text2 != "") {
+        //send data to the server
+          var data = {};
+          data['filename'] = text2;
+          
+          $.post("/request",data,
+          function(jsonData1,status){
+              console.log(jsonData1);
+              let svg2 = d3.select("#svgCircles2");
+              svg2.selectAll("*").remove();
+              jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
+              drawChart(jsonData1, svg2);
+          },"json");
+        }
 
   });
   

@@ -18,7 +18,7 @@
     <body>
     <!--body onload="doIt('cso_result_general_wordNet.json', 'cso_result_specific_wordNet.json')"-->
         <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-md navbar-dark justify-content-between" style="background-color: #6C757D; padding-left: 0px">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between" style="background-color: #6C757D; padding-left: 0px">
             <div class="container-fluid" style="padding-left: 0px">
                 <button type="button" id="sidebarButton" class="btn btn-outline-light">
                     <span> ☰ </span>
@@ -56,7 +56,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-dark"><i class="fa fa-search"></i></button>   
+                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>   
                         </span>
                     </div>
                 </form>
@@ -65,8 +65,8 @@
 
         <div class="wrapper">
             <!-- Sidebar -->
-            <div id="sidebar" class="bg-secondary">
-                <div class="accordion" id="accordionExample">
+            <div id="sidebar" class="bg-dark">
+                <!--div class="accordion" id="accordionExample">
                     <div class="card-dark">
                         <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
@@ -96,37 +96,25 @@
                         </div>
                         </div>
                     </div>
-                </div>
-                <!--ul class="list-unstyled components">
+                </div-->
+                <ul class="list-unstyled components">
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ordering</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <a href="#orderSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Ordering</a>
+                        <ul class="collapse list-unstyled show" id="orderSubmenu">
                             <li>
-                                <a href="#">Home 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Home 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Home 3</a>
+                                <div class="well" style="height: 300px">To be filled...</div>
                             </li>
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Advanced Search</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Advanced Search</a>
+                        <ul class="collapse list-unstyled" id="searchSubmenu">
                             <li>
-                                <a href="#">Home 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Home 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Home 3</a>
+                                <div class="well" style="height: 300px">To be filled...</div>
                             </li>
                         </ul>
                     </li>
-                </ul-->
+                </ul>
             </div>
 
             <div class="graphView">
@@ -140,8 +128,6 @@
             </div>
         </div>
 
-
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -153,16 +139,18 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="graphFile1"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose graph 1</label>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="graphFile1">
+                            <label class="custom-file-label" for="graphFile1">Choose graph 1</label>
+                        </div>
                     </div>
-                    <div><br/></div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="graphFile2"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose graph 2</label>
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="graphFile2">
+                            <label class="custom-file-label" for="graphFile2">Choose graph 2</label>
+                        </div>
                     </div>
                     <!--input type="file" class="form-control-file" id="fileSelector"-->
                 </div>

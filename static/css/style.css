@@ -18,6 +18,7 @@
   font-size: 13px;
   font-family: helvetica, sans-serif;
   overflow: hidden;
+  background: #f1f1f1;
 }
 
 /* Clear floats after the columns */
@@ -25,60 +26,6 @@
   content: "";
   display: table;
   clear: both;
-}
-
-.timeSequenceVizTitle{
-  display: inline-block;
-  vertical-align: top;
-  text-align: right;
-  height:99%;
-  width:10%;
-  background:#FFFFFF;
-  font-size: 11px;
-  color: #777;
-  font-family: sans-serif;
-  overflow: hidden;
-}
-
-.timeSequenceViz{
-  margin-top: 4px;
-  display: inline-block;
-  vertical-align: top;
-  height: 99%;
-  width: 85%;
-  overflow: hidden;
-  border: 1px solid #c9c9c9;
-}
-
-#docAbstractions{
-  height: 100%;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font: 10px sans-serif;
-  font-family: helvetica;
-  overflow: scroll;
-}
-#docAbstractions::-webkit-scrollbar {
-  display: none;
-}
-
-.vizText {
-  display: inline-block;
-  vertical-align: text-top;
-  text-align: right;
-  margin-top: 25px;
-  padding: 0px;
-  /* Safari */
-  -webkit-transform: rotate(-90deg);
-  /* Firefox */
-  -moz-transform: rotate(-90deg);
-  /* IE */
-  -ms-transform: rotate(-90deg);
-  /* Opera */
-  -o-transform: rotate(-90deg);
-  /* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .left_col {
@@ -103,7 +50,8 @@
   display: flex;
   width: 100%;
   align-items: stretch;
-  background: #ececf3;
+  /*background: #ececf3;*/
+  *background: #222227;
 }
 
 a, a:hover, a:focus {
@@ -132,7 +80,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
   padding: 0 0;
-  border-bottom: 1px solid #47748b;
+  border-bottom: 1px solid #6C757D;
 }
 
 #sidebar ul p {
