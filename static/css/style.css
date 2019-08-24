@@ -18,8 +18,9 @@
   font-size: 13px;
   font-family: helvetica, sans-serif;
   overflow: hidden;
-  background: #f1f1f1;
+  background: #f0f0f0;
 }
+
 
 /* Clear floats after the columns */
 .graphView:after {
@@ -28,14 +29,10 @@
   clear: both;
 }
 
-.left_col {
-  float: left;
-  width: 50%;
-}
-
-.right_col {
+.transGraphContent{
   float: right;
-  width: 50%;
+  height: 100%;
+  width: 30%;
 }
 
 /*************************  Navigation Bar ***************************/

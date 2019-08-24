@@ -130,7 +130,7 @@
                 layerClusterBody,
                 layerClusterBody.getPosition()
             );
-            distanceJoint.m_length = 1; // Set the length to zero as it's calculated as the distance between the anchors. TODO: PR on planck-js repo to fix bug.
+            distanceJoint.m_length = 2; // Set the length to zero as it's calculated as the distance between the anchors. TODO: PR on planck-js repo to fix bug.
 
             world.createJoint(distanceJoint);
         });
@@ -175,7 +175,8 @@
         // Add circles as fixtures.
         let circleFD = {
             density: 1.0,
-            friction: 0.00001
+            friction: 0.0001,
+            restitution: 1
         };
 
         layerCluster.nodes.forEach(function(circle) {

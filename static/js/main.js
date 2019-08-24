@@ -1,8 +1,7 @@
 //jQuery
 $("document").ready(function() {
   //submit click function
-  $('#loadGraphFile').on('click', function () {
-      console.log($('#graphFile1').val().replace("C:\\fakepath\\", "")); 
+  $('#loadGraphFileBtn').on('click', function () {
       var text1 = $('#graphFile1').val().replace("C:\\fakepath\\", "");
       var text2 = $('#graphFile2').val().replace("C:\\fakepath\\", "");
 
@@ -11,7 +10,7 @@ $("document").ready(function() {
         var data = {};
         data['filename'] = text1;
         
-        $.post("/request",data,
+        $.post("/loadGraph",data,
         function(jsonData1,status){
             console.log(jsonData1);
             let svg1 = d3.select("#svgCircles1");
@@ -26,7 +25,7 @@ $("document").ready(function() {
           var data = {};
           data['filename'] = text2;
           
-          $.post("/request",data,
+          $.post("/loadGraph",data,
           function(jsonData1,status){
               console.log(jsonData1);
               let svg2 = d3.select("#svgCircles2");
@@ -37,46 +36,40 @@ $("document").ready(function() {
         }
 
   });
+
+  $('#loadTextFileBtn').on('click', function () {
+    var text1 = $('#textFile').val().replace("C:\\fakepath\\", "");
+
+    if (text1 != "") {
+    //send data to the server
+      var data = {};
+      data['filename'] = text1;
+      
+      $.post("/loadText",data,
+      function(jsonData1, status){
+          console.log(jsonData1);
+          let svgCircles= d3.select("#svgCircles1");
+          svgCircles.selectAll("*").remove();
+          //jsonData1["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
+          //drawChart(jsonData1["heirarchy"], svgCircles);
+
+          let svgTrans = d3.select("#svgTrans1");
+          drawTrans(jsonData1["sentences"], svgTrans);
+      },"json");
+    }
+});
   
+  // toggle sidebar
   $('#sidebarButton').on('click', function () {
     $('#sidebar').toggleClass('active');
   });
 
+  // show selected file name
+  $('.custom-file-input').change(function (e) {
+    $(this).next('.custom-file-label').html(e.target.files[0].name);
 });
 
-function doIt(fileName1, fileName2 = null) {
-    let svg1 = d3.select("#svgCircles1");
-
-    d3.json(fileName1 + "?nocache=" + (new Date()).getTime(), function (error, data1) {
-        data1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-        drawChart(data1, svg1);
-        
-        if(fileName2) {
-            let svg2 = d3.select("#svgCircles2");
-            d3.json(fileName2 + "?nocache=" + (new Date()).getTime(), function (error, data2) {
-                data2.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-
-                // put the element of data2 at the same position as in data
-                children_modified = new Array(data2.children.length).fill(null);
-                children_left = []
-                data2.children.forEach(element => {
-                    index = data1.children.findIndex(child => child.name == element.name)
-                    if (index != -1 && index<data2.children.length)    
-                        children_modified[index] = element;
-                    else
-                        children_left.push(element);
-                });
-                children_left.forEach(element => {
-                    index = children_modified.findIndex(child => !child);
-                    children_modified[index] = element;
-                });
-                data2.children = children_modified;
-
-                drawChart(data2, svg2);
-            });
-        }
-    });
-}
+});
 
 function drawChart(data, svg) {
     // Create hierarchy.
@@ -103,7 +96,8 @@ function drawChart(data, svg) {
 
     // Draw contour.
     let contourGroup = svg.append("g")
-        .attr("class", "contour");
+        .attr("class", "contour")
+        .style('transform', 'translate(50%, 50%)');
 
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour())
@@ -145,7 +139,8 @@ function drawChart(data, svg) {
 
     // Draw circles.
     let circleGroup = svg.append("g")
-        .attr("class", "circlesAfterPlanck");
+        .attr("class", "circlesAfterPlanck")
+        .style('transform', 'translate(50%, 50%)');
 
     circleGroup.selectAll("circle")
         .data(leafNodes)
@@ -212,6 +207,120 @@ function drawChart(data, svg) {
         .text(function(d) { return d.data.name; })
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     */
+}
+
+function drawTrans(senSet, svg, speakerDiff=0) {
+  console.log(senSet);
+
+  svg.selectAll("*").remove();
+
+  var w = $(transGraphContent).width();
+  var h = $(transGraphContent).height();
+  var docLength = senSet.length;
+  var transcriptScale = d3.scaleLinear()
+                            .domain([0, docLength])
+                            .range([0, h]);
+  var constantHeight = 0;
+  var maxTranLine = 0
+
+  // to normalize the widths of the lines of text, need to find
+  // the maximum length
+  for (i=0; i<senSet.length;i++){
+    if (maxTranLine < senSet[i].length){
+      maxTranLine = senSet[i].length;
+    }
+  }
+
+  // create and store data object for visualization
+  var graphData = [];
+  for (i=0; i < senSet.length; i++){
+    var d = {};
+    // var ySec = hmsToSec(captionArray[i][0]);
+    var ySec = i;
+    d.timeStamp = ySec;
+    var yloc = transcriptScale(ySec);
+    d.y = yloc;
+    d.speaker = captionArray[i][2];
+    if (speakerDiff === 0){
+      d.x = 0;
+      d.fillColor = "gray";
+      d.width = senSet[i].length/maxTranLine * w;
+      // d.width = w;
+    } else {
+      var speakerIndex = speakerList.indexOf(captionArray[i][2]);
+      if (speakerIndex === -1){
+        // uncomment the below to show other speakers as well
+        // (apart from the participants)
+        /*
+        d.y = transScaleY(speakerList.length - 5);
+        d.fillColor = transGraphColor;
+        d.height = transScaleY(0.9);
+        */
+      } else {
+        d.x = transScaleX(speakerList.length - speakerIndex - 1);
+        d.fillColor = speakerColors[speakerIndex];
+        d.width = transScaleX(0.9);
+      }
+    }
+    if (constantHeight !== 0){
+      d.height = 1;
+    } else {
+      // var endSec = hmsToSec(captionArray[i][1]);
+      var endSec = i+1;
+      d.endTime = endSec;
+      // var startSec = hmsToSec(captionArray[i][0]);
+      var startSec = i;
+      var scaledHeight = transcriptScale(endSec - startSec);
+      if (scaledHeight < 1){
+        d.height = 1;
+      } else {
+        d.height = scaledHeight;
+      };
+    }
+    d.dialog = captionArray[i][3];
+    if ( (!($.isEmptyObject(textMetadataObj))) && 
+         (showIC) ) {
+      d.fillColor = icColorArray[i];
+    }
+    graphData.push(d);
+  }
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([0, 0])
+    .direction('e');
+  svg.call(tip);
+
+  var rects = svg.selectAll("rect")
+  .data(graphData).enter()
+  .append("rect")
+  .attr("x", function (d) { return d.x; })
+  .attr("y", function (d) { return d.y; })
+  .attr("width", function (d) { return d.width; })
+  .attr("z", 1)
+  .attr("height", function (d) { return d.height; })
+  .attr("fill", d.fillColor)
+  .on("mouseover", function(d, i){
+    tip.html("<font size=2 color='#fff'>"+
+        d.speaker+":  </font>"+d.dialog).show();
+    // d3.select(this).attr("height", 5);
+    /*if ((prevClickedTag === "") && !(isRowClicked)){
+      d3.select(this).attr('fill', hoverHighlight);
+    }
+    d3.select(this).attr('z', 50);
+    $("#transTable tr").eq(i).children().last()
+                        .addClass("hoverHighlight");*/
+  })
+  .on("mouseout", function(d){
+    tip.hide();
+    // d3.select(this).attr("height", d.height);
+    /*if ((prevClickedTag === "") && !(isRowClicked)){
+      d3.select(this).attr('fill', d.fillColor);
+    }
+    d3.select(this).attr('z', 1);
+    $("#transTable").find("td").removeClass("hoverHighlight");*/
+  });
+
 }
 
 function generateTransGraph(transGraphContainer, rawCaptionArray, speakerList, speakerDiff, listOfLowerCaseLines, textMetadataObj, showIC) {
@@ -440,4 +549,39 @@ function generateTransGraph(transGraphContainer, rawCaptionArray, speakerList, s
       }
     });
     return graphData;
+}
+
+// abadoned
+function doIt(fileName1, fileName2 = null) {
+  let svg1 = d3.select("#svgCircles1");
+
+  d3.json(fileName1 + "?nocache=" + (new Date()).getTime(), function (error, data1) {
+      data1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
+      drawChart(data1, svg1);
+      
+      if(fileName2) {
+          let svg2 = d3.select("#svgCircles2");
+          d3.json(fileName2 + "?nocache=" + (new Date()).getTime(), function (error, data2) {
+              data2.children.sort((a,b) => (a.name > b.name ? 1 : -1));
+
+              // put the element of data2 at the same position as in data
+              children_modified = new Array(data2.children.length).fill(null);
+              children_left = []
+              data2.children.forEach(element => {
+                  index = data1.children.findIndex(child => child.name == element.name)
+                  if (index != -1 && index<data2.children.length)    
+                      children_modified[index] = element;
+                  else
+                      children_left.push(element);
+              });
+              children_left.forEach(element => {
+                  index = children_modified.findIndex(child => !child);
+                  children_modified[index] = element;
+              });
+              data2.children = children_modified;
+
+              drawChart(data2, svg2);
+          });
+      }
+  });
 }
