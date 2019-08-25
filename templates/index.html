@@ -5,9 +5,11 @@
         <title>DocViewer</title>
         <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type='text/javascript' src="https://d3js.org/d3.v4.js"></script>
-        <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type='text/javascript' src="https://cdn.jsdelivr.net/planck/0.1/planck.js"></script>
+        <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type='text/javascript' src="https://rawgit.com/bgrins/TinyColor/master/tinycolor.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script type='text/javascript' src="{{ url_for('static',filename='source/libraries/fisheye.js') }}"></script>
 
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
         <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
@@ -44,7 +46,16 @@
                             </div>
                         </li>
                         
-                        <li><a href="#" class="nav-item nav-link">Views</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                View
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" id="showTransBtn" href="#">Show transcript&nbsp;✔</a>
+                                <a class="dropdown-item" id="hideTransBtn" href="#">Hide transcript</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
                         <li><a href="#" class="nav-item nav-link">About</a></li>
 
                         <!--button type="button" id="button-submit">Click Me!</button-->
@@ -118,29 +129,29 @@
 
             <div class="graphView">
                 <div class="container" style="max-width: 100%;">
-                    <div class="row">
-                        <div class="col" style="border:3px solid gray; margin: 15px">
+                    <div class="row" id="graphCanvas">
+                        <!--div class="col svgGroup">
                             <div class="row">
                                 <div class="col">
-                                    <svg id="svgCircles1" style="width:100%; height:1280px"></svg>
+                                    <svg id="svgCircles1 svgCircles"></svg>
                                 </div>
 
                                 <div class="col col-lg-2" id="transGraphContent">
-                                    <svg id="svgTrans1" style="width:100%; height:1280px"></svg>
+                                    <svg id="svgTrans1" class="svgTrans"></svg>
                                 </div>
                             </div>
                         </div>
-                        <div class="col" style="border:3px solid gray; margin: 15px">
+                        <div class="col svgGroup">
                             <div class="row">
                                 <div class="col">
-                                    <svg id="svgCircles2" style="width:100%; height:1280px"></svg>
+                                    <svg id="svgCircles2 svgCircles"></svg>
                                 </div>
 
-                                <div class="col col-lg-2" id="transGraphContent2">
-                                    <svg id="svgTrans2" style="width:100%; height:1280px"></svg>
+                                <div class="col col-lg-2" id="transGraphContent">
+                                    <svg id="svgTrans2" class="svgTrans"></svg>
                                 </div>
                             </div>
-                        </div>
+                        </div-->
                     </div>
                 </div>
                 
@@ -169,12 +180,6 @@
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" accept=".json" id="graphFile1">
                             <label class="custom-file-label" for="graphFile1">Choose graph 1</label>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" accept=".json" id="graphFile1">
-                            <label class="custom-file-label" for="graphFile2">Choose graph 1</label>
                         </div>
                     </div>
                     <!--input type="file" class="form-control-file" id="fileSelector"-->

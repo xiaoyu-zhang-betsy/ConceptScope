@@ -1,40 +1,43 @@
+// global variables
+var hoverHighlight = 'rgba(232, 138, 12, 1)';
+var transGraphColor = 'rgba(123, 123, 123, 0.2)';
+var prevClickedRow = '';
+var isRowClicked = false;
+var graphNum = 0; // the number of graphs in the canvas now
+
 //jQuery
 $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function () {
-      var text1 = $('#graphFile1').val().replace("C:\\fakepath\\", "");
-      var text2 = $('#graphFile2').val().replace("C:\\fakepath\\", "");
+      var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
 
-      if (text1 != "") {
+      if (text != "") {
       //send data to the server
         var data = {};
-        data['filename'] = text1;
+        data['filename'] = text;
         
         $.post("/loadGraph",data,
         function(jsonData1,status){
             console.log(jsonData1);
-            let svg1 = d3.select("#svgCircles1");
+            $("#graphCanvas")
+            .append('<div class="col svgGroup"> \
+                        <div class="row"> \
+                            <div class="col"> \
+                                <svg id="svgCircles' + graphNum + '" svgCircles"></svg> \
+                            </div> \
+                            <div class="col col-lg-2" id="transGraphContent"> \
+                                <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
+                            </div> \
+                        </div> \
+                    </div>');
+
+            let svg1 = d3.select("#svgCircles"+graphNum);
             svg1.selectAll("*").remove();
             jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
             drawChart(jsonData1, svg1);
         },"json");
+        graphNum++;
       }
-
-      if (text2 != "") {
-        //send data to the server
-          var data = {};
-          data['filename'] = text2;
-          
-          $.post("/loadGraph",data,
-          function(jsonData1,status){
-              console.log(jsonData1);
-              let svg2 = d3.select("#svgCircles2");
-              svg2.selectAll("*").remove();
-              jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-              drawChart(jsonData1, svg2);
-          },"json");
-        }
-
   });
 
   $('#loadTextFileBtn').on('click', function () {
@@ -48,13 +51,26 @@ $("document").ready(function() {
       $.post("/loadText",data,
       function(jsonData1, status){
           console.log(jsonData1);
-          let svgCircles= d3.select("#svgCircles1");
+          $("#graphCanvas")
+            .append('<div class="col svgGroup"> \
+                        <div class="row"> \
+                            <div class="col"> \
+                                <svg id="svgCircles' + graphNum + '" svgCircles"></svg> \
+                            </div> \
+                            <div class="col col-lg-2" id="transGraphContent"> \
+                                <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
+                            </div> \
+                        </div> \
+                    </div>');
+          
+          let svgCircles= d3.select("#svgCircles"+graphNum);
           svgCircles.selectAll("*").remove();
           //jsonData1["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
           //drawChart(jsonData1["heirarchy"], svgCircles);
 
-          let svgTrans = d3.select("#svgTrans1");
+          let svgTrans = d3.select("#svgTrans"+graphNum);
           drawTrans(jsonData1["sentences"], svgTrans);
+          graphNum++;
       },"json");
     }
 });
@@ -67,6 +83,28 @@ $("document").ready(function() {
   // show selected file name
   $('.custom-file-input').change(function (e) {
     $(this).next('.custom-file-label').html(e.target.files[0].name);
+
+  $('#showTransBtn').on('click', function() {
+    d3.selectAll('#transGraphContent')
+      .classed('col col-lg-2', true);
+
+    d3.selectAll(".svgTrans")
+      .style("width", "100%");
+
+    $(this).text("Show transcript&nbsp;✔");
+    $('#hideTransBtn').text(" Hide transcript");
+  });
+
+  $('#hideTransBtn').on('click', function() {
+    d3.selectAll('transGraphContent')
+      .classed('col col-lg-2', false);
+
+    d3.selectAll(".svgTrans")
+      .style("width", "0px");
+
+    $(this).text("Hide transcript&nbsp;✔");
+    $('#showTransBtn').text(" Show transcript");
+  });
 });
 
 });
@@ -214,12 +252,14 @@ function drawTrans(senSet, svg, speakerDiff=0) {
 
   svg.selectAll("*").remove();
 
-  var w = $(transGraphContent).width();
-  var h = $(transGraphContent).height();
+  var w = $("#transGraphContent").width();
+  var h = $("#transGraphContent").height();
+  console.log(w);
+  console.log(h);
   var docLength = senSet.length;
   var transcriptScale = d3.scaleLinear()
-                            .domain([0, docLength])
-                            .range([0, h]);
+                          .domain([0, docLength])
+                          .range([0, h]);
   var constantHeight = 0;
   var maxTranLine = 0
 
@@ -240,10 +280,10 @@ function drawTrans(senSet, svg, speakerDiff=0) {
     d.timeStamp = ySec;
     var yloc = transcriptScale(ySec);
     d.y = yloc;
-    d.speaker = captionArray[i][2];
+    //d.speaker = captionArray[i][2];
     if (speakerDiff === 0){
       d.x = 0;
-      d.fillColor = "gray";
+      d.fillColor = transGraphColor;
       d.width = senSet[i].length/maxTranLine * w;
       // d.width = w;
     } else {
@@ -263,7 +303,7 @@ function drawTrans(senSet, svg, speakerDiff=0) {
       }
     }
     if (constantHeight !== 0){
-      d.height = 1;
+      d.height = 10;
     } else {
       // var endSec = hmsToSec(captionArray[i][1]);
       var endSec = i+1;
@@ -277,18 +317,20 @@ function drawTrans(senSet, svg, speakerDiff=0) {
         d.height = scaledHeight;
       };
     }
-    d.dialog = captionArray[i][3];
-    if ( (!($.isEmptyObject(textMetadataObj))) && 
+    d.sentence = senSet[i];
+    /*if ( (!($.isEmptyObject(textMetadataObj))) && 
          (showIC) ) {
       d.fillColor = icColorArray[i];
-    }
+    }*/
     graphData.push(d);
   }
+
+  console.log(graphData);
 
   var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([0, 0])
-    .direction('e');
+    .direction('w');
   svg.call(tip);
 
   var rects = svg.selectAll("rect")
@@ -301,25 +343,45 @@ function drawTrans(senSet, svg, speakerDiff=0) {
   .attr("height", function (d) { return d.height; })
   .attr("fill", d.fillColor)
   .on("mouseover", function(d, i){
-    tip.html("<font size=2 color='#fff'>"+
-        d.speaker+":  </font>"+d.dialog).show();
-    // d3.select(this).attr("height", 5);
-    /*if ((prevClickedTag === "") && !(isRowClicked)){
+    tip.html("<font size=5 color='#fff'>"+
+        i +":  </font>"+d.sentence).show();
+    d3.select(this).attr("height", 5);
+    //if ((prevClickedTag === "") && !(isRowClicked)){
       d3.select(this).attr('fill', hoverHighlight);
-    }
+    //}
     d3.select(this).attr('z', 50);
-    $("#transTable tr").eq(i).children().last()
+    /*$("#transTable tr").eq(i).children().last()
                         .addClass("hoverHighlight");*/
   })
   .on("mouseout", function(d){
     tip.hide();
-    // d3.select(this).attr("height", d.height);
-    /*if ((prevClickedTag === "") && !(isRowClicked)){
+    d3.select(this).attr("height", d.height);
+    //if ((prevClickedTag === "") && !(isRowClicked)){
       d3.select(this).attr('fill', d.fillColor);
-    }
+    //}
     d3.select(this).attr('z', 1);
-    $("#transTable").find("td").removeClass("hoverHighlight");*/
+    /*$("#transTable").find("td").removeClass("hoverHighlight");*/
   });
+
+  var fisheye = d3.fisheye.circular().radius(100);
+    svg.on('mousemove', function(){
+        // implementing fisheye distortion
+        fisheye.focus(d3.mouse(this));
+        rects.each(function(d) { d.fisheye = fisheye(d); })
+             .attr("y", function(d) { return d.fisheye.y; })
+             .attr("width", function(d) {
+                return d.width * d.fisheye.z;
+             })
+             .attr("height", function(d) { 
+               return d.height * d.fisheye.z; 
+             });
+    });
+    svg.on('mouseleave', function(){
+        rects.each(function(d){d.fisheye = fisheye(d);})
+             .attr("y", function(d){return d.y;})
+             .attr("width", function(d){return d.width;})
+             .attr("height", function(d){return d.height;});
+    });
 
 }
 

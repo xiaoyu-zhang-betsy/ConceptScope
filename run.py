@@ -451,7 +451,7 @@ def my_form():
 @app.route('/loadGraph', methods=['POST',"GET"])
 def LoadGraph():
     fileName = request.form.get("filename")
-    return LoadJosnData(fileName)
+    return LoadJsonData(fileName)
 
 @app.route('/loadText', methods=['POST',"GET"])
 def LoadText():
