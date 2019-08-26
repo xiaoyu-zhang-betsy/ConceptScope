@@ -12,31 +12,34 @@ $("document").ready(function() {
       var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
 
       if (text != "") {
-      //send data to the server
+        // create canvas
+        $("#graphCanvas")
+          .append('<div class="col svgGroup"> \
+                      <div class="row"> \
+                          <div class="col"> \
+                              <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
+                          </div> \
+                      </div> \
+                  </div>');
+
+        //send data to the server
         var data = {};
         data['filename'] = text;
-        
+
         $.post("/loadGraph",data,
         function(jsonData1,status){
-            console.log(jsonData1);
-            $("#graphCanvas")
-            .append('<div class="col svgGroup"> \
-                        <div class="row"> \
-                            <div class="col"> \
-                                <svg id="svgCircles' + graphNum + '" svgCircles"></svg> \
-                            </div> \
-                            <div class="col col-lg-2" id="transGraphContent"> \
-                                <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
-                            </div> \
-                        </div> \
-                    </div>');
-
-            let svg1 = d3.select("#svgCircles"+graphNum);
-            svg1.selectAll("*").remove();
-            jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-            drawChart(jsonData1, svg1);
+            try {
+              // draw bubble treemap
+              let svg1 = d3.select("#svgCircles"+graphNum);
+              svg1.selectAll("*").remove();
+              jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
+              drawChart(jsonData1, svg1);
+            }
+            catch(error) {
+              console.error(error);
+            }
+            graphNum++;
         },"json");
-        graphNum++;
       }
   });
 
@@ -44,32 +47,52 @@ $("document").ready(function() {
     var text1 = $('#textFile').val().replace("C:\\fakepath\\", "");
 
     if (text1 != "") {
+      // create new canvas
+      $("#graphCanvas")
+        .append('<div class="col svgGroup"> \
+                    <div class="row"> \
+                        <div class="col" id="circleRow' + graphNum + '"> \
+                            <div id="loader' + graphNum + '"> \
+                              <div class="loader"></div> \
+                              <h2>Processing...</h2> \
+                            </div> \
+                        </div> \
+                        <div class="col col-lg-2" id="transGraphContent"> \
+                            <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
+                        </div> \
+                    </div> \
+                </div>');
+
     //send data to the server
       var data = {};
       data['filename'] = text1;
       
       $.post("/loadText",data,
-      function(jsonData1, status){
-          console.log(jsonData1);
-          $("#graphCanvas")
-            .append('<div class="col svgGroup"> \
-                        <div class="row"> \
-                            <div class="col"> \
-                                <svg id="svgCircles' + graphNum + '" svgCircles"></svg> \
-                            </div> \
-                            <div class="col col-lg-2" id="transGraphContent"> \
-                                <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
-                            </div> \
-                        </div> \
-                    </div>');
-          
-          let svgCircles= d3.select("#svgCircles"+graphNum);
-          svgCircles.selectAll("*").remove();
-          //jsonData1["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
-          //drawChart(jsonData1["heirarchy"], svgCircles);
+      function(jsonData, status){
+          console.log(jsonData)
+          try {
+            // draw bubble treemap
+            $("#loader"+graphNum).remove();
+            $("#circleRow"+graphNum).append('<svg id="svgCircles' + graphNum + '" class="svgCircles"></svg>');
+            let svgCircles= d3.select("#svgCircles"+graphNum);
+            svgCircles.selectAll("*").remove();
+            jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
+            drawChart(jsonData["hierarchy"], svgCircles);
+          }
+          catch(error) {
+            console.error(error);
+          }
 
-          let svgTrans = d3.select("#svgTrans"+graphNum);
-          drawTrans(jsonData1["sentences"], svgTrans);
+          try {
+            // draw transcript view
+            let svgTrans = d3.select("#svgTrans"+graphNum);
+            console.log(svgTrans);
+            drawTrans(jsonData["sentences"], svgTrans);
+          }
+          catch(error) {
+            console.error(error);
+          }
+
           graphNum++;
       },"json");
     }
@@ -91,7 +114,7 @@ $("document").ready(function() {
     d3.selectAll(".svgTrans")
       .style("width", "100%");
 
-    $(this).text("Show transcript&nbsp;✔");
+    $(this).text("Show transcript ✔");
     $('#hideTransBtn').text(" Hide transcript");
   });
 
@@ -102,7 +125,7 @@ $("document").ready(function() {
     d3.selectAll(".svgTrans")
       .style("width", "0px");
 
-    $(this).text("Hide transcript&nbsp;✔");
+    $(this).text("Hide transcript ✔");
     $('#showTransBtn').text(" Show transcript");
   });
 });
@@ -248,14 +271,11 @@ function drawChart(data, svg) {
 }
 
 function drawTrans(senSet, svg, speakerDiff=0) {
-  console.log(senSet);
-
   svg.selectAll("*").remove();
 
   var w = $("#transGraphContent").width();
   var h = $("#transGraphContent").height();
-  console.log(w);
-  console.log(h);
+
   var docLength = senSet.length;
   var transcriptScale = d3.scaleLinear()
                           .domain([0, docLength])
@@ -324,8 +344,6 @@ function drawTrans(senSet, svg, speakerDiff=0) {
     }*/
     graphData.push(d);
   }
-
-  console.log(graphData);
 
   var tip = d3.tip()
     .attr('class', 'd3-tip')

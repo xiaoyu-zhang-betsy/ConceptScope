@@ -30,11 +30,11 @@ def LoadResources():
     global nlp, csoGraph, word_vectors, csoDict
 
     # load Spacy NLP dictionary
-    print("Loading spacy dictionary ...")
+    print("Loading spacy dictionary...")
     nlp = spacy.load('en_core_web_sm')
     print("Spacy dictionary is loaded successfully!\n")
 
-    print("Loading ontology")
+    print("Loading ontology...")
     csoGraph = Graph()
     path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
     csoGraph.parse(path, format="xml")
@@ -44,7 +44,7 @@ def LoadResources():
     #word_vectors = KeyedVectors.load_word2vec_format("numberbatch-en.txt", binary=False)  # C text format
     print("ConceptNet is loaded successfully!\n")
 
-    print("Loading CSO dictionary ...")
+    print("Loading CSO dictionary...")
     csoDict = dict()
     path = os.path.join(app.static_folder, 'source/cso_dict.csv')
     with open(path, 'r') as csvfile:
@@ -86,7 +86,7 @@ def QueryURI(keywords, index=-2):
             uriList.append(entity.find(prefix + "URI").text);
         return uriList
     else:
-        print("Sorry, we find nothing for this stuff :(\n")
+        #print("Sorry, we find nothing for this stuff :(\n")
         return None
     
     '''if len(result)>0:
@@ -261,24 +261,24 @@ def SelectURI(source, candiList):
     '''
     # use wordNet to select the url
     for candidate in candiList:
-        print(source.replace(' ', '_'))
-        print(candidate[candidate.rfind("/")+1:-1])
+        #print(source.replace(' ', '_'))
+        #print(candidate[candidate.rfind("/")+1:-1])
         w1 = wordnet.synsets(source.replace(' ', '_'))
         w2 = wordnet.synsets(candidate[candidate.rfind("/")+1:-1])
         if len(w1) and len(w2):
             similarity = w1[0].wup_similarity(w2[0])
-            print(similarity)
+            #print(similarity)
             if similarity > maxSim:
                 maxSim = similarity
                 maxURI = candidate
-                print(candidate)
-                print(similarity)
+                #print(candidate)
+                #print(similarity)
                 
     return maxURI
 
 # given a URI, query the ontology iteratively to get its path to root
 def QueryHierarchy(URI):
-    print("\n" + URI)
+    #print("\n" + URI)
     path = []
     path.insert(0, URI)
     
@@ -340,29 +340,29 @@ def ProcessSen(senSet):
         print('\n' + str(index) + '. Original Sentence:\n' + senSet[index])
         #nameEntityList = RunNER(sampleSentence)
         nameEntityList = RunNER(senSet[index])
-        print(nameEntityList)
+        #print(nameEntityList)
 
         # look up the URI for the entities
         for entity in nameEntityList:
-            print("\nFor \"" + entity + "\":")
+            #print("\nFor \"" + entity + "\":")
             entityURI = None
             csoURIList = []
             try:
                 if entity in cacheDict:
                     entityURI = cacheDict[entity]
-                    if entityURI != None: 
+                    '''if entityURI != None: 
                         print("You mentioned", entity, "before. Do you mean", entityURI, "?")
                     else:
-                        print("You mentioned", entity, "before, but we can't find anything about it.")
+                        print("You mentioned", entity, "before, but we can't find anything about it.")'''
                         #RIList.append(entityURI)
 
                 elif entity.replace(' - ', '-').replace(' ', '_') in csoDict:
-                    print("Find " + entity + " directly in CSO dictionary!")
+                    #print("Find " + entity + " directly in CSO dictionary!")
                     entityURI = csoDict[entity.replace(' - ', '-').replace(' ', '_')]
 
                 else:
                     dbpdURIList = QueryURI(entity.replace(' - ', '-'))
-                    print(dbpdURIList)
+                    #print(dbpdURIList)
                     if dbpdURIList != None:
                         #URIList.append(dbpdURIList)
                         for dbpdURI in dbpdURIList:
@@ -373,7 +373,7 @@ def ProcessSen(senSet):
                 # query further information and wrap them in entityInfo
                 if entityURI != None:
                     #URIList.append(entityURI)
-                    print(entityURI)
+                    #print(entityURI)
                     if entityURI in entityDict:
                         entityDict[entityURI]["size"] += 1
                         entityDict[entityURI]["sentence"].append(senSet[index])
@@ -400,7 +400,7 @@ def ProcessSen(senSet):
                 print("Can't find related url for " + entity)
                 print(e)
 
-    print(entityDict)
+    #print(entityDict)
 
     #entityDict = {'<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>': {'uri': '<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/database>': {'uri': '<https://cso.kmi.open.ac.uk/topics/database>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/satellite_systems>': {'uri': '<https://cso.kmi.open.ac.uk/topics/satellite_systems>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/software>': {'uri': '<https://cso.kmi.open.ac.uk/topics/software>', 'strPath': '', 'sentence': 'We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>': {'uri': '<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>', 'strPath': '', 'sentence': 'We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space', 'size': 2, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/programming_models>': {'uri': '<https://cso.kmi.open.ac.uk/topics/programming_models>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/energy_savings>': {'uri': '<https://cso.kmi.open.ac.uk/topics/energy_savings>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/ontologies>': {'uri': '<https://cso.kmi.open.ac.uk/topics/ontologies>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/user_interfaces>': {'uri': '<https://cso.kmi.open.ac.uk/topics/user_interfaces>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/iaas>': {'uri': '<https://cso.kmi.open.ac.uk/topics/iaas>', 'strPath': '', 'sentence': 'Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users’ performance', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/cognitive_process>': {'uri': '<https://cso.kmi.open.ac.uk/topics/cognitive_process>', 'strPath': '', 'sentence': 'Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users’ performance', 'size': 1, 'candidate': [], 'children': []}}
 
@@ -412,7 +412,7 @@ def ProcessSen(senSet):
     #treeJson = FormatToJson(treeDict)
     #print(treeJson)
 
-    print(treeList)
+    #print(treeList)
 
     csIndex = FindIndex('<https://cso.kmi.open.ac.uk/topics/computer_science>', treeList)
     if (csIndex >= 0):
@@ -461,12 +461,12 @@ def LoadText():
     
     result = {
         "sentences": senSet,
-        #"hierarchy": ProcessSen(senSet)
-        "hierarchy": []
+        "hierarchy": ProcessSen(senSet)
+        #"hierarchy": []
     }
 
     return json.dumps(result, indent = 2)
 
 if __name__ == '__main__':
-    #LoadResources()
+    LoadResources()
     app.run()
