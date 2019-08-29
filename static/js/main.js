@@ -16,7 +16,7 @@ $("document").ready(function() {
         $("#graphCanvas")
           .append('<div class="col svgGroup"> \
                       <div class="row"> \
-                          <div class="col"> \
+                          <div class="col" align="center"> \
                               <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
                           </div> \
                       </div> \
@@ -154,6 +154,14 @@ function drawChart(data, svg) {
     let leafNodes = hierarchyRoot.descendants().filter(function (candidate) {
         return !candidate.children;
     });
+
+    let zoom = d3.zoom()
+    //.scale(1.0)
+    //.scaleExtent([1, 5])
+    .on("zoom", function () {
+      svg.attr("transform", d3.event.transform)    
+    });
+    svg.call(zoom);
 
     // Draw contour.
     let contourGroup = svg.append("g")

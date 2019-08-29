@@ -461,12 +461,12 @@ def LoadText():
     
     result = {
         "sentences": senSet,
-        "hierarchy": ProcessSen(senSet)
-        #"hierarchy": []
+        #"hierarchy": ProcessSen(senSet)
+        "hierarchy": []
     }
 
     return json.dumps(result, indent = 2)
 
 if __name__ == '__main__':
-    LoadResources()
+    #LoadResources()
     app.run()
