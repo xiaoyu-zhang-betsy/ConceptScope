@@ -19,6 +19,9 @@ $("document").ready(function() {
                           <div class="col" align="center"> \
                               <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
                           </div> \
+                          <div class="col col-lg-2" id="transGraphContent"> \
+                            <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
+                          </div> \
                       </div> \
                   </div>');
 
@@ -27,17 +30,28 @@ $("document").ready(function() {
         data['filename'] = text;
 
         $.post("/loadGraph",data,
-        function(jsonData1,status){
+        function(jsonData,status){
+            console.log(jsonData);
             try {
               // draw bubble treemap
               let svg1 = d3.select("#svgCircles"+graphNum);
               svg1.selectAll("*").remove();
-              jsonData1.children.sort((a,b) => (a.name > b.name ? 1 : -1));
-              drawChart(jsonData1, svg1);
+              jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
+              drawChart(jsonData["hierarchy"], svg1);
             }
             catch(error) {
               console.error(error);
             }
+
+            try {
+              // draw transcript view
+              let svgTrans = d3.select("#svgTrans"+graphNum);
+              drawTrans(jsonData["sentences"], svgTrans);
+            }
+            catch(error) {
+              console.error(error);
+            }
+
             graphNum++;
         },"json");
       }
@@ -278,13 +292,13 @@ function drawChart(data, svg) {
     */
 }
 
-function drawTrans(senSet, svg, speakerDiff=0) {
+function drawTrans(senList, svg, speakerDiff=0) {
   svg.selectAll("*").remove();
 
   var w = $("#transGraphContent").width();
   var h = $("#transGraphContent").height();
 
-  var docLength = senSet.length;
+  var docLength = senList.length;
   var transcriptScale = d3.scaleLinear()
                           .domain([0, docLength])
                           .range([0, h]);
@@ -293,15 +307,15 @@ function drawTrans(senSet, svg, speakerDiff=0) {
 
   // to normalize the widths of the lines of text, need to find
   // the maximum length
-  for (i=0; i<senSet.length;i++){
-    if (maxTranLine < senSet[i].length){
-      maxTranLine = senSet[i].length;
+  for (i=0; i<senList.length;i++){
+    if (maxTranLine < senList[i].text.length){
+      maxTranLine =senList[i].text.length;
     }
   }
 
   // create and store data object for visualization
   var graphData = [];
-  for (i=0; i < senSet.length; i++){
+  for (i=0; i < senList.length; i++){
     var d = {};
     // var ySec = hmsToSec(captionArray[i][0]);
     var ySec = i;
@@ -312,7 +326,7 @@ function drawTrans(senSet, svg, speakerDiff=0) {
     if (speakerDiff === 0){
       d.x = 0;
       d.fillColor = transGraphColor;
-      d.width = senSet[i].length/maxTranLine * w;
+      d.width = senList[i].text.length/maxTranLine * w;
       // d.width = w;
     } else {
       var speakerIndex = speakerList.indexOf(captionArray[i][2]);
@@ -345,7 +359,7 @@ function drawTrans(senSet, svg, speakerDiff=0) {
         d.height = scaledHeight;
       };
     }
-    d.sentence = senSet[i];
+    d.sentence = senList[i].text;
     /*if ( (!($.isEmptyObject(textMetadataObj))) && 
          (showIC) ) {
       d.fillColor = icColorArray[i];

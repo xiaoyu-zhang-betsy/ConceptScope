@@ -422,11 +422,12 @@ def ProcessSen(senSet):
         return None
 
 # test function with local loaded data
-def LoadJsonData(fileName):
+def LoadGraphData(fileName):
     path = os.path.join(app.static_folder, 'data', fileName)
     with open(path) as jsonfile:
         data = json.load(jsonfile)
-    return json.dumps(data)
+
+    return json.dumps(data, indent = 2)
 
 # load text data and return as sentence set
 def LoadTextData(fileName):
@@ -451,7 +452,7 @@ def my_form():
 @app.route('/loadGraph', methods=['POST',"GET"])
 def LoadGraph():
     fileName = request.form.get("filename")
-    return LoadJsonData(fileName)
+    return LoadGraphData(fileName)
 
 @app.route('/loadText', methods=['POST',"GET"])
 def LoadText():
