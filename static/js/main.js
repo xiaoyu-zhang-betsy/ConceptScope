@@ -37,7 +37,7 @@ $("document").ready(function() {
               let svg1 = d3.select("#svgCircles"+graphNum);
               svg1.selectAll("*").remove();
               jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
-              drawChart(jsonData["hierarchy"], svg1);
+              drawChart(jsonData["hierarchy"], svg1, graphNum);
             }
             catch(error) {
               console.error(error);
@@ -46,7 +46,7 @@ $("document").ready(function() {
             try {
               // draw transcript view
               let svgTrans = d3.select("#svgTrans"+graphNum);
-              drawTrans(jsonData["sentences"], svgTrans);
+              drawTrans(jsonData["sentences"], svgTrans, graphNum);
             }
             catch(error) {
               console.error(error);
@@ -91,7 +91,7 @@ $("document").ready(function() {
             let svgCircles= d3.select("#svgCircles"+graphNum);
             svgCircles.selectAll("*").remove();
             jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
-            drawChart(jsonData["hierarchy"], svgCircles);
+            drawChart(jsonData["hierarchy"], svgCircles, graphNum);
           }
           catch(error) {
             console.error(error);
@@ -101,7 +101,7 @@ $("document").ready(function() {
             // draw transcript view
             let svgTrans = d3.select("#svgTrans"+graphNum);
             console.log(svgTrans);
-            drawTrans(jsonData["sentences"], svgTrans);
+            drawTrans(jsonData["sentences"], svgTrans, graphNum);
           }
           catch(error) {
             console.error(error);
@@ -146,7 +146,7 @@ $("document").ready(function() {
 
 });
 
-function drawChart(data, svg) {
+function drawChart(data, svg, graphID) {
     // Create hierarchy.
     let root = d3.hierarchy(data)
         .sum(function(d) { return Math.sqrt(d.size) *10; }) // For flare.
@@ -185,7 +185,7 @@ function drawChart(data, svg) {
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour())
         .enter().append("path")
-        .attr("id", function(d) { return "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
+        .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
         .style("stroke", "black")
         .style("stroke-width", function(arc) { return arc.strokeWidth; })
@@ -202,7 +202,7 @@ function drawChart(data, svg) {
             labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
             // Specify where to put label of text
             contourGroup.append("text")
-                .attr("id", "ct" + "-" + i)
+                .attr("id", "g-" + graphID + "-" + "ct" + "-" + i)
                 .attr("x", 300)
                 .attr("y", 50)
                 .attr("dy", ".35em")
@@ -216,7 +216,7 @@ function drawChart(data, svg) {
             .style("fill", "white")
             .style("stroke-width", function(arc) { return arc.strokeWidth; });
 
-            d3.select("#ct" + "-" + i).remove();  // Remove text location
+            d3.select("#g-" + graphID + "-" + "ct" + "-" + i).remove();  // Remove text location
         });
         
 
@@ -228,7 +228,7 @@ function drawChart(data, svg) {
     circleGroup.selectAll("circle")
         .data(leafNodes)
         .enter().append("circle")
-        .attr("id", function(d) { return "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
+        .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
         .attr("r", function(d) { return d.r; })
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
@@ -249,7 +249,7 @@ function drawChart(data, svg) {
             labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
             // Specify where to put label of text
             circleGroup.append("rect")
-                .attr("id", "r" + "-" + i)
+                .attr("id", "g-" + graphID + "-" + "r" + "-" + i)
                 .attr("x", d.x+10)
                 .attr("y", d.y-15)
                 .attr("width", 12 * labelText.length)
@@ -258,12 +258,18 @@ function drawChart(data, svg) {
                 .attr("fill", "white"); 
 
             circleGroup.append("text")
-                .attr("id", "t" + "-" + i)
+                .attr("id", "g-" + graphID + "-" + "t" + "-" + i)
                 .attr("x", d.x+20)
                 .attr("y", d.y)
                 .attr("dy", ".35em")
                 .style("fill", "black")
-                .text(labelText );                     
+                .text(labelText );      
+                
+            // highlight rectangles in transcript view
+            d.data.location.forEach(function(location) {
+              d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
+                .attr('fill', hoverHighlight);
+            });            
         })
         .on("mouseout", function(d, i) {
             // Use D3 to select element, change size
@@ -272,8 +278,12 @@ function drawChart(data, svg) {
             .style("fill", d.color);
             
             // Select text by id and then remove
-            d3.select("#t" + "-" + i).remove();  // Remove text location
-            d3.select("#r" + "-" + i).remove();  // Remove text location
+            d3.select("#g-" + graphID + "-" + "t" + "-" + i).remove();  // Remove text location
+            d3.select("#g-" + graphID + "-" + "r" + "-" + i).remove();  // Remove text location
+            d.data.location.forEach(function(location) {
+              d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
+                .attr('fill', transGraphColor);
+            }); 
         });
 
     /*
@@ -292,7 +302,7 @@ function drawChart(data, svg) {
     */
 }
 
-function drawTrans(senList, svg, speakerDiff=0) {
+function drawTrans(senList, svg, graphID, speakerDiff=0) {
   svg.selectAll("*").remove();
 
   var w = $("#transGraphContent").width();
@@ -305,11 +315,11 @@ function drawTrans(senList, svg, speakerDiff=0) {
   var constantHeight = 0;
   var maxTranLine = 0
 
-  // to normalize the widths of the lines of text, need to find
+  // to normalize the widths of the lines of sentence, need to find
   // the maximum length
   for (i=0; i<senList.length;i++){
-    if (maxTranLine < senList[i].text.length){
-      maxTranLine =senList[i].text.length;
+    if (maxTranLine < senList[i].sentence.length){
+      maxTranLine =senList[i].sentence.length;
     }
   }
 
@@ -326,7 +336,7 @@ function drawTrans(senList, svg, speakerDiff=0) {
     if (speakerDiff === 0){
       d.x = 0;
       d.fillColor = transGraphColor;
-      d.width = senList[i].text.length/maxTranLine * w;
+      d.width = senList[i].sentence.length/maxTranLine * w;
       // d.width = w;
     } else {
       var speakerIndex = speakerList.indexOf(captionArray[i][2]);
@@ -359,7 +369,8 @@ function drawTrans(senList, svg, speakerDiff=0) {
         d.height = scaledHeight;
       };
     }
-    d.sentence = senList[i].text;
+    d.sentence = senList[i].sentence;
+    d.marks = senList[i].marks;
     /*if ( (!($.isEmptyObject(textMetadataObj))) && 
          (showIC) ) {
       d.fillColor = icColorArray[i];
@@ -376,6 +387,7 @@ function drawTrans(senList, svg, speakerDiff=0) {
   var rects = svg.selectAll("rect")
   .data(graphData).enter()
   .append("rect")
+  .attr("id", function (d, i) { return "g-" + graphID + "-" + "rSen" + "-" + i})
   .attr("x", function (d) { return d.x; })
   .attr("y", function (d) { return d.y; })
   .attr("width", function (d) { return d.width; })
@@ -387,9 +399,17 @@ function drawTrans(senList, svg, speakerDiff=0) {
         i +":  </font>"+d.sentence).show();
     d3.select(this).attr("height", 5);
     //if ((prevClickedTag === "") && !(isRowClicked)){
-      d3.select(this).attr('fill', hoverHighlight);
+    d3.select(this).attr('fill', hoverHighlight);
     //}
     d3.select(this).attr('z', 50);
+
+    // highlight corresponding circles
+    d.marks.forEach(function(mark) {
+      entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
+      entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
+      //entityCircle.style("fill", hoverHighlight);
+    });
+
     /*$("#transTable tr").eq(i).children().last()
                         .addClass("hoverHighlight");*/
   })
@@ -397,7 +417,7 @@ function drawTrans(senList, svg, speakerDiff=0) {
     tip.hide();
     d3.select(this).attr("height", d.height);
     //if ((prevClickedTag === "") && !(isRowClicked)){
-      d3.select(this).attr('fill', d.fillColor);
+    d3.select(this).attr('fill', d.fillColor);
     //}
     d3.select(this).attr('z', 1);
     /*$("#transTable").find("td").removeClass("hoverHighlight");*/
@@ -423,234 +443,6 @@ function drawTrans(senList, svg, speakerDiff=0) {
              .attr("height", function(d){return d.height;});
     });
 
-}
-
-function generateTransGraph(transGraphContainer, rawCaptionArray, speakerList, speakerDiff, listOfLowerCaseLines, textMetadataObj, showIC) {
-    
-    captionArray = removeEmptyLines(rawCaptionArray);
-    d3.select(transGraphContainer).selectAll("svg").remove();
-    var w = $(transGraphContainer).width();
-    // docLength = hmsToSec(captionArray[captionArray.length-1][0]);
-    docLength = captionArray.length;
-    var h = $(transGraphContainer).height();
-    var transSvg = d3.select(transGraphContainer).append("svg")
-                     .attr("width", w)
-                     .attr("height", h);
-    var transcriptScale = d3.scale.linear()
-                            .domain([0, docLength])
-                            .range([0, h]);
-    var transScaleX = d3.scale.linear()
-                              .domain([0, speakerList.length])
-                              .range([0, w]);
-    var transGraphPadding = 0;
-    var scaleHeights = 0;
-    var constantHeight = 0;
-    var maxTranLine = 0
-
-    // to normalize the widths of the lines of text, need to find
-    // the maximum length
-    for (i=0; i<listOfLowerCaseLines.length;i++){
-      if (maxTranLine < listOfLowerCaseLines[i].length){
-        maxTranLine = listOfLowerCaseLines[i].length;
-      }
-    }
-
-    // perform infocontent-based coloring if applicable
-    var highestInfoContent = 0;
-    var icColorArray = [];
-    if ( (!($.isEmptyObject(textMetadataObj))) && 
-         (showIC) ) {
-      for (word in textMetadataObj) {
-        wordic = textMetadataObj[word]["infoContent"];
-        if (wordic > highestInfoContent) {
-          highestInfoContent = wordic;
-        }
-      }
-      var icScale = d3.scale.pow(2)
-                            .domain([0, highestInfoContent])
-                            .range([0, 0.3]);
-      for (var sInd=0;sInd<listOfLowerCaseLines.length;sInd++){
-        var wordsInLine = listOfLowerCaseLines[sInd];
-        var maxIC = 0;
-        for (var wordInd=0;wordInd<wordsInLine.length;wordInd++){
-          var tempIC = 0;
-          lookupWord = wordsInLine[wordInd];
-          lookupWord = lookupWord.replace(/[^a-zA-Z0-9\-]/g, "");
-          if (lookupWord in textMetadata){
-            tempIC = textMetadataObj[lookupWord]["infoContent"];
-            if (tempIC > maxIC){
-              maxIC = tempIC;
-            } 
-          } else {
-            // nothing, this was for testing
-          }
-        }
-        var icLineColor = "rgba(8,69,148," + icScale(maxIC) + ")";
-        icColorArray.push(icLineColor);
-      }
-    }
-
-    // create and store data object for visualization
-    var graphData = [];
-    for (i=0; i < captionArray.length; i++){
-      var d = {};
-      // var ySec = hmsToSec(captionArray[i][0]);
-      var ySec = i;
-      d.timeStamp = ySec;
-      var yloc = transcriptScale(ySec);
-      d.y = yloc;
-      d.speaker = captionArray[i][2];
-      if (speakerDiff === 0){
-        d.x = 0;
-        d.fillColor = transGraphColor;
-        d.width = listOfLowerCaseLines[i].length/maxTranLine * w;
-        // d.width = w;
-      } else {
-        var speakerIndex = speakerList.indexOf(captionArray[i][2]);
-        if (speakerIndex === -1){
-          // uncomment the below to show other speakers as well
-          // (apart from the participants)
-          /*
-          d.y = transScaleY(speakerList.length - 5);
-          d.fillColor = transGraphColor;
-          d.height = transScaleY(0.9);
-          */
-        } else {
-          d.x = transScaleX(speakerList.length - speakerIndex - 1);
-          d.fillColor = speakerColors[speakerIndex];
-          d.width = transScaleX(0.9);
-        }
-      }
-      if (constantHeight !== 0){
-        d.height = 1;
-      } else {
-        // var endSec = hmsToSec(captionArray[i][1]);
-        var endSec = i+1;
-        d.endTime = endSec;
-        // var startSec = hmsToSec(captionArray[i][0]);
-        var startSec = i;
-        var scaledHeight = transcriptScale(endSec - startSec);
-        if (scaledHeight < 1){
-          d.height = 1;
-        } else {
-          d.height = scaledHeight;
-        };
-      }
-      d.dialog = captionArray[i][3];
-      if ( (!($.isEmptyObject(textMetadataObj))) && 
-           (showIC) ) {
-        d.fillColor = icColorArray[i];
-      }
-      graphData.push(d);
-    }
-
-    var tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .offset([0, 0])
-                .direction('e');
-    transSvg.call(tip);
-    var rects = transSvg.selectAll("rect")
-             .data(graphData).enter()
-             .append("rect")
-             .attr("x", function (d) { return d.x; })
-             .attr("y", function (d) { return d.y; })
-             .attr("width", function (d) { return d.width; })
-             .attr("z", 1)
-             .attr("height", function (d) { return d.height; })
-             .attr("fill", d.fillColor)
-             .on("mouseover", function(d, i){
-               tip.html("<font size=2 color='#fff'>"+
-                   d.speaker+":  </font>"+d.dialog).show();
-               // d3.select(this).attr("height", 5);
-               if ((prevClickedTag === "") && !(isRowClicked)){
-                 d3.select(this).attr('fill', hoverHighlight);
-               }
-               d3.select(this).attr('z', 50);
-               $("#transTable tr").eq(i).children().last()
-                                  .addClass("hoverHighlight");
-             })
-             .on("mouseout", function(d){
-               tip.hide();
-               // d3.select(this).attr("height", d.height);
-               if ((prevClickedTag === "") && !(isRowClicked)){
-                 d3.select(this).attr('fill', d.fillColor);
-               }
-               d3.select(this).attr('z', 1);
-               $("#transTable").find("td").removeClass("hoverHighlight");
-             });
-
-    var fisheye = d3.fisheye.circular().radius(100);
-    transSvg.on('mousemove', function(){
-        // implementing fisheye distortion
-        fisheye.focus(d3.mouse(this));
-        rects.each(function(d) { d.fisheye = fisheye(d); })
-             .attr("y", function(d) { return d.fisheye.y; })
-             .attr("width", function(d) {
-                return d.width * d.fisheye.z;
-             })
-             .attr("height", function(d) { 
-               return d.height * d.fisheye.z; 
-             });
-    });
-    transSvg.on('mouseleave', function(){
-        rects.each(function(d){d.fisheye = fisheye(d);})
-             .attr("y", function(d){return d.y;})
-             .attr("width", function(d){return d.width;})
-             .attr("height", function(d){return d.height;});
-    });
-
-    d3.select(transGraphContainer)
-      .selectAll('svg')
-      .selectAll('rect')
-      .on('click', function (d) {
-      if (d3.event.ctrlKey || d3.event.metaKey){
-        cTime =  new Date();
-        var tempTime = cTime.getHours() + ":" +
-                      cTime.getMinutes() + ":" +
-                      cTime.getSeconds();
-        clickLog.push([tempTime, "transGraphWordCloud\n"]);
-        sendClickData.data = clickLog;
-        $.post("/clicklog", sendClickData, function (data, error) { });
-        // if a speaker's transcript timeline is ctrl-clicked,
-        // show a word cloud based on only that speaker's utterances
-      } else {
-        var graphIndex = $(transGraphContainer+' svg')
-                          .children('rect')
-                          .index(this);
-        var captionStartTimeMin = captionArray[graphIndex][0]
-        captionStartTimeSec = hmsToSec(captionStartTimeMin);
-
-        // send log to server
-        cTime =  new Date();
-        var tempTime = cTime.getHours() + ":" +
-                      cTime.getMinutes() + ":" +
-                      cTime.getSeconds();
-        clickLog.push([tempTime, "transGraph",
-                      captionStartTimeSec + "\n"]);
-        sendClickData.data = clickLog;
-        $.post("/clicklog", sendClickData, function (data, error) { });
-
-        // add hhighlight to the transcript, and scroll to the
-        // corresponding line
-        var transClickItem = $('#transTable tr').eq(graphIndex)
-                                                .children().last();
-        transClickItem.addClass('hoverHighlight');
-        // this small snippet below to scroll the transcript to show
-        // the line corresponding to the item selected in transgraph
-        if (graphIndex > 3){
-          scrollIndex = graphIndex-1;
-        } else {
-          scrollIndex = 0;
-        }
-        var transScrollItem = $('#transTable tr')
-                                  .eq(scrollIndex)
-                                  .children().last();
-        $('#transContent').scrollTo($(transScrollItem),
-                                    {duration: 'slow',
-                                    transition: 'ease-in-out'});
-      }
-    });
-    return graphData;
 }
 
 // abadoned
