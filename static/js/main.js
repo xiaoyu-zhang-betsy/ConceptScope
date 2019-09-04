@@ -4,6 +4,50 @@ var transGraphColor = 'rgba(123, 123, 123, 0.2)';
 var prevClickedRow = '';
 var isRowClicked = false;
 var graphNum = 0; // the number of graphs in the canvas now
+var classDict = {
+  "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
+  "https://cso.kmi.open.ac.uk/topics/robotics" : 1,
+  "https://cso.kmi.open.ac.uk/topics/computer_vision" : 2,
+  "https://cso.kmi.open.ac.uk/topics/computer_operating_systems" : 3,
+  "https://cso.kmi.open.ac.uk/topics/bioinformatics" : 4,
+  "https://cso.kmi.open.ac.uk/topics/software_engineering" : 5,
+  "https://cso.kmi.open.ac.uk/topics/information_technology" : 6,
+  "https://cso.kmi.open.ac.uk/topics/data_mining" : 7,
+  "https://cso.kmi.open.ac.uk/topics/information_retrieval" : 8,
+  "https://cso.kmi.open.ac.uk/topics/computer_programming" : 9, 
+  "https://cso.kmi.open.ac.uk/topics/computer_security" : 10,
+  "https://cso.kmi.open.ac.uk/topics/theoretical_computer_science" : 11,
+  "https://cso.kmi.open.ac.uk/topics/computer_communication_networks" : 12,
+  "https://cso.kmi.open.ac.uk/topics/internet" : 13,
+  "https://cso.kmi.open.ac.uk/topics/formal_languages" : 14,
+  "https://cso.kmi.open.ac.uk/topics/software" : 15,
+  "https://cso.kmi.open.ac.uk/topics/hardware" : 16,
+  "https://cso.kmi.open.ac.uk/topics/computer_hardware" : 17,
+  "https://cso.kmi.open.ac.uk/topics/computer_system" : 18,
+  "https://cso.kmi.open.ac.uk/topics/computer_systems" : 18,
+  "https://cso.kmi.open.ac.uk/topics/computer_network" : 19,
+  "https://cso.kmi.open.ac.uk/topics/computer_networks" : 19,
+  "https://cso.kmi.open.ac.uk/topics/human_computer_interaction" : 20,
+  "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20,
+  "https://cso.kmi.open.ac.uk/topics/computer_aided_design" : 21,
+  "https://cso.kmi.open.ac.uk/topics/computer-aided_design" : 21,
+  "https://cso.kmi.open.ac.uk/topics/operating_system" : 22,
+  "https://cso.kmi.open.ac.uk/topics/operating_systems" : 22
+}
+colorMap = [
+  d3.lab(85,-24,-1), 
+  d3.lab(85,-11,36), 
+  d3.lab(85,8,-15), 
+  d3.lab(85,45,29), 
+  d3.lab(85,-8,-22), 
+  d3.lab(85,18,52), 
+  d3.lab(85,-32,52),
+  d3.lab(85,20,-6),
+  d3.lab(85,0,0), 
+  d3.lab(85,33,-23), 
+  d3.lab(85,-17,15), 
+  d3.lab(85, -9, 62)
+];
 
 //jQuery
 $("document").ready(function() {
@@ -160,7 +204,7 @@ function drawChart(data, svg, graphID) {
         .hierarchyRoot(root)
         .width(svg.attr("width"))
         .height(svg.attr("height"))
-        .colormap(["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"]); // Color brewer: 12-class Paired
+        .colormap(colorMap); // Color brewer: 12-class Paired
 
     // Do layout and coloring.
     let hierarchyRoot = bubbletreemap.doLayout().doColoring().hierarchyRoot();
@@ -232,6 +276,7 @@ function drawChart(data, svg, graphID) {
         .attr("r", function(d) { return d.r; })
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
+        .attr("data-color", function(d) { return d.color; })
         .style("fill", function(d) { return d.color; })
         //.style("fill-opacity", 0.7)
         //.style("stroke", "black")
@@ -244,7 +289,8 @@ function drawChart(data, svg, graphID) {
             
             d3.selectAll("#"+this.id)
             //d3.select(this)
-            .style("fill", d3.rgb(d.color).darker(1));
+            .style("fill", d3.rgb(d.color).darker(1))
+            .style("stroke-width", "2");
             
             labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
             // Specify where to put label of text
@@ -275,7 +321,8 @@ function drawChart(data, svg, graphID) {
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
             //d3.select(this)
-            .style("fill", d.color);
+            .style("fill", d.color)
+            .style("stroke-width", "1");
             
             // Select text by id and then remove
             d3.select("#g-" + graphID + "-" + "t" + "-" + i).remove();  // Remove text location
@@ -395,8 +442,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   .attr("height", function (d) { return d.height; })
   .attr("fill", d.fillColor)
   .on("mouseover", function(d, i){
-    tip.html("<font size=5 color='#fff'>"+
-        i +":  </font>"+d.sentence).show();
+    tip.html(genTipsHtml(d, i)).show();
     d3.select(this).attr("height", 5);
     //if ((prevClickedTag === "") && !(isRowClicked)){
     d3.select(this).attr('fill', hoverHighlight);
@@ -407,20 +453,29 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     d.marks.forEach(function(mark) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
       entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
-      //entityCircle.style("fill", hoverHighlight);
+      if (!entityCircle.empty())
+        entityCircle.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1))
+                    .style("stroke", "black")
+                    .style("stroke-width", "3");
+        //entityCircle.style("fill", hoverHighlight);
     });
-
-    /*$("#transTable tr").eq(i).children().last()
-                        .addClass("hoverHighlight");*/
   })
   .on("mouseout", function(d){
     tip.hide();
     d3.select(this).attr("height", d.height);
-    //if ((prevClickedTag === "") && !(isRowClicked)){
     d3.select(this).attr('fill', d.fillColor);
     //}
     d3.select(this).attr('z', 1);
     /*$("#transTable").find("td").removeClass("hoverHighlight");*/
+
+    // recover the color of highlighted circles
+    d.marks.forEach(function(mark) {
+      entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
+      entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
+      if (!entityCircle.empty())
+        entityCircle.style("fill", entityCircle.attr("data-color"))
+                    .style("stroke-width", "0");
+    });
   });
 
   var fisheye = d3.fisheye.circular().radius(100);
@@ -445,6 +500,22 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
 
 }
 
+function genTipsHtml(data, index) {
+  s_html = "<font size=5 color='#fff'>"+ index +":  </font>";
+
+  plain_start = 0
+  plain_end = 0
+  text = data.sentence;
+  data.marks.forEach(function(mark){
+    plain_end = mark.start_char;
+    s_html = s_html + text.substring(plain_start, plain_end);
+    s_html = s_html + '<span style="background-color:' + d3.rgb(colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length]).darker(1) + '">' + text.substring(mark.start_char, mark.end_char) + '</span>';
+    plain_start = mark.end_char;
+  });
+  s_html = s_html + text.substring(plain_start, text.length);
+
+  return s_html;
+}
 // abadoned
 function doIt(fileName1, fileName2 = null) {
   let svg1 = d3.select("#svgCircles1");

@@ -145,14 +145,15 @@ ul ul a {
 }
 
 .d3-tip {
-  line-height: 1;
+  line-height: 1.2;
   position: absolute;
   z-index: 150;
   font-weight: bold;
-  padding: 12px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: #ddd;
   border-radius: 2px;
+  /*border:2px solid gray; */
   word-wrap: break-word;
   max-width: 250px;
 }
