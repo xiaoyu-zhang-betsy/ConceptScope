@@ -213,18 +213,37 @@ function drawChart(data, svg, graphID) {
         return !candidate.children;
     });
 
+    let zoomGroup = svg.append("g");
+
     let zoom = d3.zoom()
     //.scale(1.0)
     //.scaleExtent([1, 5])
     .on("zoom", function () {
-      svg.attr("transform", d3.event.transform)    
+      transform = d3.event.transform;
+      console.log(svg.attr("width")/2);
+      console.log(svg.node().getBBox().width);
+      transX = transform.x;
+      transY = transform.y;
+      console.log(transX, transY);
+      zoomGroup.attr("transform","translate(" + transX + ", " + transY + ") \
+      scale(" + transform.k + ")");    
     });
+
+    console.log(zoom);
     svg.call(zoom);
 
+    
+
     // Draw contour.
-    let contourGroup = svg.append("g")
+    let contourGroup = zoomGroup.append("g")
         .attr("class", "contour")
         .style('transform', 'translate(50%, 50%)');
+
+    let tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([5, 0])
+      .direction('e');
+    svg.call(tip);
 
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour())
@@ -244,16 +263,18 @@ function drawChart(data, svg, graphID) {
             .style("stroke-width", function(arc) { return arc.strokeWidth*2; });
             
             labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
+            tip.html(labelText).show();
             // Specify where to put label of text
-            contourGroup.append("text")
+            /*contourGroup.append("text")
                 .attr("id", "g-" + graphID + "-" + "ct" + "-" + i)
                 .attr("x", 300)
                 .attr("y", 50)
                 .attr("dy", ".35em")
                 .style("fill", "black")
-                .text(labelText); 
+                .text(labelText); */
         })
         .on("mouseout", function(d, i) {
+            tip.hide();
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
             .style("fill-opacity", 0.0) 
@@ -265,7 +286,7 @@ function drawChart(data, svg, graphID) {
         
 
     // Draw circles.
-    let circleGroup = svg.append("g")
+    let circleGroup = zoomGroup.append("g")
         .attr("class", "circlesAfterPlanck")
         .style('transform', 'translate(50%, 50%)');
 
@@ -290,26 +311,29 @@ function drawChart(data, svg, graphID) {
             d3.selectAll("#"+this.id)
             //d3.select(this)
             .style("fill", d3.rgb(d.color).darker(1))
-            .style("stroke-width", "2");
+            .style("stroke", "black")
+            .style("stroke-width", "3");
             
             labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
+            tip.html(labelText).show();
             // Specify where to put label of text
-            circleGroup.append("rect")
+            /*circleGroup.append("rect")
                 .attr("id", "g-" + graphID + "-" + "r" + "-" + i)
                 .attr("x", d.x+10)
                 .attr("y", d.y-15)
                 .attr("width", 12 * labelText.length)
                 .attr("height", 30)
                 .attr("cornerRadius", 3)
-                .attr("fill", "white"); 
+                .attr("fill", "black")
+                .attr("fill-opacity", 0.7); 
 
             circleGroup.append("text")
                 .attr("id", "g-" + graphID + "-" + "t" + "-" + i)
                 .attr("x", d.x+20)
                 .attr("y", d.y)
                 .attr("dy", ".35em")
-                .style("fill", "black")
-                .text(labelText );      
+                .style("fill", "white")
+                .text(labelText );   */   
                 
             // highlight rectangles in transcript view
             d.data.location.forEach(function(location) {
@@ -318,15 +342,16 @@ function drawChart(data, svg, graphID) {
             });            
         })
         .on("mouseout", function(d, i) {
+            tip.hide();
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
             //d3.select(this)
             .style("fill", d.color)
-            .style("stroke-width", "1");
+            .style("stroke-width", "0");
             
             // Select text by id and then remove
-            d3.select("#g-" + graphID + "-" + "t" + "-" + i).remove();  // Remove text location
-            d3.select("#g-" + graphID + "-" + "r" + "-" + i).remove();  // Remove text location
+            //d3.select("#g-" + graphID + "-" + "t" + "-" + i).remove();  // Remove text location
+            //d3.select("#g-" + graphID + "-" + "r" + "-" + i).remove();  // Remove text location
             d.data.location.forEach(function(location) {
               d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
                 .attr('fill', transGraphColor);
@@ -478,7 +503,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     });
   });
 
-  var fisheye = d3.fisheye.circular().radius(100);
+  var fisheye = d3.fisheye.circular().radius(200);
     svg.on('mousemove', function(){
         // implementing fisheye distortion
         fisheye.focus(d3.mouse(this));
