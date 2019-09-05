@@ -35,18 +35,18 @@ var classDict = {
   "https://cso.kmi.open.ac.uk/topics/operating_systems" : 22
 }
 colorMap = [
-  d3.lab(85,-24,-1), 
-  d3.lab(85,-11,36), 
-  d3.lab(85,8,-15), 
-  d3.lab(85,45,29), 
-  d3.lab(85,-8,-22), 
-  d3.lab(85,18,52), 
-  d3.lab(85,-32,52),
-  d3.lab(85,20,-6),
-  d3.lab(85,0,0), 
-  d3.lab(85,33,-23), 
-  d3.lab(85,-17,15), 
-  d3.lab(85, -9, 62)
+  d3.lab(85,-24,-1), //#9EE2D5
+  d3.lab(85,-11,36), //#D2D98F
+  d3.lab(85,8,-15), //#D9D0F1
+  d3.lab(85,62,29), //#FF9FA2
+  d3.lab(85,-8,-22), //#B1DAFD
+  d3.lab(85,17,22), //#FEC8AC
+  d3.lab(85,-32,52), //#AFE46C
+  d3.lab(85,20,-6), //#F6C7E0
+  d3.lab(85,0,0), //#D4D4D4
+  d3.lab(85,76,-100), //#FF9BFF
+  d3.lab(85,-17,15), //#BBDDB7
+  d3.lab(85, -6, 85) //#E8D600
 ];
 
 //jQuery
@@ -219,17 +219,8 @@ function drawChart(data, svg, graphID) {
     //.scale(1.0)
     //.scaleExtent([1, 5])
     .on("zoom", function () {
-      transform = d3.event.transform;
-      console.log(svg.attr("width")/2);
-      console.log(svg.node().getBBox().width);
-      transX = transform.x;
-      transY = transform.y;
-      console.log(transX, transY);
-      zoomGroup.attr("transform","translate(" + transX + ", " + transY + ") \
-      scale(" + transform.k + ")");    
+      zoomGroup.attr("transform", d3.event.transform);    
     });
-
-    console.log(zoom);
     svg.call(zoom);
 
     
@@ -357,21 +348,6 @@ function drawChart(data, svg, graphID) {
                 .attr('fill', transGraphColor);
             }); 
         });
-
-    /*
-    // Draw labels.
-    let textGroup = svg.append("g")
-        .attr("class", "text");
-
-    textGroup.selectAll("text")
-        .data(leafNodes)
-        .enter().append("text")
-        .attr("font-size", "12px")
-        .style("fill", "black")
-        .style("font-weight", "bold")
-        .text(function(d) { return d.data.name; })
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-    */
 }
 
 function drawTrans(senList, svg, graphID, speakerDiff=0) {
