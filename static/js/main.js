@@ -1,6 +1,6 @@
 // global variables
-var hoverHighlight = 'rgba(232, 138, 12, 1)';
-var transGraphColor = 'rgba(123, 123, 123, 0.2)';
+var hoverHighlight = 'rgba(232, 138, 12, 1)'; //#E88A0C
+var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
 var prevClickedRow = '';
 var isRowClicked = false;
 var graphNum = 0; // the number of graphs in the canvas now
@@ -206,6 +206,12 @@ function drawChart(data, svg, graphID) {
         .height(svg.attr("height"))
         .colormap(colorMap); // Color brewer: 12-class Paired
 
+    // Create gradient color palette
+    let contourColor = d3.scaleLinear().domain([root.height, 0]) // [0, root.height]:Darker outside, lighter inside [root.height, 0]:Lighter outside, darker inside 
+        .interpolate(d3.interpolateLab)
+        .range([d3.lab("#000000"), d3.lab('#AAAAAA')]); // Fill_Lighter outside, darker inside
+        //.range([d3.lab("#333333"), d3.lab('#CCCCCC')]); //Fill_Darker outside, lighter inside
+
     // Do layout and coloring.
     let hierarchyRoot = bubbletreemap.doLayout().doColoring().hierarchyRoot();
 
@@ -223,8 +229,6 @@ function drawChart(data, svg, graphID) {
     });
     svg.call(zoom);
 
-    
-
     // Draw contour.
     let contourGroup = zoomGroup.append("g")
         .attr("class", "contour")
@@ -241,38 +245,40 @@ function drawChart(data, svg, graphID) {
         .enter().append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
-        .style("stroke", "black")
-        .style("stroke-width", function(arc) { return arc.strokeWidth; })
-        .style("fill-opacity", 0.0) 
-        .style("fill", "white")
+        .style("stroke", function(arc) {
+            return "black"; // fill
+            //return contourColor(arc.depth); // contour
+        })
+        .style("stroke-width", function(arc) { 
+            //return 6-arc.depth*0.7; // Thicker outside, thinner inside
+            //return 1+arc.depth*0.7; // Thinner outside, thicker inside
+            return arc.strokeWidth; // fill
+        })
+        .style("fill-opacity", 0.7) 
+        .style("fill", function(arc) {
+            //return "white"; // contour
+            return contourColor(arc.depth);// fill
+        })
         .attr("transform", function(arc) {return arc.transform;})
         .on("mouseover", function(d, i) {
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
-            .style("fill-opacity", 0.8) 
-            .style("fill", "#b3b3b3")
+            .style("fill-opacity", 0.7) 
+            .style("fill", hoverHighlight)
+            //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
             .style("stroke-width", function(arc) { return arc.strokeWidth*2; });
             
             labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
             tip.html(labelText).show();
-            // Specify where to put label of text
-            /*contourGroup.append("text")
-                .attr("id", "g-" + graphID + "-" + "ct" + "-" + i)
-                .attr("x", 300)
-                .attr("y", 50)
-                .attr("dy", ".35em")
-                .style("fill", "black")
-                .text(labelText); */
         })
         .on("mouseout", function(d, i) {
             tip.hide();
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
-            .style("fill-opacity", 0.0) 
-            .style("fill", "white")
+            .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
+            //.style("fill", "white") // contour
+            .style("fill", function(arc) { return contourColor(arc.depth);})// fill
             .style("stroke-width", function(arc) { return arc.strokeWidth; });
-
-            d3.select("#g-" + graphID + "-" + "ct" + "-" + i).remove();  // Remove text location
         });
         
 
@@ -300,31 +306,13 @@ function drawChart(data, svg, graphID) {
             .style("fill", d3.rgb(d.color).darker(0.8));*/
             
             d3.selectAll("#"+this.id)
-            //d3.select(this)
-            .style("fill", d3.rgb(d.color).darker(1))
+            .style("fill", hoverHighlight)
+            //.style("fill", d3.rgb(d.color).darker(2))
             .style("stroke", "black")
             .style("stroke-width", "3");
             
             labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
             tip.html(labelText).show();
-            // Specify where to put label of text
-            /*circleGroup.append("rect")
-                .attr("id", "g-" + graphID + "-" + "r" + "-" + i)
-                .attr("x", d.x+10)
-                .attr("y", d.y-15)
-                .attr("width", 12 * labelText.length)
-                .attr("height", 30)
-                .attr("cornerRadius", 3)
-                .attr("fill", "black")
-                .attr("fill-opacity", 0.7); 
-
-            circleGroup.append("text")
-                .attr("id", "g-" + graphID + "-" + "t" + "-" + i)
-                .attr("x", d.x+20)
-                .attr("y", d.y)
-                .attr("dy", ".35em")
-                .style("fill", "white")
-                .text(labelText );   */   
                 
             // highlight rectangles in transcript view
             d.data.location.forEach(function(location) {
@@ -339,10 +327,7 @@ function drawChart(data, svg, graphID) {
             //d3.select(this)
             .style("fill", d.color)
             .style("stroke-width", "0");
-            
-            // Select text by id and then remove
-            //d3.select("#g-" + graphID + "-" + "t" + "-" + i).remove();  // Remove text location
-            //d3.select("#g-" + graphID + "-" + "r" + "-" + i).remove();  // Remove text location
+
             d.data.location.forEach(function(location) {
               d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
                 .attr('fill', transGraphColor);
@@ -455,10 +440,10 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
       entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
       if (!entityCircle.empty())
-        entityCircle.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1))
-                    .style("stroke", "black")
-                    .style("stroke-width", "3");
-        //entityCircle.style("fill", hoverHighlight);
+        entityCircle.style("stroke", "black")
+                    .style("stroke-width", "3")
+                    .style("fill", hoverHighlight)
+                    //.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1));
     });
   })
   .on("mouseout", function(d){

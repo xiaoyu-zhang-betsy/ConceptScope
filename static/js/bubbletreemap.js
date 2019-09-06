@@ -588,6 +588,7 @@
                 generatedContour.forEach(function(segment) {
                     segment.strokeWidth = cluster.parent.uncertainty;
                     segment.name = cluster.parent.data.name;
+                    segment.depth = layerDepth;
                     //console.log(cluster);
                 });
 
