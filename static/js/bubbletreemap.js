@@ -574,9 +574,9 @@
         return paths;
     }
 
-    function contourHierarchy(hierarchyRoot, padding, curvature) {
+    function contourHierarchy(hierarchyRoot, padding, curvature, showLevel=-1) {
         let contours = [];
-        for(let layerDepth = hierarchyRoot.height; layerDepth >= 0; layerDepth--) {
+        for(let layerDepth = showLevel; layerDepth >= 0; layerDepth--) {
             // Get clusters of circles on this layer.
             let layerClusters = getLayerClusters(hierarchyRoot, layerDepth, padding);
 
@@ -623,9 +623,12 @@
                 return bubbletreemap;
             },
 
-            getContour: function() {
+            getContour: function(_) {
                 // Compute contours.
-                return contourHierarchy(hierarchyRoot, padding, curvature);
+                if (arguments.length) // generate patial contours
+                    return contourHierarchy(hierarchyRoot, padding, curvature, _);
+                else // generate full contours
+                    return contourHierarchy(hierarchyRoot, padding, curvature);
             },
 
             hierarchyRoot: function(_) {

@@ -3,6 +3,8 @@ var hoverHighlight = 'rgba(232, 138, 12, 1)'; //#E88A0C
 var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
 var prevClickedRow = '';
 var isRowClicked = false;
+var contourPadding = 7; // the distance between two contours
+var showLevel = 3; // the number of levels to show (for semantic zooming)
 var graphNum = 0; // the number of graphs in the canvas now
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
@@ -221,14 +223,6 @@ function drawChart(data, svg, graphID) {
 
     let zoomGroup = svg.append("g");
 
-    let zoom = d3.zoom()
-    //.scale(1.0)
-    //.scaleExtent([1, 5])
-    .on("zoom", function () {
-      zoomGroup.attr("transform", d3.event.transform);    
-    });
-    svg.call(zoom);
-
     // Draw contour.
     let contourGroup = zoomGroup.append("g")
         .attr("class", "contour")
@@ -240,8 +234,16 @@ function drawChart(data, svg, graphID) {
       .direction('e');
     svg.call(tip);
 
+    let zoom = d3.zoom()
+        .scaleExtent([0.5, 5])
+        .on("zoom", function () {
+          zoomGroup.attr("transform", d3.event.transform);
+          SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+        });
+    svg.call(zoom);
+
     path = contourGroup.selectAll("path")
-        .data(bubbletreemap.getContour())
+        .data(bubbletreemap.getContour(showLevel))
         .enter().append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
@@ -281,14 +283,15 @@ function drawChart(data, svg, graphID) {
             .style("stroke-width", function(arc) { return arc.strokeWidth; });
         });
         
-
     // Draw circles.
     let circleGroup = zoomGroup.append("g")
         .attr("class", "circlesAfterPlanck")
         .style('transform', 'translate(50%, 50%)');
 
     circleGroup.selectAll("circle")
-        .data(leafNodes)
+        .data(leafNodes.filter(function (nodes) {
+            return nodes.depth <= showLevel;
+        }))
         .enter().append("circle")
         .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
         .attr("r", function(d) { return d.r; })
@@ -306,10 +309,12 @@ function drawChart(data, svg, graphID) {
             .style("fill", d3.rgb(d.color).darker(0.8));*/
             
             d3.selectAll("#"+this.id)
+            .style("stroke-width", "4")
             .style("fill", hoverHighlight)
-            //.style("fill", d3.rgb(d.color).darker(2))
             .style("stroke", "black")
-            .style("stroke-width", "3");
+            //.style("fill", d3.rgb(d.color).darker(1))
+            //.style("stroke", hoverHighlight)
+            //.attr("r", function(d) { return d.r+2; })
             
             labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
             tip.html(labelText).show();
@@ -326,7 +331,8 @@ function drawChart(data, svg, graphID) {
             d3.selectAll("#"+this.id)
             //d3.select(this)
             .style("fill", d.color)
-            .style("stroke-width", "0");
+            .style("stroke-width", "0")
+            .attr("r", function(d) { return d.r; });
 
             d.data.location.forEach(function(location) {
               d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
@@ -440,9 +446,11 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
       entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
       if (!entityCircle.empty())
-        entityCircle.style("stroke", "black")
-                    .style("stroke-width", "3")
-                    .style("fill", hoverHighlight)
+        entityCircle.style("stroke-width", "4")
+                    .style("stroke", "black")
+                    .style("fill", hoverHighlight);
+                    //.attr("r", function(d) { return d.r+2; })
+                    //.style("stroke", hoverHighlight)
                     //.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1));
     });
   })
@@ -461,6 +469,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
       if (!entityCircle.empty())
         entityCircle.style("fill", entityCircle.attr("data-color"))
                     .style("stroke-width", "0");
+                    //.attr("r", function(d) { return d.r; })
     });
   });
 
@@ -536,3 +545,107 @@ function doIt(fileName1, fileName2 = null) {
       }
   });
 }
+
+function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
+  showLevel = 3 + Math.floor((d3.event.transform.k-1)/0.1);
+  showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+
+  // updata contours
+  let newPath = svg.select("g").select("g").selectAll("path")
+    .data(bubbletreemap.getContour(showLevel));
+  newPath.exit().remove();
+  newPath.enter().append("path")
+    .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
+    .attr("d", function(arc) { return arc.d; })
+    .style("stroke", function(arc) {
+        return "black"; // fill
+        //return contourColor(arc.depth); // contour
+    })
+    .style("stroke-width", function(arc) { 
+        //return 6-arc.depth*0.7; // Thicker outside, thinner inside
+        //return 1+arc.depth*0.7; // Thinner outside, thicker inside
+        return arc.strokeWidth; // fill
+    })
+    .style("fill-opacity", 0.7) 
+    .style("fill", function(arc) {
+        //return "white"; // contour
+        return contourColor(arc.depth);// fill
+    })
+    .attr("transform", function(arc) {return arc.transform;})
+    .on("mouseover", function(d, i) {
+        // Use D3 to select element, change size
+        d3.selectAll("#"+this.id)
+        .style("fill-opacity", 0.7) 
+        .style("fill", hoverHighlight)
+        //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
+        .style("stroke-width", function(arc) { return arc.strokeWidth*2; });
+        
+        labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
+        tip.html(labelText).show();
+    })
+    .on("mouseout", function(d, i) {
+        tip.hide();
+        // Use D3 to select element, change size
+        d3.selectAll("#"+this.id)
+        .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
+        //.style("fill", "white") // contour
+        .style("fill", function(arc) { return contourColor(arc.depth);})// fill
+        .style("stroke-width", function(arc) { return arc.strokeWidth; });
+    });
+
+  let newCircle = svg.select("g").select("g").selectAll("circle")
+                  .data(leafNodes.filter(function (nodes) {
+                    return nodes.depth <= showLevel;
+                  }));
+  console.log(leafNodes.filter(function (nodes) {
+    return nodes.depth <= showLevel;
+  }));
+  newCircle.exit().remove();
+  newCircle.enter().append("circle")
+    .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
+    .attr("r", function(d) { return d.r; })
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; })
+    .attr("data-color", function(d) { return d.color; })
+    .style("fill", function(d) { return d.color; })
+    //.style("fill-opacity", 0.7)
+    //.style("stroke", "black")
+    //.style("stroke-width", "1")
+    .on("mouseover", function(d, i) {
+        // Use D3 to select element, change size
+      /* d3.select(this)
+        //.attr("r", d.r*1.1)
+        .style("fill", d3.rgb(d.color).darker(0.8));*/
+        
+        d3.selectAll("#"+this.id)
+        .style("stroke-width", "4")
+        .style("fill", hoverHighlight)
+        .style("stroke", "black")
+        //.style("fill", d3.rgb(d.color).darker(1))
+        //.style("stroke", hoverHighlight)
+        //.attr("r", function(d) { return d.r+2; })
+        
+        labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
+        tip.html(labelText).show();
+            
+        // highlight rectangles in transcript view
+        d.data.location.forEach(function(location) {
+          d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
+            .attr('fill', hoverHighlight);
+        });            
+    })
+    .on("mouseout", function(d, i) {
+        tip.hide();
+        // Use D3 to select element, change size
+        d3.selectAll("#"+this.id)
+        //d3.select(this)
+        .style("fill", d.color)
+        .style("stroke-width", "0")
+        .attr("r", function(d) { return d.r; });
+
+        d.data.location.forEach(function(location) {
+          d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
+            .attr('fill', transGraphColor);
+        }); 
+    });
+  }
