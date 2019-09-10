@@ -17,8 +17,8 @@ import urllib
 from rdflib import Graph
 import xml.etree.ElementTree as ET
 
-from allennlp.common.testing import AllenNlpTestCase
-from allennlp.predictors.predictor import Predictor
+#from allennlp.common.testing import AllenNlpTestCase
+#from allennlp.predictors.predictor import Predictor
 
 # Global variables
 nlp = None # spacy NLP library

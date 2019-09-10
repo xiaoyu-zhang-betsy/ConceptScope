@@ -4,7 +4,7 @@ var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
 var prevClickedRow = '';
 var isRowClicked = false;
 var contourPadding = 7; // the distance between two contours
-var showLevel = 3; // the number of levels to show (for semantic zooming)
+var showLevel = 0; // the number of levels to show (for semantic zooming)
 var graphNum = 0; // the number of graphs in the canvas now
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
@@ -597,9 +597,6 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
                   .data(leafNodes.filter(function (nodes) {
                     return nodes.depth <= showLevel;
                   }));
-  console.log(leafNodes.filter(function (nodes) {
-    return nodes.depth <= showLevel;
-  }));
   newCircle.exit().remove();
   newCircle.enter().append("circle")
     .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
@@ -649,3 +646,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         }); 
     });
   }
+
+  function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
+    showLevel = 3 + Math.floor((d3.event.transform.k-1)/0.1);
+    showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+  
+    // updata contours
+    let newPath = svg.select("g").select("g").selectAll("path")
+      .data(bubbletreemap.getContour(treeHeight, showLevel));
+    }

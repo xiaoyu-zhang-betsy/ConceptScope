@@ -576,7 +576,8 @@
 
     function contourHierarchy(hierarchyRoot, padding, curvature, showLevel=-1) {
         let contours = [];
-        for(let layerDepth = showLevel; layerDepth >= 0; layerDepth--) {
+        for(let layerDepth = showLevel; layerDepth >= 0; layerDepth--) { // semantic_zooming_1
+        //for(let layerDepth = hierarchyRoot.height; layerDepth >= 0; layerDepth--) { // semantic_zooming_2
             // Get clusters of circles on this layer.
             let layerClusters = getLayerClusters(hierarchyRoot, layerDepth, padding);
 
@@ -624,11 +625,16 @@
             },
 
             getContour: function(_) {
+                console.log(arguments);
                 // Compute contours.
-                if (arguments.length) // generate patial contours
-                    return contourHierarchy(hierarchyRoot, padding, curvature, _);
-                else // generate full contours
-                    return contourHierarchy(hierarchyRoot, padding, curvature);
+                if (arguments.length==2) // generate different padding
+                    return contourHierarchy(hierarchyRoot, arguments[1], curvature, arguments[0]);
+                else{ 
+                    if (arguments.length==1) // generate patial contours
+                        return contourHierarchy(hierarchyRoot, padding, curvature, arguments[0]);
+                    else // generate full contours
+                        return contourHierarchy(hierarchyRoot, padding, curvature);
+                }
             },
 
             hierarchyRoot: function(_) {
