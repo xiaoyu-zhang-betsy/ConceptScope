@@ -624,11 +624,16 @@
             },
 
             getContour: function(_) {
+                console.log(arguments);
                 // Compute contours.
-                if (arguments.length) // generate patial contours
-                    return contourHierarchy(hierarchyRoot, padding, curvature, _);
-                else // generate full contours
-                    return contourHierarchy(hierarchyRoot, padding, curvature);
+                if (arguments.length==2) // generate different padding
+                    return contourHierarchy(hierarchyRoot, arguments[1], curvature, arguments[0]);
+                else{ 
+                    if (arguments.length==1) // generate patial contours
+                        return contourHierarchy(hierarchyRoot, padding, curvature, arguments[0]);
+                    else // generate full contours
+                        return contourHierarchy(hierarchyRoot, padding, curvature);
+                }
             },
 
             hierarchyRoot: function(_) {

@@ -598,9 +598,6 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
                   .data(leafNodes.filter(function (nodes) {
                     return nodes.depth <= szLevel;
                   }));
-  console.log(leafNodes.filter(function (nodes) {
-    return nodes.depth <= szLevel;
-  }));
   newCircle.exit().remove();
   newCircle.enter().append("circle")
     .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
@@ -650,3 +647,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         }); 
     });
   }
+
+  function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
+    showLevel = 3 + Math.floor((d3.event.transform.k-1)/0.1);
+    showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+  
+    // updata contours
+    let newPath = svg.select("g").select("g").selectAll("path")
+      .data(bubbletreemap.getContour(treeHeight, showLevel));
+    }
