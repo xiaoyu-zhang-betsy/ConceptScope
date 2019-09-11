@@ -4,7 +4,8 @@ var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
 var prevClickedRow = '';
 var isRowClicked = false;
 var contourPadding = 7; // the distance between two contours
-var showLevel = 3; // the number of levels to show (for semantic zooming)
+var szScale = 0.1; // the scale to invoke semantic zooming
+var szLevel = 3; // the number of levels to show (for semantic zooming)
 var graphNum = 0; // the number of graphs in the canvas now
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
@@ -19,22 +20,22 @@ var classDict = {
   "https://cso.kmi.open.ac.uk/topics/computer_programming" : 9, 
   "https://cso.kmi.open.ac.uk/topics/computer_security" : 10,
   "https://cso.kmi.open.ac.uk/topics/theoretical_computer_science" : 11,
-  "https://cso.kmi.open.ac.uk/topics/computer_communication_networks" : 12,
-  "https://cso.kmi.open.ac.uk/topics/internet" : 13,
-  "https://cso.kmi.open.ac.uk/topics/formal_languages" : 14,
-  "https://cso.kmi.open.ac.uk/topics/software" : 15,
-  "https://cso.kmi.open.ac.uk/topics/hardware" : 16,
-  "https://cso.kmi.open.ac.uk/topics/computer_hardware" : 17,
+  "https://cso.kmi.open.ac.uk/topics/internet" : 12,
+  "https://cso.kmi.open.ac.uk/topics/formal_languages" : 13,
+  "https://cso.kmi.open.ac.uk/topics/software" : 14,
+  "https://cso.kmi.open.ac.uk/topics/hardware" : 15,
+  "https://cso.kmi.open.ac.uk/topics/computer_hardware" : 15,
+  "https://cso.kmi.open.ac.uk/topics/computer_aided_design" : 16,
+  "https://cso.kmi.open.ac.uk/topics/computer-aided_design" : 16,
+  "https://cso.kmi.open.ac.uk/topics/operating_system" : 17,
+  "https://cso.kmi.open.ac.uk/topics/operating_systems" : 17,
   "https://cso.kmi.open.ac.uk/topics/computer_system" : 18,
   "https://cso.kmi.open.ac.uk/topics/computer_systems" : 18,
   "https://cso.kmi.open.ac.uk/topics/computer_network" : 19,
   "https://cso.kmi.open.ac.uk/topics/computer_networks" : 19,
+  "https://cso.kmi.open.ac.uk/topics/computer_communication_networks" : 19,
   "https://cso.kmi.open.ac.uk/topics/human_computer_interaction" : 20,
-  "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20,
-  "https://cso.kmi.open.ac.uk/topics/computer_aided_design" : 21,
-  "https://cso.kmi.open.ac.uk/topics/computer-aided_design" : 21,
-  "https://cso.kmi.open.ac.uk/topics/operating_system" : 22,
-  "https://cso.kmi.open.ac.uk/topics/operating_systems" : 22
+  "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20
 }
 colorMap = [
   d3.lab(85,-24,-1), //#9EE2D5
@@ -235,7 +236,7 @@ function drawChart(data, svg, graphID) {
     svg.call(tip);
 
     let zoom = d3.zoom()
-        .scaleExtent([0.5, 5])
+        .scaleExtent([(-2*szScale+0.99), 5])
         .on("zoom", function () {
           zoomGroup.attr("transform", d3.event.transform);
           SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
@@ -243,7 +244,7 @@ function drawChart(data, svg, graphID) {
     svg.call(zoom);
 
     path = contourGroup.selectAll("path")
-        .data(bubbletreemap.getContour(showLevel))
+        .data(bubbletreemap.getContour(szLevel))
         .enter().append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
@@ -290,7 +291,7 @@ function drawChart(data, svg, graphID) {
 
     circleGroup.selectAll("circle")
         .data(leafNodes.filter(function (nodes) {
-            return nodes.depth <= showLevel;
+            return nodes.depth <= szLevel;
         }))
         .enter().append("circle")
         .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
@@ -547,12 +548,12 @@ function doIt(fileName1, fileName2 = null) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
-  showLevel = 3 + Math.floor((d3.event.transform.k-1)/0.1);
-  showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+  szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
+  szLevel = szLevel<=treeHeight? szLevel : treeHeight;
 
   // updata contours
-  let newPath = svg.select("g").select("g").selectAll("path")
-    .data(bubbletreemap.getContour(showLevel));
+  let newPath = svg.select("g").select(".contour").selectAll("path")
+    .data(bubbletreemap.getContour(szLevel));
   newPath.exit().remove();
   newPath.enter().append("path")
     .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
@@ -593,12 +594,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         .style("stroke-width", function(arc) { return arc.strokeWidth; });
     });
 
-  let newCircle = svg.select("g").select("g").selectAll("circle")
+  let newCircle = svg.select("g").select(".circlesAfterPlanck").selectAll("circle")
                   .data(leafNodes.filter(function (nodes) {
-                    return nodes.depth <= showLevel;
+                    return nodes.depth <= szLevel;
                   }));
   console.log(leafNodes.filter(function (nodes) {
-    return nodes.depth <= showLevel;
+    return nodes.depth <= szLevel;
   }));
   newCircle.exit().remove();
   newCircle.enter().append("circle")

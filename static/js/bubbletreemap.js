@@ -574,9 +574,9 @@
         return paths;
     }
 
-    function contourHierarchy(hierarchyRoot, padding, curvature, showLevel=-1) {
+    function contourHierarchy(hierarchyRoot, padding, curvature, szLevel=-1) {
         let contours = [];
-        for(let layerDepth = showLevel; layerDepth >= 0; layerDepth--) {
+        for(let layerDepth = szLevel; layerDepth >= 0; layerDepth--) {
             // Get clusters of circles on this layer.
             let layerClusters = getLayerClusters(hierarchyRoot, layerDepth, padding);
 
