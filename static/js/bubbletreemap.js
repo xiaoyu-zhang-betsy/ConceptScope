@@ -624,7 +624,6 @@
             },
 
             getContour: function(_) {
-                console.log(arguments);
                 // Compute contours.
                 if (arguments.length==2) // generate different padding
                     return contourHierarchy(hierarchyRoot, arguments[1], curvature, arguments[0]);

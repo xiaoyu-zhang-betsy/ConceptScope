@@ -62,7 +62,10 @@ $("document").ready(function() {
       if (text != "") {
         // create canvas
         $("#graphCanvas")
-          .append('<div class="col svgGroup"> \
+          .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
+                      <button id="closeCanvasBtn' + graphNum + '" type="button" class="close pull-left" aria-label="btnClose"> \
+                        <span aria-hidden="true">&times;</span> \
+                      </button> \
                       <div class="row"> \
                           <div class="col" align="center"> \
                               <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
@@ -72,6 +75,12 @@ $("document").ready(function() {
                           </div> \
                       </div> \
                   </div>');
+
+        // close current canvas
+        $('#closeCanvasBtn'+ graphNum).on('click', function () {
+          console.log( $(this).parent());
+          $(this).parent().remove();
+        });
 
         //send data to the server
         var data = {};
@@ -111,7 +120,10 @@ $("document").ready(function() {
     if (text1 != "") {
       // create new canvas
       $("#graphCanvas")
-        .append('<div class="col svgGroup"> \
+        .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
+                    <button id="closeCanvasBtn' + graphNum + '" type="button" class="close pull-left" aria-label="btnClose"> \
+                      <span aria-hidden="true">&times;</span> \
+                    </button> \
                     <div class="row"> \
                         <div class="col" id="circleRow' + graphNum + '"> \
                             <div id="loader' + graphNum + '"> \
@@ -124,8 +136,13 @@ $("document").ready(function() {
                         </div> \
                     </div> \
                 </div>');
+      
+      // close current canvas
+      $('#closeCanvasBtn' + graphNum).on('click', function () {
+        $(this).parent().remove();
+      });
 
-    //send data to the server
+      //send data to the server
       var data = {};
       data['filename'] = text1;
       
@@ -158,7 +175,7 @@ $("document").ready(function() {
           graphNum++;
       },"json");
     }
-});
+  });
   
   // toggle sidebar
   $('#sidebarButton').on('click', function () {
@@ -168,6 +185,7 @@ $("document").ready(function() {
   // show selected file name
   $('.custom-file-input').change(function (e) {
     $(this).next('.custom-file-label').html(e.target.files[0].name);
+  });
 
   $('#showTransBtn').on('click', function() {
     d3.selectAll('#transGraphContent')
@@ -190,8 +208,6 @@ $("document").ready(function() {
     $(this).text("Hide transcript ✔");
     $('#showTransBtn').text(" Show transcript");
   });
-});
-
 });
 
 function drawChart(data, svg, graphID) {
