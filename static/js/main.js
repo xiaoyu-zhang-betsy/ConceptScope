@@ -3,9 +3,10 @@ var hoverHighlight = 'rgba(232, 138, 12, 1)'; //#E88A0C
 var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
 var prevClickedRow = '';
 var isRowClicked = false;
-var contourPadding = 7; // the distance between two contours
-var szScale = 0.1; // the scale to invoke semantic zooming
+var szScale = 0.2; // the scale to invoke semantic zooming
 var szLevel = 3; // the number of levels to show (for semantic zooming)
+var szPadding = 7; // the distance between two contours
+var szStrokeWidth = 3; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
@@ -38,18 +39,18 @@ var classDict = {
   "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20
 }
 colorMap = [
-  d3.lab(85,-24,-1), //#9EE2D5
-  d3.lab(85,-11,36), //#D2D98F
-  d3.lab(85,8,-15), //#D9D0F1
-  d3.lab(85,62,29), //#FF9FA2
-  d3.lab(85,-8,-22), //#B1DAFD
-  d3.lab(85,17,22), //#FEC8AC
-  d3.lab(85,-32,52), //#AFE46C
-  d3.lab(85,20,-6), //#F6C7E0
-  d3.lab(85,0,0), //#D4D4D4
+  d3.lab(85,-24,-1),  //#9EE2D5
+  d3.lab(85,-11,36),  //#D2D98F
+  d3.lab(85,8,-15),   //#D9D0F1
+  d3.lab(85,62,29),   //#FF9FA2
+  d3.lab(85,-8,-22),  //#B1DAFD
+  d3.lab(85,17,22),   //#FEC8AC
+  d3.lab(85,-32,52),  //#AFE46C
+  d3.lab(85,20,-6),   //#F6C7E0
+  d3.lab(85,0,0),     //#D4D4D4
   d3.lab(85,76,-100), //#FF9BFF
-  d3.lab(85,-17,15), //#BBDDB7
-  d3.lab(85, -6, 85) //#E8D600
+  d3.lab(85,-17,15),  //#BBDDB7
+  d3.lab(85, -6, 85)  //#E8D600
 ];
 
 //jQuery
@@ -202,7 +203,7 @@ function drawChart(data, svg, graphID) {
 
     // Create bubbletreemap.
     let bubbletreemap = d3.bubbletreemap()
-        .padding(7)
+        .padding(szPadding)
         .curvature(10)
         .hierarchyRoot(root)
         .width(svg.attr("width"))
@@ -236,15 +237,16 @@ function drawChart(data, svg, graphID) {
     svg.call(tip);
 
     let zoom = d3.zoom()
-        .scaleExtent([(-2*szScale+0.99), 5])
-        .on("zoom", function () {
-          zoomGroup.attr("transform", d3.event.transform);
-          SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
-        });
+      .scaleExtent([(-2*szScale+0.99), 5])
+      .on("zoom", function () {
+        zoomGroup.attr("transform", d3.event.transform);
+        SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+      });
     svg.call(zoom);
 
     path = contourGroup.selectAll("path")
-        .data(bubbletreemap.getContour(szLevel))
+        //.data(bubbletreemap.getContour(szLevel)) //semantic_zooming_1
+        .data(bubbletreemap.getContour(root.height, szPadding)) //semantic_zooming_2
         .enter().append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
@@ -255,7 +257,7 @@ function drawChart(data, svg, graphID) {
         .style("stroke-width", function(arc) { 
             //return 6-arc.depth*0.7; // Thicker outside, thinner inside
             //return 1+arc.depth*0.7; // Thinner outside, thicker inside
-            return arc.strokeWidth; // fill
+            return szStrokeWidth; // fill
         })
         .style("fill-opacity", 0.7) 
         .style("fill", function(arc) {
@@ -269,7 +271,7 @@ function drawChart(data, svg, graphID) {
             .style("fill-opacity", 0.7) 
             .style("fill", hoverHighlight)
             //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
-            .style("stroke-width", function(arc) { return arc.strokeWidth*2; });
+            .style("stroke-width", szStrokeWidth*2);
             
             labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
             tip.html(labelText).show();
@@ -281,7 +283,7 @@ function drawChart(data, svg, graphID) {
             .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
             //.style("fill", "white") // contour
             .style("fill", function(arc) { return contourColor(arc.depth);})// fill
-            .style("stroke-width", function(arc) { return arc.strokeWidth; });
+            .style("stroke-width", szStrokeWidth);
         });
         
     // Draw circles.
@@ -290,9 +292,10 @@ function drawChart(data, svg, graphID) {
         .style('transform', 'translate(50%, 50%)');
 
     circleGroup.selectAll("circle")
-        .data(leafNodes.filter(function (nodes) {
+        /*.data(leafNodes.filter(function (nodes) {
             return nodes.depth <= szLevel;
-        }))
+        })) //semantic_zooming_1 */
+        .data(leafNodes)
         .enter().append("circle")
         .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
         .attr("r", function(d) { return d.r; })
@@ -548,10 +551,10 @@ function doIt(fileName1, fileName2 = null) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
-  szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
+  szLevel = 7 + Math.floor((d3.event.transform.k-1)/szScale);
   szLevel = szLevel<=treeHeight? szLevel : treeHeight;
 
-  // updata contours
+  // update contours
   let newPath = svg.select("g").select(".contour").selectAll("path")
     .data(bubbletreemap.getContour(szLevel));
   newPath.exit().remove();
@@ -594,6 +597,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         .style("stroke-width", function(arc) { return arc.strokeWidth; });
     });
 
+  // update circles
   let newCircle = svg.select("g").select(".circlesAfterPlanck").selectAll("circle")
                   .data(leafNodes.filter(function (nodes) {
                     return nodes.depth <= szLevel;
@@ -646,13 +650,56 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
             .attr('fill', transGraphColor);
         }); 
     });
-  }
+}
 
-  function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
-    showLevel = 3 + Math.floor((d3.event.transform.k-1)/0.1);
-    showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
+  szPadding = 7 + Math.floor((d3.event.transform.k-1)/szScale);
+  //showLevel = showLevel<=treeHeight? showLevel : treeHeight;
+
+  // updata contours
+  let newPath = svg.select("g").select(".contour").selectAll("path")
+    .data(bubbletreemap.getContour(-1));
   
-    // updata contours
-    let newPath = svg.select("g").select("g").selectAll("path")
-      .data(bubbletreemap.getContour(treeHeight, showLevel));
-    }
+  newPath.exit().remove();
+
+  newPath = svg.select("g").select(".contour").selectAll("path")
+    .data(bubbletreemap.getContour(treeHeight, szPadding));
+  newPath.enter().append("path")
+    .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
+    .attr("d", function(arc) { return arc.d; })
+    .style("stroke", function(arc) {
+        return "black"; // fill
+        //return contourColor(arc.depth); // contour
+    })
+    .style("stroke-width", function(arc) { 
+        //return 6-arc.depth*0.7; // Thicker outside, thinner inside
+        //return 1+arc.depth*0.7; // Thinner outside, thicker inside
+        return arc.strokeWidth; // fill
+    })
+    .style("fill-opacity", 0.7) 
+    .style("fill", function(arc) {
+        //return "white"; // contour
+        return contourColor(arc.depth);// fill
+    })
+    .attr("transform", function(arc) {return arc.transform;})
+    .on("mouseover", function(d, i) {
+        // Use D3 to select element, change size
+        d3.selectAll("#"+this.id)
+        .style("fill-opacity", 0.7) 
+        .style("fill", hoverHighlight)
+        //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
+        .style("stroke-width", szStrokeWidth*2);
+        
+        labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
+        tip.html(labelText).show();
+    })
+    .on("mouseout", function(d, i) {
+        tip.hide();
+        // Use D3 to select element, change size
+        d3.selectAll("#"+this.id)
+        .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
+        //.style("fill", "white") // contour
+        .style("fill", function(arc) { return contourColor(arc.depth);})// fill
+        .style("stroke-width", szStrokeWidth);
+    });
+}
