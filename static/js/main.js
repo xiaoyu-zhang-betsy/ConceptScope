@@ -1,9 +1,10 @@
 // global variables
 var hoverHighlight = 'rgba(232, 138, 12, 1)'; //#E88A0C
 var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
+var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
-var szScale = 0.2; // the scale to invoke semantic zooming
+var szScale = 0.1; // the scale to invoke semantic zooming
 var szLevel = 3; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 3; // the stroke width of the contour
@@ -229,7 +230,7 @@ function drawChart(data, svg, graphID) {
     // Create gradient color palette
     let contourColor = d3.scaleLinear().domain([root.height, 0]) // [0, root.height]:Darker outside, lighter inside [root.height, 0]:Lighter outside, darker inside 
         .interpolate(d3.interpolateLab)
-        .range([d3.lab("#000000"), d3.lab('#AAAAAA')]); // Fill_Lighter outside, darker inside
+        .range([d3.lab("#111111"), d3.lab('#AAAAAA')]); // Fill_Lighter outside, darker inside
         //.range([d3.lab("#333333"), d3.lab('#CCCCCC')]); //Fill_Darker outside, lighter inside
 
     // Do layout and coloring.
@@ -256,13 +257,13 @@ function drawChart(data, svg, graphID) {
       .scaleExtent([(-2*szScale+0.99), 5])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
-        SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+        SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
       });
     svg.call(zoom);
 
     path = contourGroup.selectAll("path")
-        //.data(bubbletreemap.getContour(szLevel)) //semantic_zooming_1
-        .data(bubbletreemap.getContour(root.height, szPadding)) //semantic_zooming_2
+        .data(bubbletreemap.getContour(szLevel)) //semantic_zooming_1
+        //.data(bubbletreemap.getContour(root.height, szPadding)) //semantic_zooming_2
         .enter().append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
@@ -308,19 +309,18 @@ function drawChart(data, svg, graphID) {
         .style('transform', 'translate(50%, 50%)');
 
     circleGroup.selectAll("circle")
-        /*.data(leafNodes.filter(function (nodes) {
+        .data(leafNodes.filter(function (nodes) {
             return nodes.depth <= szLevel;
-        })) //semantic_zooming_1 */
-        .data(leafNodes)
+        })) //semantic_zooming_1
+        //.data(leafNodes) //semantic_zooming_2
         .enter().append("circle")
         .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
         .attr("r", function(d) { return d.r; })
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
-        .attr("data-color", function(d) { return d.color; })
         .style("fill", function(d) { return d.color; })
+        .style("stroke", "black")
         //.style("fill-opacity", 0.7)
-        //.style("stroke", "black")
         //.style("stroke-width", "1")
         .on("mouseover", function(d, i) {
             // Use D3 to select element, change size
@@ -466,13 +466,27 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
       entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
       if (!entityCircle.empty())
-        entityCircle.style("stroke-width", "4")
-                    .style("stroke", "black")
-                    .style("fill", hoverHighlight);
-                    //.attr("r", function(d) { return d.r+2; })
-                    //.style("stroke", hoverHighlight)
-                    //.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1));
+          entityCircle.style("stroke-width", "4");
+                      //.style("stroke", "black")
+                      //.style("fill", hoverHighlight);
+                      //.attr("r", function(d) { return d.r+2; })
+                      //.style("stroke", hoverHighlight)
+                      //.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1));
     });
+
+    // fade out other circles
+    otherCircle = d3.selectAll("circle").filter(function(circle){
+      flag = true;
+      d.marks.forEach(function(mark) {
+        if (circle.data.name === mark.entityURI) {
+          flag = false;
+        }
+      });
+      return flag;
+    });
+
+    if (!otherCircle.empty())
+      otherCircle.transition().style("fill", transGraphColor);
   })
   .on("mouseout", function(d){
     tip.hide();
@@ -482,13 +496,30 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     d3.select(this).attr('z', 1);
     /*$("#transTable").find("td").removeClass("hoverHighlight");*/
 
+    // recover the color of fade out circles
+    otherCircle = d3.selectAll("circle").filter(function(circle){
+      flag = true;
+      d.marks.forEach(function(mark) {
+        if (circle.data.name === mark.entityURI) {
+          flag = false;
+        }
+      });
+      return flag;
+    });
+
+    if (!otherCircle.empty()){
+      otherCircle.transition().style("fill", function(circle) {
+        return circle.color;
+      });
+    }
+
     // recover the color of highlighted circles
     d.marks.forEach(function(mark) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
       entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
       if (!entityCircle.empty())
-        entityCircle.style("fill", entityCircle.attr("data-color"))
-                    .style("stroke-width", "0");
+        entityCircle.style("stroke-width", "0");
+                    //.style("fill", entityCircle.attr("data-color"))
                     //.attr("r", function(d) { return d.r; })
     });
   });
@@ -567,7 +598,7 @@ function doIt(fileName1, fileName2 = null) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
-  szLevel = 7 + Math.floor((d3.event.transform.k-1)/szScale);
+  szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
   szLevel = szLevel<=treeHeight? szLevel : treeHeight;
 
   // update contours
