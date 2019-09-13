@@ -1,6 +1,6 @@
 // global variables
 var hoverHighlight = 'rgba(232, 138, 12, 1)'; //#E88A0C
-var transGraphColor = 'rgba(123, 123, 123, 0.2)';//#7B7B7B
+var transGraphColor = 'rgba(100, 100, 100, 0.2)';//#7B7B7B
 var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
@@ -64,12 +64,19 @@ $("document").ready(function() {
         // create canvas
         $("#graphCanvas")
           .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
-                      <button id="closeCanvasBtn' + graphNum + '" type="button" class="close pull-left" aria-label="btnClose"> \
+                      <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                         <span aria-hidden="true">&times;</span> \
                       </button> \
-                      <div class="row"> \
+                        <div class="row"> \
                           <div class="col" align="center"> \
-                              <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
+                              <div class="row"> \
+                                  <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
+                              </div> \
+                              <div class="row"> \
+                                <div class="divText" id="divText' + graphNum + '"> \
+                                    <table id="tableText' + graphNum + '" style="border-collapse:separate; border-spacing:0 5px;"></table> \
+                                </div> \
+                              </div> \
                           </div> \
                           <div class="col col-lg-2" id="transGraphContent"> \
                             <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
@@ -89,7 +96,6 @@ $("document").ready(function() {
 
         $.post("/loadGraph",data,
         function(jsonData,status){
-            console.log(jsonData);
             try {
               // draw bubble treemap
               let svg1 = d3.select("#svgCircles"+graphNum);
@@ -105,6 +111,15 @@ $("document").ready(function() {
               // draw transcript view
               let svgTrans = d3.select("#svgTrans"+graphNum);
               drawTrans(jsonData["sentences"], svgTrans, graphNum);
+            }
+            catch(error) {
+              console.error(error);
+            }
+
+            try {
+              // draw raw text view
+              let svgTrans = d3.select("#svgTrans"+graphNum);
+              drawText(jsonData["sentences"], svgTrans, graphNum);
             }
             catch(error) {
               console.error(error);
@@ -260,6 +275,10 @@ function drawChart(data, svg, graphID) {
         SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
       });
     svg.call(zoom);
+
+    svg.node().addEventListener("resize", function(){
+      console.log("here");
+    });
 
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour(szLevel)) //semantic_zooming_1
@@ -461,6 +480,10 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     //}
     d3.select(this).attr('z', 50);
 
+    // highlight corresponding raw text
+    var textId = d3.select(this).attr('id').replace('rSen', 'line');
+    d3.select('#'+textId).style('background-color', hoverHighlight);
+
     // highlight corresponding circles
     d.marks.forEach(function(mark) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
@@ -486,7 +509,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     });
 
     if (!otherCircle.empty())
-      otherCircle.transition().style("fill", transGraphColor);
+      otherCircle.style("fill", transGraphColor);
   })
   .on("mouseout", function(d){
     tip.hide();
@@ -495,6 +518,10 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     //}
     d3.select(this).attr('z', 1);
     /*$("#transTable").find("td").removeClass("hoverHighlight");*/
+
+    // recover corresponding raw text
+    var textId = d3.select(this).attr('id').replace('rSen', 'line');
+    d3.select('#'+textId).transition().style('background-color', null);
 
     // recover the color of fade out circles
     otherCircle = d3.selectAll("circle").filter(function(circle){
@@ -508,7 +535,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     });
 
     if (!otherCircle.empty()){
-      otherCircle.transition().style("fill", function(circle) {
+      otherCircle.style("fill", function(circle) {
         return circle.color;
       });
     }
@@ -546,8 +573,43 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
 
 }
 
+function drawText(senList, table, graphID) {
+  displayLines = [];
+  
+  for (i=0; i < senList.length; i++) {
+    displayLines.push(
+      '<tr id="row' + i + '">' +
+      '<td style="border: 1px solid ' + transGraphColor + '; ' +
+      'border-right: 7px solid ' + transGraphColor + '; ' +
+      'color: rgba(100, 100, 100, 1); ' +
+      'font-family:Roboto; font-size:13pt; padding: 5px;"' +
+      'class="unselectable" id="g-' + graphID + '-' + 'tag-' + i + '">' +
+      i + '</td>' +
+      '<td id="g-' + graphID + '-' + 'line-' + i + '" ' +
+      'class="tdText">' +
+      senList[i].sentence + '</td></tr>');
+  }
+
+  var tableBody = $('#tableText'+graphID).append('<tbody></tbody>');
+  for (var j in displayLines) {
+    tableBody.append(displayLines[j]);
+  }
+
+  d3.selectAll(".tdText")
+    .on("mouseover", function(){
+      d3.select(this).style('background-color', hoverHighlight);
+      var rectId = d3.select(this).attr('id').replace('line', 'rSen');
+      d3.select('#'+rectId).attr('fill', hoverHighlight);
+    })
+    .on("mouseout", function(){
+      d3.select(this).style('background-color', null);
+      var rectId = d3.select(this).attr('id').replace('line', 'rSen');
+      d3.select('#'+rectId).attr('fill', transGraphColor);
+    });
+}
+
 function genTipsHtml(data, index) {
-  s_html = "<font size=5 color='#fff'>"+ index +":  </font>";
+  s_html = "<font size=5 color='#FFF'>"+ index +":  </font>";
 
   plain_start = 0
   plain_end = 0
@@ -555,7 +617,7 @@ function genTipsHtml(data, index) {
   data.marks.forEach(function(mark){
     plain_end = mark.start_char;
     s_html = s_html + text.substring(plain_start, plain_end);
-    s_html = s_html + '<span style="background-color:' + d3.rgb(colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length]).darker(1) + '">' + text.substring(mark.start_char, mark.end_char) + '</span>';
+    s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
     plain_start = mark.end_char;
   });
   s_html = s_html + text.substring(plain_start, text.length);

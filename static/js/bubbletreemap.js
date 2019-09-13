@@ -209,7 +209,7 @@
 
 
     function colorHierarchy(hierarchyRoot, colormap) {
-        var classDict = {
+        classDict = {
             "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
             "https://cso.kmi.open.ac.uk/topics/robotics" : 1,
             "https://cso.kmi.open.ac.uk/topics/computer_vision" : 2,
@@ -222,22 +222,22 @@
             "https://cso.kmi.open.ac.uk/topics/computer_programming" : 9, 
             "https://cso.kmi.open.ac.uk/topics/computer_security" : 10,
             "https://cso.kmi.open.ac.uk/topics/theoretical_computer_science" : 11,
-            "https://cso.kmi.open.ac.uk/topics/computer_communication_networks" : 12,
-            "https://cso.kmi.open.ac.uk/topics/internet" : 13,
-            "https://cso.kmi.open.ac.uk/topics/formal_languages" : 14,
-            "https://cso.kmi.open.ac.uk/topics/software" : 15,
-            "https://cso.kmi.open.ac.uk/topics/hardware" : 16,
-            "https://cso.kmi.open.ac.uk/topics/computer_hardware" : 17,
+            "https://cso.kmi.open.ac.uk/topics/internet" : 12,
+            "https://cso.kmi.open.ac.uk/topics/formal_languages" : 13,
+            "https://cso.kmi.open.ac.uk/topics/software" : 14,
+            "https://cso.kmi.open.ac.uk/topics/hardware" : 15,
+            "https://cso.kmi.open.ac.uk/topics/computer_hardware" : 15,
+            "https://cso.kmi.open.ac.uk/topics/computer_aided_design" : 16,
+            "https://cso.kmi.open.ac.uk/topics/computer-aided_design" : 16,
+            "https://cso.kmi.open.ac.uk/topics/operating_system" : 17,
+            "https://cso.kmi.open.ac.uk/topics/operating_systems" : 17,
             "https://cso.kmi.open.ac.uk/topics/computer_system" : 18,
             "https://cso.kmi.open.ac.uk/topics/computer_systems" : 18,
             "https://cso.kmi.open.ac.uk/topics/computer_network" : 19,
             "https://cso.kmi.open.ac.uk/topics/computer_networks" : 19,
+            "https://cso.kmi.open.ac.uk/topics/computer_communication_networks" : 19,
             "https://cso.kmi.open.ac.uk/topics/human_computer_interaction" : 20,
-            "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20,
-            "https://cso.kmi.open.ac.uk/topics/computer_aided_design" : 21,
-            "https://cso.kmi.open.ac.uk/topics/computer-aided_design" : 21,
-            "https://cso.kmi.open.ac.uk/topics/operating_system" : 22,
-            "https://cso.kmi.open.ac.uk/topics/operating_systems" : 22
+            "https://cso.kmi.open.ac.uk/topics/human-computer_interaction" :20
         }
         let colorIndex = 0;
         hierarchyRoot.children.forEach(function(child) {

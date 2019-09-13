@@ -10,15 +10,15 @@
 .graphView {
   display: inline-block;
   vertical-align: top;
-  padding: 20px 10px 0px 10px;
+  /*padding: 10px 10px 0px 10px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 5px;*/
   width:100%;
   height: 95vh;
-  font-size: 13px;
+  font-size: 13pt;
   font-family: helvetica, sans-serif;
   overflow: hidden;
-  background: #f0f0f0;
+  background: #9ca0a3;
 }
 
 
@@ -131,19 +131,52 @@ ul ul a {
 
 /*************************  Graph View ***************************/
 .svgGroup {
-  border:3px solid gray; 
-  height:91vh;
+  /*border:3px solid #6c757d;*/
+  border-radius: 5px;
+  background-color: #343a40;
+  height:93vh;
   margin: 15px;
 }
 
 .svgCircles {
+  border:2px solid #6c757d;
+  border-radius: 5px;
+  background-color: white;
   width:100%; 
-  height:90vh;
+  height:69vh;
+  margin-top: 2vh;
 }
 
 .svgTrans {
+  border:2px solid #6c757d;
+  border-radius: 5px;
+  background-color: white;
   width:100%; 
-  height:90vh;
+  height:89vh;
+  margin-top: 2vh;
+}
+
+.divText {
+  border:2px solid #6c757d;
+  border-radius: 5px;
+  background-color: white;
+  width:100%; 
+  height:19vh;
+  line-height: 1.2;
+  list-style: none;
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 1vh;
+  overflow: auto;
+}
+
+.svgLegend {
+  border:2px solid #6c757d;
+  border-radius: 5px;
+  background-color: white;
+  width:100%; 
+  height:69vh;
+  margin-top: 2vh;
 }
 
 .d3-tip {
@@ -158,4 +191,18 @@ ul ul a {
   /*border:2px solid gray; */
   word-wrap: break-word;
   max-width: 250px;
+}
+
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tdText {
+  word-break: break-word; 
+  hyphens: auto; 
+  padding: 5px;
 }
