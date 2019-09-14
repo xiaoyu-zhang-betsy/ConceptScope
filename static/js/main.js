@@ -256,6 +256,7 @@ function drawChart(data, svg, graphID) {
     });
 
     let zoomGroup = svg.append("g");
+    genLegend(data, svg);
 
     // Draw contour.
     let contourGroup = zoomGroup.append("g")
@@ -275,10 +276,6 @@ function drawChart(data, svg, graphID) {
         SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
       });
     svg.call(zoom);
-
-    svg.node().addEventListener("resize", function(){
-      console.log("here");
-    });
 
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour(szLevel)) //semantic_zooming_1
@@ -657,6 +654,42 @@ function doIt(fileName1, fileName2 = null) {
           });
       }
   });
+}
+
+function genLegend(data, svg) {
+  let legendGroup = svg.append("svg")
+        .attr("class", "svgLegend");
+  var legendVals = d3.scaleOrdinal()
+                  .domain(data.children.map(function(v) { return v.name;}));
+                  //.domain(Object.keys(classDict).map(function(v) { return v.substring(v.lastIndexOf("/")+1, v.length); }));
+
+  var legend = legendGroup.selectAll('.legend')
+  .data(legendVals.domain())
+  .enter().append('g')
+  .attr("transform", function (d, i) {
+    pos_y = (i * 17) + 10; 
+    return "translate(10," + pos_y + ")";
+  });
+
+  legend.append('rect')
+  .attr("x", 0)
+  .attr("y", 0)
+  .attr("width", 15)
+  .attr("height", 10)
+  .style("fill", function (d, i) {
+    return colorMap[classDict[d.substring(1,d.length-1)]%12];
+  });
+
+  legend.append('text')
+  .attr("x", 20)
+  .attr("y", 10)
+  //.attr("dy", ".35em")
+  .text(function (d, i) {
+    return d.substring(d.lastIndexOf("/")+1, d.length-1);;
+  })
+  .attr("class", "textselected")
+  .style("text-anchor", "start")
+  .style("font-size", 15);
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
