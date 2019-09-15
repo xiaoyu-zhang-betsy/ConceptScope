@@ -374,6 +374,14 @@ function drawChart(data, svg, graphID) {
               d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
                 .attr('fill', transGraphColor);
             }); 
+        })
+        .on("click", function(d, i) {
+          console.log(d);
+          console.log($(this));
+          labelText = "<div>" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1) + "</div>";
+          labelText += '<a href="' + d.data.name.substring(1, d.data.name.length) + '">Read more</link>';
+          console.log(labelText);
+          tip.html(labelText).show();
         });
 }
 
