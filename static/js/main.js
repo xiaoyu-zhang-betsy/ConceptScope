@@ -4,6 +4,7 @@ var transGraphColor = 'rgba(100, 100, 100, 0.2)';//#7B7B7B
 var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
+var circleClicked = false;
 var szScale = 0.1; // the scale to invoke semantic zooming
 var szLevel = 3; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
@@ -245,7 +246,7 @@ function drawChart(data, svg, graphID) {
     // Create gradient color palette
     let contourColor = d3.scaleLinear().domain([root.height, 0]) // [0, root.height]:Darker outside, lighter inside [root.height, 0]:Lighter outside, darker inside 
         .interpolate(d3.interpolateLab)
-        .range([d3.lab("#111111"), d3.lab('#AAAAAA')]); // Fill_Lighter outside, darker inside
+        .range([d3.lab("#333333"), d3.lab('#AAAAAA')]); // Fill_Lighter outside, darker inside
         //.range([d3.lab("#333333"), d3.lab('#CCCCCC')]); //Fill_Darker outside, lighter inside
 
     // Do layout and coloring.
@@ -266,8 +267,16 @@ function drawChart(data, svg, graphID) {
     let tip = d3.tip()
       .attr('class', 'd3-tip')
       .offset([5, 0])
-      .direction('e');
+      .direction('e')
+      .attr("data-clicked", false);
     svg.call(tip);
+
+    d3.select("body").on("click",function(){
+      if ((event.target.nodeName!="path")&&(event.target.nodeName!="circle")) {
+          tip.hide();
+          circleClicked = false;
+      }
+    });
 
     let zoom = d3.zoom()
       .scaleExtent([(-2*szScale+0.99), 5])
@@ -306,11 +315,15 @@ function drawChart(data, svg, graphID) {
             //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
             .style("stroke-width", szStrokeWidth*2);
             
-            labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
-            tip.html(labelText).show();
+            if(!circleClicked) {
+              labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
+              tip.html(labelText).show();
+            }
         })
         .on("mouseout", function(d, i) {
-            tip.hide();
+            if(!circleClicked)
+              tip.hide();
+
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
             .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
@@ -352,8 +365,10 @@ function drawChart(data, svg, graphID) {
             //.style("stroke", hoverHighlight)
             //.attr("r", function(d) { return d.r+2; })
             
-            labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
-            tip.html(labelText).show();
+            if(!circleClicked) {
+              labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
+              tip.html(labelText).show();
+            }
                 
             // highlight rectangles in transcript view
             d.data.location.forEach(function(location) {
@@ -362,7 +377,10 @@ function drawChart(data, svg, graphID) {
             });            
         })
         .on("mouseout", function(d, i) {
-            tip.hide();
+            if(!circleClicked) {
+              tip.hide();
+              tip.attr("data-clicked", false);
+            }
             // Use D3 to select element, change size
             d3.selectAll("#"+this.id)
             //d3.select(this)
@@ -376,12 +394,11 @@ function drawChart(data, svg, graphID) {
             }); 
         })
         .on("click", function(d, i) {
-          console.log(d);
-          console.log($(this));
           labelText = "<div>" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1) + "</div>";
-          labelText += '<a href="' + d.data.name.substring(1, d.data.name.length) + '">Read more</link>';
+          labelText += '<a href="' + d.data.name.substring(1, d.data.name.length-1) + '">Read more</link>';
           console.log(labelText);
           tip.html(labelText).show();
+          circleClicked = true;
         });
 }
 
@@ -478,6 +495,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   .attr("height", function (d) { return d.height; })
   .attr("fill", d.fillColor)
   .on("mouseover", function(d, i){
+    HighlightRect(d, i, this, graphID, tip);
     tip.html(genTipsHtml(d, i)).show();
     d3.select(this).attr("height", 5);
     //if ((prevClickedTag === "") && !(isRowClicked)){
@@ -605,6 +623,7 @@ function drawText(senList, table, graphID) {
       d3.select(this).style('background-color', hoverHighlight);
       var rectId = d3.select(this).attr('id').replace('line', 'rSen');
       d3.select('#'+rectId).attr('fill', hoverHighlight);
+      //HighlightRect(senList[i], i, d3.select('#'+rectId), graphID, tip);
     })
     .on("mouseout", function(){
       d3.select(this).style('background-color', null);
@@ -629,6 +648,7 @@ function genTipsHtml(data, index) {
 
   return s_html;
 }
+
 // abadoned
 function doIt(fileName1, fileName2 = null) {
   let svg1 = d3.select("#svgCircles1");
@@ -700,6 +720,74 @@ function genLegend(data, svg) {
   .style("font-size", 15);
 }
 
+function AppendPath(){
+  
+}
+
+function AppendCircle(){
+  
+}
+
+function HighlightCircles(){
+
+}
+
+function HighlightRect(d, i, objDOM, graphID, tip){
+  tip.html(genTipsHtml(d, i)).show();
+  d3.select(objDOM).attr("height", 5);
+  //if ((prevClickedTag === "") && !(isRowClicked)){
+  d3.select(objDOM).attr('fill', hoverHighlight);
+  //}
+  d3.select(objDOM).attr('z', 50);
+
+  // highlight corresponding raw text
+  var textId = d3.select(objDOM).attr('id').replace('rSen', 'line');
+  d3.select('#'+textId).style('background-color', hoverHighlight);
+
+  // highlight corresponding circles
+  d.marks.forEach(function(mark) {
+    entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
+    entityCircle = d3.select("#g-" + graphID + "-" + "e-" + entityName);
+    if (!entityCircle.empty())
+        entityCircle.style("stroke-width", "4");
+                    //.style("stroke", "black")
+                    //.style("fill", hoverHighlight);
+                    //.attr("r", function(d) { return d.r+2; })
+                    //.style("stroke", hoverHighlight)
+                    //.style("fill", d3.rgb(entityCircle.attr("data-color")).darker(1));
+  });
+
+  // fade out other circles
+  otherCircle = d3.selectAll("circle").filter(function(circle){
+    flag = true;
+    d.marks.forEach(function(mark) {
+      if (circle.data.name === mark.entityURI) {
+        flag = false;
+      }
+    });
+    return flag;
+  });
+
+  if (!otherCircle.empty())
+    otherCircle.style("fill", transGraphColor);
+}
+
+function HighlightText(){
+  
+}
+
+function RecoverCircles(){
+
+}
+
+function RecoverRect(){
+  
+}
+
+function RecoverText(){
+  
+}
+
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
   szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
   szLevel = szLevel<=treeHeight? szLevel : treeHeight;
@@ -732,19 +820,25 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         .style("fill-opacity", 0.7) 
         .style("fill", hoverHighlight)
         //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
-        .style("stroke-width", function(arc) { return arc.strokeWidth*2; });
+        .style("stroke-width", szStrokeWidth*2);
         
-        labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
-        tip.html(labelText).show();
+        if(!tip.attr("data-clicked")) {
+          labelText = d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1);
+          tip.html(labelText).show()
+            .attr("data-clicked", false);
+        }
     })
     .on("mouseout", function(d, i) {
-        tip.hide();
+        if(!circleClicked) {
+          tip.hide();
+          tip.attr("data-clicked", false);
+        }
         // Use D3 to select element, change size
         d3.selectAll("#"+this.id)
         .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
         //.style("fill", "white") // contour
         .style("fill", function(arc) { return contourColor(arc.depth);})// fill
-        .style("stroke-width", function(arc) { return arc.strokeWidth; });
+        .style("stroke-width", szStrokeWidth);
     });
 
   // update circles
@@ -765,7 +859,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     //.style("stroke-width", "1")
     .on("mouseover", function(d, i) {
         // Use D3 to select element, change size
-      /* d3.select(this)
+        /* d3.select(this)
         //.attr("r", d.r*1.1)
         .style("fill", d3.rgb(d.color).darker(0.8));*/
         
@@ -778,7 +872,8 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         //.attr("r", function(d) { return d.r+2; })
         
         labelText = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1);
-        tip.html(labelText).show();
+        tip.html(labelText).show()
+          .attr("data-clicked", false);
             
         // highlight rectangles in transcript view
         d.data.location.forEach(function(location) {
@@ -787,7 +882,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         });            
     })
     .on("mouseout", function(d, i) {
-        tip.hide();
+        if(!circleClicked) {
+          tip.hide();
+        }
         // Use D3 to select element, change size
         d3.selectAll("#"+this.id)
         //d3.select(this)
@@ -799,8 +896,15 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
           d3.select("#g-" + graphID + "-" + "rSen" + "-" + location[0])
             .attr('fill', transGraphColor);
         }); 
+    })
+    .on("click", function(d, i) {
+      labelText = "<div>" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1) + "</div>";
+      labelText += '<a href="' + d.data.name.substring(1, d.data.name.length-1) + '">Read more</link>';
+      
+      tip.html(labelText).show()
+      circleClicked = true;
     });
-}
+  }
 
 function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
   szPadding = 7 + Math.floor((d3.event.transform.k-1)/szScale);
@@ -844,7 +948,8 @@ function SemanticZooming_2(bubbletreemap, svg, leafNodes, graphID, contourColor,
         tip.html(labelText).show();
     })
     .on("mouseout", function(d, i) {
-        tip.hide();
+        if (!circleClicked)
+          tip.hide();
         // Use D3 to select element, change size
         d3.selectAll("#"+this.id)
         .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
