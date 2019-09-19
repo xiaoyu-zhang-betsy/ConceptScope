@@ -589,6 +589,9 @@
                     segment.strokeWidth = cluster.parent.uncertainty;
                     segment.name = cluster.parent.data.name;
                     segment.depth = layerDepth;
+                    segment.height = cluster.parent.height;
+                    segment.color = cluster.parent.color;
+                    //console.log(cluster.parent);
                     //console.log(cluster);
                 });
 

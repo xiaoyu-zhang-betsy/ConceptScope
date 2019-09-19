@@ -202,3 +202,9 @@ ul ul a {
   hyphens: auto; 
   padding: 5px;
 }
+
+.glow{
+  -webkit-box-shadow: 0px 0px 8px 5px black;
+  -moz-box-shadow: 0px 0px 8px 2px light green;
+  box-shadow: 0px 0px 8px 2px light blue;
+}
