@@ -322,6 +322,25 @@ function drawChart(data, svg, graphID) {
         .attr("class", "circlesAfterPlanck")
         .style('transform', 'translate(50%, 50%)');
 
+    //Glowing effect: Container for the gradients
+    var defs = circleGroup.append("defs");
+
+    //Filter for the outside glow
+    var filter = defs.append("filter")
+        .attr("id","glow")
+        .attr("x", "-30%")
+        .attr("y", "-30%")
+        .attr("width", "160%")
+        .attr("height", "160%");
+    filter.append("feGaussianBlur")
+        .attr("stdDeviation","3.5")
+        .attr("result","coloredBlur");
+    var feMerge = filter.append("feMerge");
+    feMerge.append("feMergeNode")
+        .attr("in","coloredBlur");
+    feMerge.append("feMergeNode")
+        .attr("in","SourceGraphic");
+
     circleGroup.selectAll("circle")
         .data(leafNodes.filter(function (nodes) {
             return nodes.depth <= szLevel;
@@ -764,12 +783,12 @@ function HighlightCircle(id, graphID, tip=null) {
   if (!circles.empty()) {
     circles
     //.style("fill", function(d) {return d3.lab(d.color).darker(2);})
-    .style("stroke-width", 0)
-    .style("stroke-dasharray", "3,3")
+    .style("stroke-width", 1)
+    //.style("stroke-dasharray", "3,3")
     //.style("fill", hoverHighlight)
-    //.style("stroke", "black")
+    //.style("stroke", "white")
     .style("stroke", function(d) {return d3.lab(d.color).brighter(1);})
-    .style("filter", "drop-shadow(0 0 30px #333)")
+    .style("filter", "url(#glow)");
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
   
@@ -788,6 +807,7 @@ function RecoverCircle(id, graphID, tip) {
     .style("stroke", "black")
     .style("stroke-width", szStrokeWidth)
     .style("stroke-dasharray", null)
+    .style("filter", null)
     .attr("r", function(d) { return d.r; }); 
 
   if(tip!=null && !circleClicked) {
@@ -809,8 +829,8 @@ function HighlightPath(id, graphID, tip){
   .style("fill-opacity", 0.7) 
   .style("fill", function(arc) {return d3.lab(arc.color).darker(1);})
   //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
-  //.style("stroke", function(arc) {return d3.lab(arc.color).darker(1);})
-  .style("stroke-width", szStrokeWidth*2);
+  //.style("stroke", function(arc) {return d3.lab(arc.color).brighter(1);})
+  .style("stroke-width", szStrokeWidth+1);
   
   if(tip!=null && !circleClicked) {
     labelText = id.substring(id.lastIndexOf("-")+1, id.length);
