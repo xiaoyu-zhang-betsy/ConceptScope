@@ -65,9 +65,9 @@
 
                 <form class="navbar-form navbar-left" role="search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>   
+                            <button type="button" id="searchButton" class="btn btn-secondary"><i class="fa fa-search"></i></button>   
                         </span>
                     </div>
                 </form>
@@ -110,21 +110,21 @@
                 </div-->
                 <ul class="list-unstyled components">
                     <li class="active">
-                        <a href="#orderSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Comparison Mode</a>
-                        <ul class="collapse list-unstyled show" id="orderSubmenu">
+                        <a href="#comparisonSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Comparison</a>
+                        <ul class="collapse list-unstyled show" id="comparisonSubmenu">
                             <li>
                                 <div class="well" style="height: 300px">To be filled...</div>
                             </li>
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Exploration Mode</a>
-                        <ul class="collapse list-unstyled show" id="searchSubmenu">
+                        <a href="#explorationSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Exploration</a>
+                        <ul class="collapse list-unstyled show" id="explorationSubmenu">
                             <li>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="szSwitch">
-                                        <label class="custom-control-label" for="szSwitch">Lock Levels</label>
-                                    </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="szSwitch">
+                                    <label class="custom-control-label" for="szSwitch">Lock Levels</label>
+                                </div>
                                 <!--div class="well" style="height: 300px">To be filled...</div-->
                             </li>
                         </ul>

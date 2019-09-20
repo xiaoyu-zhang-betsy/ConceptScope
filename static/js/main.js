@@ -5,9 +5,9 @@ var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
-var szOn = false;
+var szOn = true;
 var szScale = 0.1; // the scale to invoke semantic zooming
-var szLevel; // the number of levels to show (for semantic zooming)
+var szLevel = 3; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 2; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
@@ -227,12 +227,55 @@ $("document").ready(function() {
     $('#showTransBtn').text(" Show transcript");
   });
 
+  // semantic zooming switch
   $('#szSwitch').on('change.bootstrapSwitch', function (e) {
-    if (e.target.checked){
+    if (!e.target.checked){
       szOn = true;
       szLevel =3;
     } else {
       szOn = false;
+    }
+  });
+
+  // search
+  $('#searchButton').on('click', function(){
+    keyword = $('#searchInput').val();
+
+    // search circles
+    idList = []
+    d3.selectAll("circle").nodes().forEach(function(circle) {
+      if(circle.id.includes(keyword))
+        idList.push(circle.id);
+    });
+    HighlightCircle(idList);
+
+    // search paths
+    d3.selectAll("path").nodes().forEach(function(path) {
+      if(path.id.includes(keyword))
+        HighlightPath(path.id);
+    });
+  });
+
+  $('#searchInput').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      event.preventDefault();
+      keyword = $(this).val();
+
+      // search circles
+      idList = []
+      d3.selectAll("circle").nodes().forEach(function(circle) {
+        if(circle.id.includes(keyword))
+          idList.push(circle.id);
+      });
+      HighlightCircle(idList);
+
+      // search paths
+      d3.selectAll("path").nodes().forEach(function(path) {
+        if(path.id.includes(keyword))
+          HighlightPath(path.id);
+      });
+      return false;
     }
   });
 });
@@ -289,7 +332,6 @@ function drawChart(data, svg, graphID) {
     });
 
     // zooming related
-    szLevel = root.height;
     let zoom = d3.zoom()
       .scaleExtent([(-2*szScale+0.99), 5])
       .on("zoom", function () {
@@ -742,12 +784,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     });
   }
 
-function HighlightCircle(idList, graphID, tip=null) {
+function HighlightCircle(idList, graphID=-1, tip=null) {
   // Use D3 to select all elements in multiple graph
   circles = d3.selectAll("circle").filter(function(circle) {
     flag = false;
     idList.forEach(function(id){
-      specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+      specificName = '/' + id.substring(id.lastIndexOf("e-")+2, id.length)+'>';
       if (circle.data.name.includes(specificName))
         flag = true;
     });
@@ -769,7 +811,7 @@ function HighlightCircle(idList, graphID, tip=null) {
     
     circles.nodes().forEach(function(d) {
       if(tip!=null && !circleClicked) {
-        labelText = d.id.substring(d.id.lastIndexOf("-")+1, d.id.length);
+        labelText = d.id.substring(d.id.lastIndexOf("e-")+2, d.id.length);
         tip.html(labelText).show();
       }
     })
@@ -779,7 +821,7 @@ function HighlightCircle(idList, graphID, tip=null) {
   otherCircles = d3.selectAll("circle").filter(function(circle) {
     flag = true;
     idList.forEach(function(id){
-      specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+      specificName = '/' + id.substring(id.lastIndexOf("e-")+2, id.length)+'>';
       if (circle.data.name.includes(specificName))
         flag = false;
     });
@@ -813,10 +855,10 @@ function ClickCircle(uri, tip) {
   circleClicked = true;
 }
 
-function HighlightPath(id, graphID, tip){
+function HighlightPath(id, graphID=-1, tip=null){
   // Use D3 to select all elements in multiple graph
   paths = d3.selectAll("path").filter(function(path) {
-    specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+    specificName = '/' + id.substring(id.lastIndexOf("c-")+2, id.length)+'>';
     if (path.name.includes(specificName))
       return true;
     else
@@ -829,7 +871,7 @@ function HighlightPath(id, graphID, tip){
   .style("stroke-width", szStrokeWidth+1);
   
   if(tip!=null && !circleClicked) {
-    labelText = id.substring(id.lastIndexOf("-")+1, id.length);
+    labelText = id.substring(id.lastIndexOf("c-")+2, id.length);
     tip.html(labelText).show();
   }
 }
@@ -837,7 +879,7 @@ function HighlightPath(id, graphID, tip){
 function RecoverPath(contourColor, id, graphID, tip) {
   // Use D3 to select all elements in multiple graph
   paths = d3.selectAll("path").filter(function(path) {
-    specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+    specificName = '/' + id.substring(id.lastIndexOf("c-")+2, id.length)+'>';
     if (path.name.includes(specificName))
       return true;
     else
