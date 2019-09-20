@@ -5,8 +5,9 @@ var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
+var szOn = false;
 var szScale = 0.1; // the scale to invoke semantic zooming
-var szLevel = 3; // the number of levels to show (for semantic zooming)
+var szLevel; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 2; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
@@ -49,7 +50,7 @@ colorMap = [
   d3.lab(85,17,22),   //#FEC8AC
   d3.lab(85,-32,52),  //#AFE46C
   d3.lab(85,20,-6),   //#F6C7E0
-  d3.lab(85,0,0),     //#D4D4D4
+  d3.lab(85,0,20),    //#D4D4D4
   d3.lab(85,76,-100), //#FF9BFF
   d3.lab(85,-17,15),  //#BBDDB7
   d3.lab(85, -6, 85)  //#E8D600
@@ -225,6 +226,15 @@ $("document").ready(function() {
     $(this).text("Hide transcript ✔");
     $('#showTransBtn').text(" Show transcript");
   });
+
+  $('#szSwitch').on('change.bootstrapSwitch', function (e) {
+    if (e.target.checked){
+      szOn = true;
+      szLevel =3;
+    } else {
+      szOn = false;
+    }
+  });
 });
 
 function drawChart(data, svg, graphID) {
@@ -278,11 +288,17 @@ function drawChart(data, svg, graphID) {
       }
     });
 
+    // zooming related
+    szLevel = root.height;
     let zoom = d3.zoom()
       .scaleExtent([(-2*szScale+0.99), 5])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
-        SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+        if (szOn){
+          SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+        } else {
+          szLevel = root.height;
+        }
       });
     svg.call(zoom);
 
