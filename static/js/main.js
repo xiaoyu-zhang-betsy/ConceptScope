@@ -360,7 +360,7 @@ function drawChart(data, svg, graphID) {
         //.style("fill-opacity", 0.7)
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
-            HighlightCircle(this.id, graphID, tip);
+            HighlightCircle([this.id], graphID, tip);
 
             d.data.location.forEach(function(location) {
               HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
@@ -377,23 +377,11 @@ function drawChart(data, svg, graphID) {
               otherCircle.style("opacity", 0.1);
         })
         .on("mouseout", function(d, i) {
-            RecoverCircle(this.id, graphID, tip);
+            RecoverCircle(graphID, tip);
 
             d.data.location.forEach(function(location) {
               RecoverRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
             });
-
-            // recover the color of fade out circles
-            otherCircle = d3.selectAll("circle").filter(function(circle){
-              if (circle.data.name == d.data.name) 
-                return false;
-              else
-                return true;
-            });
-
-            if (!otherCircle.empty()){
-              otherCircle.style("opacity", 1);
-            }
         })
         .on("click", function(d, i) {
             ClickCircle(d.data.name, tip);
@@ -493,27 +481,16 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   .attr("height", function (d) { return d.height; })
   .attr("fill", d.fillColor)
   .on("mouseover", function(d, i){
+    // highlight corresponding rectangles
     HighlightRect(this.id, graphID, tip, d, i);
 
     // highlight corresponding circles
+    idList = [];
     d.marks.forEach(function(mark) {
       entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
-      HighlightCircle("g-" + graphID + "-" + "e" + "-" + entityName, graphID);
+      idList.push("g-" + graphID + "-" + "e" + "-" + entityName);
     });
-
-    // fade out other circles
-    otherCircle = d3.selectAll("circle").filter(function(circle){
-      flag = true;
-      d.marks.forEach(function(mark) {
-        if (circle.data.name === mark.entityURI) {
-          flag = false;
-        }
-      });
-      return flag;
-    });
-    if (!otherCircle.empty())
-      //otherCircle.style("fill", transGraphColor);
-      otherCircle.style("opacity", 0.1);
+    HighlightCircle(idList, graphID);
 
     // highlight corresponding raw text
     var textId = d3.select(this).attr('id').replace('rSen', 'line');
@@ -521,30 +498,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   })
   .on("mouseout", function(d){
     RecoverRect(this.id, graphID, tip);
-
-    // recover the color of highlighted circles
-    d.marks.forEach(function(mark) {
-      entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
-      RecoverCircle("g-" + graphID + "-" + "e" + "-" + entityName, graphID);
-    });
-
-    // recover the color of fade out circles
-    otherCircle = d3.selectAll("circle").filter(function(circle){
-      flag = true;
-      d.marks.forEach(function(mark) {
-        if (circle.data.name === mark.entityURI) {
-          flag = false;
-        }
-      });
-      return flag;
-    });
-
-    if (!otherCircle.empty()){
-      /*otherCircle.style("fill", function(circle) {
-        return circle.color;
-      });*/
-      otherCircle.style("opacity", 1);
-    }
+    RecoverCircle(graphID, tip);
 
     // recover corresponding raw text
     var textId = d3.select(this).attr('id').replace('rSen', 'line');
@@ -754,14 +708,14 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     //.style("fill-opacity", 0.7)
     .style("stroke-width", szStrokeWidth)
     .on("mouseover", function(d, i) {
-        HighlightCircle(this.id, graphID, tip);
+        HighlightCircle([this.id], graphID, tip);
 
         d.data.location.forEach(function(location) {
           HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
         });
     })
     .on("mouseout", function(d, i) {
-        RecoverCircle(this.id, graphID, tip);
+        RecoverCircle(graphID, tip);
 
         d.data.location.forEach(function(location) {
           RecoverRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
@@ -772,14 +726,19 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     });
   }
 
-function HighlightCircle(id, graphID, tip=null) {
-  // Use D3 to select element, change size
-  /* d3.select(this)
-  //.attr("r", d.r*1.1)
-  .style("fill", d3.rgb(d.color).darker(0.8));*/
-  
-  circles = d3.selectAll("#"+id);
+function HighlightCircle(idList, graphID, tip=null) {
+  // Use D3 to select all elements in multiple graph
+  circles = d3.selectAll("circle").filter(function(circle) {
+    flag = false;
+    idList.forEach(function(id){
+      specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+      if (circle.data.name.includes(specificName))
+        flag = true;
+    });
+    return flag;
+  });
 
+  // highlight circles in idList
   if (!circles.empty()) {
     circles
     //.style("fill", function(d) {return d3.lab(d.color).darker(2);})
@@ -791,24 +750,39 @@ function HighlightCircle(id, graphID, tip=null) {
     .style("filter", "url(#glow)");
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
-  
-    if(tip!=null && !circleClicked) {
-      labelText = id.substring(id.lastIndexOf("-")+1, id.length);
-      tip.html(labelText).show();
-    }
+    
+    circles.nodes().forEach(function(d) {
+      if(tip!=null && !circleClicked) {
+        labelText = d.id.substring(d.id.lastIndexOf("-")+1, d.id.length);
+        tip.html(labelText).show();
+      }
+    })
   }
+
+  // fade out other circles
+  otherCircles = d3.selectAll("circle").filter(function(circle) {
+    flag = true;
+    idList.forEach(function(id){
+      specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+      if (circle.data.name.includes(specificName))
+        flag = false;
+    });
+    return flag;
+  });
+  if (!otherCircles.empty())
+    //otherCircle.style("fill", transGraphColor);
+    otherCircles.style("opacity", 0.1);
 }
 
-function RecoverCircle(id, graphID, tip) {
-  // Use D3 to select element, change size
-  d3.selectAll("#"+id)
-    //d3.select(this)
+function RecoverCircle(graphID, tip) {
+  // recover all circles
+  d3.selectAll("circle")
     .style("fill", function(d) { return d.color;})
     .style("stroke", "black")
     .style("stroke-width", szStrokeWidth)
     .style("stroke-dasharray", null)
     .style("filter", null)
-    .attr("r", function(d) { return d.r; }); 
+    .style("opacity", 1);
 
   if(tip!=null && !circleClicked) {
     tip.hide();
@@ -824,9 +798,15 @@ function ClickCircle(uri, tip) {
 }
 
 function HighlightPath(id, graphID, tip){
-  // Use D3 to select element, change size
-  d3.selectAll("#"+id)
-  .style("fill-opacity", 0.7) 
+  // Use D3 to select all elements in multiple graph
+  paths = d3.selectAll("path").filter(function(path) {
+    specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+    if (path.name.includes(specificName))
+      return true;
+    else
+      return false;
+  });
+  paths.style("fill-opacity", 0.7) 
   .style("fill", function(arc) {return d3.lab(arc.color).darker(1);})
   //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
   //.style("stroke", function(arc) {return d3.lab(arc.color).brighter(1);})
@@ -839,9 +819,15 @@ function HighlightPath(id, graphID, tip){
 }
 
 function RecoverPath(contourColor, id, graphID, tip) {
-  // Use D3 to select element, change size
-  d3.selectAll("#"+id)
-  .style("fill-opacity", 0.7) // fill:1.0 contour:0.0
+  // Use D3 to select all elements in multiple graph
+  paths = d3.selectAll("path").filter(function(path) {
+    specificName = '/' + id.substring(id.lastIndexOf("-")+1, id.length)+'>';
+    if (path.name.includes(specificName))
+      return true;
+    else
+      return false;
+  });
+  paths.style("fill-opacity", 0.7) // fill:1.0 contour:0.0
   //.style("fill", "white") // contour
   .style("fill", function(arc) { return contourColor(arc.depth);})// fill
   //.style("stroke", function(arc) {return contourColor(arc.depth);})
