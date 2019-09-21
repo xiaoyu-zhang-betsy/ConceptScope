@@ -11,6 +11,7 @@ var szLevel = 3; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 2; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
+var entityMap = new Map();
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
   "https://cso.kmi.open.ac.uk/topics/robotics" : 1,
@@ -308,6 +309,25 @@ function drawChart(data, svg, graphID) {
     let leafNodes = hierarchyRoot.descendants().filter(function (candidate) {
         return !candidate.children;
     });
+
+    leafNodes.forEach(function(leaf){
+      name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).replace(/%/g, '');
+      if (name in entityMap){
+        entityMap[name]["count"] += leaf.data.size;
+        entityMap[name]["graph"].push(graphID);
+      }
+      else
+        entityMap[name] = {
+          "count": leaf.data.size,
+          "graph": [graphID]
+        };
+    });
+
+    $("#entity-menu").empty();
+    for (let key in entityMap){
+      $("#entity-menu")
+        .append('<a href="#">'+ key + '</a>');
+    }
 
     let zoomGroup = svg.append("g");
     genLegend(data, svg);

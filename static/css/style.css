@@ -18,7 +18,7 @@
   font-size: 13pt;
   font-family: helvetica, sans-serif;
   overflow: hidden;
-  background: #9ca0a3;
+  background: #222;
 }
 
 
@@ -95,7 +95,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #222;
+  background: #6C757D;
 }
 
 #sidebar ul.components {
@@ -115,31 +115,55 @@ a, a:hover, a:focus {
 }
 #sidebar ul li a:hover {
   color: #fff;
-  background: #222;
+  background: #6C757D;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-  background: #222;
+  background: #6C757D;
 }
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
   color: #fff;
-  background: #222;
+  background: #9ca0a3;
+}
+
+#entity-menu {
+  width: 270px;
+  height: 150px;
+  line-height: 1;
+  overflow-y: auto;
+}
+
+#entity-menu a {
+  background-color: white;
+  color: black;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#entity-menu a:hover {
+  background-color: #6C757D;
+}
+
+#entity-menu a.active {
+  background-color: #6C757D;
+  color: white;
 }
 
 /*************************  Graph View ***************************/
 .svgGroup {
   /*border:3px solid #6c757d;*/
   border-radius: 5px;
-  background-color: #343a40;
+  background-color: white;
   height:93vh;
   margin: 15px;
 }
 
 .svgCircles {
-  border:2px solid #6c757d;
+  /*border:2px solid #6c757d;*/
   border-radius: 5px;
   background-color: white;
   width:100%; 
@@ -148,12 +172,12 @@ ul ul a {
 }
 
 .svgTrans {
-  border:2px solid #6c757d;
+  /*border:2px solid #6c757d;*/
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:89vh;
-  margin-top: 2vh;
+  height:93vh;
+  /*margin-top: 2vh;*/
   float: right;
 }
 
