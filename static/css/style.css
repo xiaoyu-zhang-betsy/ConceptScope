@@ -120,24 +120,24 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-  background: #6C757D;
+  background: #343a40;
 }
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
   color: #fff;
-  background: #9ca0a3;
+  background: #343a40;
 }
 
 #entity-menu {
   width: 270px;
-  height: 150px;
-  line-height: 1;
+  height: 300px;
+  line-height: 1.2;
   overflow-y: auto;
 }
 
 #entity-menu a {
-  background-color: white;
+  background-color: #6C757D;
   color: black;
   display: block;
   padding: 5px;

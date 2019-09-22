@@ -318,15 +318,61 @@ function drawChart(data, svg, graphID) {
       }
       else
         entityMap[name] = {
+          "name": name,
           "count": leaf.data.size,
-          "graph": [graphID]
+          "graph": [graphID],
+          "color": leaf.color,
         };
     });
 
+    /*var legendVals = Array.from(entityMap).map(([key, value]) => value );
+    console.log(legendVals);
+    
+    entityListSvg = d3.select("#entity-menu").append('svg');
+    var legend = entityListSvg.selectAll('.entityList')
+    .data(legendVals)
+    .enter().append('g')
+    .attr("transform", function (d, i) {
+      console.log(d);
+      pos_y = (i * 17) + 10; 
+      return "translate(10," + pos_y + ")";
+    });
+  
+    legend.append('rect')
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 15)
+    .attr("height", 10)
+    .style("fill", function (d, i) {
+      return d.color;
+    });
+  
+    legend.append('text')
+    .attr("x", 20)
+    .attr("y", 10)
+    //.attr("dy", ".35em")
+    .text(function (d, i) {
+      return "lalala";
+    })
+    .attr("class", "textselected")
+    .style("text-anchor", "start")
+    .style("font-size", 15);*/
     $("#entity-menu").empty();
     for (let key in entityMap){
+      text = key+' (';
+      entityMap[key].graph.forEach(function(id){
+        text += 'G' + (id+1) + ', ';
+      });
+      text　= text.substring(0, text.length-2)+')';
       $("#entity-menu")
-        .append('<a href="#">'+ key + '</a>');
+        .append('<a style="border: 1px solid white; background-color:' + entityMap[key].color + '" href="#">'+ text + '</a>');
+      /*d3_entity = d3.select(entity);
+      d3_entity.append('svg').append('rect')
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 15)
+      .attr("height", 10)
+      .style("fill", entityMap[key].color);*/
     }
 
     let zoomGroup = svg.append("g");
@@ -651,7 +697,10 @@ function genTipsHtml(data, index) {
   data.marks.forEach(function(mark){
     plain_end = mark.start_char;
     s_html = s_html + text.substring(plain_start, plain_end);
-    s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
+    if (mark.category.substring(1, mark.category.length-1) in classDict)
+      s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
+    else
+      s_html = s_html + text.substring(mark.start_char, mark.end_char)
     plain_start = mark.end_char;
   });
   s_html = s_html + text.substring(plain_start, text.length);
