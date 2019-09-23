@@ -89,8 +89,27 @@ $("document").ready(function() {
 
         // close current canvas
         $('#closeCanvasBtn'+ graphNum).on('click', function () {
-          console.log( $(this).parent());
+          graphNum -= 1;
           $(this).parent().remove();
+
+          removeIdx = parseInt(this.id.replace('closeCanvasBtn', ''));
+          $("#entity-menu").empty();
+          for (let key in entityMap){
+            entityMap[key].graph = entityMap[key].graph.filter(function(g) {
+              return g!=removeIdx;
+            });
+
+            // redraw the list when there are still graph existing
+            if (graphNum) {
+              text = key+' (';
+              entityMap[key].graph.forEach(function(id){
+                text += 'G' + (id+1) + ', ';
+              });
+              text　= text.substring(0, text.length-2)+')';
+              $("#entity-menu")
+                .append('<a style="border: 1px solid white; background-color:' + entityMap[key].color + '" href="#">'+ text + '</a>');
+            }
+          }
         });
 
         //send data to the server
