@@ -5,14 +5,14 @@
       "marks": [
         {
           "origin": "mental map",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/cognitive_maps>",
+          "entityURI": "<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>",
           "start_char": 110,
           "end_char": 122,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_maps>",
-            "<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>"
+            "<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_maps>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/fuzzy_set>"
+          "category": "<https://cso.kmi.open.ac.uk/topics/fuzzy_sets>"
         },
         {
           "origin": "information",
@@ -22,28 +22,28 @@
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/information_technology>",
             "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-            "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_systems>",
             "<https://cso.kmi.open.ac.uk/topics/medical_database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_management>",
             "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
             "<https://cso.kmi.open.ac.uk/topics/database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_schemas>"
+            "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/computer_system>"
         },
         {
           "origin": "space",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
+          "entityURI": "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
           "start_char": 145,
           "end_char": 154,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
+            "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
             "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>"
+            "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/computer_system>"
+          "category": "<https://cso.kmi.open.ac.uk/topics/computer_network>"
         }
       ]
     },
@@ -60,33 +60,33 @@
           "start_char": 87,
           "end_char": 104,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
-            "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
+            "<https://cso.kmi.open.ac.uk/topics/software_defects>",
             "<https://cso.kmi.open.ac.uk/topics/software>",
             "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
             "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
-            "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+            "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
             "<https://cso.kmi.open.ac.uk/topics/computer_application>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>"
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/software>"
         },
         {
           "origin": "user",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+          "entityURI": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
           "start_char": 135,
           "end_char": 143,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>"
+            "<https://cso.kmi.open.ac.uk/topics/hmi>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>"
         }
@@ -103,7 +103,7 @@
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/programming_models>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/computer_programming>"
+          "category": "<https://cso.kmi.open.ac.uk/topics/computer_system>"
         },
         {
           "origin": "use",
@@ -114,7 +114,7 @@
             "<https://cso.kmi.open.ac.uk/topics/energy_savings>",
             "<https://cso.kmi.open.ac.uk/topics/energy_transfer_process>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/computer_network>"
+          "category": "<https://cso.kmi.open.ac.uk/topics/electricity>"
         },
         {
           "origin": "aspects",
@@ -122,14 +122,14 @@
           "start_char": 75,
           "end_char": 87,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/ontology_language>",
-            "<https://cso.kmi.open.ac.uk/topics/fuzzy_ontology>",
-            "<https://cso.kmi.open.ac.uk/topics/ontology_integration>",
-            "<https://cso.kmi.open.ac.uk/topics/service_ontology>",
-            "<https://cso.kmi.open.ac.uk/topics/ontology_development>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_technology>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_mapping>",
-            "<https://cso.kmi.open.ac.uk/topics/ontologies>"
+            "<https://cso.kmi.open.ac.uk/topics/ontologies>",
+            "<https://cso.kmi.open.ac.uk/topics/ontology_language>",
+            "<https://cso.kmi.open.ac.uk/topics/ontology_development>",
+            "<https://cso.kmi.open.ac.uk/topics/ontology_integration>",
+            "<https://cso.kmi.open.ac.uk/topics/fuzzy_ontology>",
+            "<https://cso.kmi.open.ac.uk/topics/service_ontology>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/ontologies>"
         },
@@ -152,18 +152,18 @@
       "marks": [
         {
           "origin": "interface",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+          "entityURI": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
           "start_char": 85,
           "end_char": 98,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>"
+            "<https://cso.kmi.open.ac.uk/topics/hmi>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>"
         }
@@ -178,15 +178,15 @@
           "start_char": 0,
           "end_char": 5,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
-            "<https://cso.kmi.open.ac.uk/topics/iaas>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
             "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
             "<https://cso.kmi.open.ac.uk/topics/cloud_data>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>"
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+            "<https://cso.kmi.open.ac.uk/topics/iaas>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_service>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/information_technology>"
         },
@@ -196,10 +196,10 @@
           "start_char": 151,
           "end_char": 162,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>"
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>"
         }
@@ -232,22 +232,77 @@
             "candidates": [
               "<https://cso.kmi.open.ac.uk/topics/information_technology>",
               "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-              "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-              "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
-              "<https://cso.kmi.open.ac.uk/topics/database_systems>",
               "<https://cso.kmi.open.ac.uk/topics/medical_database>",
-              "<https://cso.kmi.open.ac.uk/topics/database_management>",
               "<https://cso.kmi.open.ac.uk/topics/video_database>",
+              "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+              "<https://cso.kmi.open.ac.uk/topics/database_systems>",
+              "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
               "<https://cso.kmi.open.ac.uk/topics/database>",
-              "<https://cso.kmi.open.ac.uk/topics/database_schemas>"
+              "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
+              "<https://cso.kmi.open.ac.uk/topics/database_management>"
             ]
           },
           {
-            "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>",
+            "name": "<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>",
             "uncertainty": 3,
             "children": [
               {
-                "name": "<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>",
+                "name": "<https://cso.kmi.open.ac.uk/topics/distributed_systems>",
+                "uncertainty": 3,
+                "children": [
+                  {
+                    "name": "<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>",
+                    "uncertainty": 3,
+                    "children": [
+                      {
+                        "name": "<https://cso.kmi.open.ac.uk/topics/parallel_architectures>",
+                        "uncertainty": 3,
+                        "children": [
+                          {
+                            "name": "<https://cso.kmi.open.ac.uk/topics/parallel_programming>",
+                            "uncertainty": 3,
+                            "children": [
+                              {
+                                "name": "<https://cso.kmi.open.ac.uk/topics/programming_models>",
+                                "origin": "researchers",
+                                "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/distributed_computer_systems>&-&<https://cso.kmi.open.ac.uk/topics/distributed_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_processing_systems>&-&<https://cso.kmi.open.ac.uk/topics/parallel_architectures>&-&<https://cso.kmi.open.ac.uk/topics/parallel_programming>&-&<https://cso.kmi.open.ac.uk/topics/programming_models>",
+                                "uncertainty": 3,
+                                "location": [
+                                  [
+                                    3,
+                                    0,
+                                    25,
+                                    36
+                                  ]
+                                ],
+                                "size": 1,
+                                "children": [],
+                                "candidates": [
+                                  "<https://cso.kmi.open.ac.uk/topics/programming_models>"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "<https://cso.kmi.open.ac.uk/topics/computer_network>",
+        "uncertainty": 3,
+        "children": [
+          {
+            "name": "<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>",
+            "uncertainty": 3,
+            "children": [
+              {
+                "name": "<https://cso.kmi.open.ac.uk/topics/communication_channels_(information_theory)>",
                 "uncertainty": 3,
                 "children": [
                   {
@@ -260,23 +315,29 @@
                         "children": [
                           {
                             "name": "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
-                            "origin": "space",
-                            "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>&-&<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_links>",
                             "uncertainty": 3,
-                            "location": [
-                              [
-                                0,
-                                2,
-                                145,
-                                154
-                              ]
-                            ],
-                            "size": 1,
-                            "children": [],
-                            "candidates": [
-                              "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
-                              "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
-                              "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>"
+                            "children": [
+                              {
+                                "name": "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                                "origin": "space",
+                                "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_network>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/communication_channels_(information_theory)>&-&<https://cso.kmi.open.ac.uk/topics/mobile_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_communication_systems>&-&<https://cso.kmi.open.ac.uk/topics/satellite_links>&-&<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                                "uncertainty": 3,
+                                "location": [
+                                  [
+                                    0,
+                                    2,
+                                    145,
+                                    154
+                                  ]
+                                ],
+                                "size": 1,
+                                "children": [],
+                                "candidates": [
+                                  "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
+                                  "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
+                                  "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -305,16 +366,16 @@
         "size": 1,
         "children": [],
         "candidates": [
-          "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
-          "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
+          "<https://cso.kmi.open.ac.uk/topics/software_defects>",
           "<https://cso.kmi.open.ac.uk/topics/software>",
           "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
           "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
-          "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+          "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
+          "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
           "<https://cso.kmi.open.ac.uk/topics/computer_application>",
-          "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
           "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-          "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>"
+          "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
+          "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>"
         ]
       },
       {
@@ -326,9 +387,9 @@
             "uncertainty": 3,
             "children": [
               {
-                "name": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+                "name": "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
                 "origin": "user",
-                "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interfaces>&-&<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
+                "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>&-&<https://cso.kmi.open.ac.uk/topics/user_interfaces>&-&<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
                 "uncertainty": 3,
                 "location": [
                   [
@@ -347,89 +408,14 @@
                 "size": 2,
                 "children": [],
                 "candidates": [
-                  "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
                   "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
                   "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
-                  "<https://cso.kmi.open.ac.uk/topics/hmi>",
+                  "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
                   "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
                   "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+                  "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
                   "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-                  "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "<https://cso.kmi.open.ac.uk/topics/computer_programming>",
-        "uncertainty": 3,
-        "children": [
-          {
-            "name": "<https://cso.kmi.open.ac.uk/topics/computer_programming_languages>",
-            "uncertainty": 3,
-            "children": [
-              {
-                "name": "<https://cso.kmi.open.ac.uk/topics/parallel_programming>",
-                "uncertainty": 3,
-                "children": [
-                  {
-                    "name": "<https://cso.kmi.open.ac.uk/topics/programming_models>",
-                    "origin": "researchers",
-                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming>&-&<https://cso.kmi.open.ac.uk/topics/computer_programming_languages>&-&<https://cso.kmi.open.ac.uk/topics/parallel_programming>&-&<https://cso.kmi.open.ac.uk/topics/programming_models>",
-                    "uncertainty": 3,
-                    "location": [
-                      [
-                        3,
-                        0,
-                        25,
-                        36
-                      ]
-                    ],
-                    "size": 1,
-                    "children": [],
-                    "candidates": [
-                      "<https://cso.kmi.open.ac.uk/topics/programming_models>"
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "<https://cso.kmi.open.ac.uk/topics/computer_network>",
-        "uncertainty": 3,
-        "children": [
-          {
-            "name": "<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>",
-            "uncertainty": 3,
-            "children": [
-              {
-                "name": "<https://cso.kmi.open.ac.uk/topics/sensor_networks>",
-                "uncertainty": 3,
-                "children": [
-                  {
-                    "name": "<https://cso.kmi.open.ac.uk/topics/energy_savings>",
-                    "origin": "use",
-                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_network>&-&<https://cso.kmi.open.ac.uk/topics/wireless_telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/sensor_networks>&-&<https://cso.kmi.open.ac.uk/topics/energy_savings>",
-                    "uncertainty": 3,
-                    "location": [
-                      [
-                        3,
-                        1,
-                        51,
-                        58
-                      ]
-                    ],
-                    "size": 1,
-                    "children": [],
-                    "candidates": [
-                      "<https://cso.kmi.open.ac.uk/topics/energy_savings>",
-                      "<https://cso.kmi.open.ac.uk/topics/energy_transfer_process>"
-                    ]
-                  }
+                  "<https://cso.kmi.open.ac.uk/topics/hmi>"
                 ]
               }
             ]
@@ -456,15 +442,15 @@
             "size": 1,
             "children": [],
             "candidates": [
-              "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
-              "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
-              "<https://cso.kmi.open.ac.uk/topics/iaas>",
-              "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
-              "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+              "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
               "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
-              "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+              "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
               "<https://cso.kmi.open.ac.uk/topics/cloud_data>",
-              "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>"
+              "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+              "<https://cso.kmi.open.ac.uk/topics/iaas>",
+              "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+              "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
+              "<https://cso.kmi.open.ac.uk/topics/cloud_service>"
             ]
           }
         ]
@@ -493,10 +479,10 @@
                 "size": 1,
                 "children": [],
                 "candidates": [
-                  "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-                  "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
                   "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
-                  "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>"
+                  "<https://cso.kmi.open.ac.uk/topics/cognitive_process>",
+                  "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+                  "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>"
                 ]
               }
             ]

@@ -98,17 +98,28 @@ $("document").ready(function() {
             entityMap[key].graph = entityMap[key].graph.filter(function(g) {
               return g!=removeIdx;
             });
+          }
 
-            // redraw the list when there are still graph existing
-            if (graphNum) {
-              text = key+' (';
-              entityMap[key].graph.forEach(function(id){
-                text += 'G' + (id+1) + ', ';
-              });
-              text　= text.substring(0, text.length-2)+')';
-              $("#entity-menu")
-                .append('<a style="border: 1px solid white; background-color:' + entityMap[key].color + '" href="#">'+ text + '</a>');
-            }
+          entityList = Object.values(entityMap);
+          entityList.filter(function(entity) {
+            return entity["graph"].length > 0;
+          });
+          entityList.sort(function(a, b){
+            return classDict[a["category"]] > classDict[b["category"]];
+          })
+
+          if (graphNum) {
+            entityList.forEach(function(entity){
+              // redraw the list when there are still graph existing
+              
+                text = entity["name"]+' (';
+                entity["graph"].forEach(function(id){
+                  text += 'G' + (id+1) + ', ';
+                });
+                text　= text.substring(0, text.length-2)+')';
+                $("#entity-menu")
+                  .append('<a style="border: 1px solid white; background-color:' + entity.color + '" href="#">'+ text + '</a>');
+            });
           }
         });
 
@@ -335,13 +346,17 @@ function drawChart(data, svg, graphID) {
         entityMap[name]["count"] += leaf.data.size;
         entityMap[name]["graph"].push(graphID);
       }
-      else
+      else{
+        idx1 = leaf.data.strPath.indexOf('&-&');
+        idx2 = leaf.data.strPath.indexOf('&-&', idx1+1)>-1 ? leaf.data.strPath.indexOf('&-&', idx1+1):leaf.data.strPath.length;
         entityMap[name] = {
           "name": name,
           "count": leaf.data.size,
           "graph": [graphID],
           "color": leaf.color,
+          "category": leaf.data.strPath.substring(idx1+4, idx2-1),
         };
+      }
     });
 
     /*var legendVals = Array.from(entityMap).map(([key, value]) => value );
@@ -377,14 +392,18 @@ function drawChart(data, svg, graphID) {
     .style("text-anchor", "start")
     .style("font-size", 15);*/
     $("#entity-menu").empty();
-    for (let key in entityMap){
-      text = key+' (';
-      entityMap[key].graph.forEach(function(id){
+    entityList = Object.values(entityMap);
+    entityList.sort(function(a, b){
+      return classDict[a["category"]] > classDict[b["category"]];
+    })
+    entityList.forEach(function(entity){
+      text = entity["name"]+' (';
+      entity["graph"].forEach(function(id){
         text += 'G' + (id+1) + ', ';
       });
       text　= text.substring(0, text.length-2)+')';
       $("#entity-menu")
-        .append('<a style="border: 1px solid white; background-color:' + entityMap[key].color + '" href="#">'+ text + '</a>');
+        .append('<a style="border: 1px solid white; background-color:' + entity.color + '" href="#">'+ text + '</a>');
       /*d3_entity = d3.select(entity);
       d3_entity.append('svg').append('rect')
       .attr("x", 0)
@@ -392,7 +411,7 @@ function drawChart(data, svg, graphID) {
       .attr("width", 15)
       .attr("height", 10)
       .style("fill", entityMap[key].color);*/
-    }
+    });
 
     let zoomGroup = svg.append("g");
     genLegend(data, svg);

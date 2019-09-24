@@ -100,12 +100,12 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
   padding: 0 0;
-  border-bottom: 1px solid #6C757D;
+  /*border-bottom: 1px solid #6C757D;*/
 }
 
 #sidebar ul p {
   color: #fff;
-  padding: 10px;
+  padding: 20px;
 }
 
 #sidebar ul li a {
