@@ -105,7 +105,7 @@ $("document").ready(function() {
             return entity["graph"].length > 0;
           });
           entityList.sort(function(a, b){
-            return classDict[a["category"]] > classDict[b["category"]];
+            return classDict[a["category"]] - classDict[b["category"]];
           })
 
           if (graphNum) {
@@ -394,7 +394,7 @@ function drawChart(data, svg, graphID) {
     $("#entity-menu").empty();
     entityList = Object.values(entityMap);
     entityList.sort(function(a, b){
-      return classDict[a["category"]] > classDict[b["category"]];
+      return classDict[a["category"]] - classDict[b["category"]];
     })
     entityList.forEach(function(entity){
       text = entity["name"]+' (';
@@ -559,8 +559,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   var docLength = senList.length;
   var transcriptScale = d3.scaleLinear()
                           .domain([0, docLength])
-                          .range([0, h]);
-  var constantHeight = 0;
+                          .range([0, h-30]);
   var maxTranLine = 0
 
   // to normalize the widths of the lines of sentence, need to find
@@ -579,7 +578,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     var ySec = i;
     d.timeStamp = ySec;
     var yloc = transcriptScale(ySec);
-    d.y = yloc;
+    
     //d.speaker = captionArray[i][2];
     if (speakerDiff === 0){
       d.x = 0;
@@ -602,21 +601,21 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
         d.width = transScaleX(0.9);
       }
     }
-    if (constantHeight !== 0){
+
+    // var endSec = hmsToSec(captionArray[i][1]);
+    var endSec = i+1;
+    d.endTime = endSec;
+    // var startSec = hmsToSec(captionArray[i][0]);
+    var startSec = i;
+    var scaledHeight = transcriptScale(endSec - startSec);
+    if (scaledHeight > 10){
       d.height = 10;
+      d.y = d.height*i+30;
     } else {
-      // var endSec = hmsToSec(captionArray[i][1]);
-      var endSec = i+1;
-      d.endTime = endSec;
-      // var startSec = hmsToSec(captionArray[i][0]);
-      var startSec = i;
-      var scaledHeight = transcriptScale(endSec - startSec);
-      if (scaledHeight < 1){
-        d.height = 1;
-      } else {
-        d.height = scaledHeight;
-      };
-    }
+      d.height = scaledHeight;
+      d.y = yloc+15;
+    };
+    
     d.sentence = senList[i].sentence;
     d.marks = senList[i].marks;
     /*if ( (!($.isEmptyObject(textMetadataObj))) && 
@@ -955,10 +954,35 @@ function RecoverCircle(graphID, tip) {
 }
 
 function ClickCircle(uri, tip) {
-  labelText = "<div>" + uri.substring(uri.lastIndexOf("/")+1, uri.length-1) + "</div>";
-  labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</link>';
-  console.log(labelText);
-  tip.html(labelText).show();
+  labelText = "<h5>" + uri.substring(uri.lastIndexOf("/")+1, uri.length-1) + "</h5>";
+  
+  //send data to the server
+  var data = {};
+  data['uri'] = uri.substring(1, uri.length-1);
+  $.post("/queryEntity",data,
+      function(jsonData,status){
+          console.log(jsonData);
+          try {
+            if("thumbnail" in jsonData) {
+              labelText += '<img width=230 src="' + jsonData["thumbnail"] +'">'
+            }
+            if("neighbor" in jsonData) {
+              neighborList = jsonData["neighbor"];
+              labelText += "<br/><div> See also: </div>";
+              neighborList.forEach(function(neighbor) {
+                labelText += '<li><a href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length) +'</a></li>';
+              })
+            }
+            console.log(labelText);
+            labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</a>';
+            tip.html(labelText).show();
+          }
+          catch(error) {
+            console.error(error);
+          }
+
+      },"json");
+  
   circleClicked = true;
 }
 

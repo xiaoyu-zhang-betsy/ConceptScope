@@ -17,6 +17,7 @@ import urllib
 from rdflib import Graph
 import xml.etree.ElementTree as ET
 
+from SPARQLWrapper import SPARQLWrapper, JSON
 #from allennlp.common.testing import AllenNlpTestCase
 #from allennlp.predictors.predictor import Predictor
 
@@ -83,7 +84,7 @@ def QueryURI(keywords, index=-2):
     
     if len(result)>0:
         for entity in result:
-            uriList.append(entity.find(prefix + "URI").text);
+            uriList.append(entity.find(prefix + "URI").text)
         return uriList
     else:
         #print("Sorry, we find nothing for this stuff :(\n")
@@ -310,6 +311,99 @@ def QueryHierarchy(URI):
     #print(path)
     return path
 
+def SortNeighbors(e):
+    return e["count"]
+
+# given a URI, query all entities connected to current one
+def QueryNeighbors(URI):
+    neighborDict = {}
+    
+    # query entities connected to current URI as object
+    qSelectObject = """
+        SELECT ?p ?o
+        WHERE {<""" + URI + """> ?p ?o. }
+    """
+
+    results = csoGraph.query(qSelectObject).serialize(format="json")
+    results = json.loads(results)
+
+    for result in results["results"]["bindings"]:
+        neighborURI = result["o"]["value"]
+        if "cso.kmi.open.ac.uk/topics" in neighborURI and neighborURI != URI:
+            if neighborURI in neighborDict:
+                neighborDict[neighborURI]["count"] += 1
+            else:
+                neighborDict[neighborURI] = {
+                    "name": neighborURI,
+                    "predicate": result["p"]["value"],
+                    "part": "o",
+                    "count": 1
+                }
+                
+    # query entities connected to current URI as subject
+    qSelectSubject = """
+        SELECT ?s ?p
+        WHERE { ?s ?p <""" + URI + """>. }
+    """
+
+    results = csoGraph.query(qSelectSubject).serialize(format="json")
+    results = json.loads(results)
+
+    for result in results["results"]["bindings"]:
+        neighborURI = result["s"]["value"]
+        if "cso.kmi.open.ac.uk/topics" in neighborURI and neighborURI != URI:
+            if neighborURI in neighborDict:
+                neighborDict[neighborURI]["count"] += 1
+            else:
+                neighborDict[neighborURI] = {
+                    "name": neighborURI,
+                    "predicate": result["p"]["value"],
+                    "part": "s",
+                    "count": 1
+                }
+    
+    neighborList = list(neighborDict.values())
+    neighborList.sort(reverse=True, key=SortNeighbors)
+    return neighborList[:10]
+
+# given a URI, return corresponding DBPedia link if available
+def QueryDBPedia(URI):
+    qSelect = """
+        SELECT ?link
+        WHERE {<""" + URI + """> <http://www.w3.org/2002/07/owl#sameAs> ?link. }
+    """
+
+    results = csoGraph.query(qSelect).serialize(format="json")
+    results = json.loads(results)
+
+    wikiURI = None
+    wikiInfo = None
+    for result in results["results"]["bindings"]:
+        if "dbpedia.org" in result["link"]["value"]:
+            wikiURI = result["link"]["value"]
+    
+    if wikiURI != None:
+        sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+        sparql.setQuery("""
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?abstract ?thumbnail
+            WHERE {""" +
+                """<""" + wikiURI + """> dbo:abstract ?abstract .""" +
+                """<""" + wikiURI + """> dbo:thumbnail ?thumbnail .
+            FILTER (lang(?abstract) = 'en')
+            }
+        """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+
+        for result in results["results"]["bindings"]:
+            wikiInfo = {
+                "wiki": wikiURI,
+                "abstract" : result["abstract"]["value"],
+                "thumbnail": result["thumbnail"]["value"]
+            }
+    return wikiInfo
+
 def ProcessSen(senSet): 
     # pre-processing
     #PreProcess(senSet)
@@ -421,6 +515,10 @@ def ProcessSen(senSet):
     else:
         return None
 
+###########################################################################
+#             Interfaces that are accessible from front-end               #
+###########################################################################
+
 # test function with local loaded data
 def LoadGraphData(fileName):
     path = os.path.join(app.static_folder, 'data', fileName)
@@ -442,6 +540,19 @@ def LoadTextData(fileName):
     print("Total sentences: " + str(len(senSet)))
     return senSet
 
+# given a URI (without "<>"")
+# query neighbors, dbpedia link, abstract and thumbnail
+def QueryEntityData(URI):
+    wikiInfo = QueryDBPedia(URI)
+    neighborList = QueryNeighbors(URI)
+
+    info = {}
+
+    if wikiInfo != None:
+        info = wikiInfo
+    info["neighbor"] = neighborList
+    return info
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -462,12 +573,21 @@ def LoadText():
     
     result = {
         "sentences": senSet,
-        #"hierarchy": ProcessSen(senSet)
+        #"hierarchy": ProcessSen(senSet) # run the backend algorithms
         "hierarchy": []
     }
 
     return json.dumps(result, indent = 2)
 
+@app.route('/queryEntity', methods=['POST',"GET"])
+def QueryEntity():
+    uri = request.form.get("uri")
+    if '<' in uri:
+        uri = uri.replace('<', '')
+    if '>' in uri:
+        uri = uri.replace('>', '')
+    return json.dumps(QueryEntityData(uri), indent = 2)
+
 if __name__ == '__main__':
-    #LoadResources()
+    LoadResources()
     app.run()
