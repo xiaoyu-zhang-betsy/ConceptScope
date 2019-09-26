@@ -341,7 +341,7 @@ function drawChart(data, svg, graphID) {
     });
 
     leafNodes.forEach(function(leaf){
-      name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).replace(/%/g, '');
+      name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).split('_').join(' ').replace(/%/g, '');
       if (name in entityMap){
         entityMap[name]["count"] += leaf.data.size;
         entityMap[name]["graph"].push(graphID);
@@ -396,14 +396,20 @@ function drawChart(data, svg, graphID) {
     entityList.sort(function(a, b){
       return classDict[a["category"]] - classDict[b["category"]];
     })
+    let curCtg = null;
     entityList.forEach(function(entity){
       text = entity["name"]+' (';
       entity["graph"].forEach(function(id){
         text += 'G' + (id+1) + ', ';
       });
       text　= text.substring(0, text.length-2)+')';
+      if (curCtg != entity["category"]) {
+        curCtg = entity["category"];
+        $("#entity-menu")
+        .append('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>');
+      }
       $("#entity-menu")
-        .append('<a style="border: 1px solid white; background-color:' + entity.color + '" href="#">'+ text + '</a>');
+        .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '</a>');
       /*d3_entity = d3.select(entity);
       d3_entity.append('svg').append('rect')
       .attr("x", 0)
@@ -422,7 +428,7 @@ function drawChart(data, svg, graphID) {
         .style('transform', 'translate(50%, 50%)');
 
     let tip = d3.tip()
-      .attr('class', 'd3-tip')
+      .attr('class', 'infoTip')
       .offset([10, 0])
       .direction('e')
       .attr("data-clicked", false);
@@ -954,33 +960,34 @@ function RecoverCircle(graphID, tip) {
 }
 
 function ClickCircle(uri, tip) {
-  labelText = "<h5>" + uri.substring(uri.lastIndexOf("/")+1, uri.length-1) + "</h5>";
+  labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
   //send data to the server
   var data = {};
   data['uri'] = uri.substring(1, uri.length-1);
   $.post("/queryEntity",data,
       function(jsonData,status){
-          console.log(jsonData);
           try {
             if("thumbnail" in jsonData) {
-              labelText += '<img width=230 src="' + jsonData["thumbnail"] +'">'
+              labelText += '<img class="thumbnail" width=280 src="' + jsonData["thumbnail"] +'">'
             }
             if("neighbor" in jsonData) {
               neighborList = jsonData["neighbor"];
-              labelText += "<br/><div> See also: </div>";
+              labelText += "<div> See also: </div>";
               neighborList.forEach(function(neighbor) {
-                labelText += '<li><a href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length) +'</a></li>';
+                if (neighbor.name in entityMap)
+                  style = "bold";
+                else
+                  style = "normal";
+                labelText += '<li><a style="color:white; font-weight:' + style + '" href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
               })
             }
-            console.log(labelText);
             labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</a>';
             tip.html(labelText).show();
           }
           catch(error) {
             console.error(error);
           }
-
       },"json");
   
   circleClicked = true;
