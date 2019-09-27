@@ -93,7 +93,8 @@ $("document").ready(function() {
           $(this).parent().remove();
 
           removeIdx = parseInt(this.id.replace('closeCanvasBtn', ''));
-          $("#entity-menu").empty();
+          DrawSparkline(entityMap);
+          /*$("#entity-menu").empty();
           for (let key in entityMap){
             entityMap[key].graph = entityMap[key].graph.filter(function(g) {
               return g!=removeIdx;
@@ -120,7 +121,7 @@ $("document").ready(function() {
                 $("#entity-menu")
                   .append('<a style="border: 1px solid white; background-color:' + entity.color + '" href="#">'+ text + '</a>');
             });
-          }
+          }*/
         });
 
         //send data to the server
@@ -342,85 +343,30 @@ function drawChart(data, svg, graphID) {
 
     leafNodes.forEach(function(leaf){
       name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).split('_').join(' ').replace(/%/g, '');
-      if (name in entityMap){
-        entityMap[name]["count"] += leaf.data.size;
-        entityMap[name]["graph"].push(graphID);
-      }
-      else{
+      //create new item in entityMap
+      if (!(name in entityMap)){
         idx1 = leaf.data.strPath.indexOf('&-&');
         idx2 = leaf.data.strPath.indexOf('&-&', idx1+1)>-1 ? leaf.data.strPath.indexOf('&-&', idx1+1):leaf.data.strPath.length;
         entityMap[name] = {
           "name": name,
-          "count": leaf.data.size,
-          "graph": [graphID],
+          "graph": {},
           "color": leaf.color,
           "category": leaf.data.strPath.substring(idx1+4, idx2-1),
         };
       }
-    });
 
-    /*var legendVals = Array.from(entityMap).map(([key, value]) => value );
-    console.log(legendVals);
-    
-    entityListSvg = d3.select("#entity-menu").append('svg');
-    var legend = entityListSvg.selectAll('.entityList')
-    .data(legendVals)
-    .enter().append('g')
-    .attr("transform", function (d, i) {
-      console.log(d);
-      pos_y = (i * 17) + 10; 
-      return "translate(10," + pos_y + ")";
-    });
-  
-    legend.append('rect')
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", 15)
-    .attr("height", 10)
-    .style("fill", function (d, i) {
-      return d.color;
-    });
-  
-    legend.append('text')
-    .attr("x", 20)
-    .attr("y", 10)
-    //.attr("dy", ".35em")
-    .text(function (d, i) {
-      return "lalala";
-    })
-    .attr("class", "textselected")
-    .style("text-anchor", "start")
-    .style("font-size", 15);*/
-    $("#entity-menu").empty();
-    entityList = Object.values(entityMap);
-    entityList.sort(function(a, b){
-      return classDict[a["category"]] - classDict[b["category"]];
-    })
-    let curCtg = null;
-    entityList.forEach(function(entity){
-      text = entity["name"]+' (';
-      entity["graph"].forEach(function(id){
-        text += 'G' + (id+1) + ', ';
-      });
-      text　= text.substring(0, text.length-2)+')';
-      if (curCtg != entity["category"]) {
-        curCtg = entity["category"];
-        $("#entity-menu")
-        .append('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>');
+      // update graph info
+      if (graphID in entityMap[name]["graph"]){
+        entityMap[name]["graph"][graphID] += leaf.data.size;
+      } else {
+        entityMap[name]["graph"][graphID] = leaf.data.size;
       }
-      $("#entity-menu")
-        .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '</a>');
-      /*d3_entity = d3.select(entity);
-      d3_entity.append('svg').append('rect')
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", 15)
-      .attr("height", 10)
-      .style("fill", entityMap[key].color);*/
     });
+    DrawSparkline(entityMap);
+   
 
     let zoomGroup = svg.append("g");
-    genLegend(data, svg);
+    //genLegend(data, svg);
 
     // Draw contour.
     let contourGroup = zoomGroup.append("g")
@@ -1051,4 +997,36 @@ function RecoverRect(id, graphID, tip=null){
   if (tip) {
     tip.hide();
   }
+}
+
+function DrawSparkline(entityMap){
+  $("#entity-menu").empty();
+  entityList = Object.values(entityMap);
+  entityList.sort(function(a, b){
+    return classDict[a["category"]] - classDict[b["category"]];
+  })
+  let curCtg = null;
+  entityList.forEach(function(entity){
+    text = entity["name"];
+    /*entity["graph"].forEach(function(id){
+      text += 'G' + (id+1) + ', ';
+    });
+    text　= text.substring(0, text.length-2)+')';*/
+    text += "         ";
+    if (curCtg != entity["category"]) {
+      curCtg = entity["category"];
+      $("#entity-menu")
+      .append('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>');
+    }
+    graphList = Object.values(entity["graph"]);
+    if (graphList.length > 1) {
+      $("#entity-menu")
+        .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + [5,3,1,4] + '</span>' + '</a>');
+    } else {
+      $("#entity-menu")
+      .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '</a>');
+    }
+  });
+
+  $('.inlinebar').sparkline('html', {type: 'bar', barColor: hoverHighlight} );
 }
