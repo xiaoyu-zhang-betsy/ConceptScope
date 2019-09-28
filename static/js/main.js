@@ -92,36 +92,24 @@ $("document").ready(function() {
           graphNum -= 1;
           $(this).parent().remove();
 
+          // update entityMap and redraw sparkline
           removeIdx = parseInt(this.id.replace('closeCanvasBtn', ''));
-          DrawSparkline(entityMap);
-          /*$("#entity-menu").empty();
-          for (let key in entityMap){
-            entityMap[key].graph = entityMap[key].graph.filter(function(g) {
-              return g!=removeIdx;
-            });
+          for (let name in entityMap){
+            if (removeIdx in entityMap[name]["graph"])
+                delete entityMap[name]["graph"][removeIdx];
+
+            isEmptyEntity = true;
+            for (let key in entityMap[name]["graph"]){
+              if(entityMap[name]["graph"][key] != 0) {
+                isEmptyEntity = false;
+                break;
+              }
+            }
+            if (isEmptyEntity)
+              delete entityMap[name];
           }
 
-          entityList = Object.values(entityMap);
-          entityList.filter(function(entity) {
-            return entity["graph"].length > 0;
-          });
-          entityList.sort(function(a, b){
-            return classDict[a["category"]] - classDict[b["category"]];
-          })
-
-          if (graphNum) {
-            entityList.forEach(function(entity){
-              // redraw the list when there are still graph existing
-              
-                text = entity["name"]+' (';
-                entity["graph"].forEach(function(id){
-                  text += 'G' + (id+1) + ', ';
-                });
-                text　= text.substring(0, text.length-2)+')';
-                $("#entity-menu")
-                  .append('<a style="border: 1px solid white; background-color:' + entity.color + '" href="#">'+ text + '</a>');
-            });
-          }*/
+          DrawSparkline(entityMap);
         });
 
         //send data to the server
@@ -341,26 +329,32 @@ function drawChart(data, svg, graphID) {
         return !candidate.children;
     });
 
+    graphTemp = new Map();
+    // append new graphID to old entities (and set it to 0)
+    for (let name in entityMap) {
+      entityMap[name]["graph"][graphID] = 0;
+      graphTemp = JSON.parse(JSON.stringify(entityMap[name]["graph"]));
+    }
+    for (let key in graphTemp) {
+      graphTemp[key] = 0;
+    }
+    graphTemp[graphID] = 0;
+    //create new item in entityMap (with all the old graph information)
     leafNodes.forEach(function(leaf){
       name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).split('_').join(' ').replace(/%/g, '');
-      //create new item in entityMap
       if (!(name in entityMap)){
         idx1 = leaf.data.strPath.indexOf('&-&');
         idx2 = leaf.data.strPath.indexOf('&-&', idx1+1)>-1 ? leaf.data.strPath.indexOf('&-&', idx1+1):leaf.data.strPath.length;
         entityMap[name] = {
           "name": name,
-          "graph": {},
+          "graph": JSON.parse(JSON.stringify(graphTemp)),
           "color": leaf.color,
           "category": leaf.data.strPath.substring(idx1+4, idx2-1),
         };
       }
-
-      // update graph info
-      if (graphID in entityMap[name]["graph"]){
-        entityMap[name]["graph"][graphID] += leaf.data.size;
-      } else {
-        entityMap[name]["graph"][graphID] = leaf.data.size;
-      }
+      // By now, all entityMap[name]["graph"] have the key "graphID" and value 0
+      // just update graph info
+      entityMap[name]["graph"][graphID] += leaf.data.size;
     });
     DrawSparkline(entityMap);
    
@@ -1006,6 +1000,7 @@ function DrawSparkline(entityMap){
     return classDict[a["category"]] - classDict[b["category"]];
   })
   let curCtg = null;
+  let maxSize = 0;
   entityList.forEach(function(entity){
     text = entity["name"];
     /*entity["graph"].forEach(function(id){
@@ -1019,14 +1014,11 @@ function DrawSparkline(entityMap){
       .append('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>');
     }
     graphList = Object.values(entity["graph"]);
-    if (graphList.length > 1) {
-      $("#entity-menu")
-        .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + [5,3,1,4] + '</span>' + '</a>');
-    } else {
-      $("#entity-menu")
-      .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '</a>');
-    }
+    if (Math.max.apply(null, graphList) > maxSize)
+      maxSize = Math.max.apply(null, graphList);
+    $("#entity-menu")
+      .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
-  $('.inlinebar').sparkline('html', {type: 'bar', barColor: hoverHighlight} );
+  $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: hoverHighlight, zeroColor: transGraphColor} );
 }
