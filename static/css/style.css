@@ -113,10 +113,6 @@ a, a:hover, a:focus {
   font-size: 1.1em;
   display: block;
 }
-#sidebar ul li a:hover {
-  color: white;
-  background: white;
-}
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;

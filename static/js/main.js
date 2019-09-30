@@ -842,12 +842,13 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     flag = false;
     idList.forEach(function(id){
       specificName = '/' + id.substring(id.lastIndexOf("e-")+2, id.length)+'>';
+      console.log(specificName);
       if (circle.data.name.includes(specificName))
         flag = true;
     });
     return flag;
   });
-
+  console.log(circles);
   // highlight circles in idList
   if (!circles.empty()) {
     circles
@@ -1007,7 +1008,6 @@ function DrawSparkline(entityMap){
       text += 'G' + (id+1) + ', ';
     });
     text　= text.substring(0, text.length-2)+')';*/
-    text += "         ";
     if (curCtg != entity["category"]) {
       curCtg = entity["category"];
       $("#entity-menu")
@@ -1017,8 +1017,18 @@ function DrawSparkline(entityMap){
     if (Math.max.apply(null, graphList) > maxSize)
       maxSize = Math.max.apply(null, graphList);
     $("#entity-menu")
-      .append('<a style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
+      .append('<a class="EntityItem" style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
   $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: hoverHighlight, zeroColor: transGraphColor} );
+  
+  d3.selectAll(".EntityItem")
+  .on("mouseover", function() {
+      this.style.backgroundColor = d3.rgb(this.dataset.color).darker(1);
+      HighlightCircle(["g-0-e-" + this.textContent.replace(' ', '_')]); // fake id to satisfy function paramenter requirement
+  })
+  .on("mouseout", function() {
+      this.style.backgroundColor = this.dataset.color;
+      RecoverCircle(0, null);
+  })
 }
