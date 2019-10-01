@@ -842,13 +842,11 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     flag = false;
     idList.forEach(function(id){
       specificName = '/' + id.substring(id.lastIndexOf("e-")+2, id.length)+'>';
-      console.log(specificName);
       if (circle.data.name.includes(specificName))
         flag = true;
     });
     return flag;
   });
-  console.log(circles);
   // highlight circles in idList
   if (!circles.empty()) {
     circles
@@ -900,6 +898,15 @@ function RecoverCircle(graphID, tip) {
   }
 }
 
+function getMeta(url) {
+  return new Promise((resolve, reject) => {
+      let img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = url;
+  });
+}
+
 function ClickCircle(uri, tip) {
   labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
@@ -909,8 +916,25 @@ function ClickCircle(uri, tip) {
   $.post("/queryEntity",data,
       function(jsonData,status){
           try {
+            console.log(jsonData);
             if("thumbnail" in jsonData) {
-              labelText += '<img class="thumbnail" width=280 src="' + jsonData["thumbnail"] +'">'
+              let img = getMeta(jsonData["thumbnail"]);
+              var thumbHeight, thumbWidth;
+              /*img.onload = await function(){
+                ratio = this.height / this.width;
+                thumbHeight = (this.height > this.width) ? 200 : 280*ratio;
+                thumbWidth = (this.height > this.width) ? 200/ratio : 280;
+                console.log(thumbHeight, thumbWidth);
+              }*/
+              ratio = img.height / img.width;
+              console.log(ratio);
+              thumbHeight = (img.height > img.width) ? 200 : 280*ratio;
+              thumbWidth = (img.height > img.width) ? 200/ratio : 280;
+              console.log(thumbHeight, thumbWidth);
+              labelText += '<img class="thumbnail" width='+thumbWidth+' height='+thumbHeight+' src="' + jsonData["thumbnail"] +'">'
+            }
+            if("abstract" in jsonData) {
+              labelText += '<div class="abstract">'+ jsonData["abstract"] +'</div>'
             }
             if("neighbor" in jsonData) {
               neighborList = jsonData["neighbor"];
@@ -1020,7 +1044,7 @@ function DrawSparkline(entityMap){
       .append('<a class="EntityItem" style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
-  $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: hoverHighlight, zeroColor: transGraphColor} );
+  $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "black", zeroColor: transGraphColor} );
   
   d3.selectAll(".EntityItem")
   .on("mouseover", function() {

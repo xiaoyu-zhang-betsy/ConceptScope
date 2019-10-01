@@ -69,7 +69,7 @@
   display: flex;
   width: 100%;
   align-items: stretch;
-  background: #ececf3;
+  background: #222;
   /*background: #222227;*/
 }
 
@@ -152,10 +152,10 @@ ul ul a {
 /*************************  Graph View ***************************/
 .svgGroup {
   /*border:3px solid #6c757d;*/
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   background-color: white;
-  height:93vh;
-  margin: 15px;
+  height:94.7vh;
+  margin: 2px;
 }
 
 .svgCircles {
@@ -163,8 +163,8 @@ ul ul a {
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:69vh;
-  margin-top: 2vh;
+  height:73vh;
+  margin-top: 2px;
 }
 
 .svgTrans {
@@ -172,7 +172,7 @@ ul ul a {
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:93vh;
+  height:94.7vh;
   /*margin-top: 2vh;*/
   float: right;
 }
@@ -182,12 +182,12 @@ ul ul a {
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:19vh;
+  height:20vh;
   line-height: 1.2;
   list-style: none;
   list-style-type: none;
   padding: 10px;
-  margin-top: 1vh;
+  margin-top: 2px;
   overflow: auto;
 }
 
@@ -244,5 +244,15 @@ ul ul a {
 }
 
 .thumbnail{
+  margin-bottom: 20px;
+}
+
+.abstract{
+  height: 150px;
+  overflow: auto;
+  font-size: 10pt;
+  font-weight: normal;
+  text-align: justify;
+  padding: 0px 5px 0px 5px;
   margin-bottom: 20px;
 }
