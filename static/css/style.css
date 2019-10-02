@@ -151,7 +151,7 @@ ul ul a {
 
 /*************************  Graph View ***************************/
 .svgGroup {
-  border:1px solid #d6d6d6;
+  border-right:1px solid #d6d6d6;
   /*border-radius: 5px;*/
   background-color: white;
   height:94.7vh;
@@ -178,7 +178,7 @@ ul ul a {
 }
 
 .divText {
-  border:2px solid #6c757d;
+  border:1px solid #d6d6d6;
   border-radius: 5px;
   background-color: white;
   width:100%; 
