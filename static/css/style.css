@@ -18,7 +18,7 @@
   font-size: 13pt;
   font-family: helvetica, sans-serif;
   overflow: hidden;
-  background: #222;
+  background: white;
 }
 
 
@@ -85,7 +85,7 @@ a, a:hover, a:focus {
   height: 95vh;
   /*min-height: 100vh;*/
   /*background: #333;*/
-  color: #fff;
+  color: #333;
   transition: all 0.3s;
 }
 
@@ -104,7 +104,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul p {
-  color: #fff;
+  color: #6C757D;
   padding: 20px;
 }
 
@@ -115,14 +115,14 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #343a40;
+  color: #6C757D;
+  background: #F4F3EF;
 }
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 10px;
-  color: #fff;
-  background: #343a40;
+  color: #6C757D;
+  background: #F4F3EF;
 }
 
 #entity-menu {
@@ -133,7 +133,7 @@ ul ul a {
 }
 
 #entity-menu a {
-  background-color: #6C757D;
+  background-color: white;
   color: black;
   display: block;
   padding: 5px;
@@ -145,13 +145,13 @@ ul ul a {
 }
 
 #entity-menu a.active {
-  background-color: #6C757D;
+  background-color: white;
   color: white;
 }
 
 /*************************  Graph View ***************************/
 .svgGroup {
-  /*border:3px solid #6c757d;*/
+  border:1px solid #d6d6d6;
   /*border-radius: 5px;*/
   background-color: white;
   height:94.7vh;
@@ -172,7 +172,7 @@ ul ul a {
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:94.7vh;
+  height:94vh;
   /*margin-top: 2vh;*/
   float: right;
 }
