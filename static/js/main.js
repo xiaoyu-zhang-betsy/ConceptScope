@@ -375,9 +375,10 @@ function drawChart(data, svg, graphID) {
     svg.call(tip);
 
     d3.select("body").on("click",function(){
-      if ((event.target.nodeName!="path")&&(event.target.nodeName!="circle")) {
-          tip.hide();
-          circleClicked = false;
+      //d3.selectAll(".infoTip").remove();
+      tip.hide();
+      if (event.target.nodeName!="circle") {
+        circleClicked = false;
       }
     });
 
@@ -860,9 +861,9 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
     
-    circles.nodes().forEach(function(d) {
+    circles.nodes().forEach(function(node) {
       if(tip!=null && !circleClicked) {
-        labelText = d.id.substring(d.id.lastIndexOf("e-")+2, d.id.length);
+        labelText = node.id.substring(node.id.lastIndexOf("e-")+2, node.id.length);
         tip.html(labelText).show();
       }
     })
@@ -898,15 +899,6 @@ function RecoverCircle(graphID, tip) {
   }
 }
 
-function getMeta(url) {
-  return new Promise((resolve, reject) => {
-      let img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = reject;
-      img.src = url;
-  });
-}
-
 function ClickCircle(uri, tip) {
   labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
@@ -915,23 +907,12 @@ function ClickCircle(uri, tip) {
   data['uri'] = uri.substring(1, uri.length-1);
   $.post("/queryEntity",data,
       function(jsonData,status){
+          d3.selectAll(".conceptTip").remove();
+
           try {
             console.log(jsonData);
             if("thumbnail" in jsonData) {
-              let img = getMeta(jsonData["thumbnail"]);
-              var thumbHeight, thumbWidth;
-              /*img.onload = await function(){
-                ratio = this.height / this.width;
-                thumbHeight = (this.height > this.width) ? 200 : 280*ratio;
-                thumbWidth = (this.height > this.width) ? 200/ratio : 280;
-                console.log(thumbHeight, thumbWidth);
-              }*/
-              ratio = img.height / img.width;
-              console.log(ratio);
-              thumbHeight = (img.height > img.width) ? 200 : 280*ratio;
-              thumbWidth = (img.height > img.width) ? 200/ratio : 280;
-              console.log(thumbHeight, thumbWidth);
-              labelText += '<img class="thumbnail" width='+thumbWidth+' height='+thumbHeight+' src="' + jsonData["thumbnail"] +'">'
+              labelText += '<img class="thumbnail" src="' + jsonData["thumbnail"] +'">'
             }
             if("abstract" in jsonData) {
               labelText += '<div class="abstract">'+ jsonData["abstract"] +'</div>'
@@ -944,14 +925,14 @@ function ClickCircle(uri, tip) {
                   style = "bold";
                 else
                   style = "normal";
-                labelText += '<li><a style="color:white; font-weight:' + style + '" href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
+                labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
               })
             }
             labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</a>';
             tip.html(labelText).show();
           }
           catch(error) {
-            console.error(error);
+            //console.error(error);
           }
       },"json");
   
@@ -1044,7 +1025,7 @@ function DrawSparkline(entityMap){
       .append('<a class="EntityItem" style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
-  $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "black", zeroColor: transGraphColor} );
+  $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "#343a40", zeroColor: transGraphColor} );
   
   d3.selectAll(".EntityItem")
   .on("mouseover", function() {

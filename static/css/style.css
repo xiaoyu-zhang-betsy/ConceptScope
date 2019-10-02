@@ -209,18 +209,38 @@ ul ul a {
   max-width: 250px;
 }
 
-.infoTip {
+.conceptTip {
   line-height: 1.2;
   position: absolute;
   z-index: 150;
   padding: 10px;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.8);
-  color: #ddd;
+  background: rgba(255, 255, 255, 0.9);
+  color: #212529;
   border-radius: 2px;
   /*border:2px solid gray; */
   word-wrap: break-word;
-  max-width: 300px;
+  max-width: 350px;
+  -webkit-box-shadow: 3px 5px 15px 2px darkgrey;
+  -moz-box-shadow: 3px 5px 15px 2px darkgrey;
+  box-shadow: 3px 5px 15px 2px darkgrey;
+}
+
+.infoTip {
+  line-height: 1.2;
+  position: relative;
+  z-index: 150;
+  padding: 10px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  color: #212529;
+  border-radius: 2px;
+  /*border:2px solid gray; */
+  word-wrap: break-word;
+  max-width: 350px;
+  -webkit-box-shadow: 3px 5px 15px 2px darkgrey;
+  -moz-box-shadow: 3px 5px 15px 2px darkgrey;
+  box-shadow: 3px 5px 15px 2px darkgrey;
 }
 
 *.unselectable {
@@ -232,24 +252,27 @@ ul ul a {
 }
 
 .tdText {
-  word-break: break-word; 
+  word-break: break-word;
   hyphens: auto; 
   padding: 5px;
 }
 
 .glow{
   -webkit-box-shadow: 0px 0px 8px 5px black;
-  -moz-box-shadow: 0px 0px 8px 2px light green;
-  box-shadow: 0px 0px 8px 2px light blue;
+  -moz-box-shadow: 0px 0px 8px 5px black;
+  box-shadow: 0px 0px 8px 5px black;
 }
 
 .thumbnail{
-  margin-bottom: 20px;
+  display: block;
+  margin:0 auto 10px auto;
+  max-width:80%;
+  max-height:150px;
 }
 
 .abstract{
   height: 150px;
-  overflow: auto;
+  overflow-y : auto;
   font-size: 10pt;
   font-weight: normal;
   text-align: justify;
