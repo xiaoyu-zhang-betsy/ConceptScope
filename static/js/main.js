@@ -9,7 +9,7 @@ var szOn = true;
 var szScale = 0.1; // the scale to invoke semantic zooming
 var szLevel = 3; // the number of levels to show (for semantic zooming)
 var szPadding = 7; // the distance between two contours
-var szStrokeWidth = 2; // the stroke width of the contour
+var szStrokeWidth = 1; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
 var entityMap = new Map();
 var classDict = {
@@ -404,14 +404,15 @@ function drawChart(data, svg, graphID) {
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
         .style("stroke", function(arc) {
-            return "black"; // fill
+            //return "black"; // fill
             //return contourColor(arc.depth); // contour
             //return arc.color;
         })
         .style("stroke-width", function(arc) { 
             //return 6-arc.depth*0.7; // Thicker outside, thinner inside
             //return 1+arc.depth*0.7; // Thinner outside, thicker inside
-            return szStrokeWidth; // fill
+            //return szStrokeWidth; // fill
+            return 0;
         })
         .style("fill-opacity", 0.7) 
         .style("fill", function(arc) {
@@ -462,9 +463,9 @@ function drawChart(data, svg, graphID) {
         .attr("cy", function(d) { return d.y; })
         .style("fill", function(d) { return d.color; })
         .style("stroke",  function(arc) {
-            return "black"; // fill
+            //return "black"; // fill
             //return contourColor(arc.depth); // contour
-            //return d3.lab(arc.color).darker(2);
+            return d3.lab(arc.color).darker(1);
         })
         //.style("fill-opacity", 0.7)
         .style("stroke-width", szStrokeWidth)
@@ -779,12 +780,13 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     .style("stroke", function(arc) {
         return "black"; // fill
         //return contourColor(arc.depth); // contour
-        //return d3.lab(arc.color).darker(2);
+        //return d3.lab(arc.color).darker(1);
     })
     .style("stroke-width", function(arc) { 
         //return 6-arc.depth*0.7; // Thicker outside, thinner inside
         //return 1+arc.depth*0.7; // Thinner outside, thicker inside
-        return szStrokeWidth; // fill
+        //return szStrokeWidth; // fill
+        return 0;
     })
     .style("fill-opacity", 0.7) 
     .style("fill", function(arc) {
@@ -812,9 +814,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
     .attr("cy", function(d) { return d.y; })
     .style("fill", function(d) { return d.color; })
     .style("stroke",  function(arc) {
-        return "black"; // fill
+        //return "black"; // fill
         //return contourColor(arc.depth); // contour
-        //return d3.lab(arc.color).darker(2);
+        return d3.lab(arc.color).darker(1);
     })
     //.style("fill-opacity", 0.7)
     .style("stroke-width", szStrokeWidth)
@@ -888,7 +890,9 @@ function RecoverCircle(graphID, tip) {
   // recover all circles
   d3.selectAll("circle")
     .style("fill", function(d) { return d.color;})
-    .style("stroke", "black")
+    .style("stroke", function(d) {
+      return d3.lab(d.color).darker(1);
+    })
     .style("stroke-width", szStrokeWidth)
     .style("stroke-dasharray", null)
     .style("filter", null)
@@ -951,7 +955,8 @@ function HighlightPath(id, graphID=-1, tip=null){
   paths.style("fill-opacity", 0.7) 
   .style("fill", function(arc) {return d3.lab(arc.color).darker(1);})
   //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
-  //.style("stroke", function(arc) {return d3.lab(arc.color).brighter(1);})
+  //.style("stroke", function(arc) {return d3.lab(arc.color).darker(1);})
+  .style("stroke", "black")
   .style("stroke-width", szStrokeWidth+1);
   
   if(tip!=null && !circleClicked) {
@@ -973,7 +978,8 @@ function RecoverPath(contourColor, id, graphID, tip) {
   //.style("fill", "white") // contour
   .style("fill", function(arc) { return contourColor(arc.depth);})// fill
   //.style("stroke", function(arc) {return contourColor(arc.depth);})
-  .style("stroke-width", szStrokeWidth); 
+  //.style("stroke-width", szStrokeWidth); 
+  .style("stroke-width", 0); 
 
   if(tip!=null && !circleClicked)
     tip.hide();
