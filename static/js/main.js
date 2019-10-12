@@ -123,7 +123,7 @@ $("document").ready(function() {
               let svg1 = d3.select("#svgCircles"+graphNum);
               svg1.selectAll("*").remove();
               jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
-              drawChart(jsonData["hierarchy"], svg1, graphNum);
+              drawChart(jsonData["hierarchy"], jsonData["sentences"], svg1, graphNum);
             }
             catch(error) {
               console.error(error);
@@ -300,7 +300,7 @@ $("document").ready(function() {
   });
 });
 
-function drawChart(data, svg, graphID) {
+function drawChart(data, senSet, svg, graphID) {
     // Create hierarchy.
     let root = d3.hierarchy(data)
         .sum(function(d) { return Math.sqrt(d.size) *10; }) // For flare.
@@ -404,7 +404,7 @@ function drawChart(data, svg, graphID) {
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
         .style("stroke", function(arc) {
-            //return "black"; // fill
+            return "black"; // fill
             //return contourColor(arc.depth); // contour
             //return arc.color;
         })
@@ -470,7 +470,8 @@ function drawChart(data, svg, graphID) {
         //.style("fill-opacity", 0.7)
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
-            HighlightCircle([this.id], graphID, tip);
+            //console.log(d.x, d.y);
+            HighlightCircle([this.id], graphID, tip, d);
 
             d.data.location.forEach(function(location) {
               HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
@@ -494,7 +495,25 @@ function drawChart(data, svg, graphID) {
             });
         })
         .on("click", function(d, i) {
-            ClickCircle(d.data.name, tip);
+          //if (d3.event.ctrlKey || d3.event.metaKey) {
+          if (d3.event.shiftKey) {
+              document.getElementById('concordance-view').style.visibility =
+                  'visible';
+              // get concordance
+              var word = d.data.origin;
+              var allConcordances = GetConcordance(word, senSet);
+              $('#concordance-view-content').children().remove();
+              // now add it to the interface
+              /*
+              allConcordances.forEach(function (eachConcordance) {
+                  $('#concordance-view-content')
+                    .append(eachConcordance + "<br/>");
+              });
+              */
+              $('#concordance-view-content').append(allConcordances);
+          } else {
+              ClickCircle(d.data.name, tip);
+          }
         });
 }
 
@@ -866,7 +885,12 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     circles.nodes().forEach(function(node) {
       if(tip!=null && !circleClicked) {
         labelText = node.id.substring(node.id.lastIndexOf("e-")+2, node.id.length);
-        tip.html(labelText).show();
+        tip.html(labelText);
+        //.style("left", d.x + "px")     
+        //.style("top", d.y + "px");
+        //console.log(tip.style("left"), tip.style("top"));
+        //console.log(node.getBBox().x, node.getBBox().y);
+        tip.show();
       }
     })
   }
@@ -929,7 +953,7 @@ function ClickCircle(uri, tip) {
                   style = "bold";
                 else
                   style = "normal";
-                labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' +neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
+                labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' + neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
               })
             }
             labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</a>';
@@ -1042,4 +1066,66 @@ function DrawSparkline(entityMap){
       this.style.backgroundColor = this.dataset.color;
       RecoverCircle(0, null);
   })
+}
+
+// Function to generate a text concordance view in the form of an html
+// table
+function GetConcordance(word, captionArray) {
+  //take the captionArray and put in one string
+  var allCaptions = "";
+  var textWindow = 60;
+  
+  captionArray.forEach(function (caption) {
+      allCaptions += caption["sentence"] + " ";
+  });
+
+  //now search of the index (indices) of the word in the allCaptions
+  var indices = getIndicesOf(word, allCaptions, false);
+  //var indices = [word];
+
+  //Array of the concordances
+  var concordances = "<table id='concTable' align='center'>";
+
+  for (var i = 0; i < indices.length; i++) {
+      var index = indices[i];
+      var left = index - textWindow < 0 ? 0 : index - textWindow;
+      var right = index+textWindow+word.length >allCaptions.length-1?
+                  allCaptions.length-1 : index + textWindow + 
+                  word.length;
+      var row = "<tr>" +
+                  "<td align='right'>" +
+                  allCaptions.substring(left, index - 1) +
+                  "</td>" +
+                  "<td width=10px></td>" +
+                  "<td align='center'><b>" +
+                  allCaptions.substring(index,
+                                        index+word.length) +
+                  " </b></td>" +
+                  "<td width=10px></td>" +
+                  "<td align='left'>" +
+                  allCaptions.substring(index + word.length,
+                                        right) +
+                  "</td>" +
+                "</tr>"
+        concordances = concordances.concat(row);
+  }
+  concordances = concordances.concat("</table>");
+  return concordances;
+}
+
+// Code credits for below function (getIndicesOf):
+// http://stackoverflow.com/questions/3410464/how-to-find-all-occurrences-of-one-string-in-another-in-javascript
+function getIndicesOf(searchStr, str, caseSensitive) {
+  searchStr = searchStr.trim();
+  var startIndex = 0, searchStrLen = searchStr.length;
+  var index, indices = [];
+  if (!caseSensitive) {
+      str = str.toLowerCase();
+      searchStr = searchStr.toLowerCase();
+  }
+  while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+      indices.push(index);
+      startIndex = index + searchStrLen;
+  }
+  return indices;
 }

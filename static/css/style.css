@@ -149,6 +149,49 @@ ul ul a {
   color: white;
 }
 
+/*************************  Concordance View ***************************/
+#concordance-view {
+  background: #FFFFFF;
+  left: 12%;
+  right: 12%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  z-index: 500;
+  height: 50%;
+  top: 12%;
+  font-size: 12px;
+  visibility: hidden;
+  font-family: 'Courier New';
+  /*border: 1px solid gray;
+  box-shadow: 0 0 15px 8px rgba(0,0,0,0.4);*/
+  -webkit-box-shadow: 3px 5px 15px 2px darkgrey;
+  -moz-box-shadow: 3px 5px 15px 2px darkgrey;
+  box-shadow: 3px 5px 15px 2px darkgrey;
+}
+ #concordance-view-content {
+  background: #FFFFFF;
+  margin-left: 25px;
+  overflow: auto;
+  text-align: left;
+  font-size: 12px;
+  font-family: 'Courier New';
+  height: 100%;
+}
+#concordance-close {
+  width: 25px;
+  height: 25px;
+  float: right;
+  left: 99%;
+  top: 30px;
+  background-repeat: no-repeat;
+  background-image: url(img/close.png);
+  background-size: 25px 25px;
+}
+#concordance-close:hover {
+    background-color: #9ecae1;
+}
+
 /*************************  Graph View ***************************/
 .svgGroup {
   border-right:1px solid #d6d6d6;
@@ -228,7 +271,7 @@ ul ul a {
 
 .infoTip {
   line-height: 1.2;
-  position: relative;
+  position: absolute;
   z-index: 150;
   padding: 10px;
   font-weight: bold;
@@ -278,4 +321,29 @@ ul ul a {
   text-align: justify;
   padding: 0px 5px 0px 5px;
   margin-bottom: 20px;
+}
+
+.nameTip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.nameTip .tooltiptext {
+  visibility: hidden;
+  line-height: 1.2;
+  position: absolute;
+  z-index: 150;
+  font-weight: bold;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ddd;
+  border-radius: 2px;
+  /*border:2px solid gray; */
+  word-wrap: break-word;
+  max-width: 250px;
+}
+
+.nameTip:hover .tooltiptext {
+  visibility: visible;
 }
