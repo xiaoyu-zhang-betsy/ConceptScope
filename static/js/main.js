@@ -118,6 +118,7 @@ $("document").ready(function() {
 
         $.post("/loadGraph",data,
         function(jsonData,status){
+            console.log(jsonData);
             try {
               // draw bubble treemap
               let svg1 = d3.select("#svgCircles"+graphNum);
@@ -501,7 +502,7 @@ function drawChart(data, senSet, svg, graphID) {
                   'visible';
               // get concordance
               var word = d.data.origin;
-              var allConcordances = GetConcordance(word, senSet);
+              var allConcordances = GetConcordanceTrans(word, senSet);
               $('#concordance-view-content').children().remove();
               // now add it to the interface
               /*
@@ -615,8 +616,10 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     // highlight corresponding circles
     idList = [];
     d.marks.forEach(function(mark) {
-      entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
-      idList.push("g-" + graphID + "-" + "e" + "-" + entityName);
+      if (mark.entityURI != null) {
+        entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
+        idList.push("g-" + graphID + "-" + "e" + "-" + entityName);
+      }
     });
     HighlightCircle(idList, graphID);
 
@@ -701,7 +704,7 @@ function genTipsHtml(data, index) {
   data.marks.forEach(function(mark){
     plain_end = mark.start_char;
     s_html = s_html + text.substring(plain_start, plain_end);
-    if (mark.category.substring(1, mark.category.length-1) in classDict)
+    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict)
       s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
     else
       s_html = s_html + text.substring(mark.start_char, mark.end_char)
@@ -1070,7 +1073,8 @@ function DrawSparkline(entityMap){
 
 // Function to generate a text concordance view in the form of an html
 // table
-function GetConcordance(word, captionArray) {
+function GetConcordanceTrans(word, captionArray) {
+  console.log(captionArray);
   //take the captionArray and put in one string
   var allCaptions = "";
   var textWindow = 60;
@@ -1080,7 +1084,7 @@ function GetConcordance(word, captionArray) {
   });
 
   //now search of the index (indices) of the word in the allCaptions
-  var indices = getIndicesOf(word, allCaptions, false);
+  var indices = getIndicesOfTrans(word, allCaptions, false);
   //var indices = [word];
 
   //Array of the concordances
@@ -1115,7 +1119,7 @@ function GetConcordance(word, captionArray) {
 
 // Code credits for below function (getIndicesOf):
 // http://stackoverflow.com/questions/3410464/how-to-find-all-occurrences-of-one-string-in-another-in-javascript
-function getIndicesOf(searchStr, str, caseSensitive) {
+function getIndicesOfTrans(searchStr, str, caseSensitive) {
   searchStr = searchStr.trim();
   var startIndex = 0, searchStrLen = searchStr.length;
   var index, indices = [];
@@ -1128,4 +1132,88 @@ function getIndicesOf(searchStr, str, caseSensitive) {
       startIndex = index + searchStrLen;
   }
   return indices;
+}
+
+// Function to generate a text concordance view in the form of an html
+// table
+function GetConcordanceCncpt(word, senSet) {
+  console.log(senSet);
+  //take the senSet and put in one string
+  var allCaptions = "";
+  var textWindow = 60;
+  
+  senSet.forEach(function (caption) {
+      allCaptions += caption["sentence"] + " ";
+  });
+
+  //now search of the index (indices) of the word in the allCaptions
+  var indices = getIndicesOfCncpt(word, senSet, false);
+  //var indices = [word];
+
+  //Array of the concordances
+  var concordances = "<table id='concTable' align='center'>";
+
+  for (var i = 0; i < indices.length; i++) {
+      var indexS = indices[i][0], indexM = indices[i][1];
+      /*var left = index - textWindow < 0 ? 0 : index - textWindow;
+      var right = index+textWindow+word.length >allCaptions.length-1?
+                  allCaptions.length-1 : index + textWindow + 
+                  word.length;*/
+      var left = "";
+      for (var j=0; j < indexM; j++){
+        left += senSet[indexS].marks[j].origin + ' ';
+      }
+      var right = "";
+      for (var j=indexM+1; j < senSet[indexS].marks.length; j++){
+        right += senSet[indexS].marks[j].origin + ' ';
+      }
+      var row = "<tr>" +
+                  "<td align='right'>" +
+                  left +
+                  "</td>" +
+                  "<td width=10px></td>" +
+                  "<td align='center'><b>" +
+                  senSet[indexS].marks[indexM].origin +
+                  " </b></td>" +
+                  "<td width=10px></td>" +
+                  "<td align='left'>" +
+                  right +
+                  "</td>" +
+                "</tr>"
+        concordances = concordances.concat(row);
+  }
+  concordances = concordances.concat("</table>");
+  return concordances;
+}
+
+// Code credits for below function (getIndicesOf):
+// http://stackoverflow.com/questions/3410464/how-to-find-all-occurrences-of-one-string-in-another-in-javascript
+function getIndicesOfCncpt(searchStr, sentences, caseSensitive) {
+  var indices = [];
+  sentences.forEach(function(sent, indexS) {
+    sent.marks.forEach(function(mark, indexM) {
+      str = mark.origin;
+      if (!caseSensitive) {
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+      }
+
+      if (str == searchStr)
+        indices.push([indexS, indexM]);
+    })
+  });
+  console.log(indices);
+  return indices;
+  /*searchStr = searchStr.trim();
+  var startIndex = 0, searchStrLen = searchStr.length;
+  var index, indices = [];
+  if (!caseSensitive) {
+      str = str.toLowerCase();
+      searchStr = searchStr.toLowerCase();
+  }
+  while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+      indices.push(index);
+      startIndex = index + searchStrLen;
+  }
+  return indices;*/
 }
