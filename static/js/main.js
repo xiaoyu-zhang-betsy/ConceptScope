@@ -389,7 +389,7 @@ function drawChart(data, senSet, svg, graphID) {
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
         if (szOn){
-          SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, root.height);
+          SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
         } else {
           szLevel = root.height;
         }
@@ -496,21 +496,14 @@ function drawChart(data, senSet, svg, graphID) {
             });
         })
         .on("click", function(d, i) {
-          //if (d3.event.ctrlKey || d3.event.metaKey) {
-          if (d3.event.shiftKey) {
+          if (d3.event.ctrlKey || d3.event.metaKey) {
+          //if (d3.event.shiftKey) {
               document.getElementById('concordance-view').style.visibility =
                   'visible';
               // get concordance
               var word = d.data.origin;
-              var allConcordances = GetConcordanceTrans(word, senSet);
+              var allConcordances = GetConcordanceHighlight(word, senSet);
               $('#concordance-view-content').children().remove();
-              // now add it to the interface
-              /*
-              allConcordances.forEach(function (eachConcordance) {
-                  $('#concordance-view-content')
-                    .append(eachConcordance + "<br/>");
-              });
-              */
               $('#concordance-view-content').append(allConcordances);
           } else {
               ClickCircle(d.data.name, tip);
@@ -786,7 +779,7 @@ function genLegend(data, svg) {
   .style("font-size", 15);
 }
 
-function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor, tip, treeHeight) {
+function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, treeHeight) {
   szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
   szLevel = szLevel<=treeHeight? szLevel : treeHeight;
 
@@ -857,7 +850,18 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, graphID, contourColor,
         });
     })
     .on("click", function(d, i) {
-        ClickCircle(d.data.name, tip);
+        if (d3.event.ctrlKey || d3.event.metaKey) {
+        //if (d3.event.shiftKey) {
+            document.getElementById('concordance-view').style.visibility =
+                'visible';
+            // get concordance
+            var word = d.data.origin;
+            var allConcordances = GetConcordanceHighlight(word, senSet);
+            $('#concordance-view-content').children().remove();
+            $('#concordance-view-content').append(allConcordances);
+        } else {
+            ClickCircle(d.data.name, tip);
+        }
     });
   }
 
@@ -1039,6 +1043,7 @@ function DrawSparkline(entityMap){
     return classDict[a["category"]] - classDict[b["category"]];
   })
   let curCtg = null;
+  let CtgNode = null;
   let maxSize = 0;
   entityList.forEach(function(entity){
     text = entity["name"];
@@ -1048,13 +1053,13 @@ function DrawSparkline(entityMap){
     text　= text.substring(0, text.length-2)+')';*/
     if (curCtg != entity["category"]) {
       curCtg = entity["category"];
-      $("#entity-menu")
-      .append('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>');
+      CtgNode = $('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>')
+      .appendTo("#entity-menu");
     }
     graphList = Object.values(entity["graph"]);
     if (Math.max.apply(null, graphList) > maxSize)
       maxSize = Math.max.apply(null, graphList);
-    $("#entity-menu")
+    $(CtgNode)
       .append('<a class="EntityItem" style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
@@ -1186,8 +1191,6 @@ function GetConcordanceCncpt(word, senSet) {
   return concordances;
 }
 
-// Code credits for below function (getIndicesOf):
-// http://stackoverflow.com/questions/3410464/how-to-find-all-occurrences-of-one-string-in-another-in-javascript
 function getIndicesOfCncpt(searchStr, sentences, caseSensitive) {
   var indices = [];
   sentences.forEach(function(sent, indexS) {
@@ -1202,18 +1205,78 @@ function getIndicesOfCncpt(searchStr, sentences, caseSensitive) {
         indices.push([indexS, indexM]);
     })
   });
-  console.log(indices);
   return indices;
-  /*searchStr = searchStr.trim();
-  var startIndex = 0, searchStrLen = searchStr.length;
-  var index, indices = [];
-  if (!caseSensitive) {
-      str = str.toLowerCase();
-      searchStr = searchStr.toLowerCase();
+}
+
+// Function to generate a text concordance view in the form of an html
+// table
+function GetConcordanceHighlight(word, senSet) {
+  //take the senSet and put in one string
+  var allCaptions = "";
+  var textWindow = 120;
+  
+  senSet.forEach(function (caption) {
+      allCaptions += caption["sentence"] + " ";
+  });
+
+  //now search of the index (indices) of the word in the allCaptions
+  var indices = getIndicesOfHighlight(word, senSet, false);
+  //var indices = [word];
+
+  //Array of the concordances
+  var concordances = "<table id='concTable' align='center'>";
+
+  for (var i = 0; i < indices.length; i++) {
+      var indexS = indices[i][0], indexM = indices[i][1];
+      var conceptMark = senSet[indexS].marks[indexM];
+      var left_index = conceptMark.start_char - textWindow < 0 ? 0 : conceptMark.start_char - textWindow;
+      var right_index = conceptMark.end_char+textWindow >senSet[indexS].sentence.length?
+                  senSet[indexS].sentence.length : 
+                  conceptMark.end_char+textWindow;
+
+      text = senSet[indexS].sentence;
+      text_left = senSet[indexS].sentence.substring(left_index, conceptMark.start_char);
+      text_right = senSet[indexS].sentence.substring(conceptMark.end_char, right_index);
+      senSet[indexS].marks.forEach(function(mark){
+        if ((mark.start_char >= left_index) && (mark.end_char < conceptMark.start_char))
+          text_left = text_left.replace(text.substring(mark.start_char, mark.end_char), '<b>' + text.substring(mark.start_char, mark.end_char) + '</b>');
+        else if ((mark.start_char > conceptMark.end_char) && (mark.end_char <= right_index))
+          text_right = text_right.replace(text.substring(mark.start_char, mark.end_char), '<b>' + text.substring(mark.start_char, mark.end_char) + '</b>');        
+      });
+
+      var highlightColor = conceptMark.category ? colorMap[classDict[conceptMark.category.substring(1, conceptMark.category.length-1)] % colorMap.length] : "#ffff00";
+      var row = "<tr>" +
+                  "<td align='right'>" +
+                  text_left +                   
+                  "</td>" +
+                  "<td width=10px></td>" +
+                  "<td align='center'>" + '<span style="background-color:' + highlightColor + ' ">' + "<b>" +
+                  conceptMark.origin +
+                  "</b></span></td>" +
+                  "<td width=10px></td>" +
+                  "<td align='left'>" +
+                  text_right +                  
+                  "</td>" +
+                "</tr>"
+        concordances = concordances.concat(row);
   }
-  while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-      indices.push(index);
-      startIndex = index + searchStrLen;
-  }
-  return indices;*/
+  concordances = concordances.concat("</table>");
+  return concordances;
+}
+
+function getIndicesOfHighlight(searchStr, sentences, caseSensitive) {
+  var indices = [];
+  sentences.forEach(function(sent, indexS) {
+    sent.marks.forEach(function(mark, indexM) {
+      str = mark.origin;
+      if (!caseSensitive) {
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+      }
+
+      if (str == searchStr)
+        indices.push([indexS, indexM]);
+    })
+  });
+  return indices;
 }
