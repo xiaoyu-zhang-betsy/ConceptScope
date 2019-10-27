@@ -301,7 +301,7 @@ $("document").ready(function() {
   });
 });
 
-function drawChart(data, senSet, svg, graphID) {
+function drawChart(data, senSet, svg, graphID) {  
     // Create hierarchy.
     let root = d3.hierarchy(data)
         .sum(function(d) { return Math.sqrt(d.size) *10; }) // For flare.
@@ -1053,14 +1053,14 @@ function DrawSparkline(entityMap){
     text　= text.substring(0, text.length-2)+')';*/
     if (curCtg != entity["category"]) {
       curCtg = entity["category"];
-      CtgNode = $('<a style="font-weight:bold; font-size:1.1em;  background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>')
+      CtgNode = $('<a style="padding: 10px 0px 0px 0px; font-weight:bold; background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>')
       .appendTo("#entity-menu");
     }
     graphList = Object.values(entity["graph"]);
     if (Math.max.apply(null, graphList) > maxSize)
       maxSize = Math.max.apply(null, graphList);
     $(CtgNode)
-      .append('<a class="EntityItem" style="padding-left:30px; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
+      .append('<a class="EntityItem" style="padding: 10px 0px 10px 30px; font-weight:normal; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
   $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "#343a40", zeroColor: transGraphColor} );
