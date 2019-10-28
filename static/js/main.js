@@ -1053,14 +1053,14 @@ function DrawSparkline(entityMap){
     text　= text.substring(0, text.length-2)+')';*/
     if (curCtg != entity["category"]) {
       curCtg = entity["category"];
-      CtgNode = $('<a style="padding: 10px 0px 0px 0px; font-weight:bold; background-color:' + entity.color + '" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '</a>')
+      CtgNode = $('<div style="margin-bottom:2px; font-weight:bold; text-indent: 10px; line-height: 2; background-color: #e0e0e0; border:1px solid #d6d6d6" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '<br/></div>')
       .appendTo("#entity-menu");
     }
     graphList = Object.values(entity["graph"]);
     if (Math.max.apply(null, graphList) > maxSize)
       maxSize = Math.max.apply(null, graphList);
     $(CtgNode)
-      .append('<a class="EntityItem" style="padding: 10px 0px 10px 30px; font-weight:normal; background-color:' + d3.lab(entity.color).brighter(0.5) + '" '+ 'data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
+      .append('<a class="EntityItem" style="padding: 10px 0px 10px 10px; font-weight:normal; line-height: 1.5; background-color: white"; data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ '<i class="fa fa-circle" style="color:' + d3.lab(entity.color) + '; padding-right: 10px"></i>' + text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
   $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "#343a40", zeroColor: transGraphColor} );
@@ -1071,7 +1071,7 @@ function DrawSparkline(entityMap){
       HighlightCircle(["g-0-e-" + this.textContent.replace(' ', '_')]); // fake id to satisfy function paramenter requirement
   })
   .on("mouseout", function() {
-      this.style.backgroundColor = this.dataset.color;
+      this.style.backgroundColor = "white";
       RecoverCircle(0, null);
   })
 }

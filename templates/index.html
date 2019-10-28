@@ -16,7 +16,9 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
         <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+        <!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"-->
+        <!--link rel="stylesheet" href="{{ url_for('static',filename='source/libraries/font-awesome/css/font-awesome.min.css') }}"-->
     </head>
 
     <body>
@@ -83,22 +85,22 @@
                     <li class="active">
                         <a href="#explorationSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Level Control</a>
                         <ul class="collapse list-unstyled show" style="padding: 0.0rem 1rem 2rem 1rem;" id="explorationSubmenu">                           
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="szSwitch">
+                                <label class="custom-control-label" for="szSwitch">Lock Levels</label>
+                            </div>
                             <div class="d-flex justify-content-center my-4">          
                                 <span class="helvetica mr-2">0</span>
                                 <input type="range" class="custom-range" id="szLevel">
                                 <!--label for="sliceRange">Slice Levels</label-->
                                 <span class="helvetica ml-2" id="sliceRange">7</span>
                             </div>
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="szSwitch">
-                                <label class="custom-control-label" for="szSwitch">Lock Levels</label>
-                            </div>
                         </ul>
                     </li>
                     <li class="active">
                         <a href="#comparisonSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Concept List</a>
                         <ul class="collapse list-unstyled show" id="comparisonSubmenu">
-                            <div id="entity-menu"  style="background-color:white; margin: auto">
+                            <div id="entity-menu"  style="margin: auto">
                             </div>
                         </ul>
                     </li>
