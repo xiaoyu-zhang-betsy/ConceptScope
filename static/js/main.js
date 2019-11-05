@@ -253,8 +253,15 @@ $("document").ready(function() {
     if (!e.target.checked){
       szOn = true;
       szLevel =3;
+      $("#szSlicer").remove();
     } else {
       szOn = false;
+      $("#explorationSubmenu")
+        .append('<div class="d-flex justify-content-center my-4" id="szSlicer"> \
+                    <span class="helvetica mr-2" id="szSlicerBottom">0</span> \
+                    <input type="range" class="custom-range" id="szSlicerBar"> \
+                    <span class="helvetica ml-2" id="sliceRange" id="szSlicerTop">7</span> \
+                </div>');
     }
   });
 
@@ -987,7 +994,8 @@ function HighlightPath(id, graphID=-1, tip=null){
   .style("fill", function(arc) {return d3.lab(arc.color).darker(1);})
   //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
   //.style("stroke", function(arc) {return d3.lab(arc.color).darker(1);})
-  .style("stroke", "black")
+  //.style("filter", "url(#shadows)")
+  .style("stroke", "gray")
   .style("stroke-width", szStrokeWidth+1);
   
   if(tip!=null && !circleClicked) {
@@ -1010,6 +1018,7 @@ function RecoverPath(contourColor, id, graphID, tip) {
   .style("fill", function(arc) { return contourColor(arc.depth);})// fill
   //.style("stroke", function(arc) {return contourColor(arc.depth);})
   //.style("stroke-width", szStrokeWidth); 
+  //.style("filter", null)
   .style("stroke-width", 0); 
 
   if(tip!=null && !circleClicked)
@@ -1051,16 +1060,17 @@ function DrawSparkline(entityMap){
       text += 'G' + (id+1) + ', ';
     });
     text　= text.substring(0, text.length-2)+')';*/
+    legendColor = d3.lab(entity.color);//"#e0e0e0"
     if (curCtg != entity["category"]) {
       curCtg = entity["category"];
-      CtgNode = $('<div style="margin-bottom:2px; font-weight:bold; text-indent: 10px; line-height: 2; background-color: #e0e0e0; border:1px solid #d6d6d6" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '<br/></div>')
+      CtgNode = $('<div style="margin-bottom:2px; font-weight:bold; text-indent: 10px; line-height: 2; background-color:' + legendColor + '; border:1px solid #d6d6d6" href="#">'+ curCtg.substring(curCtg.lastIndexOf("/")+1, curCtg.length).split('_').join(' ') + '<br/></div>')
       .appendTo("#entity-menu");
     }
     graphList = Object.values(entity["graph"]);
     if (Math.max.apply(null, graphList) > maxSize)
       maxSize = Math.max.apply(null, graphList);
     $(CtgNode)
-      .append('<a class="EntityItem" style="padding: 10px 0px 10px 10px; font-weight:normal; line-height: 1.5; background-color: white"; data-color="'+ d3.lab(entity.color).brighter(0.5) +'" href="#">'+ '<i class="fa fa-circle" style="color:' + d3.lab(entity.color) + '; padding-right: 10px"></i>' + text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
+      .append('<a class="EntityItem" style="padding: 10px 0px 10px 10px; font-weight:normal; line-height: 1.5; background-color: white"; data-color="'+ legendColor +'" href="#">'+ '<i class="fa fa-circle" style="color:' + legendColor + '; padding-right: 10px"></i>' + text + '<span class="inlinebar" style="margin-left:0.5em">' + graphList + '</span>' + '</a>');
   });
 
   $('.inlinebar').sparkline('html', {type: 'bar', chartRangeMin: 0, barWidth: 8, chartRangeMax: maxSize, barColor: "#343a40", zeroColor: transGraphColor} );

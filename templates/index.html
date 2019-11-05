@@ -16,15 +16,13 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
         <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <!--link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"-->
-        <!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"-->
-        <link rel="stylesheet" href="{{ url_for('static',filename='source/libraries/font-awesome/css/font-awesome.min.css') }}">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
     </head>
 
     <body>
     <!--body onload="doIt('cso_result_general_wordNet.json', 'cso_result_specific_wordNet.json')"-->
         
-    <!-- Navigation bar -->
+        <!-- Navigation bar -->
         <nav class="navbar navbar-expand-md navbar-light justify-content-between" style="background-color: #F4F3EF; padding-left: 0px; border-bottom: 1px solid #d6d6d6">
             <div class="container-fluid" style="padding-left: 0px">
                 <button type="button" id="sidebarButton" class="btn" style="color: #6c757d;">
@@ -87,13 +85,7 @@
                         <ul class="collapse list-unstyled show" style="padding: 0.0rem 1rem 2rem 1rem;" id="explorationSubmenu">                           
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="szSwitch">
-                                <label class="custom-control-label" for="szSwitch">Lock Levels</label>
-                            </div>
-                            <div class="d-flex justify-content-center my-4">          
-                                <span class="helvetica mr-2">0</span>
-                                <input type="range" class="custom-range" id="szLevel">
-                                <!--label for="sliceRange">Slice Levels</label-->
-                                <span class="helvetica ml-2" id="sliceRange">7</span>
+                                <label class="custom-control-label" for="szSwitch">Level Slicer</label>
                             </div>
                         </ul>
                     </li>
