@@ -42,18 +42,18 @@
           "end_char": 56,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/space_time_block_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_block_code>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding_%28stbc%29>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_trellis_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coded>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_block_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_code>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_adaptive_processing>",
             "<https://cso.kmi.open.ac.uk/topics/space-time_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_codes>"
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_trellis_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_code>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_block_code>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coded>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_coding>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_block_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_adaptive_processing>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding_%28stbc%29>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding>"
           ],
           "category": null
         },
@@ -65,13 +65,13 @@
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/information_technology>",
             "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-            "<https://cso.kmi.open.ac.uk/topics/video_database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_management>",
-            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
-            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database>",
             "<https://cso.kmi.open.ac.uk/topics/medical_database>",
             "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-            "<https://cso.kmi.open.ac.uk/topics/database>",
+            "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>",
             "<https://cso.kmi.open.ac.uk/topics/database_systems>"
           ],
           "category": null
@@ -101,8 +101,8 @@
           "end_char": 100,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_process>"
           ],
           "category": null
@@ -113,12 +113,12 @@
           "start_char": 104,
           "end_char": 109,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
-            "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/expression_recognition>"
           ],
           "category": null
@@ -142,18 +142,18 @@
         {
           "origin": "information",
           "entityURI": "<https://cso.kmi.open.ac.uk/topics/database>",
-          "start_char": 57,
-          "end_char": 68,
+          "start_char": 130,
+          "end_char": 141,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/information_technology>",
             "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-            "<https://cso.kmi.open.ac.uk/topics/video_database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_management>",
-            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
-            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database>",
             "<https://cso.kmi.open.ac.uk/topics/medical_database>",
             "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-            "<https://cso.kmi.open.ac.uk/topics/database>",
+            "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>",
             "<https://cso.kmi.open.ac.uk/topics/database_systems>"
           ],
           "category": null
@@ -164,9 +164,9 @@
           "start_char": 149,
           "end_char": 154,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
             "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>"
+            "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
           ],
           "category": null
         },
@@ -236,13 +236,13 @@
           "end_char": 38,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -253,8 +253,8 @@
           "end_char": 47,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_process>"
           ],
           "category": null
@@ -275,13 +275,13 @@
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/information_technology>",
             "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-            "<https://cso.kmi.open.ac.uk/topics/video_database>",
-            "<https://cso.kmi.open.ac.uk/topics/database_management>",
-            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
-            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database>",
             "<https://cso.kmi.open.ac.uk/topics/medical_database>",
             "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-            "<https://cso.kmi.open.ac.uk/topics/database>",
+            "<https://cso.kmi.open.ac.uk/topics/video_database>",
+            "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+            "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+            "<https://cso.kmi.open.ac.uk/topics/database_management>",
             "<https://cso.kmi.open.ac.uk/topics/database_systems>"
           ],
           "category": null
@@ -292,9 +292,9 @@
           "start_char": 79,
           "end_char": 84,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
             "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>"
+            "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
           ],
           "category": null
         },
@@ -321,8 +321,8 @@
           "end_char": 121,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_process>"
           ],
           "category": null
@@ -438,16 +438,16 @@
           "end_char": 104,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/software>",
-            "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
             "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
             "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
             "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
-            "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
+            "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
             "<https://cso.kmi.open.ac.uk/topics/computer_application>",
-            "<https://cso.kmi.open.ac.uk/topics/global_software_engineering>",
-            "<https://cso.kmi.open.ac.uk/topics/software_engineering_education>",
             "<https://cso.kmi.open.ac.uk/topics/software_engineering_course>",
-            "<https://cso.kmi.open.ac.uk/topics/software_engineering>"
+            "<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+            "<https://cso.kmi.open.ac.uk/topics/software_engineering_education>",
+            "<https://cso.kmi.open.ac.uk/topics/global_software_engineering>"
           ],
           "category": null
         },
@@ -466,18 +466,18 @@
           "end_char": 123,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/space_time_block_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_block_code>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding_%28stbc%29>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_trellis_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coded>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_block_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space-time_block_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_code>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_adaptive_processing>",
             "<https://cso.kmi.open.ac.uk/topics/space-time_codes>",
-            "<https://cso.kmi.open.ac.uk/topics/space_time_codes>"
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_trellis_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_code>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_block_code>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coded>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_coding>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_block_codes>",
+            "<https://cso.kmi.open.ac.uk/topics/space_time_adaptive_processing>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding_%28stbc%29>",
+            "<https://cso.kmi.open.ac.uk/topics/space-time_block_coding>"
           ],
           "category": null
         },
@@ -496,13 +496,13 @@
           "end_char": 143,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -519,8 +519,8 @@
         {
           "origin": "datum",
           "entityURI": null,
-          "start_char": 124,
-          "end_char": 128,
+          "start_char": 165,
+          "end_char": 169,
           "candidates": [],
           "category": null
         },
@@ -530,9 +530,9 @@
           "start_char": 170,
           "end_char": 175,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>",
             "<https://cso.kmi.open.ac.uk/topics/satellite_ground_stations>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_links>",
-            "<https://cso.kmi.open.ac.uk/topics/satellite_systems>"
+            "<https://cso.kmi.open.ac.uk/topics/satellite_links>"
           ],
           "category": null
         },
@@ -559,15 +559,15 @@
           "end_char": 104,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/software>",
-            "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
             "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+            "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
             "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
             "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
-            "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
+            "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
             "<https://cso.kmi.open.ac.uk/topics/computer_application>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>"
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>"
           ],
           "category": null
         },
@@ -606,13 +606,13 @@
           "start_char": 12,
           "end_char": 16,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/memory_access>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
             "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
             "<https://cso.kmi.open.ac.uk/topics/embedded_memory>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_access>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
             "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>"
+            "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/human_computer_interaction>"
         },
@@ -674,13 +674,13 @@
           "end_char": 95,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -691,13 +691,13 @@
           "end_char": 106,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -725,13 +725,13 @@
           "start_char": 75,
           "end_char": 87,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/service_ontology>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_integration>",
-            "<https://cso.kmi.open.ac.uk/topics/fuzzy_ontology>",
+            "<https://cso.kmi.open.ac.uk/topics/ontology_language>",
             "<https://cso.kmi.open.ac.uk/topics/ontologies>",
+            "<https://cso.kmi.open.ac.uk/topics/service_ontology>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_technology>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_development>",
-            "<https://cso.kmi.open.ac.uk/topics/ontology_language>",
+            "<https://cso.kmi.open.ac.uk/topics/fuzzy_ontology>",
             "<https://cso.kmi.open.ac.uk/topics/ontology_mapping>"
           ],
           "category": null
@@ -882,8 +882,8 @@
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/probability_distributions>",
             "<https://cso.kmi.open.ac.uk/topics/fourier_transform>",
-            "<https://cso.kmi.open.ac.uk/topics/fourier_transforms>",
             "<https://cso.kmi.open.ac.uk/topics/fractional_fourier_transforms>",
+            "<https://cso.kmi.open.ac.uk/topics/fourier_transforms>",
             "<https://cso.kmi.open.ac.uk/topics/discrete_fourier_transforms>"
           ],
           "category": null
@@ -911,13 +911,13 @@
           "end_char": 98,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -960,30 +960,30 @@
           "end_char": 183,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
         {
           "origin": "interface",
           "entityURI": null,
-          "start_char": 89,
-          "end_char": 98,
+          "start_char": 184,
+          "end_char": 193,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": null
         },
@@ -1023,13 +1023,13 @@
           "end_char": 5,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>",
-            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces_%28gui%29>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/graphical_user_interface>",
             "<https://cso.kmi.open.ac.uk/topics/human_machine_interface>",
-            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>",
+            "<https://cso.kmi.open.ac.uk/topics/hmi>",
             "<https://cso.kmi.open.ac.uk/topics/user_interface_designs>",
-            "<https://cso.kmi.open.ac.uk/topics/hmi>"
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interface>",
+            "<https://cso.kmi.open.ac.uk/topics/human-machine_interfaces>"
           ],
           "category": "<https://cso.kmi.open.ac.uk/topics/artificial_intelligence>"
         },
@@ -1105,8 +1105,8 @@
         {
           "origin": "animation",
           "entityURI": null,
-          "start_char": 39,
-          "end_char": 48,
+          "start_char": 126,
+          "end_char": 135,
           "candidates": [],
           "category": null
         },
@@ -1125,8 +1125,8 @@
           "end_char": 162,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+            "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
             "<https://cso.kmi.open.ac.uk/topics/cognitive_process>"
           ],
           "category": null
@@ -1137,15 +1137,15 @@
           "start_char": 0,
           "end_char": 5,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
             "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
-            "<https://cso.kmi.open.ac.uk/topics/iaas>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
             "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_data>",
+            "<https://cso.kmi.open.ac.uk/topics/iaas>",
             "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
-            "<https://cso.kmi.open.ac.uk/topics/cloud_data>"
+            "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+            "<https://cso.kmi.open.ac.uk/topics/cloud_services>"
           ],
           "category": null
         }
@@ -1165,13 +1165,13 @@
             "uncertainty": 3,
             "children": [
               {
-                "name": "<https://cso.kmi.open.ac.uk/topics/software_architecture>",
+                "name": "<https://cso.kmi.open.ac.uk/topics/software_architectures>",
                 "uncertainty": 3,
                 "children": [
                   {
                     "name": "<https://cso.kmi.open.ac.uk/topics/viewpoint>",
                     "origin": "viewpoint",
-                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/software_architecture>&-&<https://cso.kmi.open.ac.uk/topics/viewpoint>",
+                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/software_engineering>&-&<https://cso.kmi.open.ac.uk/topics/software_design>&-&<https://cso.kmi.open.ac.uk/topics/software_architectures>&-&<https://cso.kmi.open.ac.uk/topics/viewpoint>",
                     "uncertainty": 3,
                     "location": [
                       [
@@ -1182,7 +1182,594 @@
                       ]
                     ],
                     "size": 1,
-                    "children": []
+                    "children": [],
+                    "wordCloud": [
+                      [
+                        [
+                          "viewpoint",
+                          1.0
+                        ],
+                        27,
+                        [
+                          -10,
+                          -58
+                        ],
+                        null,
+                        "rgb(65, 66, 135)"
+                      ],
+                      [
+                        [
+                          "information",
+                          0.5
+                        ],
+                        24,
+                        [
+                          -36,
+                          -81
+                        ],
+                        null,
+                        "rgb(72, 22, 104)"
+                      ],
+                      [
+                        [
+                          "examine",
+                          0.25
+                        ],
+                        24,
+                        [
+                          48,
+                          -46
+                        ],
+                        null,
+                        "rgb(60, 79, 138)"
+                      ],
+                      [
+                        [
+                          "animate",
+                          0.25
+                        ],
+                        24,
+                        [
+                          20,
+                          -23
+                        ],
+                        null,
+                        "rgb(35, 136, 142)"
+                      ],
+                      [
+                        [
+                          "change",
+                          0.25
+                        ],
+                        24,
+                        [
+                          -68,
+                          -52
+                        ],
+                        null,
+                        "rgb(96, 202, 96)"
+                      ],
+                      [
+                        [
+                          "spatial",
+                          0.25
+                        ],
+                        14,
+                        [
+                          -81,
+                          -21
+                        ],
+                        null,
+                        "rgb(186, 222, 40)"
+                      ],
+                      [
+                        [
+                          "system",
+                          0.25
+                        ],
+                        14,
+                        [
+                          20,
+                          -80
+                        ],
+                        null,
+                        "rgb(54, 92, 141)"
+                      ],
+                      [
+                        [
+                          "affect",
+                          0.25
+                        ],
+                        14,
+                        [
+                          69,
+                          -20
+                        ],
+                        null,
+                        "rgb(52, 97, 141)"
+                      ],
+                      [
+                        [
+                          "ability",
+                          0.25
+                        ],
+                        12,
+                        [
+                          36,
+                          -72
+                        ],
+                        null,
+                        "rgb(68, 59, 132)"
+                      ],
+                      [
+                        [
+                          "build",
+                          0.25
+                        ],
+                        12,
+                        [
+                          -18,
+                          -2
+                        ],
+                        null,
+                        "rgb(72, 27, 109)"
+                      ],
+                      [
+                        [
+                          "mental",
+                          0.25
+                        ],
+                        12,
+                        [
+                          -50,
+                          -65
+                        ],
+                        null,
+                        "rgb(35, 137, 142)"
+                      ],
+                      [
+                        [
+                          "map",
+                          0.25
+                        ],
+                        12,
+                        [
+                          4,
+                          -80
+                        ],
+                        null,
+                        "rgb(64, 189, 114)"
+                      ],
+                      [
+                        [
+                          "space",
+                          0.25
+                        ],
+                        12,
+                        [
+                          -56,
+                          32
+                        ],
+                        null,
+                        "rgb(34, 139, 141)"
+                      ],
+                      [
+                        [
+                          "viewpoint change",
+                          0.25
+                        ],
+                        7,
+                        [
+                          38,
+                          -8
+                        ],
+                        null,
+                        "rgb(72, 38, 119)"
+                      ],
+                      [
+                        [
+                          "spatial information system",
+                          0.25
+                        ],
+                        4,
+                        [
+                          14,
+                          19
+                        ],
+                        null,
+                        "rgb(208, 225, 28)"
+                      ],
+                      [
+                        [
+                          "mental map",
+                          0.25
+                        ],
+                        4,
+                        [
+                          -42,
+                          5
+                        ],
+                        null,
+                        "rgb(59, 81, 139)"
+                      ],
+                      [
+                        [
+                          "viewpoint",
+                          0.25
+                        ],
+                        4,
+                        [
+                          47,
+                          -23
+                        ],
+                        null,
+                        "rgb(70, 52, 128)"
+                      ],
+                      [
+                        [
+                          "information",
+                          0.125
+                        ],
+                        4,
+                        [
+                          -39,
+                          41
+                        ],
+                        null,
+                        "rgb(65, 66, 135)"
+                      ],
+                      [
+                        [
+                          "examine",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -50,
+                          -22
+                        ],
+                        null,
+                        "rgb(115, 208, 86)"
+                      ],
+                      [
+                        [
+                          "animate",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -87,
+                          -23
+                        ],
+                        null,
+                        "rgb(72, 22, 104)"
+                      ],
+                      [
+                        [
+                          "change",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          12,
+                          -85
+                        ],
+                        null,
+                        "rgb(47, 180, 124)"
+                      ],
+                      [
+                        [
+                          "spatial",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -17,
+                          -75
+                        ],
+                        null,
+                        "rgb(49, 102, 142)"
+                      ],
+                      [
+                        [
+                          "system",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -68,
+                          37
+                        ],
+                        null,
+                        "rgb(31, 149, 139)"
+                      ],
+                      [
+                        [
+                          "affect",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          12,
+                          -16
+                        ],
+                        null,
+                        "rgb(144, 215, 67)"
+                      ],
+                      [
+                        [
+                          "ability",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -50,
+                          46
+                        ],
+                        null,
+                        "rgb(49, 104, 142)"
+                      ],
+                      [
+                        [
+                          "build",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -47,
+                          61
+                        ],
+                        null,
+                        "rgb(42, 118, 142)"
+                      ],
+                      [
+                        [
+                          "mental",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -38,
+                          -10
+                        ],
+                        null,
+                        "rgb(147, 215, 65)"
+                      ],
+                      [
+                        [
+                          "map",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -12,
+                          -28
+                        ],
+                        null,
+                        "rgb(184, 222, 41)"
+                      ],
+                      [
+                        [
+                          "space",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          13,
+                          -64
+                        ],
+                        null,
+                        "rgb(42, 119, 142)"
+                      ],
+                      [
+                        [
+                          "viewpoint change",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -23,
+                          -87
+                        ],
+                        2,
+                        "rgb(70, 10, 93)"
+                      ],
+                      [
+                        [
+                          "spatial information system",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          -18,
+                          34
+                        ],
+                        null,
+                        "rgb(132, 212, 75)"
+                      ],
+                      [
+                        [
+                          "mental map",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          45,
+                          27
+                        ],
+                        null,
+                        "rgb(42, 120, 142)"
+                      ],
+                      [
+                        [
+                          "viewpoint",
+                          0.0625
+                        ],
+                        4,
+                        [
+                          19,
+                          62
+                        ],
+                        null,
+                        "rgb(72, 35, 116)"
+                      ],
+                      [
+                        [
+                          "information",
+                          0.03125
+                        ],
+                        4,
+                        [
+                          14,
+                          -29
+                        ],
+                        2,
+                        "rgb(32, 164, 134)"
+                      ],
+                      [
+                        [
+                          "examine",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          12,
+                          -48
+                        ],
+                        null,
+                        "rgb(234, 229, 26)"
+                      ],
+                      [
+                        [
+                          "animate",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          70,
+                          -46
+                        ],
+                        null,
+                        "rgb(147, 215, 65)"
+                      ],
+                      [
+                        [
+                          "change",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -17,
+                          -52
+                        ],
+                        null,
+                        "rgb(92, 200, 99)"
+                      ],
+                      [
+                        [
+                          "spatial",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -70,
+                          6
+                        ],
+                        null,
+                        "rgb(47, 180, 124)"
+                      ],
+                      [
+                        [
+                          "system",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -46,
+                          -19
+                        ],
+                        null,
+                        "rgb(42, 120, 142)"
+                      ],
+                      [
+                        [
+                          "affect",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          80,
+                          -28
+                        ],
+                        null,
+                        "rgb(59, 81, 139)"
+                      ],
+                      [
+                        [
+                          "ability",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          66,
+                          29
+                        ],
+                        null,
+                        "rgb(71, 19, 101)"
+                      ],
+                      [
+                        [
+                          "build",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -39,
+                          69
+                        ],
+                        null,
+                        "rgb(38, 130, 142)"
+                      ],
+                      [
+                        [
+                          "mental",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -71,
+                          -55
+                        ],
+                        null,
+                        "rgb(71, 14, 97)"
+                      ],
+                      [
+                        [
+                          "map",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          -16,
+                          -82
+                        ],
+                        2,
+                        "rgb(99, 203, 95)"
+                      ],
+                      [
+                        [
+                          "space",
+                          0.015625
+                        ],
+                        4,
+                        [
+                          51,
+                          -60
+                        ],
+                        null,
+                        "rgb(51, 98, 141)"
+                      ]
+                    ]
                   }
                 ]
               }
@@ -1209,8 +1796,8 @@
               [
                 0,
                 3,
-                57,
-                68
+                130,
+                141
               ],
               [
                 1,
@@ -1224,14 +1811,562 @@
             "candidates": [
               "<https://cso.kmi.open.ac.uk/topics/information_technology>",
               "<https://cso.kmi.open.ac.uk/topics/statistical_analysis>",
-              "<https://cso.kmi.open.ac.uk/topics/video_database>",
-              "<https://cso.kmi.open.ac.uk/topics/database_management>",
-              "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
-              "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+              "<https://cso.kmi.open.ac.uk/topics/database>",
               "<https://cso.kmi.open.ac.uk/topics/medical_database>",
               "<https://cso.kmi.open.ac.uk/topics/database_management_system>",
-              "<https://cso.kmi.open.ac.uk/topics/database>",
+              "<https://cso.kmi.open.ac.uk/topics/video_database>",
+              "<https://cso.kmi.open.ac.uk/topics/transaction_database>",
+              "<https://cso.kmi.open.ac.uk/topics/database_schemas>",
+              "<https://cso.kmi.open.ac.uk/topics/database_management>",
               "<https://cso.kmi.open.ac.uk/topics/database_systems>"
+            ],
+            "wordCloud": [
+              [
+                [
+                  "information",
+                  1.0
+                ],
+                26,
+                [
+                  -88,
+                  -13
+                ],
+                2,
+                "rgb(51, 98, 141)"
+              ],
+              [
+                [
+                  "ability",
+                  0.5
+                ],
+                26,
+                [
+                  -62,
+                  -56
+                ],
+                2,
+                "rgb(46, 110, 142)"
+              ],
+              [
+                [
+                  "space",
+                  0.5
+                ],
+                26,
+                [
+                  -15,
+                  7
+                ],
+                null,
+                "rgb(36, 170, 131)"
+              ],
+              [
+                [
+                  "examine",
+                  0.3333333333333333
+                ],
+                19,
+                [
+                  6,
+                  8
+                ],
+                null,
+                "rgb(49, 181, 123)"
+              ],
+              [
+                [
+                  "animate",
+                  0.3333333333333333
+                ],
+                19,
+                [
+                  -14,
+                  -35
+                ],
+                2,
+                "rgb(31, 148, 140)"
+              ],
+              [
+                [
+                  "viewpoint",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  -41,
+                  7
+                ],
+                null,
+                "rgb(51, 99, 141)"
+              ],
+              [
+                [
+                  "change",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  33,
+                  15
+                ],
+                null,
+                "rgb(234, 229, 26)"
+              ],
+              [
+                [
+                  "spatial",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  -37,
+                  -80
+                ],
+                2,
+                "rgb(72, 193, 110)"
+              ],
+              [
+                [
+                  "system",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  -60,
+                  9
+                ],
+                null,
+                "rgb(38, 173, 129)"
+              ],
+              [
+                [
+                  "affect",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  52,
+                  12
+                ],
+                null,
+                "rgb(213, 226, 26)"
+              ],
+              [
+                [
+                  "build",
+                  0.3333333333333333
+                ],
+                14,
+                [
+                  -72,
+                  -30
+                ],
+                2,
+                "rgb(181, 222, 43)"
+              ],
+              [
+                [
+                  "mental",
+                  0.3333333333333333
+                ],
+                13,
+                [
+                  21,
+                  27
+                ],
+                null,
+                "rgb(51, 98, 141)"
+              ],
+              [
+                [
+                  "map",
+                  0.3333333333333333
+                ],
+                13,
+                [
+                  -79,
+                  10
+                ],
+                null,
+                "rgb(47, 180, 124)"
+              ],
+              [
+                [
+                  "viewpoint change",
+                  0.3333333333333333
+                ],
+                7,
+                [
+                  -27,
+                  14
+                ],
+                null,
+                "rgb(68, 57, 131)"
+              ],
+              [
+                [
+                  "spatial information system",
+                  0.3333333333333333
+                ],
+                4,
+                [
+                  -1,
+                  30
+                ],
+                null,
+                "rgb(38, 130, 142)"
+              ],
+              [
+                [
+                  "mental map",
+                  0.3333333333333333
+                ],
+                4,
+                [
+                  24,
+                  -83
+                ],
+                null,
+                "rgb(31, 162, 135)"
+              ],
+              [
+                [
+                  "find",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -52,
+                  -61
+                ],
+                null,
+                "rgb(72, 29, 111)"
+              ],
+              [
+                [
+                  "animation",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -3,
+                  -83
+                ],
+                2,
+                "rgb(72, 28, 110)"
+              ],
+              [
+                [
+                  "improve",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  37,
+                  -69
+                ],
+                null,
+                "rgb(33, 166, 133)"
+              ],
+              [
+                [
+                  "user",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  51,
+                  60
+                ],
+                null,
+                "rgb(39, 128, 142)"
+              ],
+              [
+                [
+                  "reconstruct",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  46,
+                  21
+                ],
+                null,
+                "rgb(66, 65, 134)"
+              ],
+              [
+                [
+                  "penalty",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  64,
+                  -44
+                ],
+                null,
+                "rgb(46, 109, 142)"
+              ],
+              [
+                [
+                  "task",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  29,
+                  -67
+                ],
+                null,
+                "rgb(72, 37, 118)"
+              ],
+              [
+                [
+                  "performance",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -1,
+                  -63
+                ],
+                null,
+                "rgb(147, 215, 65)"
+              ],
+              [
+                [
+                  "time",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  55,
+                  -41
+                ],
+                null,
+                "rgb(46, 109, 142)"
+              ],
+              [
+                [
+                  "users ' ability",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -48,
+                  39
+                ],
+                null,
+                "rgb(66, 190, 113)"
+              ],
+              [
+                [
+                  "information space",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  72,
+                  7
+                ],
+                null,
+                "rgb(253, 231, 37)"
+              ],
+              [
+                [
+                  "task performance time",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -68,
+                  13
+                ],
+                null,
+                "rgb(40, 125, 142)"
+              ],
+              [
+                [
+                  "information",
+                  0.16666666666666666
+                ],
+                4,
+                [
+                  -29,
+                  -35
+                ],
+                null,
+                "rgb(178, 221, 45)"
+              ],
+              [
+                [
+                  "ability",
+                  0.08333333333333333
+                ],
+                4,
+                [
+                  70,
+                  -34
+                ],
+                null,
+                "rgb(54, 93, 141)"
+              ],
+              [
+                [
+                  "space",
+                  0.08333333333333333
+                ],
+                4,
+                [
+                  62,
+                  -28
+                ],
+                null,
+                "rgb(45, 178, 125)"
+              ],
+              [
+                [
+                  "examine",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -31,
+                  -59
+                ],
+                null,
+                "rgb(213, 226, 26)"
+              ],
+              [
+                [
+                  "animate",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  66,
+                  8
+                ],
+                null,
+                "rgb(68, 191, 112)"
+              ],
+              [
+                [
+                  "viewpoint",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -20,
+                  -36
+                ],
+                null,
+                "rgb(61, 77, 138)"
+              ],
+              [
+                [
+                  "change",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  66,
+                  32
+                ],
+                null,
+                "rgb(55, 184, 120)"
+              ],
+              [
+                [
+                  "spatial",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  51,
+                  -63
+                ],
+                null,
+                "rgb(72, 22, 104)"
+              ],
+              [
+                [
+                  "system",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  16,
+                  -66
+                ],
+                null,
+                "rgb(90, 200, 100)"
+              ],
+              [
+                [
+                  "affect",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -46,
+                  -73
+                ],
+                null,
+                "rgb(208, 225, 28)"
+              ],
+              [
+                [
+                  "build",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  57,
+                  -59
+                ],
+                null,
+                "rgb(49, 103, 142)"
+              ],
+              [
+                [
+                  "mental",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -83,
+                  -30
+                ],
+                null,
+                "rgb(129, 211, 77)"
+              ],
+              [
+                [
+                  "map",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -80,
+                  -39
+                ],
+                null,
+                "rgb(129, 211, 77)"
+              ],
+              [
+                [
+                  "viewpoint change",
+                  0.05555555555555555
+                ],
+                4,
+                [
+                  -24,
+                  -16
+                ],
+                2,
+                "rgb(71, 45, 123)"
+              ]
             ]
           },
           {
@@ -1247,7 +2382,7 @@
                     "uncertainty": 3,
                     "children": [
                       {
-                        "name": "<https://cso.kmi.open.ac.uk/topics/mobile_device>",
+                        "name": "<https://cso.kmi.open.ac.uk/topics/mobile_devices>",
                         "uncertainty": 3,
                         "children": [
                           {
@@ -1259,13 +2394,13 @@
                                 "uncertainty": 3,
                                 "children": [
                                   {
-                                    "name": "<https://cso.kmi.open.ac.uk/topics/android_(operating_system)>",
+                                    "name": "<https://cso.kmi.open.ac.uk/topics/android>",
                                     "uncertainty": 3,
                                     "children": [
                                       {
                                         "name": "<https://cso.kmi.open.ac.uk/topics/ios>",
                                         "origin": "apple",
-                                        "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>&-&<https://cso.kmi.open.ac.uk/topics/mobile_computing>&-&<https://cso.kmi.open.ac.uk/topics/mobile_device>&-&<https://cso.kmi.open.ac.uk/topics/telephone_sets>&-&<https://cso.kmi.open.ac.uk/topics/smartphone>&-&<https://cso.kmi.open.ac.uk/topics/android_(operating_system)>&-&<https://cso.kmi.open.ac.uk/topics/ios>",
+                                        "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_system>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_systems>&-&<https://cso.kmi.open.ac.uk/topics/telecommunication_networks>&-&<https://cso.kmi.open.ac.uk/topics/mobile_computing>&-&<https://cso.kmi.open.ac.uk/topics/mobile_devices>&-&<https://cso.kmi.open.ac.uk/topics/telephone_sets>&-&<https://cso.kmi.open.ac.uk/topics/smartphone>&-&<https://cso.kmi.open.ac.uk/topics/android>&-&<https://cso.kmi.open.ac.uk/topics/ios>",
                                         "uncertainty": 3,
                                         "location": [
                                           [
@@ -1279,6 +2414,424 @@
                                         "children": [],
                                         "candidates": [
                                           "<https://cso.kmi.open.ac.uk/topics/ios>"
+                                        ],
+                                        "wordCloud": [
+                                          [
+                                            [
+                                              "apple",
+                                              1.0
+                                            ],
+                                            51,
+                                            [
+                                              -18,
+                                              -78
+                                            ],
+                                            null,
+                                            "rgb(110, 206, 88)"
+                                          ],
+                                          [
+                                            [
+                                              "1984",
+                                              0.5
+                                            ],
+                                            49,
+                                            [
+                                              -67,
+                                              -58
+                                            ],
+                                            null,
+                                            "rgb(84, 197, 104)"
+                                          ],
+                                          [
+                                            [
+                                              "macintosh",
+                                              0.5
+                                            ],
+                                            25,
+                                            [
+                                              33,
+                                              -68
+                                            ],
+                                            null,
+                                            "rgb(38, 173, 129)"
+                                          ],
+                                          [
+                                            [
+                                              "use",
+                                              0.5
+                                            ],
+                                            25,
+                                            [
+                                              56,
+                                              -20
+                                            ],
+                                            null,
+                                            "rgb(65, 68, 135)"
+                                          ],
+                                          [
+                                            [
+                                              "rudimentary",
+                                              0.5
+                                            ],
+                                            15,
+                                            [
+                                              -27,
+                                              -84
+                                            ],
+                                            null,
+                                            "rgb(52, 96, 141)"
+                                          ],
+                                          [
+                                            [
+                                              "animation",
+                                              0.5
+                                            ],
+                                            13,
+                                            [
+                                              -82,
+                                              -37
+                                            ],
+                                            null,
+                                            "rgb(72, 36, 117)"
+                                          ],
+                                          [
+                                            [
+                                              "open",
+                                              0.5
+                                            ],
+                                            13,
+                                            [
+                                              54,
+                                              -53
+                                            ],
+                                            null,
+                                            "rgb(42, 120, 142)"
+                                          ],
+                                          [
+                                            [
+                                              "close",
+                                              0.5
+                                            ],
+                                            13,
+                                            [
+                                              -32,
+                                              43
+                                            ],
+                                            null,
+                                            "rgb(72, 40, 120)"
+                                          ],
+                                          [
+                                            [
+                                              "icon",
+                                              0.5
+                                            ],
+                                            13,
+                                            [
+                                              -17,
+                                              34
+                                            ],
+                                            2,
+                                            "rgb(70, 52, 128)"
+                                          ],
+                                          [
+                                            [
+                                              "apple macintosh",
+                                              0.5
+                                            ],
+                                            8,
+                                            [
+                                              22,
+                                              4
+                                            ],
+                                            null,
+                                            "rgb(72, 20, 103)"
+                                          ],
+                                          [
+                                            [
+                                              "rudimentary animation",
+                                              0.5
+                                            ],
+                                            7,
+                                            [
+                                              70,
+                                              -43
+                                            ],
+                                            null,
+                                            "rgb(35, 137, 142)"
+                                          ],
+                                          [
+                                            [
+                                              "apple",
+                                              0.5
+                                            ],
+                                            7,
+                                            [
+                                              -51,
+                                              -74
+                                            ],
+                                            null,
+                                            "rgb(32, 163, 134)"
+                                          ],
+                                          [
+                                            [
+                                              "1984",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              -48,
+                                              -37
+                                            ],
+                                            2,
+                                            "rgb(71, 46, 124)"
+                                          ],
+                                          [
+                                            [
+                                              "macintosh",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              -32,
+                                              4
+                                            ],
+                                            null,
+                                            "rgb(184, 222, 41)"
+                                          ],
+                                          [
+                                            [
+                                              "use",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              -35,
+                                              -82
+                                            ],
+                                            null,
+                                            "rgb(41, 122, 142)"
+                                          ],
+                                          [
+                                            [
+                                              "rudimentary",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              77,
+                                              -21
+                                            ],
+                                            null,
+                                            "rgb(37, 172, 130)"
+                                          ],
+                                          [
+                                            [
+                                              "animation",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              -17,
+                                              51
+                                            ],
+                                            null,
+                                            "rgb(72, 20, 103)"
+                                          ],
+                                          [
+                                            [
+                                              "open",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              -55,
+                                              52
+                                            ],
+                                            null,
+                                            "rgb(56, 185, 119)"
+                                          ],
+                                          [
+                                            [
+                                              "close",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              59,
+                                              29
+                                            ],
+                                            null,
+                                            "rgb(223, 227, 24)"
+                                          ],
+                                          [
+                                            [
+                                              "icon",
+                                              0.25
+                                            ],
+                                            7,
+                                            [
+                                              25,
+                                              -81
+                                            ],
+                                            null,
+                                            "rgb(90, 200, 100)"
+                                          ],
+                                          [
+                                            [
+                                              "apple macintosh",
+                                              0.25
+                                            ],
+                                            5,
+                                            [
+                                              -15,
+                                              -85
+                                            ],
+                                            null,
+                                            "rgb(69, 4, 87)"
+                                          ],
+                                          [
+                                            [
+                                              "rudimentary animation",
+                                              0.25
+                                            ],
+                                            4,
+                                            [
+                                              -15,
+                                              -39
+                                            ],
+                                            null,
+                                            "rgb(192, 223, 37)"
+                                          ],
+                                          [
+                                            [
+                                              "apple",
+                                              0.25
+                                            ],
+                                            4,
+                                            [
+                                              30,
+                                              25
+                                            ],
+                                            null,
+                                            "rgb(58, 84, 140)"
+                                          ],
+                                          [
+                                            [
+                                              "1984",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              -3,
+                                              -50
+                                            ],
+                                            2,
+                                            "rgb(246, 230, 32)"
+                                          ],
+                                          [
+                                            [
+                                              "macintosh",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              31,
+                                              -80
+                                            ],
+                                            null,
+                                            "rgb(42, 118, 142)"
+                                          ],
+                                          [
+                                            [
+                                              "use",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              -38,
+                                              -63
+                                            ],
+                                            null,
+                                            "rgb(64, 70, 136)"
+                                          ],
+                                          [
+                                            [
+                                              "rudimentary",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              -32,
+                                              -45
+                                            ],
+                                            null,
+                                            "rgb(31, 150, 139)"
+                                          ],
+                                          [
+                                            [
+                                              "animation",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              26,
+                                              -38
+                                            ],
+                                            null,
+                                            "rgb(31, 159, 136)"
+                                          ],
+                                          [
+                                            [
+                                              "open",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              76,
+                                              -33
+                                            ],
+                                            null,
+                                            "rgb(103, 204, 92)"
+                                          ],
+                                          [
+                                            [
+                                              "close",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              -71,
+                                              23
+                                            ],
+                                            null,
+                                            "rgb(165, 219, 54)"
+                                          ],
+                                          [
+                                            [
+                                              "icon",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              -50,
+                                              -54
+                                            ],
+                                            2,
+                                            "rgb(31, 154, 138)"
+                                          ],
+                                          [
+                                            [
+                                              "apple macintosh",
+                                              0.125
+                                            ],
+                                            4,
+                                            [
+                                              52,
+                                              32
+                                            ],
+                                            null,
+                                            "rgb(59, 82, 139)"
+                                          ]
                                         ]
                                       }
                                     ]
@@ -1323,15 +2876,628 @@
                         "size": 1,
                         "children": [],
                         "candidates": [
-                          "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
                           "<https://cso.kmi.open.ac.uk/topics/cloud_computing_services>",
-                          "<https://cso.kmi.open.ac.uk/topics/iaas>",
-                          "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
-                          "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
                           "<https://cso.kmi.open.ac.uk/topics/cloud_computing_environments>",
+                          "<https://cso.kmi.open.ac.uk/topics/cloud_service>",
+                          "<https://cso.kmi.open.ac.uk/topics/cloud_data>",
+                          "<https://cso.kmi.open.ac.uk/topics/iaas>",
                           "<https://cso.kmi.open.ac.uk/topics/cloud_software_architecture>",
-                          "<https://cso.kmi.open.ac.uk/topics/cloud_services>",
-                          "<https://cso.kmi.open.ac.uk/topics/cloud_data>"
+                          "<https://cso.kmi.open.ac.uk/topics/cloud-based_architecture>",
+                          "<https://cso.kmi.open.ac.uk/topics/cloud_computing>",
+                          "<https://cso.kmi.open.ac.uk/topics/cloud_services>"
+                        ],
+                        "wordCloud": [
+                          [
+                            [
+                              "users",
+                              1.0
+                            ],
+                            38,
+                            [
+                              -14,
+                              -80
+                            ],
+                            null,
+                            "rgb(46, 110, 142)"
+                          ],
+                          [
+                            [
+                              "animation",
+                              0.5
+                            ],
+                            30,
+                            [
+                              8,
+                              -82
+                            ],
+                            null,
+                            "rgb(46, 111, 142)"
+                          ],
+                          [
+                            [
+                              "user",
+                              0.25
+                            ],
+                            30,
+                            [
+                              36,
+                              -57
+                            ],
+                            null,
+                            "rgb(37, 131, 142)"
+                          ],
+                          [
+                            [
+                              "commonly",
+                              0.25
+                            ],
+                            30,
+                            [
+                              -52,
+                              -73
+                            ],
+                            null,
+                            "rgb(38, 130, 142)"
+                          ],
+                          [
+                            [
+                              "report",
+                              0.25
+                            ],
+                            24,
+                            [
+                              -76,
+                              -48
+                            ],
+                            null,
+                            "rgb(66, 64, 134)"
+                          ],
+                          [
+                            [
+                              "prefer",
+                              0.25
+                            ],
+                            22,
+                            [
+                              52,
+                              -42
+                            ],
+                            null,
+                            "rgb(88, 199, 101)"
+                          ],
+                          [
+                            [
+                              "little",
+                              0.25
+                            ],
+                            17,
+                            [
+                              31,
+                              15
+                            ],
+                            null,
+                            "rgb(84, 197, 104)"
+                          ],
+                          [
+                            [
+                              "research",
+                              0.25
+                            ],
+                            14,
+                            [
+                              -29,
+                              -74
+                            ],
+                            null,
+                            "rgb(60, 79, 138)"
+                          ],
+                          [
+                            [
+                              "attempt",
+                              0.25
+                            ],
+                            13,
+                            [
+                              -17,
+                              31
+                            ],
+                            null,
+                            "rgb(32, 146, 140)"
+                          ],
+                          [
+                            [
+                              "understand",
+                              0.25
+                            ],
+                            12,
+                            [
+                              69,
+                              -36
+                            ],
+                            null,
+                            "rgb(32, 146, 140)"
+                          ],
+                          [
+                            [
+                              "affect",
+                              0.25
+                            ],
+                            12,
+                            [
+                              -87,
+                              -22
+                            ],
+                            null,
+                            "rgb(62, 74, 137)"
+                          ],
+                          [
+                            [
+                              "performance",
+                              0.25
+                            ],
+                            9,
+                            [
+                              44,
+                              10
+                            ],
+                            null,
+                            "rgb(43, 117, 142)"
+                          ],
+                          [
+                            [
+                              "users",
+                              0.25
+                            ],
+                            9,
+                            [
+                              -5,
+                              38
+                            ],
+                            null,
+                            "rgb(69, 53, 129)"
+                          ],
+                          [
+                            [
+                              "animation",
+                              0.125
+                            ],
+                            9,
+                            [
+                              -58,
+                              -67
+                            ],
+                            null,
+                            "rgb(40, 124, 142)"
+                          ],
+                          [
+                            [
+                              "user",
+                              0.0625
+                            ],
+                            9,
+                            [
+                              -37,
+                              70
+                            ],
+                            2,
+                            "rgb(30, 156, 137)"
+                          ],
+                          [
+                            [
+                              "commonly",
+                              0.0625
+                            ],
+                            9,
+                            [
+                              -28,
+                              -5
+                            ],
+                            null,
+                            "rgb(72, 40, 120)"
+                          ],
+                          [
+                            [
+                              "report",
+                              0.0625
+                            ],
+                            9,
+                            [
+                              -58,
+                              -9
+                            ],
+                            null,
+                            "rgb(53, 94, 141)"
+                          ],
+                          [
+                            [
+                              "prefer",
+                              0.0625
+                            ],
+                            9,
+                            [
+                              0,
+                              44
+                            ],
+                            null,
+                            "rgb(41, 121, 142)"
+                          ],
+                          [
+                            [
+                              "little",
+                              0.0625
+                            ],
+                            9,
+                            [
+                              51,
+                              35
+                            ],
+                            null,
+                            "rgb(45, 113, 142)"
+                          ],
+                          [
+                            [
+                              "research",
+                              0.0625
+                            ],
+                            8,
+                            [
+                              78,
+                              -19
+                            ],
+                            null,
+                            "rgb(31, 149, 139)"
+                          ],
+                          [
+                            [
+                              "attempt",
+                              0.0625
+                            ],
+                            7,
+                            [
+                              -64,
+                              34
+                            ],
+                            null,
+                            "rgb(137, 213, 72)"
+                          ],
+                          [
+                            [
+                              "understand",
+                              0.0625
+                            ],
+                            6,
+                            [
+                              7,
+                              -86
+                            ],
+                            null,
+                            "rgb(54, 92, 141)"
+                          ],
+                          [
+                            [
+                              "affect",
+                              0.0625
+                            ],
+                            6,
+                            [
+                              7,
+                              -21
+                            ],
+                            null,
+                            "rgb(58, 186, 118)"
+                          ],
+                          [
+                            [
+                              "performance",
+                              0.0625
+                            ],
+                            4,
+                            [
+                              -21,
+                              -6
+                            ],
+                            null,
+                            "rgb(122, 209, 81)"
+                          ],
+                          [
+                            [
+                              "users",
+                              0.0625
+                            ],
+                            4,
+                            [
+                              31,
+                              -72
+                            ],
+                            null,
+                            "rgb(71, 44, 122)"
+                          ],
+                          [
+                            [
+                              "animation",
+                              0.03125
+                            ],
+                            4,
+                            [
+                              -78,
+                              -22
+                            ],
+                            null,
+                            "rgb(31, 161, 136)"
+                          ],
+                          [
+                            [
+                              "user",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              9,
+                              55
+                            ],
+                            null,
+                            "rgb(155, 217, 60)"
+                          ],
+                          [
+                            [
+                              "commonly",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -57,
+                              49
+                            ],
+                            null,
+                            "rgb(170, 220, 50)"
+                          ],
+                          [
+                            [
+                              "report",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              53,
+                              -57
+                            ],
+                            2,
+                            "rgb(241, 229, 29)"
+                          ],
+                          [
+                            [
+                              "prefer",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -71,
+                              40
+                            ],
+                            null,
+                            "rgb(41, 175, 127)"
+                          ],
+                          [
+                            [
+                              "little",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -24,
+                              39
+                            ],
+                            null,
+                            "rgb(52, 97, 141)"
+                          ],
+                          [
+                            [
+                              "research",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -79,
+                              -43
+                            ],
+                            null,
+                            "rgb(60, 80, 139)"
+                          ],
+                          [
+                            [
+                              "attempt",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              0,
+                              74
+                            ],
+                            null,
+                            "rgb(186, 222, 40)"
+                          ],
+                          [
+                            [
+                              "understand",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -78,
+                              2
+                            ],
+                            null,
+                            "rgb(34, 140, 141)"
+                          ],
+                          [
+                            [
+                              "affect",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              -52,
+                              21
+                            ],
+                            null,
+                            "rgb(39, 173, 129)"
+                          ],
+                          [
+                            [
+                              "performance",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              58,
+                              38
+                            ],
+                            null,
+                            "rgb(33, 145, 140)"
+                          ],
+                          [
+                            [
+                              "users",
+                              0.015625
+                            ],
+                            4,
+                            [
+                              65,
+                              35
+                            ],
+                            null,
+                            "rgb(218, 227, 25)"
+                          ],
+                          [
+                            [
+                              "animation",
+                              0.0078125
+                            ],
+                            4,
+                            [
+                              9,
+                              67
+                            ],
+                            null,
+                            "rgb(64, 189, 114)"
+                          ],
+                          [
+                            [
+                              "user",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              1,
+                              3
+                            ],
+                            null,
+                            "rgb(46, 111, 142)"
+                          ],
+                          [
+                            [
+                              "commonly",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              39,
+                              -74
+                            ],
+                            null,
+                            "rgb(71, 17, 100)"
+                          ],
+                          [
+                            [
+                              "report",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              68,
+                              35
+                            ],
+                            null,
+                            "rgb(31, 153, 138)"
+                          ],
+                          [
+                            [
+                              "prefer",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              -8,
+                              74
+                            ],
+                            null,
+                            "rgb(186, 222, 40)"
+                          ],
+                          [
+                            [
+                              "little",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              -51,
+                              -24
+                            ],
+                            null,
+                            "rgb(72, 37, 118)"
+                          ],
+                          [
+                            [
+                              "research",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              -51,
+                              47
+                            ],
+                            null,
+                            "rgb(65, 66, 135)"
+                          ],
+                          [
+                            [
+                              "attempt",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              -16,
+                              -86
+                            ],
+                            2,
+                            "rgb(30, 155, 138)"
+                          ],
+                          [
+                            [
+                              "understand",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              51,
+                              13
+                            ],
+                            null,
+                            "rgb(59, 187, 117)"
+                          ],
+                          [
+                            [
+                              "affect",
+                              0.00390625
+                            ],
+                            4,
+                            [
+                              -51,
+                              7
+                            ],
+                            null,
+                            "rgb(184, 222, 41)"
+                          ]
                         ]
                       }
                     ]
@@ -1385,9 +3551,661 @@
                 "children": [],
                 "candidates": [
                   "<https://cso.kmi.open.ac.uk/topics/cognitive_systems>",
-                  "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
                   "<https://cso.kmi.open.ac.uk/topics/cognitive_wireless_networks>",
+                  "<https://cso.kmi.open.ac.uk/topics/cognitive_models>",
                   "<https://cso.kmi.open.ac.uk/topics/cognitive_process>"
+                ],
+                "wordCloud": [
+                  [
+                    [
+                      "ability",
+                      1.0
+                    ],
+                    30,
+                    [
+                      -14,
+                      -42
+                    ],
+                    null,
+                    "rgb(103, 204, 92)"
+                  ],
+                  [
+                    [
+                      "information",
+                      0.5
+                    ],
+                    24,
+                    [
+                      -39,
+                      -77
+                    ],
+                    null,
+                    "rgb(47, 107, 142)"
+                  ],
+                  [
+                    [
+                      "animation",
+                      0.5
+                    ],
+                    24,
+                    [
+                      10,
+                      -64
+                    ],
+                    null,
+                    "rgb(68, 191, 112)"
+                  ],
+                  [
+                    [
+                      "space",
+                      0.375
+                    ],
+                    24,
+                    [
+                      50,
+                      -37
+                    ],
+                    null,
+                    "rgb(46, 179, 124)"
+                  ],
+                  [
+                    [
+                      "user",
+                      0.375
+                    ],
+                    24,
+                    [
+                      -65,
+                      -60
+                    ],
+                    null,
+                    "rgb(99, 203, 95)"
+                  ],
+                  [
+                    [
+                      "performance",
+                      0.375
+                    ],
+                    17,
+                    [
+                      28,
+                      -39
+                    ],
+                    null,
+                    "rgb(162, 218, 55)"
+                  ],
+                  [
+                    [
+                      "affect",
+                      0.25
+                    ],
+                    17,
+                    [
+                      -57,
+                      4
+                    ],
+                    null,
+                    "rgb(205, 225, 29)"
+                  ],
+                  [
+                    [
+                      "find",
+                      0.25
+                    ],
+                    17,
+                    [
+                      -77,
+                      -2
+                    ],
+                    null,
+                    "rgb(67, 61, 132)"
+                  ],
+                  [
+                    [
+                      "improve",
+                      0.25
+                    ],
+                    14,
+                    [
+                      63,
+                      -16
+                    ],
+                    null,
+                    "rgb(59, 81, 139)"
+                  ],
+                  [
+                    [
+                      "reconstruct",
+                      0.25
+                    ],
+                    10,
+                    [
+                      -51,
+                      -66
+                    ],
+                    null,
+                    "rgb(71, 46, 124)"
+                  ],
+                  [
+                    [
+                      "penalty",
+                      0.25
+                    ],
+                    10,
+                    [
+                      -8,
+                      -89
+                    ],
+                    null,
+                    "rgb(43, 116, 142)"
+                  ],
+                  [
+                    [
+                      "task",
+                      0.25
+                    ],
+                    10,
+                    [
+                      30,
+                      -68
+                    ],
+                    null,
+                    "rgb(36, 135, 142)"
+                  ],
+                  [
+                    [
+                      "time",
+                      0.25
+                    ],
+                    10,
+                    [
+                      54,
+                      33
+                    ],
+                    null,
+                    "rgb(129, 211, 77)"
+                  ],
+                  [
+                    [
+                      "users ' ability",
+                      0.25
+                    ],
+                    7,
+                    [
+                      -19,
+                      -87
+                    ],
+                    null,
+                    "rgb(176, 221, 47)"
+                  ],
+                  [
+                    [
+                      "information space",
+                      0.25
+                    ],
+                    5,
+                    [
+                      41,
+                      -30
+                    ],
+                    null,
+                    "rgb(33, 145, 140)"
+                  ],
+                  [
+                    [
+                      "task performance time",
+                      0.25
+                    ],
+                    4,
+                    [
+                      -41,
+                      -21
+                    ],
+                    null,
+                    "rgb(44, 115, 142)"
+                  ],
+                  [
+                    [
+                      "examine",
+                      0.125
+                    ],
+                    4,
+                    [
+                      47,
+                      -53
+                    ],
+                    null,
+                    "rgb(241, 229, 29)"
+                  ],
+                  [
+                    [
+                      "animate",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -16,
+                      69
+                    ],
+                    null,
+                    "rgb(46, 110, 142)"
+                  ],
+                  [
+                    [
+                      "viewpoint",
+                      0.125
+                    ],
+                    4,
+                    [
+                      55,
+                      -63
+                    ],
+                    null,
+                    "rgb(223, 227, 24)"
+                  ],
+                  [
+                    [
+                      "change",
+                      0.125
+                    ],
+                    4,
+                    [
+                      21,
+                      71
+                    ],
+                    null,
+                    "rgb(31, 152, 139)"
+                  ],
+                  [
+                    [
+                      "spatial",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -71,
+                      38
+                    ],
+                    null,
+                    "rgb(31, 154, 138)"
+                  ],
+                  [
+                    [
+                      "system",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -82,
+                      16
+                    ],
+                    null,
+                    "rgb(72, 23, 105)"
+                  ],
+                  [
+                    [
+                      "build",
+                      0.125
+                    ],
+                    4,
+                    [
+                      48,
+                      -71
+                    ],
+                    null,
+                    "rgb(45, 112, 142)"
+                  ],
+                  [
+                    [
+                      "mental",
+                      0.125
+                    ],
+                    4,
+                    [
+                      2,
+                      -88
+                    ],
+                    null,
+                    "rgb(41, 175, 127)"
+                  ],
+                  [
+                    [
+                      "map",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -88,
+                      -1
+                    ],
+                    null,
+                    "rgb(31, 152, 139)"
+                  ],
+                  [
+                    [
+                      "viewpoint change",
+                      0.125
+                    ],
+                    4,
+                    [
+                      79,
+                      -15
+                    ],
+                    null,
+                    "rgb(54, 92, 141)"
+                  ],
+                  [
+                    [
+                      "spatial information system",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -64,
+                      2
+                    ],
+                    null,
+                    "rgb(68, 2, 86)"
+                  ],
+                  [
+                    [
+                      "mental map",
+                      0.125
+                    ],
+                    4,
+                    [
+                      5,
+                      -77
+                    ],
+                    null,
+                    "rgb(226, 228, 24)"
+                  ],
+                  [
+                    [
+                      "commonly",
+                      0.125
+                    ],
+                    4,
+                    [
+                      16,
+                      -82
+                    ],
+                    2,
+                    "rgb(61, 77, 138)"
+                  ],
+                  [
+                    [
+                      "report",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -21,
+                      48
+                    ],
+                    null,
+                    "rgb(31, 159, 136)"
+                  ],
+                  [
+                    [
+                      "prefer",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -15,
+                      -19
+                    ],
+                    null,
+                    "rgb(132, 212, 75)"
+                  ],
+                  [
+                    [
+                      "little",
+                      0.125
+                    ],
+                    4,
+                    [
+                      9,
+                      -46
+                    ],
+                    null,
+                    "rgb(39, 127, 142)"
+                  ],
+                  [
+                    [
+                      "research",
+                      0.125
+                    ],
+                    4,
+                    [
+                      12,
+                      -74
+                    ],
+                    2,
+                    "rgb(44, 113, 142)"
+                  ],
+                  [
+                    [
+                      "attempt",
+                      0.125
+                    ],
+                    4,
+                    [
+                      68,
+                      -41
+                    ],
+                    null,
+                    "rgb(117, 208, 84)"
+                  ],
+                  [
+                    [
+                      "understand",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -21,
+                      17
+                    ],
+                    null,
+                    "rgb(31, 148, 140)"
+                  ],
+                  [
+                    [
+                      "users",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -72,
+                      -29
+                    ],
+                    null,
+                    "rgb(72, 35, 116)"
+                  ],
+                  [
+                    [
+                      "ability",
+                      0.125
+                    ],
+                    4,
+                    [
+                      -72,
+                      -51
+                    ],
+                    null,
+                    "rgb(44, 113, 142)"
+                  ],
+                  [
+                    [
+                      "information",
+                      0.0625
+                    ],
+                    4,
+                    [
+                      -80,
+                      -25
+                    ],
+                    null,
+                    "rgb(38, 129, 142)"
+                  ],
+                  [
+                    [
+                      "animation",
+                      0.0625
+                    ],
+                    4,
+                    [
+                      -44,
+                      58
+                    ],
+                    null,
+                    "rgb(31, 162, 135)"
+                  ],
+                  [
+                    [
+                      "space",
+                      0.046875
+                    ],
+                    4,
+                    [
+                      41,
+                      59
+                    ],
+                    null,
+                    "rgb(51, 99, 141)"
+                  ],
+                  [
+                    [
+                      "user",
+                      0.046875
+                    ],
+                    4,
+                    [
+                      80,
+                      -29
+                    ],
+                    null,
+                    "rgb(71, 19, 101)"
+                  ],
+                  [
+                    [
+                      "performance",
+                      0.046875
+                    ],
+                    4,
+                    [
+                      39,
+                      -74
+                    ],
+                    null,
+                    "rgb(44, 177, 126)"
+                  ],
+                  [
+                    [
+                      "affect",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      62,
+                      43
+                    ],
+                    2,
+                    "rgb(142, 214, 69)"
+                  ],
+                  [
+                    [
+                      "find",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      -1,
+                      -68
+                    ],
+                    null,
+                    "rgb(162, 218, 55)"
+                  ],
+                  [
+                    [
+                      "improve",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      -74,
+                      -18
+                    ],
+                    null,
+                    "rgb(62, 74, 137)"
+                  ],
+                  [
+                    [
+                      "reconstruct",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      -12,
+                      84
+                    ],
+                    2,
+                    "rgb(36, 135, 142)"
+                  ],
+                  [
+                    [
+                      "penalty",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      42,
+                      21
+                    ],
+                    null,
+                    "rgb(31, 154, 138)"
+                  ],
+                  [
+                    [
+                      "task",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      -42,
+                      -57
+                    ],
+                    null,
+                    "rgb(70, 192, 111)"
+                  ],
+                  [
+                    [
+                      "time",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      -84,
+                      3
+                    ],
+                    null,
+                    "rgb(226, 228, 24)"
+                  ],
+                  [
+                    [
+                      "users ' ability",
+                      0.03125
+                    ],
+                    4,
+                    [
+                      47,
+                      38
+                    ],
+                    null,
+                    "rgb(39, 173, 129)"
+                  ]
                 ]
               }
             ]
@@ -1417,16 +4235,252 @@
         "children": [],
         "candidates": [
           "<https://cso.kmi.open.ac.uk/topics/software>",
-          "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
           "<https://cso.kmi.open.ac.uk/topics/software_defects>",
+          "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
           "<https://cso.kmi.open.ac.uk/topics/software_as_a_service_%28saas%29>",
           "<https://cso.kmi.open.ac.uk/topics/computer_software_maintenance>",
-          "<https://cso.kmi.open.ac.uk/topics/computer_software_reusability>",
+          "<https://cso.kmi.open.ac.uk/topics/hardware%2Fsoftware_partitioning>",
           "<https://cso.kmi.open.ac.uk/topics/computer_application>",
-          "<https://cso.kmi.open.ac.uk/topics/global_software_engineering>",
-          "<https://cso.kmi.open.ac.uk/topics/software_engineering_education>",
           "<https://cso.kmi.open.ac.uk/topics/software_engineering_course>",
-          "<https://cso.kmi.open.ac.uk/topics/software_engineering>"
+          "<https://cso.kmi.open.ac.uk/topics/software_engineering>",
+          "<https://cso.kmi.open.ac.uk/topics/software_engineering_education>",
+          "<https://cso.kmi.open.ac.uk/topics/global_software_engineering>"
+        ],
+        "wordCloud": [
+          [
+            [
+              "application",
+              1.0
+            ],
+            25,
+            [
+              -17,
+              -86
+            ],
+            null,
+            "rgb(37, 133, 142)"
+          ],
+          [
+            [
+              "datum",
+              0.5
+            ],
+            25,
+            [
+              22,
+              -24
+            ],
+            null,
+            "rgb(49, 181, 123)"
+          ],
+          [
+            [
+              "believe",
+              0.25
+            ],
+            25,
+            [
+              -45,
+              -72
+            ],
+            null,
+            "rgb(72, 41, 121)"
+          ],
+          [
+            [
+              "study",
+              0.25
+            ],
+            25,
+            [
+              -79,
+              -37
+            ],
+            null,
+            "rgb(39, 128, 142)"
+          ],
+          [
+            [
+              "provide",
+              0.25
+            ],
+            25,
+            [
+              41,
+              -52
+            ],
+            null,
+            "rgb(165, 219, 54)"
+          ],
+          [
+            [
+              "strong",
+              0.25
+            ],
+            19,
+            [
+              2,
+              19
+            ],
+            null,
+            "rgb(48, 106, 142)"
+          ],
+          [
+            [
+              "evidence",
+              0.25
+            ],
+            17,
+            [
+              60,
+              -46
+            ],
+            null,
+            "rgb(46, 110, 142)"
+          ],
+          [
+            [
+              "add",
+              0.25
+            ],
+            17,
+            [
+              9,
+              -72
+            ],
+            null,
+            "rgb(92, 200, 99)"
+          ],
+          [
+            [
+              "animate",
+              0.25
+            ],
+            14,
+            [
+              5,
+              -40
+            ],
+            null,
+            "rgb(35, 169, 131)"
+          ],
+          [
+            [
+              "transition",
+              0.25
+            ],
+            14,
+            [
+              -54,
+              -18
+            ],
+            null,
+            "rgb(31, 150, 139)"
+          ],
+          [
+            [
+              "fix",
+              0.25
+            ],
+            14,
+            [
+              30,
+              -69
+            ],
+            null,
+            "rgb(44, 114, 142)"
+          ],
+          [
+            [
+              "spatial",
+              0.25
+            ],
+            12,
+            [
+              -34,
+              32
+            ],
+            null,
+            "rgb(56, 89, 140)"
+          ],
+          [
+            [
+              "user",
+              0.25
+            ],
+            12,
+            [
+              -59,
+              -60
+            ],
+            null,
+            "rgb(44, 115, 142)"
+          ],
+          [
+            [
+              "navigate",
+              0.25
+            ],
+            9,
+            [
+              -24,
+              44
+            ],
+            null,
+            "rgb(129, 211, 77)"
+          ],
+          [
+            [
+              "space",
+              0.25
+            ],
+            9,
+            [
+              28,
+              57
+            ],
+            2,
+            "rgb(53, 94, 141)"
+          ],
+          [
+            [
+              "strong evidence",
+              0.25
+            ],
+            7,
+            [
+              73,
+              -24
+            ],
+            null,
+            "rgb(38, 129, 142)"
+          ],
+          [
+            [
+              "animated transitions",
+              0.25
+            ],
+            7,
+            [
+              -26,
+              -80
+            ],
+            null,
+            "rgb(142, 214, 69)"
+          ],
+          [
+            [
+              "applications",
+              0.25
+            ],
+            7,
+            [
+              16,
+              19
+            ],
+            null,
+            "rgb(51, 98, 141)"
+          ]
         ]
       },
       {
@@ -1447,7 +4501,880 @@
               ]
             ],
             "size": 1,
-            "children": []
+            "children": [],
+            "wordCloud": [
+              [
+                [
+                  "user interfaces",
+                  1.0
+                ],
+                19,
+                [
+                  -10,
+                  -79
+                ],
+                null,
+                "rgb(96, 202, 96)"
+              ],
+              [
+                [
+                  "\n",
+                  0.5
+                ],
+                19,
+                [
+                  -36,
+                  -81
+                ],
+                null,
+                "rgb(49, 104, 142)"
+              ],
+              [
+                [
+                  "past",
+                  0.5
+                ],
+                19,
+                [
+                  -48,
+                  -47
+                ],
+                null,
+                "rgb(71, 19, 101)"
+              ],
+              [
+                [
+                  "decade",
+                  0.5
+                ],
+                19,
+                [
+                  -32,
+                  -31
+                ],
+                null,
+                "rgb(31, 151, 139)"
+              ],
+              [
+                [
+                  "researcher",
+                  0.5
+                ],
+                19,
+                [
+                  11,
+                  -79
+                ],
+                null,
+                "rgb(59, 81, 139)"
+              ],
+              [
+                [
+                  "explore",
+                  0.5
+                ],
+                19,
+                [
+                  32,
+                  -11
+                ],
+                null,
+                "rgb(205, 225, 29)"
+              ],
+              [
+                [
+                  "use",
+                  0.5
+                ],
+                19,
+                [
+                  -69,
+                  17
+                ],
+                null,
+                "rgb(72, 20, 103)"
+              ],
+              [
+                [
+                  "animation",
+                  0.5
+                ],
+                19,
+                [
+                  52,
+                  -50
+                ],
+                null,
+                "rgb(31, 150, 139)"
+              ],
+              [
+                [
+                  "aspect",
+                  0.5
+                ],
+                19,
+                [
+                  -58,
+                  -4
+                ],
+                null,
+                "rgb(70, 50, 126)"
+              ],
+              [
+                [
+                  "user",
+                  0.5
+                ],
+                19,
+                [
+                  32,
+                  -62
+                ],
+                null,
+                "rgb(112, 207, 87)"
+              ],
+              [
+                [
+                  "interface",
+                  0.5
+                ],
+                14,
+                [
+                  67,
+                  -35
+                ],
+                null,
+                "rgb(92, 200, 99)"
+              ],
+              [
+                [
+                  "past decade",
+                  0.5
+                ],
+                10,
+                [
+                  -69,
+                  -55
+                ],
+                null,
+                "rgb(176, 221, 47)"
+              ],
+              [
+                [
+                  "researchers",
+                  0.5
+                ],
+                10,
+                [
+                  -81,
+                  -33
+                ],
+                null,
+                "rgb(71, 47, 125)"
+              ],
+              [
+                [
+                  "aspects",
+                  0.5
+                ],
+                10,
+                [
+                  14,
+                  41
+                ],
+                null,
+                "rgb(64, 70, 136)"
+              ],
+              [
+                [
+                  "user interfaces",
+                  0.5
+                ],
+                9,
+                [
+                  5,
+                  -81
+                ],
+                null,
+                "rgb(139, 214, 70)"
+              ],
+              [
+                [
+                  "\n",
+                  0.25
+                ],
+                9,
+                [
+                  -19,
+                  -87
+                ],
+                null,
+                "rgb(56, 88, 140)"
+              ],
+              [
+                [
+                  "past",
+                  0.25
+                ],
+                9,
+                [
+                  -49,
+                  -70
+                ],
+                2,
+                "rgb(44, 177, 126)"
+              ],
+              [
+                [
+                  "decade",
+                  0.25
+                ],
+                9,
+                [
+                  -60,
+                  -67
+                ],
+                null,
+                "rgb(72, 41, 121)"
+              ],
+              [
+                [
+                  "researcher",
+                  0.25
+                ],
+                9,
+                [
+                  -26,
+                  35
+                ],
+                null,
+                "rgb(76, 194, 108)"
+              ],
+              [
+                [
+                  "explore",
+                  0.25
+                ],
+                9,
+                [
+                  -18,
+                  -73
+                ],
+                null,
+                "rgb(86, 198, 103)"
+              ],
+              [
+                [
+                  "use",
+                  0.25
+                ],
+                9,
+                [
+                  -39,
+                  24
+                ],
+                null,
+                "rgb(69, 4, 87)"
+              ],
+              [
+                [
+                  "animation",
+                  0.25
+                ],
+                9,
+                [
+                  26,
+                  30
+                ],
+                null,
+                "rgb(71, 45, 123)"
+              ],
+              [
+                [
+                  "aspect",
+                  0.25
+                ],
+                9,
+                [
+                  -42,
+                  47
+                ],
+                null,
+                "rgb(63, 71, 136)"
+              ],
+              [
+                [
+                  "user",
+                  0.25
+                ],
+                9,
+                [
+                  29,
+                  -73
+                ],
+                2,
+                "rgb(205, 225, 29)"
+              ],
+              [
+                [
+                  "interface",
+                  0.25
+                ],
+                9,
+                [
+                  5,
+                  3
+                ],
+                null,
+                "rgb(64, 69, 136)"
+              ],
+              [
+                [
+                  "past decade",
+                  0.25
+                ],
+                7,
+                [
+                  42,
+                  -65
+                ],
+                null,
+                "rgb(69, 53, 129)"
+              ],
+              [
+                [
+                  "researchers",
+                  0.25
+                ],
+                7,
+                [
+                  -27,
+                  -78
+                ],
+                null,
+                "rgb(168, 219, 52)"
+              ],
+              [
+                [
+                  "aspects",
+                  0.25
+                ],
+                7,
+                [
+                  -62,
+                  -34
+                ],
+                null,
+                "rgb(71, 19, 101)"
+              ],
+              [
+                [
+                  "user interfaces",
+                  0.25
+                ],
+                5,
+                [
+                  -17,
+                  26
+                ],
+                null,
+                "rgb(50, 101, 142)"
+              ],
+              [
+                [
+                  "\n",
+                  0.125
+                ],
+                5,
+                [
+                  33,
+                  -19
+                ],
+                null,
+                "rgb(210, 226, 27)"
+              ],
+              [
+                [
+                  "past",
+                  0.125
+                ],
+                5,
+                [
+                  -43,
+                  9
+                ],
+                2,
+                "rgb(208, 225, 28)"
+              ],
+              [
+                [
+                  "decade",
+                  0.125
+                ],
+                5,
+                [
+                  80,
+                  -2
+                ],
+                null,
+                "rgb(80, 196, 106)"
+              ],
+              [
+                [
+                  "researcher",
+                  0.125
+                ],
+                5,
+                [
+                  50,
+                  24
+                ],
+                null,
+                "rgb(221, 227, 24)"
+              ],
+              [
+                [
+                  "explore",
+                  0.125
+                ],
+                5,
+                [
+                  6,
+                  53
+                ],
+                null,
+                "rgb(99, 203, 95)"
+              ],
+              [
+                [
+                  "use",
+                  0.125
+                ],
+                5,
+                [
+                  -12,
+                  -15
+                ],
+                null,
+                "rgb(48, 105, 142)"
+              ],
+              [
+                [
+                  "animation",
+                  0.125
+                ],
+                5,
+                [
+                  49,
+                  -59
+                ],
+                null,
+                "rgb(55, 184, 120)"
+              ],
+              [
+                [
+                  "aspect",
+                  0.125
+                ],
+                5,
+                [
+                  -33,
+                  46
+                ],
+                null,
+                "rgb(31, 161, 135)"
+              ],
+              [
+                [
+                  "user",
+                  0.125
+                ],
+                5,
+                [
+                  -17,
+                  11
+                ],
+                null,
+                "rgb(66, 65, 134)"
+              ],
+              [
+                [
+                  "interface",
+                  0.125
+                ],
+                5,
+                [
+                  -12,
+                  44
+                ],
+                null,
+                "rgb(31, 150, 139)"
+              ],
+              [
+                [
+                  "past decade",
+                  0.125
+                ],
+                5,
+                [
+                  27,
+                  -13
+                ],
+                null,
+                "rgb(68, 58, 131)"
+              ],
+              [
+                [
+                  "researchers",
+                  0.125
+                ],
+                5,
+                [
+                  -52,
+                  -59
+                ],
+                null,
+                "rgb(44, 113, 142)"
+              ],
+              [
+                [
+                  "aspects",
+                  0.125
+                ],
+                5,
+                [
+                  33,
+                  -19
+                ],
+                2,
+                "rgb(72, 24, 106)"
+              ],
+              [
+                [
+                  "user interfaces",
+                  0.125
+                ],
+                4,
+                [
+                  -87,
+                  -10
+                ],
+                null,
+                "rgb(208, 225, 28)"
+              ],
+              [
+                [
+                  "\n",
+                  0.0625
+                ],
+                4,
+                [
+                  28,
+                  79
+                ],
+                null,
+                "rgb(67, 62, 133)"
+              ],
+              [
+                [
+                  "past",
+                  0.0625
+                ],
+                4,
+                [
+                  48,
+                  -1
+                ],
+                null,
+                "rgb(51, 99, 141)"
+              ],
+              [
+                [
+                  "decade",
+                  0.0625
+                ],
+                4,
+                [
+                  78,
+                  -18
+                ],
+                null,
+                "rgb(52, 96, 141)"
+              ],
+              [
+                [
+                  "researcher",
+                  0.0625
+                ],
+                4,
+                [
+                  -33,
+                  -19
+                ],
+                null,
+                "rgb(49, 103, 142)"
+              ],
+              [
+                [
+                  "explore",
+                  0.0625
+                ],
+                4,
+                [
+                  -13,
+                  14
+                ],
+                null,
+                "rgb(66, 64, 134)"
+              ],
+              [
+                [
+                  "use",
+                  0.0625
+                ],
+                4,
+                [
+                  -40,
+                  14
+                ],
+                null,
+                "rgb(49, 103, 142)"
+              ],
+              [
+                [
+                  "animation",
+                  0.0625
+                ],
+                4,
+                [
+                  -11,
+                  -56
+                ],
+                null,
+                "rgb(71, 16, 99)"
+              ],
+              [
+                [
+                  "aspect",
+                  0.0625
+                ],
+                4,
+                [
+                  36,
+                  66
+                ],
+                null,
+                "rgb(62, 74, 137)"
+              ],
+              [
+                [
+                  "user",
+                  0.0625
+                ],
+                4,
+                [
+                  -45,
+                  -63
+                ],
+                null,
+                "rgb(71, 44, 122)"
+              ],
+              [
+                [
+                  "interface",
+                  0.0625
+                ],
+                4,
+                [
+                  31,
+                  3
+                ],
+                null,
+                "rgb(34, 168, 132)"
+              ],
+              [
+                [
+                  "past decade",
+                  0.0625
+                ],
+                4,
+                [
+                  -12,
+                  -89
+                ],
+                2,
+                "rgb(45, 112, 142)"
+              ],
+              [
+                [
+                  "researchers",
+                  0.0625
+                ],
+                4,
+                [
+                  26,
+                  -46
+                ],
+                null,
+                "rgb(74, 193, 109)"
+              ],
+              [
+                [
+                  "aspects",
+                  0.0625
+                ],
+                4,
+                [
+                  -12,
+                  73
+                ],
+                null,
+                "rgb(31, 153, 138)"
+              ],
+              [
+                [
+                  "user interfaces",
+                  0.0625
+                ],
+                4,
+                [
+                  -29,
+                  -84
+                ],
+                2,
+                "rgb(72, 33, 115)"
+              ],
+              [
+                [
+                  "\n",
+                  0.03125
+                ],
+                4,
+                [
+                  31,
+                  -12
+                ],
+                null,
+                "rgb(55, 90, 140)"
+              ],
+              [
+                [
+                  "past",
+                  0.03125
+                ],
+                4,
+                [
+                  -34,
+                  -33
+                ],
+                null,
+                "rgb(40, 174, 128)"
+              ],
+              [
+                [
+                  "decade",
+                  0.03125
+                ],
+                4,
+                [
+                  54,
+                  51
+                ],
+                null,
+                "rgb(72, 40, 120)"
+              ],
+              [
+                [
+                  "researcher",
+                  0.03125
+                ],
+                4,
+                [
+                  -61,
+                  -5
+                ],
+                null,
+                "rgb(72, 29, 111)"
+              ],
+              [
+                [
+                  "explore",
+                  0.03125
+                ],
+                4,
+                [
+                  -34,
+                  28
+                ],
+                null,
+                "rgb(71, 46, 124)"
+              ],
+              [
+                [
+                  "use",
+                  0.03125
+                ],
+                4,
+                [
+                  12,
+                  30
+                ],
+                null,
+                "rgb(31, 151, 139)"
+              ],
+              [
+                [
+                  "animation",
+                  0.03125
+                ],
+                4,
+                [
+                  82,
+                  -23
+                ],
+                null,
+                "rgb(115, 208, 86)"
+              ],
+              [
+                [
+                  "aspect",
+                  0.03125
+                ],
+                4,
+                [
+                  48,
+                  -15
+                ],
+                null,
+                "rgb(38, 130, 142)"
+              ],
+              [
+                [
+                  "user",
+                  0.03125
+                ],
+                4,
+                [
+                  -18,
+                  77
+                ],
+                null,
+                "rgb(221, 227, 24)"
+              ],
+              [
+                [
+                  "interface",
+                  0.03125
+                ],
+                4,
+                [
+                  -18,
+                  -35
+                ],
+                2,
+                "rgb(31, 158, 137)"
+              ]
+            ]
           }
         ]
       }

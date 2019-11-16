@@ -353,3 +353,14 @@ ul ul a {
 .nameTip:hover .tooltiptext {
   visibility: visible;
 }
+
+@font-face {
+  font-family: "wordcloudFont";
+  /*src: {{ url_for('static', filename='fonts/DroidSansMono.ttf') }};*/
+  /*src: url("DroidSansMono.ttf") format('ttf');*/
+  src: url("/static/fonts/DroidSansMono.ttf");
+}
+
+.wordcloud {
+  font-family: "wordcloudFont";
+}
