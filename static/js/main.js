@@ -5,9 +5,12 @@ var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
-var szOn = true;
-var szScale = 0.1; // the scale to invoke semantic zooming
-var szLevel = 3; // the number of levels to show (for semantic zooming)
+var szOn = false;
+var szFrontier = 0.1; // the scale to invoke semantic zooming
+var szLevel = 7; // the number of levels to show (for semantic zooming)
+var szScale; // a global storage of d3.event.transform.k
+var szWCsize = 70; // the minimum size to show world cloud
+var szTitlesize = 30; // the minimum size to show world cloud
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 1; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
@@ -256,7 +259,8 @@ $("document").ready(function() {
   $('#szSwitch').on('change.bootstrapSwitch', function (e) {
     if (!e.target.checked){
       szOn = true;
-      szLevel =3;
+      szLevel = $("#szSlicer").value;
+      console.log(szLevel)
       $("#szSlicer").remove();
     } else {
       szOn = false;
@@ -268,6 +272,13 @@ $("document").ready(function() {
                 </div>');
     }
   });
+
+  // slider bar value changing event
+  $('#szSlicer').on('change', function(e) {
+    console.log("here")
+    console.log(this.value);
+    szLevel = this.value;
+  })
 
   // search
   $('#searchButton').on('click', function(){
@@ -396,7 +407,7 @@ function drawChart(data, senSet, svg, graphID) {
 
     // zooming related
     let zoom = d3.zoom()
-      .scaleExtent([(-2*szScale+0.99), 5])
+      .scaleExtent([(-2*szFrontier+0.99), 5])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
         if (szOn){
@@ -793,7 +804,8 @@ function genLegend(data, svg) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, treeHeight) {
-  szLevel = 3 + Math.floor((d3.event.transform.k-1)/szScale);
+  szScale = d3.event.transform.k;
+  szLevel = 3 + Math.floor((szScale-1)/szFrontier);
   szLevel = szLevel<=treeHeight? szLevel : treeHeight;
 
   // update contours
@@ -877,60 +889,11 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         }
     });
 
-
-    // add word cloud
-    var keywords = {
-      "visualMap": 22199,
-      "continuous": 10288,
-      "contoller": 620,
-      "series": 274470,
-      "gauge": 12311,
-      "detail": 1206,
-      "piecewise": 4885,
-      "textStyle": 32294,
-      "markPoint": 18574,
-      "pie": 38929,
-      "roseType": 969,
-      "label": 37517
-    };
-
-    var option = {
-      series: [ {
-        type: 'wordCloud',
-        gridSize: 2,
-        sizeRange: [2, 50],
-        rotationRange: [-90, 90],
-        shape: 'circle',
-        width: 100,
-        height: 100,
-        drawOutOfBound: true,
-        textStyle: {
-            normal: {
-                color: function () {
-                    return 'rgb(' + [
-                        Math.round(Math.random() * 160),
-                        Math.round(Math.random() * 160),
-                        Math.round(Math.random() * 160)
-                    ].join(',') + ')';
-                }
-            },
-            emphasis: {
-                shadowBlur: 10,
-                shadowColor: '#333'
-            }
-        },
-        /*data: data.sort(function (a, b) {
-            return b.value  - a.value;
-        })*/
-        data: []
-      }]
-    };
-
-    visibleSize = 50
     svg.select("g").selectAll("circle")
     .style("fill", function(d) {
-      if (d.r*d3.event.transform.k > visibleSize){
+      if (d.r*szScale > szWCsize){
         var localGroup = d3.select(this.parentNode);
+        localGroup.selectAll("text").remove();
         if (localGroup.select("text").empty()) {
           localGroup.selectAll("text")
               .data(d.data.wordCloud)
@@ -946,7 +909,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
                 if (word[3])
                   return ".0em"
                 else
-                  return ".5em"
+                  return ".6em"
               })
               .attr("transform", function(word){
                 translate = "translate(" + (d.x + (word[2][1]*d.r/100)) + "," + (d.y + (word[2][0]*d.r/100)) + ")"
@@ -955,42 +918,40 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
                 else
                   return translate+"rotate(0)"
               })
-              //.attr("dx", function(dt){return d.x + (word[2][0]*d.r/100);})
-              //.attr("dx", "-.5em")
-              
               .attr("text-anchor", "left")
               .text( function (word) {
                 return word[0][0];
               })
               .attr("font-size", function(word){return word[1]*d.r/100})
-              .attr("fill", function(word){return d.color.darker(1)});
-              //.attr("fill", function(word){return word[4]}); # use colorful color
-          /*d.data.wordCloud.forEach(function(word){
-            localGroup.append("text")
-              //.attr("transform", this.transform)
-              .attr("transform", function(dt){
-                translate = "translate(" + (d.x + (word[2][0]*d.r/100)) + "," + (d.y + (word[2][1]*d.r/100)) + ")"
-                if (word[3])
-                  return translate+"rotate(90)";
-                else
-                  return translate+"rotate(0)"
-              })
-              //.attr("dx", function(dt){return d.x + (word[2][0]*d.r/100);})
-              //.attr("dy", function(dt){return d.y + (word[2][1]*d.r/100);})
-              .attr("text-anchor", "middle")
-              .text( function (dt) {
-                return word[0][0];
-              })
-              .attr("font-size", function(dt){return word[0][1]*d.r})
-              .attr("fill", function(dt){return d.color.darker(1)});
-          });*/
+              .attr("fill", function(word){
+                return d.color.darker(3)}
+              );
         }
-        return "white";
+        //return "white";
+      } else if (d.r*szScale > szTitlesize){
+        var localGroup = d3.select(this.parentNode);
+        localGroup.selectAll("text").remove();
+        var textArea = localGroup.append("text")
+          .attr("transform", "translate(" + d.x + "," + d.y + ")")
+          .attr("dy", ".25em")
+          .attr("text-anchor", "middle")
+          .attr("font-size", "5pt")
+          .attr("fill", function(word){
+            return d.color.darker(3)}
+          )
+          .style("white-space", "pre-line")
+          words = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_');
+          words.forEach(function(word) {
+            textArea.append("tspan")
+            .text(word+"\n");
+          })
+          
+        //return "white";
       }
       else {
         d3.select(this.parentNode).selectAll("text").remove();
-        return d.color; 
       }
+      return d.color; 
     })
   }
 
@@ -1049,7 +1010,9 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
 function RecoverCircle(graphID, tip) {
   // recover all circles
   d3.selectAll("circle")
-    .style("fill", function(d) { return d.color;})
+    .style("fill", function(d) { 
+      return d.color;
+    })
     .style("stroke", function(d) {
       return d3.lab(d.color).darker(1);
     })
