@@ -261,17 +261,18 @@ $("document").ready(function() {
     if (!e.target.checked){
       szOn = true;
       szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
-      $("#szSlicer").remove();
+      $("#szSlicerBar").attr("disabled", 'disabled');
+      //$("#szSlicer").remove();
     } else {
       szOn = false;
-      $("#explorationSubmenu")
+      /*$("#explorationSubmenu")
         .append('<div class="d-flex justify-content-center my-4" id="szSlicer"> \
                     <span class="helvetica mr-2" id="szSlicerBottom">0</span> \
                     <input type="range" class="custom-range" id="szSlicerBar"> \
                     <span class="helvetica ml-2" id="sliceRange" id="szSlicerTop">' + szMaxLevel + '</span> \
-                </div>');
+                </div>');*/
       $("#szSlicerBar").val( 100.0 * parseFloat(szLevel)/szMaxLevel);
-      $("#szSlicerBar").slider('refresh');
+      $("#szSlicerBar").attr("disabled", false);
     }
   });
 
@@ -418,6 +419,7 @@ function drawChart(data, senSet, svg, graphID) {
           szLevel = Math.floor(szMaxLevel * $('#szSlicerBar').val()/100.0);
         }*/
         SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
+        //$("#szSlicerBar").val( 100.0 * parseFloat(szLevel)/szMaxLevel); // change slider value accordingly
       });
     svg.call(zoom);
 
@@ -426,10 +428,7 @@ function drawChart(data, senSet, svg, graphID) {
     d3.select("#szSlicerBar")
     .on('input', function(e) {
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
-      console.log(szLevel);
-      //zoom.scaleTo(svg, szLevel);
       SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
-      
     })
 
     path = contourGroup.selectAll("path")
@@ -948,7 +947,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .attr("transform", "translate(" + d.x + "," + d.y + ")")
               .attr("dy", ".25em")
               .attr("text-anchor", "middle")
-              .attr("font-size", "5pt")
+              .attr("font-size", "8pt")
               .attr("fill", function(word){
                 return d.color.darker(3)}
               )
