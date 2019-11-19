@@ -8,9 +8,10 @@ var circleClicked = false;
 var szOn = false;
 var szFrontier = 0.1; // the scale to invoke semantic zooming
 var szLevel = 7; // the number of levels to show (for semantic zooming)
+var szMaxLevel = 0; // the maximum number of levels for all of the graph
 var szScale; // a global storage of d3.event.transform.k
 var szWCsize = 70; // the minimum size to show world cloud
-var szTitlesize = 30; // the minimum size to show world cloud
+var szTitlesize = 20; // the minimum size to show world cloud
 var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 1; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
@@ -259,8 +260,7 @@ $("document").ready(function() {
   $('#szSwitch').on('change.bootstrapSwitch', function (e) {
     if (!e.target.checked){
       szOn = true;
-      szLevel = $("#szSlicer").value;
-      console.log(szLevel)
+      szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
       $("#szSlicer").remove();
     } else {
       szOn = false;
@@ -268,17 +268,12 @@ $("document").ready(function() {
         .append('<div class="d-flex justify-content-center my-4" id="szSlicer"> \
                     <span class="helvetica mr-2" id="szSlicerBottom">0</span> \
                     <input type="range" class="custom-range" id="szSlicerBar"> \
-                    <span class="helvetica ml-2" id="sliceRange" id="szSlicerTop">7</span> \
+                    <span class="helvetica ml-2" id="sliceRange" id="szSlicerTop">' + szMaxLevel + '</span> \
                 </div>');
+      $("#szSlicerBar").val( 100.0 * parseFloat(szLevel)/szMaxLevel);
+      $("#szSlicerBar").slider('refresh');
     }
   });
-
-  // slider bar value changing event
-  $('#szSlicer').on('change', function(e) {
-    console.log("here")
-    console.log(this.value);
-    szLevel = this.value;
-  })
 
   // search
   $('#searchButton').on('click', function(){
@@ -329,6 +324,12 @@ function drawChart(data, senSet, svg, graphID) {
         .sum(function(d) { return Math.sqrt(d.size) *10; }) // For flare.
         //.sum(function(d) { return d.size*3; })
         .sort(function(a, b) { return b.value - a.value; });
+
+    // updata global variables
+    if (root.height > szMaxLevel)
+      szMaxLevel = root.height;
+    szLevel = szMaxLevel;
+    $('#szSlicerTop').text(szMaxLevel);
 
     // Create bubbletreemap.
     let bubbletreemap = d3.bubbletreemap()
@@ -410,13 +411,26 @@ function drawChart(data, senSet, svg, graphID) {
       .scaleExtent([(-2*szFrontier+0.99), 5])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
-        if (szOn){
+        szScale = d3.event.transform.k;
+        /*if (szOn){ // using mouse to zoom
           SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
-        } else {
-          szLevel = root.height;
-        }
+        } else { // using slider to zoom
+          szLevel = Math.floor(szMaxLevel * $('#szSlicerBar').val()/100.0);
+        }*/
+        SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
       });
     svg.call(zoom);
+
+    // slider bar value changing event
+    //$('#szSlicerBar')
+    d3.select("#szSlicerBar")
+    .on('input', function(e) {
+      szLevel = Math.floor(szMaxLevel * this.value/100.0);
+      console.log(szLevel);
+      //zoom.scaleTo(svg, szLevel);
+      SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
+      
+    })
 
     path = contourGroup.selectAll("path")
         .data(bubbletreemap.getContour(szLevel).filter(function(nodes) {
@@ -479,7 +493,8 @@ function drawChart(data, senSet, svg, graphID) {
             return nodes.depth <= szLevel;
         })) //semantic_zooming_1
         //.data(leafNodes) //semantic_zooming_2
-        .enter().append("g").append("circle")
+        .enter().append("g").attr("class", "circleTextGroup")
+        .append("circle")
         .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
         .attr("r", function(d) { return d.r; })
         .attr("clientWidth", function(d) { return d.r; })
@@ -804,9 +819,10 @@ function genLegend(data, svg) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, treeHeight) {
-  szScale = d3.event.transform.k;
-  szLevel = 3 + Math.floor((szScale-1)/szFrontier);
-  szLevel = szLevel<=treeHeight? szLevel : treeHeight;
+  if (szOn) {
+    szLevel = 3 + Math.floor((szScale-1)/szFrontier);
+    szLevel = szLevel<=treeHeight? szLevel : treeHeight;
+  }
 
   // update contours
   let newPath = svg.select("g").select(".contour").selectAll("path")
@@ -847,7 +863,8 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
                     return nodes.depth <= szLevel;
                   }));
   newCircle.exit().remove();
-  newCircle.enter().append("g").append("circle")
+  newCircle.enter().append("g").attr("class", "circleTextGroup")
+    .append("circle")
     .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
     .attr("r", function(d) { return d.r; })
     .attr("cx", function(d) { return d.x; })
@@ -889,22 +906,19 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         }
     });
 
-    svg.select("g").selectAll("circle")
-    .style("fill", function(d) {
-      if (d.r*szScale > szWCsize){
-        var localGroup = d3.select(this.parentNode);
+    svg.selectAll(".circleTextGroup").nodes().forEach(function(group){
+      // remove previously drawn text
+      localGroup = d3.select(group);
+      if (localGroup.select("circle").empty()) { // if the circle is not there, remove the group
+        localGroup.remove();
+      } else {
         localGroup.selectAll("text").remove();
-        if (localGroup.select("text").empty()) {
-          localGroup.selectAll("text")
+        localGroup.select("circle").style("fill", function(d) {
+          if (d.r*szScale > szWCsize){    
+            localGroup.selectAll("text")
               .data(d.data.wordCloud)
               .enter().append("text")
               .attr("class", "wordcloud")
-              /*.attr("dx", function(word){
-                if (word[3])
-                  return ".5em"
-                else
-                  return ".0em"
-              })*/
               .attr("dy", function(word){
                 if (word[3])
                   return ".0em"
@@ -926,32 +940,34 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .attr("fill", function(word){
                 return d.color.darker(3)}
               );
-        }
-        //return "white";
-      } else if (d.r*szScale > szTitlesize){
-        var localGroup = d3.select(this.parentNode);
-        localGroup.selectAll("text").remove();
-        var textArea = localGroup.append("text")
-          .attr("transform", "translate(" + d.x + "," + d.y + ")")
-          .attr("dy", ".25em")
-          .attr("text-anchor", "middle")
-          .attr("font-size", "5pt")
-          .attr("fill", function(word){
-            return d.color.darker(3)}
-          )
-          .style("white-space", "pre-line")
-          words = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_');
-          words.forEach(function(word) {
-            textArea.append("tspan")
-            .text(word+"\n");
-          })
-          
-        //return "white";
+            //return "white";
+          } else if (d.r*szScale > szTitlesize){
+            //var localGroup = d3.select(this.parentNode);
+            localGroup.selectAll("text").remove();
+            var textArea = localGroup.append("text")
+              .attr("transform", "translate(" + d.x + "," + d.y + ")")
+              .attr("dy", ".25em")
+              .attr("text-anchor", "middle")
+              .attr("font-size", "5pt")
+              .attr("fill", function(word){
+                return d.color.darker(3)}
+              )
+              .style("white-space", "pre-line")
+              /*html = "<tspan>";
+              html　+= d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_').join('</tspan><tspan>').replace(/%/g, '');
+              html += "</tspan>";
+              textArea.html(html)*/
+              words = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_');
+              words.forEach(function(word) {
+                textArea.append("tspan")
+                .text(word+"\n");
+              })
+              
+            //return "white";
+          }
+          return d.color; 
+        });
       }
-      else {
-        d3.select(this.parentNode).selectAll("text").remove();
-      }
-      return d.color; 
     })
   }
 
