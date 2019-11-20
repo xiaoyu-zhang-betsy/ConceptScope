@@ -957,9 +957,16 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               html += "</tspan>";
               textArea.html(html)*/
               words = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_');
+              var offset = parseFloat(textArea.attr("dy")) - 0.5*(words.length-1);
+              textArea.append("tspan")
+                  .attr("x", 0)
+                  .attr("dy", offset+"em")
+                  .text(words.shift());
               words.forEach(function(word) {
                 textArea.append("tspan")
-                .text(word+"\n");
+                .attr("x", 0)
+                .attr("dy", 1.1+"em")
+                .text(word);
               })
               
             //return "white";
