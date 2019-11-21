@@ -409,7 +409,7 @@ function drawChart(data, senSet, svg, graphID) {
 
     // zooming related
     let zoom = d3.zoom()
-      .scaleExtent([(-2*szFrontier+0.99), 5])
+      .scaleExtent([(-2*szFrontier+0.99), 8])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
         szScale = d3.event.transform.k;
@@ -918,20 +918,21 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .data(d.data.wordCloud)
               .enter().append("text")
               .attr("class", "wordcloud")
-              .attr("dy", function(word){
-                if (word[3])
-                  return ".0em"
-                else
-                  return ".6em"
-              })
+              .attr("dy",  ".25em")
               .attr("transform", function(word){
                 translate = "translate(" + (d.x + (word[2][1]*d.r/100)) + "," + (d.y + (word[2][0]*d.r/100)) + ")"
                 if (word[3])
-                  return translate+"rotate(90)";
+                  return translate+"rotate(-90)";
                 else
                   return translate+"rotate(0)"
               })
-              .attr("text-anchor", "left")
+              .attr("text-anchor", function(word) {
+                if (word[3])
+                  return "end"
+                else
+                return "start"
+              })
+              .attr("dominant-baseline", "mathematical")
               .text( function (word) {
                 return word[0][0];
               })
