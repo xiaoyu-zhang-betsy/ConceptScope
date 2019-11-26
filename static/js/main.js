@@ -262,6 +262,7 @@ $("document").ready(function() {
       szOn = true;
       szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
       $("#szSlicerBar").attr("disabled", 'disabled');
+      $("#szSlicerTop").text(szMaxLevel);
       //$("#szSlicer").remove();
     } else {
       szOn = false;
@@ -269,7 +270,7 @@ $("document").ready(function() {
         .append('<div class="d-flex justify-content-center my-4" id="szSlicer"> \
                     <span class="helvetica mr-2" id="szSlicerBottom">0</span> \
                     <input type="range" class="custom-range" id="szSlicerBar"> \
-                    <span class="helvetica ml-2" id="sliceRange" id="szSlicerTop">' + szMaxLevel + '</span> \
+                    <span class="helvetica ml-2" id="szSlicerTop">' + szMaxLevel + '</span> \
                 </div>');*/
       $("#szSlicerBar").val( 100.0 * parseFloat(szLevel)/szMaxLevel);
       $("#szSlicerBar").attr("disabled", false);
@@ -735,7 +736,7 @@ function genTipsHtml(data, index) {
   data.marks.forEach(function(mark){
     plain_end = mark.start_char;
     s_html = s_html + text.substring(plain_start, plain_end);
-    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict)
+    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict && mark.start_char>plain_start)
       s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
     else
       s_html = s_html + text.substring(mark.start_char, mark.end_char)
@@ -938,7 +939,11 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               })
               .attr("font-size", function(word){return word[1]*d.r/100})
               .attr("fill", function(word){
-                return d.color.darker(3)}
+                if(d.data.name.includes('/'+word[0][0].replace(' ', '_')+'>'))
+                  return d.color.darker(3.5);
+                else
+                  return d.color.darker(2);
+              }
               );
             //return "white";
           } else if (d.r*szScale > szTitlesize){
@@ -1099,12 +1104,22 @@ function HighlightPath(id, graphID=-1, tip=null){
       return false;
   });
   paths.style("fill-opacity", 0.7) 
-  .style("fill", function(arc) {return d3.lab(arc.color).darker(1);})
+  .style("fill", function(arc) {
+    if (arc.depth != 0)
+      return d3.lab(arc.color).darker(1);
+    else
+      return "#666"
+  })
   //.style("fill", function(arc) { return d3.rgb(contourColor(arc.depth)).darker(2);})
   //.style("stroke", function(arc) {return d3.lab(arc.color).darker(1);})
   //.style("filter", "url(#shadows)")
-  .style("stroke", "gray")
-  .style("stroke-width", szStrokeWidth+1);
+  .style("stroke", function(arc) {
+    if (arc.depth != 0)
+      return d3.lab(arc.color);
+    else
+      return "#ccc";
+  })
+  .style("stroke-width", szStrokeWidth);
   
   if(tip!=null && !circleClicked) {
     labelText = id.substring(id.lastIndexOf("c-")+2, id.length);
