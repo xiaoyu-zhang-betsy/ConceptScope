@@ -437,7 +437,8 @@ function drawChart(data, senSet, svg, graphID) {
           return nodes.height > 0;
         })) //semantic_zooming_1
         //.data(bubbletreemap.getContour(root.height, szPadding)) //semantic_zooming_2
-        .enter().append("path")
+        .enter().append("g").attr("class", "contourTextGroup")
+        .append("path")
         .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
         .attr("d", function(arc) { return arc.d; })
         .style("stroke", function(arc) {
@@ -830,7 +831,8 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
       return nodes.height > 0;
     }));
   newPath.exit().remove();
-  newPath.enter().append("path")
+  newPath.enter().append("g").attr("class", "contourTextGroup")
+    .append("path")
     .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
     .attr("d", function(arc) { return arc.d; })
     .style("stroke", function(arc) {
@@ -950,6 +952,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
             //var localGroup = d3.select(this.parentNode);
             localGroup.selectAll("text").remove();
             var textArea = localGroup.append("text")
+              .attr("pointer-events", "none")
               .attr("transform", "translate(" + d.x + "," + d.y + ")")
               .attr("dy", ".25em")
               .attr("text-anchor", "middle")
@@ -981,6 +984,49 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         });
       }
     })
+
+    svg.selectAll(".contourTextGroup").nodes().forEach(function(group){
+      // remove previously drawn text
+      localGroup = d3.select(group);
+      
+      if (localGroup.select("path").empty()) { // if the path is not there, remove the group
+        localGroup.remove();
+      } else {
+        localGroup.selectAll("text").remove();
+        localGroup.select("path").style("fill", function(arc) {
+          if (arc.depth == szLevel) { //&& d.r*szScale > szTitlesize){
+            //var localGroup = d3.select(this.parentNode);
+            localGroup.selectAll("text").remove();
+            var textArea = localGroup.append("text")
+              .attr("pointer-events", "none")
+              .attr("transform", "translate(" + (this.getBBox().x+this.getBBox().width/2) + "," + (this.getBBox().y+this.getBBox().height/2) + ")")
+              .attr("dy", ".25em")
+              .attr("text-anchor", "middle")
+              .attr("font-size", "8pt")
+              .attr("fill", function(word){
+                return d3.rgb(contourColor(arc.depth)).darker(3);
+              })
+              .style("white-space", "pre-line")
+              //console.log(this.getBBox());
+              words = arc.name.substring(arc.name.lastIndexOf("/")+1, arc.name.length-1).split('_');
+              var offset = parseFloat(textArea.attr("dy")) - 0.5*(words.length-1);
+              textArea.append("tspan")
+                  .attr("x", 0)
+                  .attr("dy", offset+"em")
+                  .text(words.shift());
+              words.forEach(function(word) {
+                textArea.append("tspan")
+                .attr("x", 0)
+                .attr("dy", 1.1+"em")
+                .text(word);
+              })
+              
+            //return "white";
+          }
+          return contourColor(arc.depth);// fill
+        });
+      }
+    })
   }
 
 function HighlightCircle(idList, graphID=-1, tip=null) {
@@ -1007,6 +1053,7 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
     
+    /*//show tooltips
     circles.nodes().forEach(function(node) {
       if(tip!=null && !circleClicked) {
         labelText = node.id.substring(node.id.lastIndexOf("e-")+2, node.id.length);
@@ -1017,7 +1064,7 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
         //console.log(node.getBBox().x, node.getBBox().y);
         tip.show();
       }
-    })
+    })*/
   }
 
   // fade out other circles
@@ -1121,10 +1168,11 @@ function HighlightPath(id, graphID=-1, tip=null){
   })
   .style("stroke-width", szStrokeWidth);
   
+  /*//show tooltips
   if(tip!=null && !circleClicked) {
     labelText = id.substring(id.lastIndexOf("c-")+2, id.length);
     tip.html(labelText).show();
-  }
+  }*/
 }
 
 function RecoverPath(contourColor, id, graphID, tip) {
