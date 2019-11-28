@@ -155,11 +155,11 @@ $("document").ready(function() {
             graphNum++;
         },"json");
       }
-
-      window.onresize = function () {
-        console.log("window resized!");
-      }
   });
+
+  window.onresize = function () {
+    console.log("window resized!");
+  }
 
   $('#loadTextFileBtn').on('click', function () {
     var text1 = $('#textFile').val().replace("C:\\fakepath\\", "");
@@ -734,18 +734,32 @@ function genTipsHtml(data, index) {
   plain_start = 0
   plain_end = 0
   text = data.sentence;
+
+  // generate html by replacing phrases
+  s_html = text;
+  data.marks.sort((a,b) => (a.start_char > b.start_char ? 1 : -1));
   data.marks.forEach(function(mark){
+    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict) {
+      oldString = text.substring(mark.start_char, mark.end_char);
+      newString = '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
+      s_html = s_html.replace(oldString, newString);
+    }
+  });
+  return s_html;
+
+  /*// generate html by accumating text
+    data.marks.forEach(function(mark){
     plain_end = mark.start_char;
     s_html = s_html + text.substring(plain_start, plain_end);
-    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict && mark.start_char>plain_start)
+    if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict)
       s_html = s_html + '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
     else
       s_html = s_html + text.substring(mark.start_char, mark.end_char)
     plain_start = mark.end_char;
   });
   s_html = s_html + text.substring(plain_start, text.length);
+  return s_html;*/
 
-  return s_html;
 }
 
 // abadoned
@@ -942,9 +956,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .attr("font-size", function(word){return word[1]*d.r/100})
               .attr("fill", function(word){
                 if(d.data.name.includes('/'+word[0][0].replace(' ', '_')+'>'))
-                  return d.color.darker(3.5);
+                  return d.color.darker(5);
                 else
-                  return d.color.darker(2);
+                  return d.color.darker(2.5);
               }
               );
             //return "white";
@@ -958,7 +972,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .attr("text-anchor", "middle")
               .attr("font-size", "8pt")
               .attr("fill", function(word){
-                return d.color.darker(3)}
+                return d.color.darker(5)}
               )
               .style("white-space", "pre-line")
               /*html = "<tspan>";
