@@ -65,6 +65,7 @@ colorMap = [
 $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function () {
+      console.log($('#graphFile1').val());
       var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
 
       if (text != "") {
@@ -262,7 +263,7 @@ $("document").ready(function() {
       szOn = true;
       szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
       $("#szSlicerBar").attr("disabled", 'disabled');
-      $("#szSlicerTop").text(szMaxLevel);
+      $("#szSlicerTop").text((szMaxLevel+1));
       //$("#szSlicer").remove();
     } else {
       szOn = false;
@@ -331,7 +332,7 @@ function drawChart(data, senSet, svg, graphID) {
     if (root.height > szMaxLevel)
       szMaxLevel = root.height;
     szLevel = szMaxLevel;
-    $('#szSlicerTop').text(szMaxLevel);
+    $('#szSlicerTop').text((szMaxLevel+1));
 
     // Create bubbletreemap.
     let bubbletreemap = d3.bubbletreemap()
@@ -429,6 +430,7 @@ function drawChart(data, senSet, svg, graphID) {
     d3.select("#szSlicerBar")
     .on('input', function(e) {
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
+      $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
       SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
     })
 
@@ -541,8 +543,9 @@ function drawChart(data, senSet, svg, graphID) {
               document.getElementById('concordance-view').style.visibility =
                   'visible';
               // get concordance
-              var word = d.data.origin;
-              var allConcordances = GetConcordanceHighlight(word, senSet);
+              //var word = d.data.origin;
+              //var allConcordances = GetConcordanceTrans(word, senSet);
+              var allConcordances = GetConcordanceHighlight(d.data, senSet);
               $('#concordance-view-content').children().remove();
               $('#concordance-view-content').append(allConcordances);
           } else {
@@ -737,8 +740,9 @@ function genTipsHtml(data, index) {
 
   // generate html by replacing phrases
   s_html = text;
-  data.marks.sort((a,b) => (a.start_char > b.start_char ? 1 : -1));
-  data.marks.forEach(function(mark){
+  marks = data.marks.slice(0);
+  marks.sort((a,b) => (a.start_char > b.start_char ? 1 : -1));
+  marks.forEach(function(mark){
     if ((mark.category!=null) && mark.category.substring(1, mark.category.length-1) in classDict) {
       oldString = text.substring(mark.start_char, mark.end_char);
       newString = '<span style="background-color:' + colorMap[classDict[mark.category.substring(1, mark.category.length-1)] % colorMap.length] + ' ">' + "<font color='#212529'>" + text.substring(mark.start_char, mark.end_char) + '</font></span>';
@@ -1182,11 +1186,11 @@ function HighlightPath(id, graphID=-1, tip=null){
   })
   .style("stroke-width", szStrokeWidth);
   
-  /*//show tooltips
+  //show tooltips
   if(tip!=null && !circleClicked) {
     labelText = id.substring(id.lastIndexOf("c-")+2, id.length);
     tip.html(labelText).show();
-  }*/
+  }
 }
 
 function RecoverPath(contourColor, id, graphID, tip) {
@@ -1405,7 +1409,7 @@ function getIndicesOfCncpt(searchStr, sentences, caseSensitive) {
 
 // Function to generate a text concordance view in the form of an html
 // table
-function GetConcordanceHighlight(word, senSet) {
+function GetConcordanceHighlight(entity, senSet) {
   //take the senSet and put in one string
   var allCaptions = "";
   var textWindow = 120;
@@ -1415,7 +1419,7 @@ function GetConcordanceHighlight(word, senSet) {
   });
 
   //now search of the index (indices) of the word in the allCaptions
-  var indices = getIndicesOfHighlight(word, senSet, false);
+  var indices = getIndicesOfHighlight(entity, senSet, false);
   //var indices = [word];
 
   //Array of the concordances
@@ -1439,7 +1443,7 @@ function GetConcordanceHighlight(word, senSet) {
           text_right = text_right.replace(text.substring(mark.start_char, mark.end_char), '<b>' + text.substring(mark.start_char, mark.end_char) + '</b>');        
       });
 
-      var highlightColor = conceptMark.category ? colorMap[classDict[conceptMark.category.substring(1, conceptMark.category.length-1)] % colorMap.length] : "#ffff00";
+      var highlightColor = conceptMark.category ? colorMap[classDict[conceptMark.category.substring(1, conceptMark.category.length-1)] % colorMap.length] : null;
       var row = "<tr>" +
                   "<td align='right'>" +
                   text_left +                   
@@ -1459,19 +1463,10 @@ function GetConcordanceHighlight(word, senSet) {
   return concordances;
 }
 
-function getIndicesOfHighlight(searchStr, sentences, caseSensitive) {
+function getIndicesOfHighlight(entity, sentences, caseSensitive) {
   var indices = [];
-  sentences.forEach(function(sent, indexS) {
-    sent.marks.forEach(function(mark, indexM) {
-      str = mark.origin;
-      if (!caseSensitive) {
-        str = str.toLowerCase();
-        searchStr = searchStr.toLowerCase();
-      }
-
-      if (str == searchStr)
-        indices.push([indexS, indexM]);
-    })
-  });
+  entity.location.forEach(function(loc){
+    indices.push([loc[0], loc[1]]);// [sentence index, mark index inside sentence, original word]
+  })
   return indices;
 }

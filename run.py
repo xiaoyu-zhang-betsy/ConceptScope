@@ -521,9 +521,18 @@ def ProcessSen(senSet):
 
 # test function with local loaded data
 def LoadGraphData(fileName):
-    path = os.path.join(app.static_folder, 'data', fileName)
-    with open(path) as jsonfile:
-        data = json.load(jsonfile)
+    data = ""
+    path1 = os.path.join(app.static_folder, 'data', fileName) # for files ouside
+    path2 = os.path.join(app.static_folder, 'data', fileName[:-7], fileName) # for files in the folder
+    try:
+        with open(path1) as jsonfile:
+            data = json.load(jsonfile)
+    except IOError:
+        try:
+            with open(path２) as jsonfile:
+                data = json.load(jsonfile)
+        except IOError: 
+            print("Could not read file:", fileName)
 
     return json.dumps(data, indent = 2)
 
@@ -589,5 +598,5 @@ def QueryEntity():
     return json.dumps(QueryEntityData(uri), indent = 2)
 
 if __name__ == '__main__':
-    LoadResources()
+    #LoadResources()
     app.run()
