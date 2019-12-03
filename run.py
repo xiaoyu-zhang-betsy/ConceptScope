@@ -598,5 +598,5 @@ def QueryEntity():
     return json.dumps(QueryEntityData(uri), indent = 2)
 
 if __name__ == '__main__':
-    #LoadResources()
+    LoadResources()
     app.run()

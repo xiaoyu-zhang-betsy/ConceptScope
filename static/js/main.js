@@ -28,8 +28,8 @@ var classDict = {
   "https://cso.kmi.open.ac.uk/topics/information_retrieval" : 8,
   "https://cso.kmi.open.ac.uk/topics/computer_programming" : 9, 
   "https://cso.kmi.open.ac.uk/topics/computer_security" : 10,
-  "https://cso.kmi.open.ac.uk/topics/theoretical_computer_science" : 11,
-  "https://cso.kmi.open.ac.uk/topics/internet" : 12,
+  "https://cso.kmi.open.ac.uk/topics/internet" : 11,
+  "https://cso.kmi.open.ac.uk/topics/theoretical_computer_science" : 12,
   "https://cso.kmi.open.ac.uk/topics/formal_languages" : 13,
   "https://cso.kmi.open.ac.uk/topics/software" : 14,
   "https://cso.kmi.open.ac.uk/topics/hardware" : 15,
@@ -1071,18 +1071,17 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
     
-    /*//show tooltips
+    //show tooltips
     circles.nodes().forEach(function(node) {
-      if(tip!=null && !circleClicked) {
+      labelText = d3.select(node.parentNode).select("text");
+      if(tip!=null && !circleClicked && labelText.empty()) {
         labelText = node.id.substring(node.id.lastIndexOf("e-")+2, node.id.length);
         tip.html(labelText);
         //.style("left", d.x + "px")     
         //.style("top", d.y + "px");
-        //console.log(tip.style("left"), tip.style("top"));
-        //console.log(node.getBBox().x, node.getBBox().y);
         tip.show();
       }
-    })*/
+    })
   }
 
   // fade out other circles
@@ -1148,7 +1147,7 @@ function ClickCircle(uri, tip) {
                 labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' + neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
               })
             }
-            labelText += '<a href="' + uri.substring(1, uri.length-1) + '">Read more</a>';
+            labelText += '<br/><div><a href="' + uri.substring(1, uri.length-1) + '">Read more</a></div>';
             tip.html(labelText).show();
           }
           catch(error) {
