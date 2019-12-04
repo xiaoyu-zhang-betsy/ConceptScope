@@ -75,10 +75,12 @@ $("document").ready(function() {
                       <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                         <span aria-hidden="true">&times;</span> \
                       </button> \
+                      <div class="col"> \
+                        <div class="title"><span>'+ text +'</span></div> \
                         <div class="row"> \
                           <div class="col" align="center"> \
                               <div class="row"> \
-                                  <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
+                                <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
                               </div> \
                               <div class="row"> \
                                 <div class="divText" id="divText' + graphNum + '"> \
@@ -89,6 +91,7 @@ $("document").ready(function() {
                           <div class="col col-lg-2" id="transGraphContent"> \
                             <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
                           </div> \
+                        </div> \
                       </div> \
                   </div>');
 
@@ -116,6 +119,15 @@ $("document").ready(function() {
 
           DrawSparkline(entityMap);
         });
+
+        // update existing views
+        d3.selectAll(".svgTrans").nodes().forEach(function(svgTrans){
+          if (svgTrans.id != ("svgTrans" + graphNum)){
+            var w = $("#transGraphContent").width();      
+            d3.select(svgTrans).selectAll("rect")
+            .attr("width", function (d) { return d.ratio*w; })
+          }
+        })
 
         //send data to the server
         var data = {};
@@ -159,7 +171,24 @@ $("document").ready(function() {
   });
 
   window.onresize = function () {
-    console.log("window resized!");
+    /*console.log("window resized!");
+    d3.selectAll(".svgCircles").nodes().forEach(function(svgCircle){
+      var group = svgCircle.childNodes[0].cloneNode(true);
+      d3.select(svgCircle).selectAll("*").remove();
+      svgCircle.append(group);
+      d3.selectAll(".infoTip").remove();
+      let tip = d3.tip()
+        .attr('class', 'infoTip')
+        .offset([10, 0])
+        .direction('e')
+        .attr("data-clicked", false);
+      d3.select(svgCircle).call(tip);
+    })*/
+    d3.selectAll(".svgTrans").nodes().forEach(function(svgTrans){
+      var w = $("#transGraphContent").width();      
+      d3.select(svgTrans).selectAll("rect")
+      .attr("width", function (d) { return d.ratio*w; })
+    })
   }
 
   $('#loadTextFileBtn').on('click', function () {
@@ -264,6 +293,7 @@ $("document").ready(function() {
       szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
       $("#szSlicerBar").attr("disabled", 'disabled');
       $("#szSlicerTop").text((szMaxLevel+1));
+      $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
       //$("#szSlicer").remove();
     } else {
       szOn = false;
@@ -368,7 +398,7 @@ function drawChart(data, senSet, svg, graphID) {
     graphTemp[graphID] = 0;
     //create new item in entityMap (with all the old graph information)
     leafNodes.forEach(function(leaf){
-      name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).split('_').join(' ').replace(/%/g, '');
+      name = leaf.data.name.substring(leaf.data.name.lastIndexOf("/")+1, leaf.data.name.length-1).split('_').join(' ').replace(/%28/g, '(').replace(/%29/g, ')');
       if (!(name in entityMap)){
         idx1 = leaf.data.strPath.indexOf('&-&');
         idx2 = leaf.data.strPath.indexOf('&-&', idx1+1)>-1 ? leaf.data.strPath.indexOf('&-&', idx1+1):leaf.data.strPath.length;
@@ -441,7 +471,7 @@ function drawChart(data, senSet, svg, graphID) {
         //.data(bubbletreemap.getContour(root.height, szPadding)) //semantic_zooming_2
         .enter().append("g").attr("class", "contourTextGroup")
         .append("path")
-        .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
+        .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
         .attr("d", function(arc) { return arc.d; })
         .style("stroke", function(arc) {
             return "black"; // fill
@@ -498,7 +528,7 @@ function drawChart(data, senSet, svg, graphID) {
         //.data(leafNodes) //semantic_zooming_2
         .enter().append("g").attr("class", "circleTextGroup")
         .append("circle")
-        .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
+        .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
         .attr("r", function(d) { return d.r; })
         .attr("clientWidth", function(d) { return d.r; })
         .attr("clientHeight", function(d) { return d.r; })
@@ -587,7 +617,8 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     if (speakerDiff === 0){
       d.x = 0;
       d.fillColor = transGraphColor;
-      d.width = senList[i].sentence.length/maxTranLine * w;
+      d.ratio = senList[i].sentence.length/maxTranLine;
+      d.width = d.ratio * w;
       // d.width = w;
     } else {
       var speakerIndex = speakerList.indexOf(captionArray[i][2]);
@@ -653,7 +684,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     idList = [];
     d.marks.forEach(function(mark) {
       if (mark.entityURI != null) {
-        entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%/g, '');
+        entityName = mark.entityURI.substring(mark.entityURI.lastIndexOf("/")+1, mark.entityURI.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
         idList.push("g-" + graphID + "-" + "e" + "-" + entityName);
       }
     });
@@ -851,7 +882,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   newPath.exit().remove();
   newPath.enter().append("g").attr("class", "contourTextGroup")
     .append("path")
-    .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%/g, '');})
+    .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
     .attr("d", function(arc) { return arc.d; })
     .style("stroke", function(arc) {
         return "black"; // fill
@@ -885,7 +916,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   newCircle.exit().remove();
   newCircle.enter().append("g").attr("class", "circleTextGroup")
     .append("circle")
-    .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%/g, '');})
+    .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
     .attr("r", function(d) { return d.r; })
     .attr("cx", function(d) { return d.x; })
     .attr("cy", function(d) { return d.y; })
@@ -980,7 +1011,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               )
               .style("white-space", "pre-line")
               /*html = "<tspan>";
-              html　+= d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_').join('</tspan><tspan>').replace(/%/g, '');
+              html　+= d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_').join('</tspan><tspan>').replace(/%28/g, '(').replace(/%29/g, ')');
               html += "</tspan>";
               textArea.html(html)*/
               words = d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).split('_');
