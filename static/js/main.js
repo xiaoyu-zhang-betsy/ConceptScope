@@ -528,7 +528,10 @@ function drawChart(data, senSet, svg, graphID) {
         //.data(leafNodes) //semantic_zooming_2
         .enter().append("g").attr("class", "circleTextGroup")
         .append("circle")
-        .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
+        .attr("id", function(d) {
+          d["graphID"] = graphID;
+          return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
+        })
         .attr("r", function(d) { return d.r; })
         .attr("clientWidth", function(d) { return d.r; })
         .attr("clientHeight", function(d) { return d.r; })
@@ -543,12 +546,11 @@ function drawChart(data, senSet, svg, graphID) {
         //.style("fill-opacity", 0.7)
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
-            //console.log(d.x, d.y);
             HighlightCircle([this.id], graphID, tip, d);
 
-            d.data.location.forEach(function(location) {
+            /*d.data.location.forEach(function(location) {
               HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
-            });
+            });*/
 
             // fade out other circles
             otherCircle = d3.selectAll("circle").filter(function(circle){
@@ -931,9 +933,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     .on("mouseover", function(d, i) {
         HighlightCircle([this.id], graphID, tip);
 
-        d.data.location.forEach(function(location) {
+        /*d.data.location.forEach(function(location) {
           HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
-        });
+        });*/
     })
     .on("mouseout", function(d, i) {
         RecoverCircle(graphID, tip);
@@ -1098,7 +1100,10 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     //.style("fill", hoverHighlight)
     //.style("stroke", "white")
     .style("stroke", function(d) {
-      //HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
+      // highlight corrresponding rect in transcripts 
+      d.data.location.forEach(function(location) {
+        HighlightRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
+      });
       return d3.lab(d.color).brighter(1);
     })
     .style("filter", "url(#glow)");
@@ -1140,6 +1145,10 @@ function RecoverCircle(graphID, tip) {
       return d.color;
     })
     .style("stroke", function(d) {
+      // highlight corrresponding rect in transcripts 
+      d.data.location.forEach(function(location) {
+        RecoverRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
+      });
       return d3.lab(d.color).darker(1);
     })
     .style("stroke-width", szStrokeWidth)
@@ -1300,11 +1309,7 @@ function DrawSparkline(entityMap){
   d3.selectAll(".EntityItem")
   .on("mouseover", function() {
       this.style.backgroundColor = d3.rgb(this.dataset.color).darker(1);
-      //console.log(d3.selectAll("g-0-e-" + this.textContent.replace(' ', '_')));
-
-      /*d.data.location.forEach(function(location) {
-        HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
-      });*/
+      HighlightCircle(["g-0-e-" + this.textContent.replace(' ', '_')]); // fake id to satisfy function paramenter requirement
   })
   .on("mouseout", function() {
       this.style.backgroundColor = "white";
