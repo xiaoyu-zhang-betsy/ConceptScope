@@ -72,11 +72,13 @@ $("document").ready(function() {
         // create canvas
         $("#graphCanvas")
           .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
-                      <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
-                        <span aria-hidden="true">&times;</span> \
-                      </button> \
                       <div class="col"> \
+                        <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
+                          <span aria-hidden="true">&times;</span> \
+                        </button> \
                         <div class="title"><span>'+ text +'</span></div> \
+                      </div> \
+                      <div class="col"> \
                         <div class="row"> \
                           <div class="col" align="center"> \
                               <div class="row"> \
@@ -98,7 +100,7 @@ $("document").ready(function() {
         // close current canvas
         $('#closeCanvasBtn'+ graphNum).on('click', function () {
           graphNum -= 1;
-          $(this).parent().remove();
+          $(this).parent().parent().remove();
 
           // update entityMap and redraw sparkline
           removeIdx = parseInt(this.id.replace('closeCanvasBtn', ''));
@@ -671,7 +673,10 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   var rects = svg.selectAll("rect")
   .data(graphData).enter()
   .append("rect")
-  .attr("id", function (d, i) { return "g-" + graphID + "-" + "rSen" + "-" + i})
+  .attr("id", function (d, i) { 
+    d["graphID"] = graphID;
+    return "g-" + graphID + "-" + "rSen" + "-" + i
+  })
   .attr("x", function (d) { return d.x; })
   .attr("y", function (d) { return d.y; })
   .attr("width", function (d) { return d.width; })
@@ -690,11 +695,13 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
         idList.push("g-" + graphID + "-" + "e" + "-" + entityName);
       }
     });
-    HighlightCircle(idList, graphID);
+    HighlightCircle(idList, graphID, null, false);
 
     // highlight corresponding raw text
     var textId = d3.select(this).attr('id').replace('rSen', 'line');
-    d3.select('#'+textId).style('background-color', hoverHighlight);
+    d3.select('#'+textId)
+    .style('background-color', hoverHighlight)
+    .node().scrollIntoView({behavior: "smooth", block: "center"});
   })
   .on("mouseout", function(d){
     RecoverRect(this.id, graphID, tip);
@@ -884,7 +891,10 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   newPath.exit().remove();
   newPath.enter().append("g").attr("class", "contourTextGroup")
     .append("path")
-    .attr("id", function(d) { return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
+    .attr("id", function(d) { 
+      d["graphID"] = graphID;
+      return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
+    })
     .attr("d", function(arc) { return arc.d; })
     .style("stroke", function(arc) {
         return "black"; // fill
@@ -918,7 +928,10 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   newCircle.exit().remove();
   newCircle.enter().append("g").attr("class", "circleTextGroup")
     .append("circle")
-    .attr("id", function(d) { return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');})
+    .attr("id", function(d) { 
+      d["graphID"] = graphID;
+      return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
+    })
     .attr("r", function(d) { return d.r; })
     .attr("cx", function(d) { return d.x; })
     .attr("cy", function(d) { return d.y; })
@@ -1080,7 +1093,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     })
   }
 
-function HighlightCircle(idList, graphID=-1, tip=null) {
+function HighlightCircle(idList, graphID=-1, tip=null, evokeRect=true) {
   // Use D3 to select all elements in multiple graph
   circles = d3.selectAll("circle").filter(function(circle) {
     flag = false;
@@ -1094,16 +1107,20 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
   // highlight circles in idList
   if (!circles.empty()) {
     circles
+    .attr("d", function(d){
+      // highlight corrresponding rect in transcripts 
+      if (evokeRect){
+        d.data.location.forEach(function(location) {
+          HighlightRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
+        });
+      }
+    })
     //.style("fill", function(d) {return d3.lab(d.color).darker(2);})
     .style("stroke-width", 1)
     //.style("stroke-dasharray", "3,3")
     //.style("fill", hoverHighlight)
     //.style("stroke", "white")
     .style("stroke", function(d) {
-      // highlight corrresponding rect in transcripts 
-      d.data.location.forEach(function(location) {
-        HighlightRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
-      });
       return d3.lab(d.color).brighter(1);
     })
     .style("filter", "url(#glow)");
@@ -1141,14 +1158,16 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
 function RecoverCircle(graphID, tip) {
   // recover all circles
   d3.selectAll("circle")
+    .attr("d", function(d){
+      // recover corrresponding rect in transcripts 
+      d.data.location.forEach(function(location) {
+        RecoverRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
+      });
+    })
     .style("fill", function(d) { 
       return d.color;
     })
     .style("stroke", function(d) {
-      // highlight corrresponding rect in transcripts 
-      d.data.location.forEach(function(location) {
-        RecoverRect("g-" + d.graphID + "-" + "rSen-" + location[0], d.graphID);
-      });
       return d3.lab(d.color).darker(1);
     })
     .style("stroke-width", szStrokeWidth)
