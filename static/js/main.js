@@ -441,7 +441,7 @@ function drawChart(data, senSet, svg, graphID) {
 
     // zooming related
     let zoom = d3.zoom()
-      .scaleExtent([(-2*szFrontier+0.99), 8])
+      //.scaleExtent([(-2*szFrontier+0.99), 8])
       .on("zoom", function () {
         zoomGroup.attr("transform", d3.event.transform);
         szScale = d3.event.transform.k;
@@ -1097,7 +1097,10 @@ function HighlightCircle(idList, graphID=-1, tip=null) {
     //.style("stroke-dasharray", "3,3")
     //.style("fill", hoverHighlight)
     //.style("stroke", "white")
-    .style("stroke", function(d) {return d3.lab(d.color).brighter(1);})
+    .style("stroke", function(d) {
+      //HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
+      return d3.lab(d.color).brighter(1);
+    })
     .style("filter", "url(#glow)");
     //.style("filter", function(d) {return "Glow(Color=" + d.color + ", Strength=255)";})
     //.attr("r", function(d) { return 0; })
@@ -1297,7 +1300,11 @@ function DrawSparkline(entityMap){
   d3.selectAll(".EntityItem")
   .on("mouseover", function() {
       this.style.backgroundColor = d3.rgb(this.dataset.color).darker(1);
-      HighlightCircle(["g-0-e-" + this.textContent.replace(' ', '_')]); // fake id to satisfy function paramenter requirement
+      //console.log(d3.selectAll("g-0-e-" + this.textContent.replace(' ', '_')));
+
+      /*d.data.location.forEach(function(location) {
+        HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
+      });*/
   })
   .on("mouseout", function() {
       this.style.backgroundColor = "white";

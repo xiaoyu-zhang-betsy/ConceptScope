@@ -16,7 +16,7 @@
   width:100%;
   height: 95vh;
   font-size: 13pt;
-  font-family: helvetica, Arial;
+  font-family: m_helveticaFont;
   overflow: hidden;
   background: white;
 }
@@ -162,7 +162,7 @@ ul ul a {
   top: 12%;
   font-size: 13px;
   visibility: hidden;
-  font-family: helvetica, Arial;
+  font-family: m_helveticaFont;
   /*border: 1px solid gray;
   box-shadow: 0 0 15px 8px rgba(0,0,0,0.4);*/
   -webkit-box-shadow: 3px 5px 15px 2px darkgrey;
@@ -175,7 +175,7 @@ ul ul a {
   overflow: auto;
   text-align: left;
   font-size: 13px;
-  font-family: helvetica, Arial;
+  font-family: m_helveticaFont;
   height: 100%;
 }
 #concordance-close {
@@ -197,7 +197,7 @@ ul ul a {
   border-right:1px solid #d6d6d6;
   /*border-radius: 5px;*/
   background-color: white;
-  height:93vh;
+  height:92vh;
   margin: 2px;
 }
 
@@ -215,7 +215,7 @@ ul ul a {
   border-radius: 5px;
   background-color: white;
   width:100%; 
-  height:93vh;
+  height:92vh;
   /*margin-top: 2vh;*/
   float: right;
 }
@@ -298,7 +298,8 @@ ul ul a {
 
 .infoTip {
   line-height: 1.2;
-  position: absolute;
+  position: relative;
+  display: inline;
   z-index: 150;
   padding: 10px;
   font-weight: bold;
@@ -311,11 +312,19 @@ ul ul a {
   -webkit-box-shadow: 3px 5px 15px 2px darkgrey;
   -moz-box-shadow: 3px 5px 15px 2px darkgrey;
   box-shadow: 3px 5px 15px 2px darkgrey;
-  -moz-user-select: -moz-none;
+  /*-moz-user-select: -moz-none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+  user-select: none;*/
+}
+
+.infoTip:hover:after {
+  position:absolute;
+}
+
+.infoTip:hover:before {
+  position:absolute;
 }
 
 *.unselectable {
@@ -353,11 +362,6 @@ ul ul a {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .nameTip .tooltiptext {
@@ -380,14 +384,14 @@ ul ul a {
 }
 
 @font-face {
-  font-family: "wordcloudFont";
-  /*src: {{ url_for('static', filename='fonts/DroidSansMono.ttf') }};*/
+  font-family: m_helveticaFont;
+  /*src: {{ url_for('static', filename='fonts/Helvetica-400.ttf') }};*/
   /*src: url("DroidSansMono.ttf") format('ttf');*/
-  src: url("/static/fonts/DroidSansMono.ttf");
+  src: url(/static/fonts/Helvetica-400.ttf);
 }
 
 .wordcloud {
-  /*font-family: "wordcloudFont"; // use local font*/
-  font-family: helvetica, Arial;
+  font-family: m_helveticaFont;
+  /*font-family: helvetica, Arial;*/
   pointer-events: none;
 }
