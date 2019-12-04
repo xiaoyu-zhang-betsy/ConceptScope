@@ -296,7 +296,6 @@ def QueryHierarchy(URI):
 
         results = csoGraph.query(qSelect).serialize(format="json")
         results = json.loads(results)
-
         
         for result in results["results"]["bindings"]:
             resultURI = '<' + result["parentURI"]["value"] + '>'
@@ -368,28 +367,33 @@ def QueryNeighbors(URI):
 
 # given a URI, return corresponding DBPedia link if available
 def QueryDBPedia(URI):
-    qSelect = """
-        SELECT ?link
-        WHERE {<""" + URI + """> <http://www.w3.org/2002/07/owl#sameAs> ?link. }
-    """
+    sameAsURIs = ["http://www.w3.org/2002/07/owl#sameAs", "http://www.w3.org/2002/07/owl#sameAs"]
+    
+    for sameAsURI in sameAsURIs:
+        qSelect = """
+            SELECT ?link
+            WHERE {<""" + URI + """> <"""+ sameAsURI +"""> ?link. }
+        """
 
-    results = csoGraph.query(qSelect).serialize(format="json")
-    results = json.loads(results)
+        results = csoGraph.query(qSelect).serialize(format="json")
+        results = json.loads(results)
 
-    wikiURI = None
-    wikiInfo = None
-    for result in results["results"]["bindings"]:
-        if "dbpedia.org" in result["link"]["value"]:
-            wikiURI = result["link"]["value"]
+        wikiURI = None
+        wikiInfo = None
+        for result in results["results"]["bindings"]:
+            if "dbpedia.org" in result["link"]["value"]:
+                wikiURI = result["link"]["value"]
+
+        if wikiURI != None:
+            break
     
     if wikiURI != None:
         sparql = SPARQLWrapper("http://dbpedia.org/sparql")
         sparql.setQuery("""
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             SELECT ?abstract ?thumbnail
             WHERE {""" +
-                """<""" + wikiURI + """> dbo:abstract ?abstract .""" +
-                """<""" + wikiURI + """> dbo:thumbnail ?thumbnail .
+                """OPTIONAL{<""" + wikiURI + """> dbo:abstract ?abstract .}""" +
+                """OPTIONAL{<""" + wikiURI + """> dbo:thumbnail ?thumbnail.}
             FILTER (lang(?abstract) = 'en')
             }
         """)
@@ -398,10 +402,12 @@ def QueryDBPedia(URI):
 
         for result in results["results"]["bindings"]:
             wikiInfo = {
-                "wiki": wikiURI,
-                "abstract" : result["abstract"]["value"],
-                "thumbnail": result["thumbnail"]["value"]
+                "wiki": wikiURI
             }
+            if "abstract" in result:
+                wikiInfo["abstract"] = result["abstract"]["value"]
+            if "thumbnail" in result:
+                wikiInfo["thumbnail"] = result["thumbnail"]["value"]
     return wikiInfo
 
 def ProcessSen(senSet): 

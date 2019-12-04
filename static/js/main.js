@@ -1144,7 +1144,7 @@ function ClickCircle(uri, tip) {
                   style = "bold";
                 else
                   style = "normal";
-                labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' + neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%/g, '') +'</a></li>';
+                labelText += '<li><a style="color:black; font-size:10pt; font-weight:' + style + '" href="' + neighbor.name + '">' + neighbor.name.substring(neighbor.name.lastIndexOf("/")+1, neighbor.name.length).split('_').join(' ').replace(/%28/g, '(').replace(/%29/g, ')') +'</a></li>';
               })
             }
             labelText += '<br/><div><a href="' + uri.substring(1, uri.length-1) + '">Read more</a></div>';
