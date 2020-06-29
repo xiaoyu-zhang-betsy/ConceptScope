@@ -123,7 +123,7 @@
         layerClusterBodies.forEach(function(layerClusterBody) {
             let distanceJoint = planck.DistanceJoint( {
                     frequencyHz : 0.9, // TODO: Try to avoid overlapping in large datasets!
-                    dampingRatio : 0.01 // TODO: ''
+                    dampingRatio : 0.1 // TODO: ''
                 },
                 attractorBody,
                 attractorBody.getPosition(),

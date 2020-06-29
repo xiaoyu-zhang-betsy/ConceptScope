@@ -6,7 +6,7 @@ var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
 var szOn = false;
-var szFrontier = 0.1; // the scale to invoke semantic zooming
+var szFrontier = 0.05; // the scale to invoke semantic zooming
 var szLevel = 7; // the number of levels to show (for semantic zooming)
 var szMaxLevel = 0; // the maximum number of levels for all of the graph
 var szScale; // a global storage of d3.event.transform.k
@@ -701,7 +701,7 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     var textId = d3.select(this).attr('id').replace('rSen', 'line');
     d3.select('#'+textId)
     .style('background-color', hoverHighlight)
-    .node().scrollIntoView({behavior: "smooth", block: "center"});
+    .node().scrollIntoView({block: "center"});
   })
   .on("mouseout", function(d){
     RecoverRect(this.id, graphID, tip);
@@ -928,11 +928,17 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   newCircle.exit().remove();
   newCircle.enter().append("g").attr("class", "circleTextGroup")
     .append("circle")
-    .attr("id", function(d) { 
+    .data(leafNodes.filter(function (nodes) {
+      return nodes.depth <= szLevel;
+    })) //semantic_zooming_1
+    //.data(leafNodes) //semantic_zooming_2
+    .attr("id", function(d) {
       d["graphID"] = graphID;
       return "g-" + graphID + "-" + "e-" + d.data.name.substring(d.data.name.lastIndexOf("/")+1, d.data.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
     })
     .attr("r", function(d) { return d.r; })
+    .attr("clientWidth", function(d) { return d.r; })
+    .attr("clientHeight", function(d) { return d.r; })
     .attr("cx", function(d) { return d.x; })
     .attr("cy", function(d) { return d.y; })
     .style("fill", function(d) { return d.color; })
@@ -944,11 +950,21 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     //.style("fill-opacity", 0.7)
     .style("stroke-width", szStrokeWidth)
     .on("mouseover", function(d, i) {
-        HighlightCircle([this.id], graphID, tip);
+        HighlightCircle([this.id], graphID, tip, d);
 
         /*d.data.location.forEach(function(location) {
           HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
         });*/
+
+        // fade out other circles
+        otherCircle = d3.selectAll("circle").filter(function(circle){
+          if (circle.data.name == d.data.name) 
+            return false;
+          else
+            return true;
+        });
+        if (!otherCircle.empty())
+          otherCircle.style("opacity", 0.1);
     })
     .on("mouseout", function(d, i) {
         RecoverCircle(graphID, tip);
@@ -958,18 +974,19 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         });
     })
     .on("click", function(d, i) {
-        if (d3.event.ctrlKey || d3.event.metaKey) {
-        //if (d3.event.shiftKey) {
-            document.getElementById('concordance-view').style.visibility =
-                'visible';
-            // get concordance
-            var word = d.data.origin;
-            var allConcordances = GetConcordanceHighlight(word, senSet);
-            $('#concordance-view-content').children().remove();
-            $('#concordance-view-content').append(allConcordances);
-        } else {
-            ClickCircle(d.data.name, tip);
-        }
+      if (d3.event.ctrlKey || d3.event.metaKey) {
+      //if (d3.event.shiftKey) {
+          document.getElementById('concordance-view').style.visibility =
+              'visible';
+          // get concordance
+          //var word = d.data.origin;
+          //var allConcordances = GetConcordanceTrans(word, senSet);
+          var allConcordances = GetConcordanceHighlight(d.data, senSet);
+          $('#concordance-view-content').children().remove();
+          $('#concordance-view-content').append(allConcordances);
+      } else {
+          ClickCircle(d.data.name, tip);
+      }
     });
 
     svg.selectAll(".circleTextGroup").nodes().forEach(function(group){
@@ -1128,7 +1145,7 @@ function HighlightCircle(idList, graphID=-1, tip=null, evokeRect=true) {
     //.attr("r", function(d) { return 0; })
     
     //show tooltips
-    circles.nodes().forEach(function(node) {
+    /*circles.nodes().forEach(function(node) {
       labelText = d3.select(node.parentNode).select("text");
       if(tip!=null && !circleClicked && labelText.empty()) {
         labelText = node.id.substring(node.id.lastIndexOf("e-")+2, node.id.length);
@@ -1137,7 +1154,7 @@ function HighlightCircle(idList, graphID=-1, tip=null, evokeRect=true) {
         //.style("top", d.y + "px");
         tip.show();
       }
-    })
+    })*/
   }
 
   // fade out other circles
