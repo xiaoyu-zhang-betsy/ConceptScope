@@ -67,4 +67,4 @@ env/
 
 # data
 # *.csv
-server/static/data/
+# server/static/data/
