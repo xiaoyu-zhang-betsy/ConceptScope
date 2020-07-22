@@ -536,7 +536,7 @@ def LoadGraphData(fileName):
             data = json.load(jsonfile)
     except IOError:
         try:
-            with open(path２) as jsonfile:
+            with open(path2) as jsonfile:
                 data = json.load(jsonfile)
         except IOError: 
             print("Could not read file:", fileName)
