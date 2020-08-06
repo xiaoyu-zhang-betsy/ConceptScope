@@ -5,6 +5,7 @@ import json
 import os
 import csv
 import re
+import sys
 
 import spacy
 from spacy import displacy
@@ -32,28 +33,37 @@ def LoadResources():
     global nlp, csoGraph, word_vectors, csoDict
 
     # load Spacy NLP dictionary
-    print("Loading spacy dictionary...")
-    nlp = spacy.load('en_core_web_sm')
-    print("Spacy dictionary is loaded successfully!\n")
+    # print("Loading spacy dictionary...")
+    sys.stderr.write('Loading spacy dictionary...')
 
-    print("Loading ontology...")
+    nlp = spacy.load('en_core_web_sm')
+    # print("Spacy dictionary is loaded successfully!\n")
+    sys.stderr.write('Spacy dictionary is loaded successfully!')
+
+    # print("Loading ontology...")
+    sys.stderr.write('Loading ontology...')
     csoGraph = Graph()
     path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
     csoGraph.parse(path, format="xml")
-    print("Ontology is loaded successfully!\n")
+    # print("Ontology is loaded successfully!\n")
+    sys.stderr.write('Ontology is loaded successfully!')
 
-    print("Loading conceptNet...")
+    # print("Loading conceptNet...")
+    sys.stderr.write('Loading conceptNet...')
     #word_vectors = KeyedVectors.load_word2vec_format("numberbatch-en.txt", binary=False)  # C text format
-    print("ConceptNet is loaded successfully!\n")
+    # print("ConceptNet is loaded successfully!\n")
+    sys.stderr.write('ConceptNet is loaded successfully!\n')
 
-    print("Loading CSO dictionary...")
+    # print("Loading CSO dictionary...")
+    sys.stderr.write('Loading CSO dictionary...')
     csoDict = dict()
     path = os.path.join(app.static_folder, 'source/cso_dict.csv')
     with open(path, 'r') as csvfile:
         dictReader = csv.reader(csvfile, delimiter=',')
         for row in dictReader:
             csoDict[row[0]] = row[1]
-    print("CSO dictionary is loaded successfully!\n")
+    # print("CSO dictionary is loaded successfully!\n")
+    sys.stderr.write('CSO dictionary is loaded successfully!\n')
 
 # pre-processing
 def PreProcess(senSet):
