@@ -10,9 +10,9 @@ import sys
 import spacy
 from spacy import displacy
 from spacy.pipeline import EntityRecognizer
-from nltk.corpus import wordnet 
-from gensim.test.utils import datapath
-from gensim.models import KeyedVectors
+# from nltk.corpus import wordnet # too big to load in AWS
+# from gensim.test.utils import datapath # too big to load in AWS
+# from gensim.models import KeyedVectors # too big to load in AWS
 
 import urllib
 #from owlready2 import *
@@ -28,9 +28,6 @@ nlp = None # spacy NLP library
 csoGraph = None # CSO ontology
 word_vectors = None # word vectors from wordNet
 csoDict = None # the dictionary of all cso entities
-
-sys.stderr.write("outside: \n")
-sys.stderr.write(sys.prefix)
 
 def LoadResources():
     global nlp, csoGraph, word_vectors, csoDict
