@@ -12,7 +12,7 @@ Setup
 #### 2) Installation of Python Dependencies
 * Stay at the root directory (where `server.py` is)
 
-* Install all Python dependencies
+* Install all Python dependencies (tested with python3.6.0)
 
     `pip3 install .`
 
