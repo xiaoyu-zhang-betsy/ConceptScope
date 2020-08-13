@@ -2,6 +2,8 @@
 import sys
 import logging
 
+python_home = '/home/ubuntu/DocViewer/env3'
+
 activate_this = '/home/ubuntu/DocViewer/env3/bin/activate_this.py'
 with open(activate_this) as f:
     exec(f.read(), dict(__file__=activate_this))

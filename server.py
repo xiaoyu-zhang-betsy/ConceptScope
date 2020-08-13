@@ -29,6 +29,9 @@ csoGraph = None # CSO ontology
 word_vectors = None # word vectors from wordNet
 csoDict = None # the dictionary of all cso entities
 
+sys.stderr.write("outside: \n")
+sys.stderr.write(sys.prefix)
+
 def LoadResources():
     global nlp, csoGraph, word_vectors, csoDict
 
@@ -615,5 +618,6 @@ def QueryEntity():
     return json.dumps(QueryEntityData(uri), indent = 2)
 
 if __name__ == '__main__':
+    sys.stderr.write(sys.prefix)
     LoadResources()
     app.run()
