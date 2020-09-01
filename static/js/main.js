@@ -378,8 +378,8 @@ $("document").ready(function() {
 
     var d = new Date();
     var exportName = "UserLog_" + d.toLocaleString();
+    console.log(userLog);
     const fileData = JSON.stringify(userLog, null, 2);
-    console.log(fileData);
     const blob = new Blob([fileData], {type: "application/json"});
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -753,8 +753,9 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     .node().scrollIntoView({block: "center"});
   })
   .on("mouseout", function(d){
-    if (endTimer())
-      UpdateUserLog(d3.event);
+    if (endTimer()) {
+      UpdateUserLog(d3.event, {"sentence": d.sentence});
+    }
     RecoverRect(this.id, graphID, tip);
     RecoverCircle(graphID, tip);
 
@@ -815,9 +816,11 @@ function drawText(senList, table, graphID) {
       //d3.select('#'+rectId).attr('fill', hoverHighlight);
       HighlightRect(rectId, graphID);
     })
-    .on("mouseout", function(){
-      if (endTimer())
+    .on("mouseout", function(d){
+      if (endTimer()){
+        console.log(d)
         UpdateUserLog(d3.event);
+      }
       d3.select(this).style('background-color', null);
       var rectId = d3.select(this).attr('id').replace('line', 'rSen');
       //d3.select('#'+rectId).attr('fill', transGraphColor);
@@ -1619,11 +1622,11 @@ function UpdateUserLog(event, addInfo={}){
       event[key] = value;
     }
   }
-  console.log(event);
-  let props = ['type', 'target', 'clientX', 'clientY', 'screenX', 'screenY', 'timeStamp'];
+  // console.log(event);
+  let props = ['type', 'target', 'clientX', 'clientY', 'screenX', 'screenY', 'timeStamp', 'transform'];
   props.forEach(prop => {
     Object.defineProperty(event, prop, {
-      value: event[prop],
+      value: prop==='target'? event[prop].id : event[prop],
       enumerable: true,
       configurable: true
     });

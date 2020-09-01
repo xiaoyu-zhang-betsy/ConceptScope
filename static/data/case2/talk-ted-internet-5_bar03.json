@@ -233,10 +233,10 @@
           "end_char": 24,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/linux_kernel>",
-            "<https://cso.kmi.open.ac.uk/topics/graphics_processing_unit_%28gpu%29>",
-            "<https://cso.kmi.open.ac.uk/topics/graphics_processing_unit>",
+            "<https://cso.kmi.open.ac.uk/topics/graphics_processors>",
             "<https://cso.kmi.open.ac.uk/topics/graphics_processor>",
-            "<https://cso.kmi.open.ac.uk/topics/graphics_processors>"
+            "<https://cso.kmi.open.ac.uk/topics/graphics_processing_unit_%28gpu%29>",
+            "<https://cso.kmi.open.ac.uk/topics/graphics_processing_unit>"
           ],
           "category": null
         }
@@ -417,9 +417,9 @@
           "start_char": 49,
           "end_char": 56,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/online_social_network>",
             "<https://cso.kmi.open.ac.uk/topics/social_networking_sites>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_services>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_network>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_services>"
           ],
           "category": null
         },
@@ -437,15 +437,15 @@
           "start_char": 71,
           "end_char": 78,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/radio_channel>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_resources>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_environment>",
             "<https://cso.kmi.open.ac.uk/topics/radio_resource_allocation>",
             "<https://cso.kmi.open.ac.uk/topics/radio>",
             "<https://cso.kmi.open.ac.uk/topics/radio_stations>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_receivers>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_channels>",
             "<https://cso.kmi.open.ac.uk/topics/radio_communication>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_channels>"
+            "<https://cso.kmi.open.ac.uk/topics/radio_environment>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_resources>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_channel>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_receivers>"
           ],
           "category": null
         }
@@ -663,8 +663,8 @@
           "start_char": 99,
           "end_char": 104,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>",
-            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>"
+            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>",
+            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>"
           ],
           "category": null
         },
@@ -788,13 +788,13 @@
           "start_char": 71,
           "end_char": 77,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/embedded_memory>",
-            "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
             "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>",
-            "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
             "<https://cso.kmi.open.ac.uk/topics/memory_access>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_modules>"
+            "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
+            "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_memory>"
           ],
           "category": null
         }
@@ -965,12 +965,12 @@
           "start_char": 81,
           "end_char": 89,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>"
           ],
           "category": null
         },
@@ -1299,13 +1299,13 @@
           "start_char": 40,
           "end_char": 44,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/embedded_memory>",
-            "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
             "<https://cso.kmi.open.ac.uk/topics/memory_access_patterns>",
-            "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
             "<https://cso.kmi.open.ac.uk/topics/memory_access>",
-            "<https://cso.kmi.open.ac.uk/topics/memory_modules>"
+            "<https://cso.kmi.open.ac.uk/topics/configuration_memory>",
+            "<https://cso.kmi.open.ac.uk/topics/memory%2C_episodic>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_modules>",
+            "<https://cso.kmi.open.ac.uk/topics/memory_subsystems>",
+            "<https://cso.kmi.open.ac.uk/topics/embedded_memory>"
           ],
           "category": null
         },
@@ -1409,12 +1409,12 @@
           "start_char": 22,
           "end_char": 29,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>"
           ],
           "category": null
         },
@@ -1481,8 +1481,8 @@
           "start_char": 29,
           "end_char": 34,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -1822,8 +1822,8 @@
           "end_char": 105,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/hospital_data_processing>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>"
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>",
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>"
           ],
           "category": null
         }
@@ -2102,9 +2102,9 @@
           "start_char": 92,
           "end_char": 99,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/online_social_network>",
             "<https://cso.kmi.open.ac.uk/topics/social_networking_sites>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_services>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_network>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_services>"
           ],
           "category": null
         },
@@ -2166,9 +2166,9 @@
           "start_char": 69,
           "end_char": 76,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>",
             "<https://cso.kmi.open.ac.uk/topics/chaotic_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/chaotic_system>",
-            "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>"
+            "<https://cso.kmi.open.ac.uk/topics/chaotic_system>"
           ],
           "category": null
         },
@@ -2343,8 +2343,8 @@
           "end_char": 12,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/hospital_data_processing>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>"
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>",
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>"
           ],
           "category": null
         },
@@ -2364,8 +2364,8 @@
           "start_char": 39,
           "end_char": 42,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/windows_xp>",
-            "<https://cso.kmi.open.ac.uk/topics/xp>"
+            "<https://cso.kmi.open.ac.uk/topics/xp>",
+            "<https://cso.kmi.open.ac.uk/topics/windows_xp>"
           ],
           "category": null
         }
@@ -2596,8 +2596,8 @@
           "start_char": 112,
           "end_char": 117,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -2734,15 +2734,15 @@
           "start_char": 51,
           "end_char": 58,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/radio_channel>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_resources>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_environment>",
             "<https://cso.kmi.open.ac.uk/topics/radio_resource_allocation>",
             "<https://cso.kmi.open.ac.uk/topics/radio>",
             "<https://cso.kmi.open.ac.uk/topics/radio_stations>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_receivers>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_channels>",
             "<https://cso.kmi.open.ac.uk/topics/radio_communication>",
-            "<https://cso.kmi.open.ac.uk/topics/radio_channels>"
+            "<https://cso.kmi.open.ac.uk/topics/radio_environment>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_resources>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_channel>",
+            "<https://cso.kmi.open.ac.uk/topics/radio_receivers>"
           ],
           "category": null
         },
@@ -3189,9 +3189,9 @@
           "start_char": 38,
           "end_char": 45,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>",
             "<https://cso.kmi.open.ac.uk/topics/chaotic_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/chaotic_system>",
-            "<https://cso.kmi.open.ac.uk/topics/chaotic_behavior>"
+            "<https://cso.kmi.open.ac.uk/topics/chaotic_system>"
           ],
           "category": null
         },
@@ -3267,8 +3267,8 @@
           "start_char": 15,
           "end_char": 21,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>",
-            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>"
+            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>",
+            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>"
           ],
           "category": null
         },
@@ -3364,7 +3364,7 @@
             "<https://cso.kmi.open.ac.uk/topics/logistics>",
             "<https://cso.kmi.open.ac.uk/topics/non-player_character>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/regression_analysis>"
+          "category": "<https://cso.kmi.open.ac.uk/topics/correlation_analysis>"
         },
         {
           "origin": "people",
@@ -3526,8 +3526,8 @@
           "start_char": 10,
           "end_char": 15,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -3545,8 +3545,8 @@
           "start_char": 50,
           "end_char": 55,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -3618,8 +3618,8 @@
           "end_char": 74,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/hospital_data_processing>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>"
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>",
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>"
           ],
           "category": null
         },
@@ -3720,14 +3720,14 @@
         },
         {
           "origin": "social",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/social_science>",
+          "entityURI": null,
           "start_char": 48,
           "end_char": 54,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/sociology>",
             "<https://cso.kmi.open.ac.uk/topics/social_science>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/social_science>"
+          "category": null
         },
         {
           "origin": "network",
@@ -3743,15 +3743,15 @@
           "start_char": 48,
           "end_char": 65,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/online_social_network>",
             "<https://cso.kmi.open.ac.uk/topics/social_networking_sites>",
             "<https://cso.kmi.open.ac.uk/topics/social_network_services>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_network>",
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>"
           ],
           "category": null
         }
@@ -3844,12 +3844,12 @@
           "start_char": 110,
           "end_char": 118,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>"
           ],
           "category": null
         },
@@ -3977,9 +3977,9 @@
           "start_char": 30,
           "end_char": 37,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/online_social_network>",
             "<https://cso.kmi.open.ac.uk/topics/social_networking_sites>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_services>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_network>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_services>"
           ],
           "category": null
         }
@@ -4604,8 +4604,8 @@
           "start_char": 11,
           "end_char": 17,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/electronic_mail>",
             "<https://cso.kmi.open.ac.uk/topics/email_communication>",
+            "<https://cso.kmi.open.ac.uk/topics/electronic_mail>",
             "<https://cso.kmi.open.ac.uk/topics/e-mail_address>",
             "<https://cso.kmi.open.ac.uk/topics/e-mail_spam>",
             "<https://cso.kmi.open.ac.uk/topics/mail_servers>"
@@ -4678,12 +4678,12 @@
           "start_char": 19,
           "end_char": 23,
           "candidates": [
+            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
             "<https://cso.kmi.open.ac.uk/topics/online_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>",
+            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>",
             "<https://cso.kmi.open.ac.uk/topics/social_graphs>",
             "<https://cso.kmi.open.ac.uk/topics/social_network>",
-            "<https://cso.kmi.open.ac.uk/topics/on-line_social_networks>",
-            "<https://cso.kmi.open.ac.uk/topics/online_social_networks_%28osns%29>"
+            "<https://cso.kmi.open.ac.uk/topics/social_network_structures>"
           ],
           "category": null
         },
@@ -4804,8 +4804,8 @@
           "start_char": 14,
           "end_char": 20,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>",
-            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>"
+            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>",
+            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>"
           ],
           "category": null
         },
@@ -4844,8 +4844,8 @@
           "start_char": 14,
           "end_char": 19,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -4855,10 +4855,10 @@
           "start_char": 40,
           "end_char": 49,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/emotion_detection>",
-            "<https://cso.kmi.open.ac.uk/topics/emotion_models>",
             "<https://cso.kmi.open.ac.uk/topics/human_emotion>",
-            "<https://cso.kmi.open.ac.uk/topics/emotion_expression>"
+            "<https://cso.kmi.open.ac.uk/topics/emotion_models>",
+            "<https://cso.kmi.open.ac.uk/topics/emotion_expression>",
+            "<https://cso.kmi.open.ac.uk/topics/emotion_detection>"
           ],
           "category": null
         },
@@ -5057,15 +5057,15 @@
         },
         {
           "origin": "mark",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
+          "entityURI": null,
           "start_char": 56,
           "end_char": 61,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/ocean_tide>",
-            "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
-            "<https://cso.kmi.open.ac.uk/topics/tidal_flow>"
+            "<https://cso.kmi.open.ac.uk/topics/tidal_flow>",
+            "<https://cso.kmi.open.ac.uk/topics/tidal_current>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/computer_vision>"
+          "category": null
         },
         {
           "origin": "quote marks",
@@ -5181,8 +5181,8 @@
           "start_char": 27,
           "end_char": 32,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>",
-            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>"
+            "<https://cso.kmi.open.ac.uk/topics/higher_education_institutions>",
+            "<https://cso.kmi.open.ac.uk/topics/postsecondary_education>"
           ],
           "category": null
         },
@@ -5296,15 +5296,15 @@
         },
         {
           "origin": "influence",
-          "entityURI": "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
+          "entityURI": null,
           "start_char": 44,
           "end_char": 53,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/ocean_tide>",
-            "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
-            "<https://cso.kmi.open.ac.uk/topics/tidal_flow>"
+            "<https://cso.kmi.open.ac.uk/topics/tidal_flow>",
+            "<https://cso.kmi.open.ac.uk/topics/tidal_current>"
           ],
-          "category": "<https://cso.kmi.open.ac.uk/topics/computer_vision>"
+          "category": null
         },
         {
           "origin": "lot",
@@ -5480,8 +5480,8 @@
           "start_char": 80,
           "end_char": 85,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>",
-            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>"
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delays>",
+            "<https://cso.kmi.open.ac.uk/topics/interval_time-varying_delay>"
           ],
           "category": null
         },
@@ -5669,8 +5669,8 @@
           "start_char": 15,
           "end_char": 28,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-computer_interface>"
           ],
           "category": null
@@ -5728,8 +5728,8 @@
           "start_char": 45,
           "end_char": 58,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-computer_interface>"
           ],
           "category": null
@@ -5777,8 +5777,8 @@
           "start_char": 32,
           "end_char": 44,
           "candidates": [
-            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-machine_interaction>",
+            "<https://cso.kmi.open.ac.uk/topics/human-computer_interaction>",
             "<https://cso.kmi.open.ac.uk/topics/human-computer_interface>"
           ],
           "category": null
@@ -6062,8 +6062,8 @@
           "end_char": 183,
           "candidates": [
             "<https://cso.kmi.open.ac.uk/topics/hospital_data_processing>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>",
-            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>"
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_system>",
+            "<https://cso.kmi.open.ac.uk/topics/hospital_information_systems>"
           ],
           "category": null
         },
@@ -6190,31 +6190,36 @@
             1,
             7,
             14,
-            26
+            26,
+            "internet"
           ],
           [
             20,
             4,
             102,
-            110
+            110,
+            "internet"
           ],
           [
             32,
             5,
             66,
-            78
+            78,
+            "internet"
           ],
           [
             45,
             2,
             33,
-            45
+            45,
+            "internet"
           ],
           [
             60,
             3,
             58,
-            70
+            70,
+            "internet"
           ]
         ],
         "size": 5,
@@ -6224,20 +6229,21 @@
             "uncertainty": 3,
             "children": [
               {
-                "name": "<https://cso.kmi.open.ac.uk/topics/blog>",
+                "name": "<https://cso.kmi.open.ac.uk/topics/blogs>",
                 "uncertainty": 3,
                 "children": [
                   {
                     "name": "<https://cso.kmi.open.ac.uk/topics/blogging>",
                     "origin": "blogging",
-                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/blog>&-&<https://cso.kmi.open.ac.uk/topics/blogging>",
+                    "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/internet>&-&<https://cso.kmi.open.ac.uk/topics/world_wide_web>&-&<https://cso.kmi.open.ac.uk/topics/blogs>&-&<https://cso.kmi.open.ac.uk/topics/blogging>",
                     "uncertainty": 3,
                     "location": [
                       [
                         22,
                         5,
                         123,
-                        131
+                        131,
+                        "blogging"
                       ]
                     ],
                     "size": 1,
@@ -6250,11 +6256,11 @@
                         ],
                         38,
                         [
-                          -31,
-                          -73
+                          -27,
+                          -78
                         ],
                         null,
-                        "rgb(192, 223, 37)"
+                        "rgb(36, 134, 142)"
                       ],
                       [
                         [
@@ -6263,11 +6269,11 @@
                         ],
                         29,
                         [
-                          7,
-                          -81
+                          19,
+                          -61
                         ],
                         null,
-                        "rgb(246, 230, 32)"
+                        "rgb(66, 65, 134)"
                       ],
                       [
                         [
@@ -6276,11 +6282,11 @@
                         ],
                         29,
                         [
-                          36,
-                          -44
+                          -76,
+                          -37
                         ],
                         null,
-                        "rgb(45, 113, 142)"
+                        "rgb(71, 42, 122)"
                       ],
                       [
                         [
@@ -6289,440 +6295,440 @@
                         ],
                         29,
                         [
-                          -63,
-                          -45
-                        ],
-                        null,
-                        "rgb(66, 63, 133)"
-                      ],
-                      [
-                        [
-                          "apparently",
-                          0.75647079736603
-                        ],
-                        18,
-                        [
-                          60,
-                          -43
-                        ],
-                        null,
-                        "rgb(32, 146, 140)"
-                      ],
-                      [
-                        [
-                          "thousand",
-                          0.75647079736603
-                        ],
-                        18,
-                        [
-                          -80,
-                          -38
-                        ],
-                        null,
-                        "rgb(234, 229, 26)"
-                      ],
-                      [
-                        [
-                          "empire",
-                          0.75647079736603
-                        ],
-                        18,
-                        [
-                          5,
-                          36
-                        ],
-                        2,
-                        "rgb(56, 185, 119)"
-                      ],
-                      [
-                        [
-                          "dedicate",
-                          0.75647079736603
-                        ],
-                        18,
-                        [
-                          -33,
-                          67
-                        ],
-                        2,
-                        "rgb(69, 56, 130)"
-                      ],
-                      [
-                        [
-                          "picture",
-                          0.75647079736603
-                        ],
-                        14,
-                        [
-                          -40,
-                          25
-                        ],
-                        null,
-                        "rgb(71, 19, 101)"
-                      ],
-                      [
-                        [
-                          "millions",
-                          0.75647079736603
-                        ],
-                        14,
-                        [
-                          -2,
-                          -84
-                        ],
-                        null,
-                        "rgb(76, 194, 108)"
-                      ],
-                      [
-                        [
-                          "pictures",
-                          0.75647079736603
-                        ],
-                        11,
-                        [
-                          28,
-                          -75
-                        ],
-                        null,
-                        "rgb(189, 223, 38)"
-                      ],
-                      [
-                        [
-                          "blogging",
-                          0.75647079736603
-                        ],
-                        11,
-                        [
-                          75,
-                          -20
-                        ],
-                        null,
-                        "rgb(35, 137, 142)"
-                      ],
-                      [
-                        [
-                          "resonate",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -41,
-                          -35
-                        ],
-                        null,
-                        "rgb(178, 221, 45)"
-                      ],
-                      [
-                        [
-                          "million",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          28,
-                          13
-                        ],
-                        null,
-                        "rgb(31, 162, 135)"
-                      ],
-                      [
-                        [
-                          "people",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -50,
-                          45
-                        ],
-                        null,
-                        "rgb(39, 173, 129)"
-                      ],
-                      [
-                        [
-                          "apparently",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -88,
-                          -18
-                        ],
-                        null,
-                        "rgb(31, 148, 140)"
-                      ],
-                      [
-                        [
-                          "thousand",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -47,
-                          -76
-                        ],
-                        null,
-                        "rgb(56, 185, 119)"
-                      ],
-                      [
-                        [
-                          "empire",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          24,
-                          54
-                        ],
-                        2,
-                        "rgb(176, 221, 47)"
-                      ],
-                      [
-                        [
-                          "dedicate",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -67,
-                          -48
-                        ],
-                        null,
-                        "rgb(70, 51, 127)"
-                      ],
-                      [
-                        [
-                          "picture",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -36,
-                          -6
-                        ],
-                        null,
-                        "rgb(41, 123, 142)"
-                      ],
-                      [
-                        [
-                          "millions",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -67,
-                          29
-                        ],
-                        null,
-                        "rgb(72, 20, 103)"
-                      ],
-                      [
-                        [
-                          "pictures",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          37,
-                          -73
-                        ],
-                        null,
-                        "rgb(115, 208, 86)"
-                      ],
-                      [
-                        [
-                          "blogging",
-                          0.5722480672675971
-                        ],
-                        8,
-                        [
-                          -29,
-                          -83
-                        ],
-                        2,
-                        "rgb(155, 217, 60)"
-                      ],
-                      [
-                        [
-                          "resonate",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -40,
-                          -74
-                        ],
-                        null,
-                        "rgb(208, 225, 28)"
-                      ],
-                      [
-                        [
-                          "million",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -53,
-                          -67
-                        ],
-                        null,
-                        "rgb(68, 2, 86)"
-                      ],
-                      [
-                        [
-                          "people",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -2,
-                          18
-                        ],
-                        null,
-                        "rgb(162, 218, 55)"
-                      ],
-                      [
-                        [
-                          "apparently",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -67,
-                          -9
-                        ],
-                        null,
-                        "rgb(48, 105, 142)"
-                      ],
-                      [
-                        [
-                          "thousand",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          29,
-                          -26
+                          40,
+                          -39
                         ],
                         null,
                         "rgb(139, 214, 70)"
                       ],
                       [
                         [
+                          "apparently",
+                          0.75647079736603
+                        ],
+                        25,
+                        [
+                          -54,
+                          -66
+                        ],
+                        null,
+                        "rgb(110, 206, 88)"
+                      ],
+                      [
+                        [
+                          "thousand",
+                          0.75647079736603
+                        ],
+                        17,
+                        [
+                          67,
+                          -35
+                        ],
+                        null,
+                        "rgb(33, 165, 133)"
+                      ],
+                      [
+                        [
                           "empire",
-                          0.43288895173708875
+                          0.75647079736603
                         ],
-                        6,
+                        17,
                         [
-                          53,
-                          -63
-                        ],
-                        null,
-                        "rgb(160, 218, 57)"
-                      ],
-                      [
-                        [
-                          "dedicate",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          44,
-                          -69
-                        ],
-                        null,
-                        "rgb(70, 50, 126)"
-                      ],
-                      [
-                        [
-                          "picture",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          49,
-                          50
-                        ],
-                        null,
-                        "rgb(46, 179, 124)"
-                      ],
-                      [
-                        [
-                          "millions",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -34,
-                          -32
-                        ],
-                        null,
-                        "rgb(56, 89, 140)"
-                      ],
-                      [
-                        [
-                          "pictures",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -59,
-                          44
-                        ],
-                        null,
-                        "rgb(55, 90, 140)"
-                      ],
-                      [
-                        [
-                          "blogging",
-                          0.43288895173708875
-                        ],
-                        6,
-                        [
-                          -17,
-                          80
-                        ],
-                        2,
-                        "rgb(72, 27, 109)"
-                      ],
-                      [
-                        [
-                          "resonate",
-                          0.3274678504915004
-                        ],
-                        5,
-                        [
-                          35,
-                          14
+                          4,
+                          -80
                         ],
                         null,
                         "rgb(134, 213, 73)"
                       ],
                       [
                         [
+                          "dedicate",
+                          0.75647079736603
+                        ],
+                        17,
+                        [
+                          -31,
+                          63
+                        ],
+                        2,
+                        "rgb(241, 229, 29)"
+                      ],
+                      [
+                        [
+                          "picture",
+                          0.75647079736603
+                        ],
+                        12,
+                        [
+                          -35,
+                          -26
+                        ],
+                        null,
+                        "rgb(34, 168, 132)"
+                      ],
+                      [
+                        [
+                          "millions",
+                          0.75647079736603
+                        ],
+                        12,
+                        [
+                          10,
+                          -22
+                        ],
+                        null,
+                        "rgb(58, 186, 118)"
+                      ],
+                      [
+                        [
+                          "pictures",
+                          0.75647079736603
+                        ],
+                        9,
+                        [
+                          41,
+                          -73
+                        ],
+                        null,
+                        "rgb(44, 177, 126)"
+                      ],
+                      [
+                        [
+                          "blogging",
+                          0.75647079736603
+                        ],
+                        9,
+                        [
+                          -87,
+                          -12
+                        ],
+                        null,
+                        "rgb(60, 80, 139)"
+                      ],
+                      [
+                        [
+                          "resonate",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          9,
+                          26
+                        ],
+                        null,
+                        "rgb(144, 215, 67)"
+                      ],
+                      [
+                        [
                           "million",
-                          0.3274678504915004
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          41,
+                          47
+                        ],
+                        null,
+                        "rgb(251, 231, 35)"
+                      ],
+                      [
+                        [
+                          "people",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -61,
+                          42
+                        ],
+                        null,
+                        "rgb(44, 113, 142)"
+                      ],
+                      [
+                        [
+                          "apparently",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -30,
+                          23
+                        ],
+                        null,
+                        "rgb(72, 36, 117)"
+                      ],
+                      [
+                        [
+                          "thousand",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -58,
+                          -68
+                        ],
+                        null,
+                        "rgb(223, 227, 24)"
+                      ],
+                      [
+                        [
+                          "empire",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -41,
+                          52
+                        ],
+                        null,
+                        "rgb(64, 70, 136)"
+                      ],
+                      [
+                        [
+                          "dedicate",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          80,
+                          -10
+                        ],
+                        null,
+                        "rgb(32, 147, 140)"
+                      ],
+                      [
+                        [
+                          "picture",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          49,
+                          -66
+                        ],
+                        null,
+                        "rgb(189, 223, 38)"
+                      ],
+                      [
+                        [
+                          "millions",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -79,
+                          -43
+                        ],
+                        null,
+                        "rgb(70, 52, 128)"
+                      ],
+                      [
+                        [
+                          "pictures",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -1,
+                          75
+                        ],
+                        2,
+                        "rgb(134, 213, 73)"
+                      ],
+                      [
+                        [
+                          "blogging",
+                          0.5722480672675971
+                        ],
+                        7,
+                        [
+                          -26,
+                          -86
+                        ],
+                        2,
+                        "rgb(51, 99, 141)"
+                      ],
+                      [
+                        [
+                          "resonate",
+                          0.43288895173708875
                         ],
                         5,
                         [
-                          57,
-                          -25
+                          62,
+                          37
                         ],
                         null,
-                        "rgb(71, 46, 124)"
+                        "rgb(202, 225, 31)"
+                      ],
+                      [
+                        [
+                          "million",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          58,
+                          -64
+                        ],
+                        null,
+                        "rgb(103, 204, 92)"
+                      ],
+                      [
+                        [
+                          "people",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          29,
+                          -81
+                        ],
+                        null,
+                        "rgb(241, 229, 29)"
+                      ],
+                      [
+                        [
+                          "apparently",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          -34,
+                          -83
+                        ],
+                        null,
+                        "rgb(51, 99, 141)"
+                      ],
+                      [
+                        [
+                          "thousand",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          -15,
+                          81
+                        ],
+                        2,
+                        "rgb(84, 197, 104)"
+                      ],
+                      [
+                        [
+                          "empire",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          -48,
+                          55
+                        ],
+                        null,
+                        "rgb(82, 197, 105)"
+                      ],
+                      [
+                        [
+                          "dedicate",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          10,
+                          57
+                        ],
+                        2,
+                        "rgb(208, 225, 28)"
+                      ],
+                      [
+                        [
+                          "picture",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          16,
+                          -82
+                        ],
+                        null,
+                        "rgb(72, 28, 110)"
+                      ],
+                      [
+                        [
+                          "millions",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          -29,
+                          -50
+                        ],
+                        null,
+                        "rgb(59, 187, 117)"
+                      ],
+                      [
+                        [
+                          "pictures",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          -78,
+                          20
+                        ],
+                        null,
+                        "rgb(117, 208, 84)"
+                      ],
+                      [
+                        [
+                          "blogging",
+                          0.43288895173708875
+                        ],
+                        5,
+                        [
+                          63,
+                          -18
+                        ],
+                        null,
+                        "rgb(58, 84, 140)"
+                      ],
+                      [
+                        [
+                          "resonate",
+                          0.3274678504915004
+                        ],
+                        4,
+                        [
+                          2,
+                          27
+                        ],
+                        null,
+                        "rgb(71, 47, 125)"
+                      ],
+                      [
+                        [
+                          "million",
+                          0.3274678504915004
+                        ],
+                        4,
+                        [
+                          47,
+                          57
+                        ],
+                        2,
+                        "rgb(41, 122, 142)"
                       ],
                       [
                         [
                           "people",
                           0.3274678504915004
                         ],
-                        5,
+                        4,
                         [
-                          7,
-                          49
+                          16,
+                          -41
                         ],
                         null,
-                        "rgb(34, 139, 141)"
+                        "rgb(197, 224, 33)"
                       ],
                       [
                         [
@@ -6731,11 +6737,11 @@
                         ],
                         4,
                         [
-                          13,
-                          49
+                          21,
+                          -85
                         ],
                         null,
-                        "rgb(41, 121, 142)"
+                        "rgb(40, 124, 142)"
                       ],
                       [
                         [
@@ -6744,11 +6750,11 @@
                         ],
                         4,
                         [
-                          5,
-                          14
+                          16,
+                          40
                         ],
                         null,
-                        "rgb(30, 156, 137)"
+                        "rgb(48, 105, 142)"
                       ],
                       [
                         [
@@ -6757,11 +6763,11 @@
                         ],
                         4,
                         [
-                          4,
-                          -32
+                          -64,
+                          -55
                         ],
                         null,
-                        "rgb(44, 113, 142)"
+                        "rgb(52, 97, 141)"
                       ],
                       [
                         [
@@ -6770,11 +6776,11 @@
                         ],
                         4,
                         [
-                          59,
-                          47
+                          -55,
+                          -7
                         ],
                         null,
-                        "rgb(173, 220, 48)"
+                        "rgb(60, 79, 138)"
                       ],
                       [
                         [
@@ -6783,11 +6789,11 @@
                         ],
                         4,
                         [
-                          61,
-                          -56
+                          32,
+                          51
                         ],
                         null,
-                        "rgb(64, 69, 136)"
+                        "rgb(42, 120, 142)"
                       ],
                       [
                         [
@@ -6796,11 +6802,11 @@
                         ],
                         4,
                         [
-                          -34,
-                          -67
+                          36,
+                          62
                         ],
                         null,
-                        "rgb(99, 203, 95)"
+                        "rgb(72, 26, 108)"
                       ],
                       [
                         [
@@ -6810,10 +6816,10 @@
                         4,
                         [
                           62,
-                          42
+                          15
                         ],
                         null,
-                        "rgb(67, 62, 133)"
+                        "rgb(38, 129, 142)"
                       ],
                       [
                         [
@@ -6822,11 +6828,11 @@
                         ],
                         4,
                         [
-                          -74,
-                          35
+                          67,
+                          37
                         ],
                         null,
-                        "rgb(48, 106, 142)"
+                        "rgb(31, 162, 135)"
                       ]
                     ]
                   }
@@ -6848,7 +6854,8 @@
                     100,
                     0,
                     11,
-                    17
+                    17,
+                    "email"
                   ]
                 ],
                 "size": 1,
@@ -6859,416 +6866,416 @@
                       "email",
                       1.0
                     ],
-                    51,
+                    50,
                     [
-                      -41,
-                      -72
-                    ],
-                    null,
-                    "rgb(234, 229, 26)"
-                  ],
-                  [
-                    [
-                      "people",
-                      0.75647079736603
-                    ],
-                    39,
-                    [
-                      1,
-                      -56
-                    ],
-                    null,
-                    "rgb(86, 198, 103)"
-                  ],
-                  [
-                    [
-                      "place",
-                      0.75647079736603
-                    ],
-                    38,
-                    [
-                      37,
-                      -44
-                    ],
-                    null,
-                    "rgb(47, 180, 124)"
-                  ],
-                  [
-                    [
-                      "outlet",
-                      0.75647079736603
-                    ],
-                    38,
-                    [
-                      -74,
-                      -43
-                    ],
-                    null,
-                    "rgb(80, 196, 106)"
-                  ],
-                  [
-                    [
-                      "come",
-                      0.75647079736603
-                    ],
-                    22,
-                    [
-                      67,
-                      -25
-                    ],
-                    null,
-                    "rgb(94, 201, 98)"
-                  ],
-                  [
-                    [
-                      "work",
-                      0.75647079736603
-                    ],
-                    22,
-                    [
-                      -49,
-                      50
-                    ],
-                    2,
-                    "rgb(34, 141, 141)"
-                  ],
-                  [
-                    [
-                      "emails",
-                      0.75647079736603
-                    ],
-                    15,
-                    [
-                      30,
-                      18
-                    ],
-                    null,
-                    "rgb(35, 136, 142)"
-                  ],
-                  [
-                    [
-                      "email",
-                      0.75647079736603
-                    ],
-                    15,
-                    [
-                      -45,
-                      -63
-                    ],
-                    null,
-                    "rgb(35, 137, 142)"
-                  ],
-                  [
-                    [
-                      "people",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      -45,
-                      -6
-                    ],
-                    null,
-                    "rgb(72, 22, 104)"
-                  ],
-                  [
-                    [
-                      "place",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      1,
-                      -87
-                    ],
-                    null,
-                    "rgb(38, 173, 129)"
-                  ],
-                  [
-                    [
-                      "outlet",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      -3,
-                      -43
-                    ],
-                    null,
-                    "rgb(92, 200, 99)"
-                  ],
-                  [
-                    [
-                      "come",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      -13,
-                      76
-                    ],
-                    2,
-                    "rgb(67, 61, 132)"
-                  ],
-                  [
-                    [
-                      "work",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      -82,
+                      -39,
                       -37
                     ],
-                    null,
-                    "rgb(142, 214, 69)"
-                  ],
-                  [
-                    [
-                      "emails",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      37,
-                      -76
-                    ],
-                    null,
-                    "rgb(56, 185, 119)"
-                  ],
-                  [
-                    [
-                      "email",
-                      0.5722480672675971
-                    ],
-                    11,
-                    [
-                      -22,
-                      66
-                    ],
                     2,
-                    "rgb(74, 193, 109)"
+                    "rgb(64, 189, 114)"
                   ],
                   [
                     [
                       "people",
-                      0.43288895173708875
+                      0.75647079736603
                     ],
-                    8,
+                    38,
                     [
-                      42,
-                      49
-                    ],
-                    null,
-                    "rgb(132, 212, 75)"
-                  ],
-                  [
-                    [
-                      "place",
-                      0.43288895173708875
-                    ],
-                    8,
-                    [
-                      51,
-                      -55
+                      -67,
+                      8
                     ],
                     2,
                     "rgb(38, 173, 129)"
                   ],
                   [
                     [
-                      "outlet",
-                      0.43288895173708875
+                      "place",
+                      0.75647079736603
                     ],
-                    8,
+                    38,
                     [
-                      9,
-                      -81
-                    ],
-                    null,
-                    "rgb(218, 227, 25)"
-                  ],
-                  [
-                    [
-                      "come",
-                      0.43288895173708875
-                    ],
-                    8,
-                    [
-                      -48,
-                      67
+                      -46,
+                      -77
                     ],
                     2,
-                    "rgb(37, 172, 130)"
-                  ],
-                  [
-                    [
-                      "work",
-                      0.43288895173708875
-                    ],
-                    8,
-                    [
-                      -10,
-                      -89
-                    ],
-                    null,
-                    "rgb(50, 101, 142)"
-                  ],
-                  [
-                    [
-                      "emails",
-                      0.43288895173708875
-                    ],
-                    8,
-                    [
-                      24,
-                      -83
-                    ],
-                    null,
-                    "rgb(231, 228, 25)"
-                  ],
-                  [
-                    [
-                      "email",
-                      0.43288895173708875
-                    ],
-                    8,
-                    [
-                      -2,
-                      43
-                    ],
-                    null,
-                    "rgb(44, 113, 142)"
-                  ],
-                  [
-                    [
-                      "people",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      32,
-                      -15
-                    ],
-                    null,
-                    "rgb(60, 80, 139)"
-                  ],
-                  [
-                    [
-                      "place",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      -84,
-                      2
-                    ],
-                    null,
-                    "rgb(56, 88, 140)"
+                    "rgb(54, 92, 141)"
                   ],
                   [
                     [
                       "outlet",
-                      0.3274678504915004
+                      0.75647079736603
                     ],
-                    6,
+                    38,
                     [
-                      -71,
-                      -55
-                    ],
-                    null,
-                    "rgb(68, 57, 131)"
-                  ],
-                  [
-                    [
-                      "come",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      0,
-                      -11
-                    ],
-                    null,
-                    "rgb(32, 147, 140)"
-                  ],
-                  [
-                    [
-                      "work",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      31,
-                      -82
-                    ],
-                    null,
-                    "rgb(65, 68, 135)"
-                  ],
-                  [
-                    [
-                      "emails",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      -77,
-                      23
-                    ],
-                    null,
-                    "rgb(231, 228, 25)"
-                  ],
-                  [
-                    [
-                      "email",
-                      0.3274678504915004
-                    ],
-                    6,
-                    [
-                      24,
-                      62
-                    ],
-                    null,
-                    "rgb(112, 207, 87)"
-                  ],
-                  [
-                    [
-                      "people",
-                      0.24771986597304518
-                    ],
-                    5,
-                    [
-                      -49,
-                      -66
-                    ],
-                    null,
-                    "rgb(35, 138, 141)"
-                  ],
-                  [
-                    [
-                      "place",
-                      0.24771986597304518
-                    ],
-                    5,
-                    [
-                      -41,
-                      -78
+                      -47,
+                      44
                     ],
                     2,
                     "rgb(49, 104, 142)"
                   ],
                   [
                     [
+                      "come",
+                      0.75647079736603
+                    ],
+                    27,
+                    [
+                      -70,
+                      -56
+                    ],
+                    null,
+                    "rgb(72, 38, 119)"
+                  ],
+                  [
+                    [
+                      "work",
+                      0.75647079736603
+                    ],
+                    26,
+                    [
+                      46,
+                      1
+                    ],
+                    null,
+                    "rgb(70, 51, 127)"
+                  ],
+                  [
+                    [
+                      "emails",
+                      0.75647079736603
+                    ],
+                    18,
+                    [
+                      -54,
+                      -46
+                    ],
+                    null,
+                    "rgb(39, 126, 142)"
+                  ],
+                  [
+                    [
+                      "email",
+                      0.75647079736603
+                    ],
+                    18,
+                    [
+                      -18,
+                      -44
+                    ],
+                    2,
+                    "rgb(65, 68, 135)"
+                  ],
+                  [
+                    [
+                      "people",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      -86,
+                      -18
+                    ],
+                    null,
+                    "rgb(110, 206, 88)"
+                  ],
+                  [
+                    [
+                      "place",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      47,
+                      -63
+                    ],
+                    null,
+                    "rgb(52, 182, 121)"
+                  ],
+                  [
+                    [
+                      "outlet",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      66,
+                      0
+                    ],
+                    null,
+                    "rgb(62, 76, 138)"
+                  ],
+                  [
+                    [
+                      "come",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      -18,
+                      76
+                    ],
+                    2,
+                    "rgb(236, 229, 27)"
+                  ],
+                  [
+                    [
+                      "work",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      -6,
+                      1
+                    ],
+                    2,
+                    "rgb(51, 99, 141)"
+                  ],
+                  [
+                    [
+                      "emails",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      -26,
+                      -83
+                    ],
+                    2,
+                    "rgb(71, 14, 97)"
+                  ],
+                  [
+                    [
+                      "email",
+                      0.5722480672675971
+                    ],
+                    14,
+                    [
+                      1,
+                      38
+                    ],
+                    2,
+                    "rgb(72, 35, 116)"
+                  ],
+                  [
+                    [
+                      "people",
+                      0.43288895173708875
+                    ],
+                    11,
+                    [
+                      -40,
+                      1
+                    ],
+                    2,
+                    "rgb(194, 223, 35)"
+                  ],
+                  [
+                    [
+                      "place",
+                      0.43288895173708875
+                    ],
+                    11,
+                    [
+                      -60,
+                      39
+                    ],
+                    null,
+                    "rgb(62, 73, 137)"
+                  ],
+                  [
+                    [
+                      "outlet",
+                      0.43288895173708875
+                    ],
+                    11,
+                    [
+                      77,
+                      -5
+                    ],
+                    null,
+                    "rgb(59, 82, 139)"
+                  ],
+                  [
+                    [
+                      "come",
+                      0.43288895173708875
+                    ],
+                    11,
+                    [
+                      58,
+                      -58
+                    ],
+                    null,
+                    "rgb(65, 68, 135)"
+                  ],
+                  [
+                    [
+                      "work",
+                      0.43288895173708875
+                    ],
+                    11,
+                    [
+                      25,
+                      0
+                    ],
+                    2,
+                    "rgb(72, 38, 119)"
+                  ],
+                  [
+                    [
+                      "emails",
+                      0.43288895173708875
+                    ],
+                    9,
+                    [
+                      -75,
+                      18
+                    ],
+                    null,
+                    "rgb(70, 10, 93)"
+                  ],
+                  [
+                    [
+                      "email",
+                      0.43288895173708875
+                    ],
+                    9,
+                    [
+                      -79,
+                      -42
+                    ],
+                    null,
+                    "rgb(61, 78, 138)"
+                  ],
+                  [
+                    [
+                      "people",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      25,
+                      -39
+                    ],
+                    2,
+                    "rgb(213, 226, 26)"
+                  ],
+                  [
+                    [
+                      "place",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      35,
+                      -18
+                    ],
+                    null,
+                    "rgb(144, 215, 67)"
+                  ],
+                  [
+                    [
+                      "outlet",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      -54,
+                      -67
+                    ],
+                    null,
+                    "rgb(101, 203, 94)"
+                  ],
+                  [
+                    [
+                      "come",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      42,
+                      -75
+                    ],
+                    null,
+                    "rgb(61, 77, 138)"
+                  ],
+                  [
+                    [
+                      "work",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      17,
+                      73
+                    ],
+                    2,
+                    "rgb(46, 109, 142)"
+                  ],
+                  [
+                    [
+                      "emails",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      65,
+                      -53
+                    ],
+                    null,
+                    "rgb(41, 121, 142)"
+                  ],
+                  [
+                    [
+                      "email",
+                      0.3274678504915004
+                    ],
+                    7,
+                    [
+                      20,
+                      -20
+                    ],
+                    null,
+                    "rgb(231, 228, 25)"
+                  ],
+                  [
+                    [
+                      "people",
+                      0.24771986597304518
+                    ],
+                    5,
+                    [
+                      -67,
+                      37
+                    ],
+                    null,
+                    "rgb(72, 24, 106)"
+                  ],
+                  [
+                    [
+                      "place",
+                      0.24771986597304518
+                    ],
+                    5,
+                    [
+                      -38,
+                      -48
+                    ],
+                    2,
+                    "rgb(96, 202, 96)"
+                  ],
+                  [
+                    [
                       "outlet",
                       0.24771986597304518
                     ],
                     5,
                     [
-                      -78,
-                      -13
+                      -31,
+                      -42
                     ],
                     null,
-                    "rgb(105, 205, 91)"
+                    "rgb(31, 158, 137)"
                   ],
                   [
                     [
@@ -7277,11 +7284,11 @@
                     ],
                     5,
                     [
-                      -61,
-                      49
+                      -39,
+                      36
                     ],
                     null,
-                    "rgb(42, 118, 142)"
+                    "rgb(31, 152, 139)"
                   ],
                   [
                     [
@@ -7290,11 +7297,11 @@
                     ],
                     5,
                     [
-                      3,
-                      65
+                      -52,
+                      60
                     ],
-                    2,
-                    "rgb(31, 152, 139)"
+                    null,
+                    "rgb(58, 84, 140)"
                   ],
                   [
                     [
@@ -7303,11 +7310,11 @@
                     ],
                     5,
                     [
-                      45,
-                      -63
+                      73,
+                      -44
                     ],
-                    2,
-                    "rgb(40, 174, 128)"
+                    null,
+                    "rgb(72, 29, 111)"
                   ],
                   [
                     [
@@ -7316,11 +7323,11 @@
                     ],
                     5,
                     [
-                      -59,
-                      -57
+                      46,
+                      61
                     ],
                     null,
-                    "rgb(101, 203, 94)"
+                    "rgb(31, 153, 138)"
                   ],
                   [
                     [
@@ -7329,11 +7336,11 @@
                     ],
                     4,
                     [
-                      31,
-                      -45
+                      65,
+                      36
                     ],
                     null,
-                    "rgb(39, 127, 142)"
+                    "rgb(30, 155, 138)"
                   ],
                   [
                     [
@@ -7342,11 +7349,11 @@
                     ],
                     4,
                     [
-                      -13,
-                      83
+                      -25,
+                      74
                     ],
-                    2,
-                    "rgb(90, 200, 100)"
+                    null,
+                    "rgb(55, 184, 120)"
                   ],
                   [
                     [
@@ -7355,11 +7362,11 @@
                     ],
                     4,
                     [
-                      -43,
-                      -27
+                      -49,
+                      39
                     ],
                     null,
-                    "rgb(241, 229, 29)"
+                    "rgb(234, 229, 26)"
                   ],
                   [
                     [
@@ -7368,11 +7375,11 @@
                     ],
                     4,
                     [
-                      72,
-                      31
+                      45,
+                      13
                     ],
                     null,
-                    "rgb(31, 151, 139)"
+                    "rgb(119, 209, 83)"
                   ],
                   [
                     [
@@ -7381,11 +7388,11 @@
                     ],
                     4,
                     [
-                      39,
-                      0
+                      -31,
+                      -25
                     ],
                     null,
-                    "rgb(70, 52, 128)"
+                    "rgb(66, 190, 113)"
                   ],
                   [
                     [
@@ -7394,11 +7401,11 @@
                     ],
                     4,
                     [
-                      -37,
-                      -21
+                      -89,
+                      -12
                     ],
                     null,
-                    "rgb(59, 81, 139)"
+                    "rgb(122, 209, 81)"
                   ],
                   [
                     [
@@ -7407,11 +7414,11 @@
                     ],
                     4,
                     [
-                      -25,
-                      -81
+                      24,
+                      -77
                     ],
-                    null,
-                    "rgb(56, 185, 119)"
+                    2,
+                    "rgb(71, 16, 99)"
                   ]
                 ]
               }
@@ -7426,11 +7433,11 @@
             ],
             45,
             [
-              -21,
-              -65
+              -35,
+              -82
             ],
             null,
-            "rgb(51, 98, 141)"
+            "rgb(67, 61, 132)"
           ],
           [
             [
@@ -7439,11 +7446,11 @@
             ],
             36,
             [
-              -52,
-              26
+              -1,
+              15
             ],
             null,
-            "rgb(57, 86, 140)"
+            "rgb(226, 228, 24)"
           ],
           [
             [
@@ -7452,11 +7459,11 @@
             ],
             36,
             [
-              13,
-              -4
+              25,
+              -50
             ],
             null,
-            "rgb(70, 7, 90)"
+            "rgb(56, 88, 140)"
           ],
           [
             [
@@ -7465,11 +7472,11 @@
             ],
             23,
             [
-              18,
-              -74
+              -89,
+              -13
             ],
-            null,
-            "rgb(46, 179, 124)"
+            2,
+            "rgb(76, 194, 108)"
           ],
           [
             [
@@ -7478,11 +7485,11 @@
             ],
             23,
             [
-              -57,
-              -66
+              0,
+              -72
             ],
             null,
-            "rgb(241, 229, 29)"
+            "rgb(60, 80, 139)"
           ],
           [
             [
@@ -7491,11 +7498,11 @@
             ],
             23,
             [
-              55,
-              -33
+              53,
+              -52
             ],
             null,
-            "rgb(197, 224, 33)"
+            "rgb(33, 144, 141)"
           ],
           [
             [
@@ -7504,11 +7511,11 @@
             ],
             23,
             [
-              39,
-              -53
+              32,
+              11
             ],
             null,
-            "rgb(160, 218, 57)"
+            "rgb(35, 137, 142)"
           ],
           [
             [
@@ -7517,11 +7524,11 @@
             ],
             23,
             [
-              -83,
-              -17
+              -68,
+              1
             ],
             null,
-            "rgb(86, 198, 103)"
+            "rgb(66, 64, 134)"
           ],
           [
             [
@@ -7530,37 +7537,37 @@
             ],
             23,
             [
-              42,
-              17
+              -50,
+              13
             ],
             null,
-            "rgb(37, 172, 130)"
+            "rgb(59, 187, 117)"
           ],
           [
             [
               "funny words",
               0.5
             ],
-            15,
+            12,
             [
-              -36,
-              -55
+              69,
+              -34
             ],
             null,
-            "rgb(30, 157, 137)"
+            "rgb(189, 223, 38)"
           ],
           [
             [
               "barrel roll",
               0.5
             ],
-            14,
+            12,
             [
-              -66,
-              -5
+              -54,
+              -68
             ],
             null,
-            "rgb(46, 110, 142)"
+            "rgb(72, 193, 110)"
           ],
           [
             [
@@ -7569,11 +7576,11 @@
             ],
             12,
             [
-              -25,
-              -11
+              -41,
+              69
             ],
-            null,
-            "rgb(99, 203, 95)"
+            2,
+            "rgb(70, 192, 111)"
           ],
           [
             [
@@ -7582,11 +7589,11 @@
             ],
             12,
             [
-              -66,
-              -44
+              52,
+              7
             ],
             null,
-            "rgb(244, 230, 30)"
+            "rgb(31, 161, 135)"
           ],
           [
             [
@@ -7595,11 +7602,11 @@
             ],
             12,
             [
-              72,
-              -11
+              16,
+              -64
             ],
-            null,
-            "rgb(59, 82, 139)"
+            2,
+            "rgb(72, 23, 105)"
           ],
           [
             [
@@ -7608,89 +7615,89 @@
             ],
             12,
             [
-              71,
-              -31
+              19,
+              -47
             ],
             null,
-            "rgb(234, 229, 26)"
+            "rgb(71, 19, 101)"
           ],
           [
             [
               "phenomenon",
               0.5
             ],
-            7,
+            9,
             [
-              58,
-              17
+              -45,
+              -69
             ],
             null,
-            "rgb(251, 231, 35)"
+            "rgb(168, 219, 52)"
           ],
           [
             [
               "viral",
               0.5
             ],
-            7,
+            9,
             [
-              -83,
-              23
+              -66,
+              41
             ],
-            2,
-            "rgb(32, 163, 134)"
+            null,
+            "rgb(74, 193, 109)"
           ],
           [
             [
               "video",
               0.5
             ],
-            7,
+            9,
             [
-              -12,
-              -84
+              -72,
+              -38
             ],
             null,
-            "rgb(31, 148, 140)"
+            "rgb(50, 100, 142)"
           ],
           [
             [
               "whatnot",
               0.5
             ],
-            7,
+            9,
             [
-              38,
-              51
+              -65,
+              -47
             ],
             null,
-            "rgb(69, 55, 129)"
+            "rgb(205, 225, 29)"
           ],
           [
             [
               "meme",
               0.5
             ],
-            7,
+            9,
             [
-              -79,
-              -42
+              11,
+              -11
             ],
             null,
-            "rgb(44, 113, 142)"
+            "rgb(76, 194, 108)"
           ],
           [
             [
               "site",
               0.5
             ],
-            7,
+            9,
             [
-              -32,
-              -71
+              26,
+              37
             ],
             null,
-            "rgb(149, 216, 64)"
+            "rgb(92, 200, 99)"
           ],
           [
             [
@@ -7699,11 +7706,11 @@
             ],
             5,
             [
-              12,
-              -66
+              62,
+              10
             ],
             null,
-            "rgb(181, 222, 43)"
+            "rgb(49, 103, 142)"
           ],
           [
             [
@@ -7712,11 +7719,11 @@
             ],
             5,
             [
-              81,
-              -8
+              25,
+              -2
             ],
             null,
-            "rgb(30, 156, 137)"
+            "rgb(36, 134, 142)"
           ],
           [
             [
@@ -7725,11 +7732,11 @@
             ],
             5,
             [
-              31,
-              -61
+              48,
+              39
             ],
             null,
-            "rgb(47, 180, 124)"
+            "rgb(78, 195, 107)"
           ],
           [
             [
@@ -7738,11 +7745,11 @@
             ],
             5,
             [
-              -28,
-              -85
+              3,
+              -86
             ],
             null,
-            "rgb(43, 117, 142)"
+            "rgb(57, 86, 140)"
           ],
           [
             [
@@ -7751,11 +7758,11 @@
             ],
             5,
             [
-              -55,
-              -2
+              -77,
+              10
             ],
             null,
-            "rgb(253, 231, 37)"
+            "rgb(33, 144, 141)"
           ],
           [
             [
@@ -7764,11 +7771,11 @@
             ],
             5,
             [
-              20,
-              67
+              -58,
+              43
             ],
             null,
-            "rgb(55, 91, 141)"
+            "rgb(71, 13, 96)"
           ],
           [
             [
@@ -7777,11 +7784,11 @@
             ],
             5,
             [
-              58,
-              -51
+              -52,
+              53
             ],
             null,
-            "rgb(61, 78, 138)"
+            "rgb(168, 219, 52)"
           ],
           [
             [
@@ -7790,11 +7797,11 @@
             ],
             5,
             [
-              63,
-              44
+              -71,
+              3
             ],
             null,
-            "rgb(34, 168, 132)"
+            "rgb(31, 161, 136)"
           ],
           [
             [
@@ -7803,11 +7810,11 @@
             ],
             5,
             [
-              -21,
-              -57
+              -78,
+              24
             ],
             null,
-            "rgb(30, 156, 137)"
+            "rgb(42, 118, 142)"
           ],
           [
             [
@@ -7816,11 +7823,11 @@
             ],
             5,
             [
-              -73,
-              -34
+              -35,
+              -25
             ],
             null,
-            "rgb(70, 7, 90)"
+            "rgb(223, 227, 24)"
           ],
           [
             [
@@ -7829,11 +7836,11 @@
             ],
             5,
             [
-              66,
-              18
+              -9,
+              -1
             ],
-            null,
-            "rgb(58, 84, 140)"
+            2,
+            "rgb(56, 89, 140)"
           ],
           [
             [
@@ -7842,11 +7849,11 @@
             ],
             4,
             [
-              -60,
-              60
+              78,
+              -17
             ],
             null,
-            "rgb(70, 11, 94)"
+            "rgb(60, 79, 138)"
           ],
           [
             [
@@ -7855,11 +7862,11 @@
             ],
             4,
             [
-              -89,
-              -7
+              -37,
+              -50
             ],
             2,
-            "rgb(117, 208, 84)"
+            "rgb(108, 205, 90)"
           ]
         ]
       },
@@ -7885,7 +7892,8 @@
                         79,
                         1,
                         42,
-                        49
+                        49,
+                        "privacy"
                       ]
                     ],
                     "size": 1,
@@ -7900,13 +7908,15 @@
                             89,
                             2,
                             29,
-                            38
+                            38,
+                            "anonymity"
                           ],
                           [
                             90,
                             0,
                             4,
-                            13
+                            13,
+                            "anonymity"
                           ]
                         ],
                         "size": 2,
@@ -7919,11 +7929,11 @@
                             ],
                             32,
                             [
-                              -12,
-                              -85
+                              -11,
+                              -83
                             ],
                             null,
-                            "rgb(69, 55, 129)"
+                            "rgb(48, 106, 142)"
                           ],
                           [
                             [
@@ -7932,11 +7942,11 @@
                             ],
                             24,
                             [
-                              31,
-                              -29
+                              32,
+                              -34
                             ],
                             null,
-                            "rgb(139, 214, 70)"
+                            "rgb(33, 142, 141)"
                           ],
                           [
                             [
@@ -7945,11 +7955,11 @@
                             ],
                             24,
                             [
-                              -38,
-                              -48
+                              55,
+                              -14
                             ],
                             null,
-                            "rgb(31, 162, 135)"
+                            "rgb(41, 175, 127)"
                           ],
                           [
                             [
@@ -7958,11 +7968,11 @@
                             ],
                             24,
                             [
-                              -53,
-                              -59
+                              -57,
+                              23
                             ],
                             null,
-                            "rgb(37, 133, 142)"
+                            "rgb(41, 123, 142)"
                           ],
                           [
                             [
@@ -7971,11 +7981,11 @@
                             ],
                             24,
                             [
-                              -41,
-                              19
+                              -82,
+                              -1
                             ],
-                            null,
-                            "rgb(119, 209, 83)"
+                            2,
+                            "rgb(253, 231, 37)"
                           ],
                           [
                             [
@@ -7984,11 +7994,11 @@
                             ],
                             24,
                             [
-                              -71,
-                              -54
+                              -32,
+                              -83
                             ],
                             null,
-                            "rgb(112, 207, 87)"
+                            "rgb(71, 44, 122)"
                           ],
                           [
                             [
@@ -7997,180 +8007,180 @@
                             ],
                             24,
                             [
-                              63,
-                              -28
+                              -47,
+                              14
                             ],
                             null,
-                            "rgb(103, 204, 92)"
+                            "rgb(80, 196, 106)"
                           ],
                           [
                             [
                               "people",
                               0.75647079736603
                             ],
-                            21,
+                            22,
                             [
-                              12,
-                              -80
+                              -58,
+                              -68
                             ],
                             null,
-                            "rgb(51, 98, 141)"
+                            "rgb(72, 23, 105)"
                           ],
                           [
                             [
                               "rule",
                               0.75647079736603
                             ],
-                            21,
+                            22,
                             [
-                              48,
-                              -4
+                              -27,
+                              45
                             ],
                             null,
-                            "rgb(47, 107, 142)"
+                            "rgb(59, 81, 139)"
                           ],
                           [
                             [
                               "rules",
                               0.75647079736603
                             ],
-                            21,
+                            22,
                             [
-                              -24,
-                              67
+                              13,
+                              -66
                             ],
                             2,
-                            "rgb(72, 37, 118)"
+                            "rgb(41, 121, 142)"
                           ],
                           [
                             [
                               "anonymity",
                               0.75647079736603
                             ],
-                            14,
+                            11,
                             [
-                              -54,
-                              -65
+                              73,
+                              -25
                             ],
                             null,
-                            "rgb(66, 190, 113)"
+                            "rgb(31, 162, 135)"
                           ],
                           [
                             [
                               "seriously",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              -19,
-                              -44
+                              -25,
+                              11
                             ],
                             null,
-                            "rgb(194, 223, 35)"
+                            "rgb(34, 168, 132)"
                           ],
                           [
                             [
                               "issue",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              -24,
-                              13
+                              19,
+                              -27
                             ],
                             null,
-                            "rgb(49, 102, 142)"
+                            "rgb(70, 8, 92)"
                           ],
                           [
                             [
                               " ",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              18,
-                              -12
+                              -65,
+                              -61
                             ],
                             null,
-                            "rgb(110, 206, 88)"
+                            "rgb(241, 229, 29)"
                           ],
                           [
                             [
                               "case",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              -83,
-                              -4
+                              60,
+                              -54
                             ],
                             null,
-                            "rgb(90, 200, 100)"
+                            "rgb(50, 182, 122)"
                           ],
                           [
                             [
                               "basically",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              35,
-                              -74
+                              -77,
+                              -32
                             ],
                             null,
-                            "rgb(71, 45, 123)"
+                            "rgb(41, 123, 142)"
                           ],
                           [
                             [
                               "allow",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
                               15,
-                              19
+                              -48
                             ],
                             null,
-                            "rgb(71, 14, 97)"
+                            "rgb(137, 213, 72)"
                           ],
                           [
                             [
                               "people",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              -54,
-                              38
+                              -73,
+                              19
                             ],
                             null,
-                            "rgb(68, 58, 131)"
+                            "rgb(208, 225, 28)"
                           ],
                           [
                             [
                               "rule",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              57,
-                              33
+                              20,
+                              66
                             ],
                             null,
-                            "rgb(52, 182, 121)"
+                            "rgb(35, 169, 131)"
                           ],
                           [
                             [
                               "rules",
                               0.5722480672675971
                             ],
-                            11,
+                            8,
                             [
-                              50,
-                              -29
+                              19,
+                              3
                             ],
                             null,
-                            "rgb(34, 168, 132)"
+                            "rgb(43, 117, 142)"
                           ],
                           [
                             [
@@ -8179,180 +8189,180 @@
                             ],
                             8,
                             [
-                              -19,
-                              -85
-                            ],
-                            null,
-                            "rgb(170, 220, 50)"
-                          ],
-                          [
-                            [
-                              "seriously",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              46,
-                              -58
-                            ],
-                            null,
-                            "rgb(39, 126, 142)"
-                          ],
-                          [
-                            [
-                              "issue",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              -41,
-                              -74
-                            ],
-                            2,
-                            "rgb(189, 223, 38)"
-                          ],
-                          [
-                            [
-                              " ",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              77,
-                              -31
-                            ],
-                            null,
-                            "rgb(115, 208, 86)"
-                          ],
-                          [
-                            [
-                              "case",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              -24,
-                              -83
-                            ],
-                            null,
-                            "rgb(236, 229, 27)"
-                          ],
-                          [
-                            [
-                              "basically",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              -52,
-                              1
-                            ],
-                            null,
-                            "rgb(35, 137, 142)"
-                          ],
-                          [
-                            [
-                              "allow",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
                               -59,
-                              43
-                            ],
-                            null,
-                            "rgb(46, 179, 124)"
-                          ],
-                          [
-                            [
-                              "people",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              -76,
-                              -47
+                              14
                             ],
                             null,
                             "rgb(90, 200, 100)"
                           ],
                           [
                             [
-                              "rule",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              -68,
-                              37
-                            ],
-                            null,
-                            "rgb(67, 61, 132)"
-                          ],
-                          [
-                            [
-                              "rules",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              80,
-                              13
-                            ],
-                            null,
-                            "rgb(39, 127, 142)"
-                          ],
-                          [
-                            [
-                              "anonymity",
-                              0.43288895173708875
-                            ],
-                            6,
-                            [
-                              24,
-                              52
-                            ],
-                            null,
-                            "rgb(39, 128, 142)"
-                          ],
-                          [
-                            [
                               "seriously",
-                              0.3274678504915004
+                              0.43288895173708875
                             ],
-                            5,
+                            6,
                             [
-                              60,
-                              -49
+                              -69,
+                              -32
                             ],
                             null,
-                            "rgb(68, 2, 86)"
+                            "rgb(53, 95, 141)"
                           ],
                           [
                             [
                               "issue",
-                              0.3274678504915004
+                              0.43288895173708875
                             ],
-                            5,
+                            6,
                             [
-                              -16,
-                              9
+                              83,
+                              -4
                             ],
                             null,
-                            "rgb(61, 78, 138)"
+                            "rgb(149, 216, 64)"
                           ],
                           [
                             [
                               " ",
-                              0.3274678504915004
+                              0.43288895173708875
                             ],
-                            5,
+                            6,
+                            [
+                              -13,
+                              30
+                            ],
+                            null,
+                            "rgb(71, 45, 123)"
+                          ],
+                          [
+                            [
+                              "case",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              15,
+                              20
+                            ],
+                            null,
+                            "rgb(72, 40, 120)"
+                          ],
+                          [
+                            [
+                              "basically",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              -14,
+                              -46
+                            ],
+                            null,
+                            "rgb(71, 47, 125)"
+                          ],
+                          [
+                            [
+                              "allow",
+                              0.43288895173708875
+                            ],
+                            6,
                             [
                               32,
-                              79
+                              63
+                            ],
+                            2,
+                            "rgb(31, 148, 140)"
+                          ],
+                          [
+                            [
+                              "people",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              -14,
+                              -72
                             ],
                             null,
-                            "rgb(72, 27, 109)"
+                            "rgb(37, 133, 142)"
+                          ],
+                          [
+                            [
+                              "rule",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              -37,
+                              -60
+                            ],
+                            null,
+                            "rgb(52, 182, 121)"
+                          ],
+                          [
+                            [
+                              "rules",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              61,
+                              -34
+                            ],
+                            null,
+                            "rgb(71, 44, 122)"
+                          ],
+                          [
+                            [
+                              "anonymity",
+                              0.43288895173708875
+                            ],
+                            6,
+                            [
+                              23,
+                              36
+                            ],
+                            null,
+                            "rgb(70, 10, 93)"
+                          ],
+                          [
+                            [
+                              "seriously",
+                              0.3274678504915004
+                            ],
+                            5,
+                            [
+                              51,
+                              15
+                            ],
+                            null,
+                            "rgb(30, 156, 137)"
+                          ],
+                          [
+                            [
+                              "issue",
+                              0.3274678504915004
+                            ],
+                            5,
+                            [
+                              13,
+                              62
+                            ],
+                            null,
+                            "rgb(59, 187, 117)"
+                          ],
+                          [
+                            [
+                              " ",
+                              0.3274678504915004
+                            ],
+                            5,
+                            [
+                              19,
+                              -7
+                            ],
+                            null,
+                            "rgb(34, 168, 132)"
                           ],
                           [
                             [
@@ -8361,11 +8371,11 @@
                             ],
                             5,
                             [
-                              69,
-                              -36
+                              28,
+                              27
                             ],
-                            2,
-                            "rgb(37, 131, 142)"
+                            null,
+                            "rgb(31, 154, 138)"
                           ],
                           [
                             [
@@ -8374,11 +8384,11 @@
                             ],
                             5,
                             [
-                              25,
-                              25
+                              55,
+                              44
                             ],
                             null,
-                            "rgb(50, 101, 142)"
+                            "rgb(31, 160, 136)"
                           ],
                           [
                             [
@@ -8387,11 +8397,11 @@
                             ],
                             5,
                             [
-                              30,
-                              -71
+                              -3,
+                              71
                             ],
                             null,
-                            "rgb(88, 199, 101)"
+                            "rgb(68, 58, 131)"
                           ],
                           [
                             [
@@ -8400,11 +8410,11 @@
                             ],
                             5,
                             [
-                              82,
-                              -16
+                              -18,
+                              4
                             ],
                             null,
-                            "rgb(49, 103, 142)"
+                            "rgb(72, 26, 108)"
                           ],
                           [
                             [
@@ -8413,11 +8423,11 @@
                             ],
                             5,
                             [
-                              -43,
-                              9
+                              67,
+                              -44
                             ],
                             null,
-                            "rgb(72, 28, 110)"
+                            "rgb(72, 33, 115)"
                           ],
                           [
                             [
@@ -8426,128 +8436,128 @@
                             ],
                             5,
                             [
-                              -26,
-                              -67
-                            ],
-                            null,
-                            "rgb(69, 5, 89)"
-                          ],
-                          [
-                            [
-                              "anonymity",
-                              0.3274678504915004
-                            ],
-                            5,
-                            [
-                              -16,
-                              82
-                            ],
-                            2,
-                            "rgb(57, 86, 140)"
-                          ],
-                          [
-                            [
-                              "seriously",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              23,
-                              -2
-                            ],
-                            null,
-                            "rgb(33, 166, 133)"
-                          ],
-                          [
-                            [
-                              "issue",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              -83,
-                              -25
-                            ],
-                            null,
-                            "rgb(49, 181, 123)"
-                          ],
-                          [
-                            [
-                              " ",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              -26,
-                              -53
-                            ],
-                            null,
-                            "rgb(69, 56, 130)"
-                          ],
-                          [
-                            [
-                              "case",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              -42,
-                              -58
-                            ],
-                            null,
-                            "rgb(76, 194, 108)"
-                          ],
-                          [
-                            [
-                              "basically",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              -44,
-                              72
-                            ],
-                            2,
-                            "rgb(208, 225, 28)"
-                          ],
-                          [
-                            [
-                              "allow",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              65,
-                              27
-                            ],
-                            2,
-                            "rgb(70, 52, 128)"
-                          ],
-                          [
-                            [
-                              "people",
-                              0.24771986597304518
-                            ],
-                            4,
-                            [
-                              12,
-                              -3
+                              51,
+                              -9
                             ],
                             null,
                             "rgb(33, 165, 133)"
                           ],
                           [
                             [
+                              "anonymity",
+                              0.3274678504915004
+                            ],
+                            5,
+                            [
+                              27,
+                              -41
+                            ],
+                            2,
+                            "rgb(31, 162, 135)"
+                          ],
+                          [
+                            [
+                              "seriously",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              26,
+                              6
+                            ],
+                            null,
+                            "rgb(38, 130, 142)"
+                          ],
+                          [
+                            [
+                              "issue",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              -81,
+                              27
+                            ],
+                            null,
+                            "rgb(62, 76, 138)"
+                          ],
+                          [
+                            [
+                              " ",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              -12,
+                              23
+                            ],
+                            null,
+                            "rgb(226, 228, 24)"
+                          ],
+                          [
+                            [
+                              "case",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              -15,
+                              -18
+                            ],
+                            null,
+                            "rgb(66, 65, 134)"
+                          ],
+                          [
+                            [
+                              "basically",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              16,
+                              -86
+                            ],
+                            null,
+                            "rgb(62, 74, 137)"
+                          ],
+                          [
+                            [
+                              "allow",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              -40,
+                              -43
+                            ],
+                            null,
+                            "rgb(184, 222, 41)"
+                          ],
+                          [
+                            [
+                              "people",
+                              0.24771986597304518
+                            ],
+                            4,
+                            [
+                              -64,
+                              -61
+                            ],
+                            null,
+                            "rgb(94, 201, 98)"
+                          ],
+                          [
+                            [
                               "rule",
                               0.24771986597304518
                             ],
                             4,
                             [
-                              -13,
-                              58
+                              60,
+                              47
                             ],
                             null,
-                            "rgb(221, 227, 24)"
+                            "rgb(33, 144, 141)"
                           ],
                           [
                             [
@@ -8556,11 +8566,11 @@
                             ],
                             4,
                             [
-                              -26,
-                              52
+                              -63,
+                              -39
                             ],
                             null,
-                            "rgb(39, 127, 142)"
+                            "rgb(165, 219, 54)"
                           ],
                           [
                             [
@@ -8569,11 +8579,11 @@
                             ],
                             4,
                             [
-                              28,
-                              -33
+                              20,
+                              -79
                             ],
-                            null,
-                            "rgb(30, 155, 138)"
+                            2,
+                            "rgb(70, 7, 90)"
                           ]
                         ]
                       }
@@ -8586,11 +8596,11 @@
                         ],
                         45,
                         [
-                          -24,
-                          -64
+                          -2,
+                          -75
                         ],
                         null,
-                        "rgb(40, 124, 142)"
+                        "rgb(70, 8, 92)"
                       ],
                       [
                         [
@@ -8599,11 +8609,11 @@
                         ],
                         34,
                         [
-                          51,
-                          -39
+                          -62,
+                          -10
                         ],
                         null,
-                        "rgb(117, 208, 84)"
+                        "rgb(66, 190, 113)"
                       ],
                       [
                         [
@@ -8612,138 +8622,8 @@
                         ],
                         34,
                         [
-                          13,
-                          -54
-                        ],
-                        null,
-                        "rgb(30, 155, 138)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.5722480672675971
-                        ],
-                        26,
-                        [
-                          -81,
-                          -34
-                        ],
-                        2,
-                        "rgb(31, 161, 135)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.5722480672675971
-                        ],
-                        26,
-                        [
-                          -53,
-                          -11
-                        ],
-                        null,
-                        "rgb(94, 201, 98)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.43288895173708875
-                        ],
-                        20,
-                        [
-                          -76,
-                          9
-                        ],
-                        null,
-                        "rgb(37, 131, 142)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.43288895173708875
-                        ],
-                        18,
-                        [
-                          -36,
-                          -81
-                        ],
-                        null,
-                        "rgb(226, 228, 24)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.3274678504915004
-                        ],
-                        14,
-                        [
-                          43,
-                          -27
-                        ],
-                        null,
-                        "rgb(36, 170, 131)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.3274678504915004
-                        ],
-                        14,
-                        [
-                          -34,
-                          -1
-                        ],
-                        null,
-                        "rgb(72, 24, 106)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.24771986597304518
-                        ],
-                        11,
-                        [
-                          76,
-                          -11
-                        ],
-                        null,
-                        "rgb(36, 135, 142)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.24771986597304518
-                        ],
-                        11,
-                        [
-                          53,
-                          23
-                        ],
-                        null,
-                        "rgb(101, 203, 94)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.18739284453603555
-                        ],
-                        8,
-                        [
-                          -33,
-                          67
-                        ],
-                        null,
-                        "rgb(78, 195, 107)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.18739284453603558
-                        ],
-                        8,
-                        [
-                          -61,
-                          -15
+                          -32,
+                          -28
                         ],
                         null,
                         "rgb(31, 148, 140)"
@@ -8751,588 +8631,185 @@
                       [
                         [
                           "lack",
-                          0.14175721452686332
+                          0.5722480672675971
+                        ],
+                        26,
+                        [
+                          44,
+                          -42
+                        ],
+                        null,
+                        "rgb(42, 120, 142)"
+                      ],
+                      [
+                        [
+                          "privacy",
+                          0.5722480672675971
+                        ],
+                        19,
+                        [
+                          -51,
+                          -72
+                        ],
+                        null,
+                        "rgb(194, 223, 35)"
+                      ],
+                      [
+                        [
+                          "lack",
+                          0.43288895173708875
+                        ],
+                        14,
+                        [
+                          30,
+                          -48
+                        ],
+                        null,
+                        "rgb(208, 225, 28)"
+                      ],
+                      [
+                        [
+                          "privacy",
+                          0.43288895173708875
+                        ],
+                        14,
+                        [
+                          57,
+                          5
+                        ],
+                        null,
+                        "rgb(33, 144, 141)"
+                      ],
+                      [
+                        [
+                          "lack",
+                          0.3274678504915004
+                        ],
+                        11,
+                        [
+                          75,
+                          -9
+                        ],
+                        null,
+                        "rgb(155, 217, 60)"
+                      ],
+                      [
+                        [
+                          "privacy",
+                          0.3274678504915004
+                        ],
+                        11,
+                        [
+                          -78,
+                          -39
+                        ],
+                        null,
+                        "rgb(69, 55, 129)"
+                      ],
+                      [
+                        [
+                          "lack",
+                          0.24771986597304518
+                        ],
+                        8,
+                        [
+                          48,
+                          8
+                        ],
+                        null,
+                        "rgb(181, 222, 43)"
+                      ],
+                      [
+                        [
+                          "privacy",
+                          0.24771986597304518
+                        ],
+                        8,
+                        [
+                          -61,
+                          -38
+                        ],
+                        null,
+                        "rgb(45, 112, 142)"
+                      ],
+                      [
+                        [
+                          "lack",
+                          0.18739284453603555
                         ],
                         6,
                         [
-                          6,
-                          -78
+                          46,
+                          30
+                        ],
+                        2,
+                        "rgb(31, 159, 136)"
+                      ],
+                      [
+                        [
+                          "privacy",
+                          0.18739284453603558
+                        ],
+                        6,
+                        [
+                          -75,
+                          -4
                         ],
                         null,
-                        "rgb(78, 195, 107)"
+                        "rgb(55, 184, 120)"
+                      ],
+                      [
+                        [
+                          "lack",
+                          0.14175721452686332
+                        ],
+                        5,
+                        [
+                          13,
+                          -84
+                        ],
+                        2,
+                        "rgb(42, 176, 127)"
                       ],
                       [
                         [
                           "privacy",
                           0.14175721452686332
                         ],
-                        6,
+                        5,
                         [
-                          -59,
-                          -56
+                          -1,
+                          -87
                         ],
                         null,
-                        "rgb(218, 227, 25)"
+                        "rgb(197, 224, 33)"
                       ],
                       [
                         [
                           "lack",
                           0.10723519310552367
                         ],
-                        5,
+                        4,
                         [
-                          20,
-                          61
+                          17,
+                          79
                         ],
                         null,
-                        "rgb(49, 104, 142)"
+                        "rgb(200, 224, 32)"
                       ],
                       [
                         [
                           "privacy",
                           0.10723519310552365
                         ],
-                        5,
-                        [
-                          -23,
-                          68
-                        ],
-                        null,
-                        "rgb(71, 16, 99)"
-                      ],
-                      [
-                        [
-                          "lack",
-                          0.08112029203423568
-                        ],
                         4,
                         [
-                          -85,
-                          -6
+                          41,
+                          -60
                         ],
                         null,
-                        "rgb(70, 8, 92)"
-                      ],
-                      [
-                        [
-                          "privacy",
-                          0.08112029203423568
-                        ],
-                        4,
-                        [
-                          9,
-                          -4
-                        ],
-                        null,
-                        "rgb(48, 106, 142)"
+                        "rgb(115, 208, 86)"
                       ]
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "<https://cso.kmi.open.ac.uk/topics/computer_vision>",
-        "uncertainty": 3,
-        "children": [
-          {
-            "name": "<https://cso.kmi.open.ac.uk/topics/image_analysis>",
-            "uncertainty": 3,
-            "children": [
-              {
-                "name": "<https://cso.kmi.open.ac.uk/topics/image_reconstruction>",
-                "uncertainty": 3,
-                "children": [
-                  {
-                    "name": "<https://cso.kmi.open.ac.uk/topics/imaging_systems>",
-                    "uncertainty": 3,
-                    "children": [
-                      {
-                        "name": "<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar>",
-                        "uncertainty": 3,
-                        "children": [
-                          {
-                            "name": "<https://cso.kmi.open.ac.uk/topics/ocean_currents>",
-                            "uncertainty": 3,
-                            "children": [
-                              {
-                                "name": "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
-                                "origin": "mark",
-                                "strPath": "<https://cso.kmi.open.ac.uk/topics/computer_science>&-&<https://cso.kmi.open.ac.uk/topics/computer_vision>&-&<https://cso.kmi.open.ac.uk/topics/image_analysis>&-&<https://cso.kmi.open.ac.uk/topics/image_reconstruction>&-&<https://cso.kmi.open.ac.uk/topics/imaging_systems>&-&<https://cso.kmi.open.ac.uk/topics/synthetic_aperture_radar>&-&<https://cso.kmi.open.ac.uk/topics/ocean_currents>&-&<https://cso.kmi.open.ac.uk/topics/tidal_current>",
-                                "uncertainty": 3,
-                                "location": [
-                                  [
-                                    111,
-                                    4,
-                                    56,
-                                    61
-                                  ],
-                                  [
-                                    122,
-                                    1,
-                                    44,
-                                    53
-                                  ]
-                                ],
-                                "size": 2,
-                                "children": [],
-                                "candidates": [
-                                  "<https://cso.kmi.open.ac.uk/topics/ocean_tide>",
-                                  "<https://cso.kmi.open.ac.uk/topics/tidal_current>",
-                                  "<https://cso.kmi.open.ac.uk/topics/tidal_flow>"
-                                ],
-                                "wordCloud": [
-                                  [
-                                    [
-                                      "tidal current",
-                                      1.0
-                                    ],
-                                    28,
-                                    [
-                                      7,
-                                      -77
-                                    ],
-                                    null,
-                                    "rgb(72, 36, 117)"
-                                  ],
-                                  [
-                                    [
-                                      "love",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -46,
-                                      50
-                                    ],
-                                    2,
-                                    "rgb(70, 51, 127)"
-                                  ],
-                                  [
-                                    [
-                                      "peace",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -31,
-                                      -81
-                                    ],
-                                    null,
-                                    "rgb(52, 96, 141)"
-                                  ],
-                                  [
-                                    [
-                                      "mention",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -17,
-                                      -68
-                                    ],
-                                    null,
-                                    "rgb(45, 113, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "quote",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      31,
-                                      -53
-                                    ],
-                                    null,
-                                    "rgb(53, 94, 141)"
-                                  ],
-                                  [
-                                    [
-                                      "quote marks",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -55,
-                                      -70
-                                    ],
-                                    null,
-                                    "rgb(144, 215, 67)"
-                                  ],
-                                  [
-                                    [
-                                      "surprise",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      49,
-                                      -52
-                                    ],
-                                    null,
-                                    "rgb(46, 110, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "influence",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -74,
-                                      -45
-                                    ],
-                                    null,
-                                    "rgb(31, 148, 140)"
-                                  ],
-                                  [
-                                    [
-                                      "lot",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      31,
-                                      48
-                                    ],
-                                    null,
-                                    "rgb(41, 121, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "money",
-                                      0.75647079736603
-                                    ],
-                                    21,
-                                    [
-                                      -36,
-                                      -16
-                                    ],
-                                    null,
-                                    "rgb(105, 205, 91)"
-                                  ],
-                                  [
-                                    [
-                                      "surprising semi - underground influence",
-                                      0.75647079736603
-                                    ],
-                                    6,
-                                    [
-                                      -1,
-                                      -19
-                                    ],
-                                    null,
-                                    "rgb(105, 205, 91)"
-                                  ],
-                                  [
-                                    [
-                                      "tidal current",
-                                      0.75647079736603
-                                    ],
-                                    6,
-                                    [
-                                      48,
-                                      36
-                                    ],
-                                    null,
-                                    "rgb(139, 214, 70)"
-                                  ],
-                                  [
-                                    [
-                                      "love",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      46,
-                                      -19
-                                    ],
-                                    null,
-                                    "rgb(178, 221, 45)"
-                                  ],
-                                  [
-                                    [
-                                      "peace",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      40,
-                                      6
-                                    ],
-                                    null,
-                                    "rgb(38, 173, 129)"
-                                  ],
-                                  [
-                                    [
-                                      "mention",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      29,
-                                      23
-                                    ],
-                                    null,
-                                    "rgb(45, 178, 125)"
-                                  ],
-                                  [
-                                    [
-                                      "quote",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      -61,
-                                      40
-                                    ],
-                                    null,
-                                    "rgb(33, 143, 141)"
-                                  ],
-                                  [
-                                    [
-                                      "quote marks",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      53,
-                                      34
-                                    ],
-                                    null,
-                                    "rgb(33, 145, 140)"
-                                  ],
-                                  [
-                                    [
-                                      "surprise",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      -14,
-                                      23
-                                    ],
-                                    null,
-                                    "rgb(49, 103, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "influence",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      13,
-                                      74
-                                    ],
-                                    2,
-                                    "rgb(38, 173, 129)"
-                                  ],
-                                  [
-                                    [
-                                      "lot",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      41,
-                                      -73
-                                    ],
-                                    null,
-                                    "rgb(132, 212, 75)"
-                                  ],
-                                  [
-                                    [
-                                      "money",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      -39,
-                                      -39
-                                    ],
-                                    null,
-                                    "rgb(221, 227, 24)"
-                                  ],
-                                  [
-                                    [
-                                      "surprising semi - underground influence",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      68,
-                                      -48
-                                    ],
-                                    null,
-                                    "rgb(72, 40, 120)"
-                                  ],
-                                  [
-                                    [
-                                      "tidal current",
-                                      0.5722480672675971
-                                    ],
-                                    5,
-                                    [
-                                      -82,
-                                      -6
-                                    ],
-                                    null,
-                                    "rgb(55, 184, 120)"
-                                  ],
-                                  [
-                                    [
-                                      "love",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      35,
-                                      27
-                                    ],
-                                    2,
-                                    "rgb(50, 182, 122)"
-                                  ],
-                                  [
-                                    [
-                                      "peace",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      75,
-                                      12
-                                    ],
-                                    null,
-                                    "rgb(50, 101, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "mention",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      -23,
-                                      -12
-                                    ],
-                                    null,
-                                    "rgb(178, 221, 45)"
-                                  ],
-                                  [
-                                    [
-                                      "quote",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      41,
-                                      34
-                                    ],
-                                    null,
-                                    "rgb(38, 130, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "quote marks",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      78,
-                                      -21
-                                    ],
-                                    null,
-                                    "rgb(202, 225, 31)"
-                                  ],
-                                  [
-                                    [
-                                      "surprise",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      34,
-                                      -79
-                                    ],
-                                    null,
-                                    "rgb(58, 83, 139)"
-                                  ],
-                                  [
-                                    [
-                                      "influence",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      47,
-                                      18
-                                    ],
-                                    null,
-                                    "rgb(49, 102, 142)"
-                                  ],
-                                  [
-                                    [
-                                      "lot",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      5,
-                                      11
-                                    ],
-                                    2,
-                                    "rgb(108, 205, 90)"
-                                  ],
-                                  [
-                                    [
-                                      "money",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      55,
-                                      -65
-                                    ],
-                                    null,
-                                    "rgb(51, 99, 141)"
-                                  ],
-                                  [
-                                    [
-                                      "surprising semi - underground influence",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      0,
-                                      -87
-                                    ],
-                                    null,
-                                    "rgb(229, 228, 25)"
-                                  ],
-                                  [
-                                    [
-                                      "tidal current",
-                                      0.43288895173708875
-                                    ],
-                                    4,
-                                    [
-                                      -19,
-                                      10
-                                    ],
-                                    null,
-                                    "rgb(67, 62, 133)"
-                                  ]
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
                     ]
                   }
                 ]
@@ -9359,7 +8836,8 @@
                     141,
                     14,
                     165,
-                    183
+                    183,
+                    "online communities"
                   ]
                 ],
                 "size": 1,
@@ -9372,11 +8850,11 @@
                     ],
                     17,
                     [
-                      -69,
-                      -3
+                      -23,
+                      -74
                     ],
-                    2,
-                    "rgb(72, 22, 104)"
+                    null,
+                    "rgb(61, 78, 138)"
                   ],
                   [
                     [
@@ -9385,11 +8863,11 @@
                     ],
                     13,
                     [
-                      -33,
-                      -52
+                      52,
+                      8
                     ],
                     null,
-                    "rgb(31, 149, 139)"
+                    "rgb(72, 37, 118)"
                   ],
                   [
                     [
@@ -9398,11 +8876,11 @@
                     ],
                     8,
                     [
-                      53,
-                      12
+                      -6,
+                      -25
                     ],
                     null,
-                    "rgb(173, 220, 48)"
+                    "rgb(241, 229, 29)"
                   ],
                   [
                     [
@@ -9411,11 +8889,11 @@
                     ],
                     8,
                     [
-                      -42,
-                      38
+                      43,
+                      -3
                     ],
                     null,
-                    "rgb(72, 29, 111)"
+                    "rgb(86, 198, 103)"
                   ],
                   [
                     [
@@ -9424,11 +8902,11 @@
                     ],
                     8,
                     [
-                      6,
-                      -36
+                      -80,
+                      -2
                     ],
                     null,
-                    "rgb(33, 144, 141)"
+                    "rgb(48, 106, 142)"
                   ],
                   [
                     [
@@ -9437,11 +8915,11 @@
                     ],
                     8,
                     [
-                      -4,
-                      -51
+                      26,
+                      39
                     ],
                     null,
-                    "rgb(76, 194, 108)"
+                    "rgb(155, 217, 60)"
                   ],
                   [
                     [
@@ -9450,11 +8928,11 @@
                     ],
                     8,
                     [
-                      -10,
-                      69
+                      -52,
+                      -9
                     ],
                     null,
-                    "rgb(194, 223, 35)"
+                    "rgb(101, 203, 94)"
                   ],
                   [
                     [
@@ -9463,11 +8941,11 @@
                     ],
                     8,
                     [
-                      39,
-                      53
+                      35,
+                      -28
                     ],
                     null,
-                    "rgb(70, 10, 93)"
+                    "rgb(103, 204, 92)"
                   ],
                   [
                     [
@@ -9476,11 +8954,11 @@
                     ],
                     8,
                     [
-                      -63,
-                      22
+                      -33,
+                      -27
                     ],
                     null,
-                    "rgb(62, 74, 137)"
+                    "rgb(129, 211, 77)"
                   ],
                   [
                     [
@@ -9489,11 +8967,11 @@
                     ],
                     8,
                     [
-                      -72,
-                      15
+                      3,
+                      22
                     ],
                     null,
-                    "rgb(66, 64, 134)"
+                    "rgb(46, 110, 142)"
                   ],
                   [
                     [
@@ -9502,11 +8980,11 @@
                     ],
                     8,
                     [
-                      -64,
-                      -43
+                      4,
+                      -25
                     ],
                     null,
-                    "rgb(68, 59, 132)"
+                    "rgb(57, 85, 140)"
                   ],
                   [
                     [
@@ -9515,11 +8993,11 @@
                     ],
                     8,
                     [
-                      -56,
-                      -70
+                      -38,
+                      33
                     ],
                     null,
-                    "rgb(47, 108, 142)"
+                    "rgb(69, 56, 130)"
                   ],
                   [
                     [
@@ -9528,11 +9006,11 @@
                     ],
                     8,
                     [
-                      22,
-                      9
+                      0,
+                      31
                     ],
                     null,
-                    "rgb(221, 227, 24)"
+                    "rgb(56, 185, 119)"
                   ],
                   [
                     [
@@ -9541,11 +9019,11 @@
                     ],
                     8,
                     [
-                      -16,
-                      -52
+                      -52,
+                      12
                     ],
                     null,
-                    "rgb(40, 125, 142)"
+                    "rgb(44, 115, 142)"
                   ],
                   [
                     [
@@ -9554,11 +9032,11 @@
                     ],
                     8,
                     [
-                      21,
-                      -74
+                      -65,
+                      -39
                     ],
                     null,
-                    "rgb(74, 193, 109)"
+                    "rgb(57, 85, 140)"
                   ],
                   [
                     [
@@ -9567,11 +9045,11 @@
                     ],
                     8,
                     [
-                      -29,
-                      12
+                      63,
+                      -32
                     ],
                     null,
-                    "rgb(165, 219, 54)"
+                    "rgb(47, 107, 142)"
                   ],
                   [
                     [
@@ -9580,11 +9058,11 @@
                     ],
                     6,
                     [
-                      -81,
-                      6
+                      -33,
+                      -59
                     ],
                     null,
-                    "rgb(72, 36, 117)"
+                    "rgb(64, 70, 136)"
                   ],
                   [
                     [
@@ -9593,11 +9071,11 @@
                     ],
                     4,
                     [
-                      36,
-                      26
+                      37,
+                      13
                     ],
-                    2,
-                    "rgb(58, 83, 139)"
+                    null,
+                    "rgb(35, 137, 142)"
                   ],
                   [
                     [
@@ -9606,11 +9084,11 @@
                     ],
                     4,
                     [
-                      68,
-                      14
+                      -74,
+                      -46
                     ],
                     null,
-                    "rgb(68, 191, 112)"
+                    "rgb(31, 162, 135)"
                   ],
                   [
                     [
@@ -9619,11 +9097,11 @@
                     ],
                     4,
                     [
-                      25,
-                      61
+                      -53,
+                      -48
                     ],
                     null,
-                    "rgb(31, 151, 139)"
+                    "rgb(61, 78, 138)"
                   ],
                   [
                     [
@@ -9632,11 +9110,11 @@
                     ],
                     4,
                     [
-                      -8,
-                      -82
+                      1,
+                      -81
                     ],
                     null,
-                    "rgb(58, 84, 140)"
+                    "rgb(63, 188, 115)"
                   ],
                   [
                     [
@@ -9645,11 +9123,11 @@
                     ],
                     4,
                     [
-                      14,
-                      56
+                      -71,
+                      -52
                     ],
                     null,
-                    "rgb(210, 226, 27)"
+                    "rgb(49, 103, 142)"
                   ],
                   [
                     [
@@ -9658,11 +9136,11 @@
                     ],
                     4,
                     [
-                      -47,
-                      -48
+                      11,
+                      66
                     ],
                     null,
-                    "rgb(108, 205, 90)"
+                    "rgb(33, 143, 141)"
                   ],
                   [
                     [
@@ -9671,11 +9149,11 @@
                     ],
                     4,
                     [
-                      15,
-                      20
+                      -69,
+                      35
                     ],
                     null,
-                    "rgb(32, 163, 134)"
+                    "rgb(210, 226, 27)"
                   ],
                   [
                     [
@@ -9684,11 +9162,11 @@
                     ],
                     4,
                     [
-                      -10,
-                      16
+                      -40,
+                      -58
                     ],
                     null,
-                    "rgb(72, 28, 110)"
+                    "rgb(197, 224, 33)"
                   ],
                   [
                     [
@@ -9697,11 +9175,11 @@
                     ],
                     4,
                     [
-                      -25,
-                      -83
+                      25,
+                      -51
                     ],
                     null,
-                    "rgb(30, 156, 137)"
+                    "rgb(72, 35, 116)"
                   ],
                   [
                     [
@@ -9710,11 +9188,11 @@
                     ],
                     4,
                     [
-                      1,
-                      34
+                      -41,
+                      -41
                     ],
                     null,
-                    "rgb(39, 128, 142)"
+                    "rgb(147, 215, 65)"
                   ],
                   [
                     [
@@ -9723,11 +9201,11 @@
                     ],
                     4,
                     [
-                      65,
-                      -43
+                      -27,
+                      -80
                     ],
                     null,
-                    "rgb(70, 8, 92)"
+                    "rgb(71, 13, 96)"
                   ],
                   [
                     [
@@ -9736,11 +9214,11 @@
                     ],
                     4,
                     [
-                      49,
-                      -46
+                      5,
+                      -52
                     ],
                     null,
-                    "rgb(38, 130, 142)"
+                    "rgb(45, 178, 125)"
                   ],
                   [
                     [
@@ -9749,11 +9227,11 @@
                     ],
                     4,
                     [
-                      -13,
-                      -66
+                      16,
+                      28
                     ],
-                    2,
-                    "rgb(35, 137, 142)"
+                    null,
+                    "rgb(105, 205, 91)"
                   ],
                   [
                     [
@@ -9762,11 +9240,11 @@
                     ],
                     4,
                     [
-                      60,
-                      29
+                      31,
+                      -3
                     ],
                     null,
-                    "rgb(44, 115, 142)"
+                    "rgb(37, 133, 142)"
                   ]
                 ]
               }
