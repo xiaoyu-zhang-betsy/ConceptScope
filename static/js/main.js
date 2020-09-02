@@ -68,7 +68,7 @@ $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function (event) {
       var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
-      UpdateUserLog(event, {"loadFile": text});
+      // UpdateUserLog(event, {"loadFile": text});
 
       if (text != "") {
         // create canvas
@@ -473,7 +473,7 @@ function drawChart(data, senSet, svg, graphID) {
       UpdateUserLog(d3.event);
       //d3.selectAll(".infoTip").remove();
       tip.hide();
-      if (event.target.nodeName!="circle") {
+      if (d3.event.srcElement.nodeName!="circle") {
         circleClicked = false;
       }
     });
@@ -1262,7 +1262,7 @@ function RecoverCircle(graphID, tip) {
 }
 
 function ClickCircle(uri, tip) {
-  labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
+  var labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
   //send data to the server
   var data = {};
@@ -1272,7 +1272,7 @@ function ClickCircle(uri, tip) {
           d3.selectAll(".conceptTip").remove();
 
           try {
-            console.log(jsonData);
+            // console.log(jsonData);
             if("thumbnail" in jsonData) {
               labelText += '<img class="thumbnail" src="' + jsonData["thumbnail"] +'">'
             }
@@ -1294,7 +1294,7 @@ function ClickCircle(uri, tip) {
             tip.html(labelText).show();
           }
           catch(error) {
-            //console.error(error);
+            // console.error(error);
           }
       },"json");
   
