@@ -66,7 +66,8 @@ $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function () {
       console.log($('#graphFile1').val());
-      var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
+      //var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
+      var text = "animation-general_bar03_clean.json";
 
       if (text != "") {
         // create canvas
