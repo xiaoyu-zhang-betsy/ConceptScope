@@ -16,6 +16,7 @@ var szPadding = 7; // the distance between two contours
 var szStrokeWidth = 1; // the stroke width of the contour
 var graphNum = 0; // the number of graphs in the canvas now
 var entityMap = new Map();
+var startHover, endHover;
 var classDict = {
   "https://cso.kmi.open.ac.uk/topics/artificial_intelligence" : 0,
   "https://cso.kmi.open.ac.uk/topics/robotics" : 1,
@@ -60,14 +61,17 @@ colorMap = [
   d3.lab(85,-17,15),  //#BBDDB7
   d3.lab(85, -6, 85)  //#E8D600
 ];
+var userLog = [];
 
 //jQuery
 $("document").ready(function() {
   //submit click function
-  $('#loadGraphFileBtn').on('click', function () {
-      console.log($('#graphFile1').val());
+  $('#loadGraphFileBtn').on('click', function (event) {
+      // console.log("STATE ************ 6 ***********")
+      UpdateUserLog(event, {"loadFile": text});
+
+      // console.log($('#graphFile1').val());
       var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
-      // var text = "animation-general_bar03_clean.json";
 
       if (text != "") {
         // create canvas
@@ -99,7 +103,9 @@ $("document").ready(function() {
                   </div>');
 
         // close current canvas
-        $('#closeCanvasBtn'+ graphNum).on('click', function () {
+        $('#closeCanvasBtn'+ graphNum).on('click', function (event) {
+          UpdateUserLog(event);
+
           graphNum -= 1;
           $(this).parent().parent().remove();
 
@@ -194,8 +200,9 @@ $("document").ready(function() {
     })
   }
 
-  $('#loadTextFileBtn').on('click', function () {
+  $('#loadTextFileBtn').on('click', function (event) {
     var text1 = $('#textFile').val().replace("C:\\fakepath\\", "");
+    UpdateUserLog(event, {"loadFile": text1});
 
     if (text1 != "") {
       // create new canvas
@@ -218,7 +225,8 @@ $("document").ready(function() {
                 </div>');
       
       // close current canvas
-      $('#closeCanvasBtn' + graphNum).on('click', function () {
+      $('#closeCanvasBtn' + graphNum).on('click', function (event) {
+        UpdateUserLog(event);
         $(this).parent().remove();
       });
 
@@ -258,7 +266,8 @@ $("document").ready(function() {
   });
   
   // toggle sidebar
-  $('#sidebarButton').on('click', function () {
+  $('#sidebarButton').on('click', function (event) {
+    UpdateUserLog(event);
     $('#sidebar').toggleClass('active');
   });
 
@@ -267,7 +276,8 @@ $("document").ready(function() {
     $(this).next('.custom-file-label').html(e.target.files[0].name);
   });
 
-  $('#showTransBtn').on('click', function() {
+  $('#showTransBtn').on('click', function(event) {
+    UpdateUserLog(event);
     d3.selectAll('#transGraphContent')
       .classed('col col-lg-2', true);
 
@@ -278,7 +288,8 @@ $("document").ready(function() {
     $('#hideTransBtn').text(" Hide transcript");
   });
 
-  $('#hideTransBtn').on('click', function() {
+  $('#hideTransBtn').on('click', function(event) {
+    UpdateUserLog(event, {"loadFile": text});
     d3.selectAll('transGraphContent')
       .classed('col col-lg-2', false);
 
@@ -291,6 +302,7 @@ $("document").ready(function() {
 
   // semantic zooming switch
   $('#szSwitch').on('change.bootstrapSwitch', function (e) {
+    UpdateUserLog(e, {"szSwitch": !szOn});
     if (!e.target.checked){
       szOn = true;
       szLevel = Math.floor(szMaxLevel * $("#szSlicerBar").val()/100.0)
@@ -312,8 +324,9 @@ $("document").ready(function() {
   });
 
   // search
-  $('#searchButton').on('click', function(){
+  $('#searchButton').on('click', function(event){
     keyword = $('#searchInput').val();
+    UpdateUserLog(event, {"searchKeyword": keyword});
 
     // search circles
     idList = []
@@ -351,6 +364,31 @@ $("document").ready(function() {
       });
       return false;
     }
+  });
+
+  $('#downloadLogBtn').on('click', function(){
+    //save userLog as a json file
+    // var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(userLog, null, 2));
+    // console.log(userLog, dataStr)
+    // var downloadAnchorNode = document.createElement('a');
+    // var d = new Date();
+    // var exportName = "UserLog_" + d.toLocaleString();
+    // downloadAnchorNode.setAttribute("href",     dataStr);
+    // downloadAnchorNode.setAttribute("download", exportName + ".json");
+    // document.body.appendChild(downloadAnchorNode); // required for firefox
+    // downloadAnchorNode.click();
+    // downloadAnchorNode.remove();
+
+    var d = new Date();
+    var exportName = "UserLog_" + d.toLocaleString();
+    console.log(userLog);
+    const fileData = JSON.stringify(userLog, null, 2);
+    const blob = new Blob([fileData], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = exportName+'.json';
+    link.href = url;
+    link.click();
   });
 });
 
@@ -446,6 +484,7 @@ function drawChart(data, senSet, svg, graphID) {
     let zoom = d3.zoom()
       //.scaleExtent([(-2*szFrontier+0.99), 8])
       .on("zoom", function () {
+        UpdateUserLog(d3.event);
         zoomGroup.attr("transform", d3.event.transform);
         szScale = d3.event.transform.k;
         /*if (szOn){ // using mouse to zoom
@@ -463,6 +502,7 @@ function drawChart(data, senSet, svg, graphID) {
     d3.select("#szSlicerBar")
     .on('input', function(e) {
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
+      UpdateUserLog(e, {"szLevel": szLevel});
       $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
       SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
     })
@@ -494,9 +534,12 @@ function drawChart(data, senSet, svg, graphID) {
         })
         .attr("transform", function(arc) {return arc.transform;})
         .on("mouseover", function(d, i) {
+            startTimer();
             HighlightPath(this.id, graphID, tip);
         })
         .on("mouseout", function(d, i) {
+            if (endTimer())
+              UpdateUserLog(d3.event);
             RecoverPath(contourColor, this.id, graphID, tip)
         });
         
@@ -549,6 +592,7 @@ function drawChart(data, senSet, svg, graphID) {
         //.style("fill-opacity", 0.7)
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
+            startTimer();
             HighlightCircle([this.id], graphID, tip, d);
 
             /*d.data.location.forEach(function(location) {
@@ -566,6 +610,8 @@ function drawChart(data, senSet, svg, graphID) {
               otherCircle.style("opacity", 0.1);
         })
         .on("mouseout", function(d, i) {
+            if (endTimer())
+              UpdateUserLog(d3.event);
             RecoverCircle(graphID, tip);
 
             d.data.location.forEach(function(location) {
@@ -573,6 +619,7 @@ function drawChart(data, senSet, svg, graphID) {
             });
         })
         .on("click", function(d, i) {
+          UpdateUserLog(d3.event);
           if (d3.event.ctrlKey || d3.event.metaKey) {
           //if (d3.event.shiftKey) {
               document.getElementById('concordance-view').style.visibility =
@@ -685,6 +732,8 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
   .attr("height", function (d) { return d.height; })
   .attr("fill", d.fillColor)
   .on("mouseover", function(d, i){
+    startTimer();
+
     // highlight corresponding rectangles
     HighlightRect(this.id, graphID, tip, d, i);
 
@@ -705,6 +754,9 @@ function drawTrans(senList, svg, graphID, speakerDiff=0) {
     .node().scrollIntoView({block: "center"});
   })
   .on("mouseout", function(d){
+    if (endTimer()) {
+      UpdateUserLog(d3.event, {"sentence": d.sentence});
+    }
     RecoverRect(this.id, graphID, tip);
     RecoverCircle(graphID, tip);
 
@@ -759,12 +811,16 @@ function drawText(senList, table, graphID) {
 
   d3.selectAll(".tdText")
     .on("mouseover", function(){
+      startTimer();
       d3.select(this).style('background-color', hoverHighlight);
       var rectId = d3.select(this).attr('id').replace('line', 'rSen');
       //d3.select('#'+rectId).attr('fill', hoverHighlight);
       HighlightRect(rectId, graphID);
     })
     .on("mouseout", function(){
+      if (endTimer()){
+        UpdateUserLog(d3.event);
+      }
       d3.select(this).style('background-color', null);
       var rectId = d3.select(this).attr('id').replace('line', 'rSen');
       //d3.select('#'+rectId).attr('fill', transGraphColor);
@@ -915,9 +971,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     })
     .attr("transform", function(arc) {return arc.transform;})
     .on("mouseover", function(d, i) {
+        startTimer();
         HighlightPath(this.id, graphID, tip);
     })
     .on("mouseout", function(d, i) {
+        if (endTimer())
+          UpdateUserLog(d3.event);
         RecoverPath(contourColor, this.id, graphID, tip)
     });
 
@@ -951,6 +1010,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     //.style("fill-opacity", 0.7)
     .style("stroke-width", szStrokeWidth)
     .on("mouseover", function(d, i) {
+        startTimer();
         HighlightCircle([this.id], graphID, tip, d);
 
         /*d.data.location.forEach(function(location) {
@@ -968,6 +1028,8 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
           otherCircle.style("opacity", 0.1);
     })
     .on("mouseout", function(d, i) {
+        if (endTimer())
+          UpdateUserLog(d3.event);
         RecoverCircle(graphID, tip);
 
         d.data.location.forEach(function(location) {
@@ -975,6 +1037,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         });
     })
     .on("click", function(d, i) {
+      UpdateUserLog(d3.event);
       if (d3.event.ctrlKey || d3.event.metaKey) {
       //if (d3.event.shiftKey) {
           document.getElementById('concordance-view').style.visibility =
@@ -1199,7 +1262,7 @@ function RecoverCircle(graphID, tip) {
 }
 
 function ClickCircle(uri, tip) {
-  labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
+  var labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
   //send data to the server
   var data = {};
@@ -1345,10 +1408,13 @@ function DrawSparkline(entityMap){
   
   d3.selectAll(".EntityItem")
   .on("mouseover", function() {
+      startTimer();
       this.style.backgroundColor = d3.rgb(this.dataset.color).darker(1);
       HighlightCircle(["g-0-e-" + this.textContent.replace(' ', '_')]); // fake id to satisfy function paramenter requirement
   })
   .on("mouseout", function() {
+      if (endTimer())
+        UpdateUserLog(d3.event);
       this.style.backgroundColor = "white";
       RecoverCircle(0, null);
   })
