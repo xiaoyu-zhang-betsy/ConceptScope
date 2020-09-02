@@ -161,13 +161,24 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" accept=".json" id="graphFile1">
                             <label class="custom-file-label" for="graphFile1">Choose graph file</label>
                         </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="graphFile1">Choose graph file</label>
+                        <select class="form-control" id="graphFile1" >
+                            <option value="talk-ted-ai-1.json"> Training Dataset </option>
+                            <option value="animation-general_bar03_clean.json"> Task1 </option>
+                            <option value="talk-ted-ai-4_bar03.json"> Task2-1 </option>
+                            <option value="talk-ted-ai-6_bar03.json"> Task2-2 </option>
+                            <option value="talk-ted-ai-2.json"> Task3-1 </option>
+                            <option value="talk-ted-ai-3.json"> Task3-2 </option>
+                            <option value="talk-ted-ai-5.json"> Task3-3 </option>
+                        </select>
                     </div>
-                    <!--input type="file" class="form-control-file" id="fileSelector"-->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
