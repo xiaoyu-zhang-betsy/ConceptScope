@@ -500,9 +500,9 @@ function drawChart(data, senSet, svg, graphID) {
     // slider bar value changing event
     //$('#szSlicerBar')
     d3.select("#szSlicerBar")
-    .on('input', function(e) {
+    .on('input', function() {
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
-      UpdateUserLog(e, {"szLevel": szLevel});
+      UpdateUserLog(d3.event, {"szLevel": szLevel});
       $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
       SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
     })
