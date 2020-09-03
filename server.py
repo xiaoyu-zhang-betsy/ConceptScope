@@ -378,6 +378,7 @@ def QueryNeighbors(URI):
 
 # given a URI, return corresponding DBPedia link if available
 def QueryDBPedia(URI):
+    global csoGraph
     sameAsURIs = ["http://www.w3.org/2002/07/owl#sameAs", "http://www.w3.org/2002/07/owl#sameAs"]
     
     for sameAsURI in sameAsURIs:
