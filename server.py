@@ -29,6 +29,10 @@ csoGraph = None # CSO ontology
 word_vectors = None # word vectors from wordNet
 csoDict = None # the dictionary of all cso entities
 
+csoGraph = Graph()
+path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
+csoGraph.parse(path, format="xml")
+
 def LoadResources():
     global nlp, csoGraph, word_vectors, csoDict
 
@@ -42,9 +46,9 @@ def LoadResources():
 
     # print("Loading ontology...")
     sys.stderr.write('Loading ontology...')
-    csoGraph = Graph()
-    path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
-    csoGraph.parse(path, format="xml")
+    # csoGraph = Graph()
+    # path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
+    # csoGraph.parse(path, format="xml")
     # print("Ontology is loaded successfully!\n")
     sys.stderr.write('Ontology is loaded successfully!')
 
