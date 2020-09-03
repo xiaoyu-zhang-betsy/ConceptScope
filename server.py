@@ -28,6 +28,7 @@ nlp = None # spacy NLP library
 csoGraph = None # CSO ontology
 word_vectors = None # word vectors from wordNet
 csoDict = None # the dictionary of all cso entities
+app = Flask(__name__)
 
 csoGraph = Graph()
 path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
@@ -583,8 +584,6 @@ def QueryEntityData(URI):
         info = wikiInfo
     info["neighbor"] = neighborList
     return info
-
-app = Flask(__name__)
 
 @app.route('/')
 def my_form():
