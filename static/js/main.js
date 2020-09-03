@@ -67,7 +67,7 @@ var userLog = [];
 $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function (event) {
-      // console.log("STATE ************ 6 ***********")
+      console.log("STATE ************ 8 ***********")
       UpdateUserLog(event, {"loadFile": text});
 
       // console.log($('#graphFile1').val());
@@ -475,7 +475,7 @@ function drawChart(data, senSet, svg, graphID) {
     d3.select("body").on("click",function(){
       //d3.selectAll(".infoTip").remove();
       tip.hide();
-      if (event.target.nodeName!="circle") {
+      if (d3.event.target.nodeName!="circle") {
         circleClicked = false;
       }
     });
