@@ -465,17 +465,18 @@ function drawChart(data, senSet, svg, graphID) {
         .attr("class", "contour")
         .style('transform', 'translate(50%, 50%)');
 
-    let tip = d3.tip()
+    let infoTip = d3.tip()
       .attr('class', 'infoTip')
       .offset([10, 0])
       .direction('e')
       .attr("data-clicked", false);
-    svg.call(tip);
+    svg.call(infoTip);
 
     d3.select("body").on("click",function(){
       //d3.selectAll(".infoTip").remove();
-      tip.hide();
-      if (d3.event.target.nodeName!="circle") {
+      console.log(d3.event)
+      if (d3.event.srcElement.id==="btnCloseInfoTip") {
+        infoTip.hide();
         circleClicked = false;
       }
     });
@@ -488,11 +489,11 @@ function drawChart(data, senSet, svg, graphID) {
         zoomGroup.attr("transform", d3.event.transform);
         szScale = d3.event.transform.k;
         /*if (szOn){ // using mouse to zoom
-          SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
+          SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, infoTip, root.height);
         } else { // using slider to zoom
           szLevel = Math.floor(szMaxLevel * $('#szSlicerBar').val()/100.0);
         }*/
-        SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
+        SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, infoTip, root.height);
         //$("#szSlicerBar").val( 100.0 * parseFloat(szLevel)/szMaxLevel); // change slider value accordingly
       });
     svg.call(zoom);
@@ -504,7 +505,7 @@ function drawChart(data, senSet, svg, graphID) {
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
       UpdateUserLog(d3.event, {"szLevel": szLevel});
       $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
-      SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, root.height);
+      SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, infoTip, root.height);
     })
 
     path = contourGroup.selectAll("path")
@@ -535,12 +536,12 @@ function drawChart(data, senSet, svg, graphID) {
         .attr("transform", function(arc) {return arc.transform;})
         .on("mouseover", function(d, i) {
             startTimer();
-            HighlightPath(this.id, graphID, tip);
+            HighlightPath(this.id, graphID, infoTip);
         })
         .on("mouseout", function(d, i) {
             if (endTimer())
               UpdateUserLog(d3.event);
-            RecoverPath(contourColor, this.id, graphID, tip)
+            RecoverPath(contourColor, this.id, graphID, infoTip)
         });
         
     // Draw circles.
@@ -593,7 +594,7 @@ function drawChart(data, senSet, svg, graphID) {
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
             startTimer();
-            HighlightCircle([this.id], graphID, tip, d);
+            HighlightCircle([this.id], graphID, infoTip, d);
 
             /*d.data.location.forEach(function(location) {
               HighlightRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
@@ -612,15 +613,15 @@ function drawChart(data, senSet, svg, graphID) {
         .on("mouseout", function(d, i) {
             if (endTimer())
               UpdateUserLog(d3.event);
-            RecoverCircle(graphID, tip);
+            RecoverCircle(graphID, infoTip);
 
             d.data.location.forEach(function(location) {
               RecoverRect("g-" + graphID + "-" + "rSen-" + location[0], graphID);
             });
         })
         .on("click", function(d, i) {
-          UpdateUserLog(d3.event);
           if (d3.event.ctrlKey || d3.event.metaKey) {
+              UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
           //if (d3.event.shiftKey) {
               document.getElementById('concordance-view').style.visibility =
                   'visible';
@@ -631,7 +632,8 @@ function drawChart(data, senSet, svg, graphID) {
               $('#concordance-view-content').children().remove();
               $('#concordance-view-content').append(allConcordances);
           } else {
-              ClickCircle(d.data.name, tip);
+              UpdateUserLog(d3.event, {"action": "turn on information tip", "date": d.data});
+              ClickCircle(d.data.name, infoTip);
           }
         });
 }
@@ -1262,6 +1264,7 @@ function RecoverCircle(graphID, tip) {
 }
 
 function ClickCircle(uri, tip) {
+  circleClicked = true;
   var labelText = '<h4 align="center">' + uri.substring(uri.lastIndexOf("/")+1, uri.length-1).split('_').join(' ') + '</h4>';
   
   //send data to the server
@@ -1272,7 +1275,6 @@ function ClickCircle(uri, tip) {
           d3.selectAll(".conceptTip").remove();
 
           try {
-            console.log(jsonData);
             if("thumbnail" in jsonData) {
               labelText += '<img class="thumbnail" src="' + jsonData["thumbnail"] +'">'
             }
@@ -1291,14 +1293,13 @@ function ClickCircle(uri, tip) {
               })
             }
             labelText += '<br/><div><a href="' + uri.substring(1, uri.length-1) + '">Read more</a></div>';
+            labelText += '<br/><button type="button" id="btnCloseInfoTip">Close</button>'
             tip.html(labelText).show();
           }
           catch(error) {
             //console.error(error);
           }
       },"json");
-  
-  circleClicked = true;
 }
 
 function HighlightPath(id, graphID=-1, tip=null){
