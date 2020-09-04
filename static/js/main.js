@@ -81,7 +81,7 @@ $("document").ready(function() {
                         <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                           <span aria-hidden="true">&times;</span> \
                         </button> \
-                        <div class="title"><span>'+ text +'</span></div> \
+                        <div class="title"><span>'+ $('#graphFile1 :selected').text() +'</span></div> \
                       </div> \
                       <div class="col"> \
                         <div class="row"> \
