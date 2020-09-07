@@ -474,7 +474,6 @@ function drawChart(data, senSet, svg, graphID) {
 
     d3.select("body").on("click",function(){
       //d3.selectAll(".infoTip").remove();
-      console.log(d3.event)
       if (d3.event.srcElement.id==="btnCloseInfoTip") {
         infoTip.hide();
         circleClicked = false;
@@ -485,7 +484,7 @@ function drawChart(data, senSet, svg, graphID) {
     let zoom = d3.zoom()
       //.scaleExtent([(-2*szFrontier+0.99), 8])
       .on("zoom", function () {
-        UpdateUserLog(d3.event);
+        // UpdateUserLog(d3.event);
         zoomGroup.attr("transform", d3.event.transform);
         szScale = d3.event.transform.k;
         /*if (szOn){ // using mouse to zoom
@@ -621,19 +620,19 @@ function drawChart(data, senSet, svg, graphID) {
         })
         .on("click", function(d, i) {
           if (d3.event.ctrlKey || d3.event.metaKey) {
-              UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
-          //if (d3.event.shiftKey) {
-              document.getElementById('concordance-view').style.visibility =
-                  'visible';
-              // get concordance
-              //var word = d.data.origin;
-              //var allConcordances = GetConcordanceTrans(word, senSet);
-              var allConcordances = GetConcordanceHighlight(d.data, senSet);
-              $('#concordance-view-content').children().remove();
-              $('#concordance-view-content').append(allConcordances);
+            UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+            ClickCircle(d.data.name, infoTip);
           } else {
-              UpdateUserLog(d3.event, {"action": "turn on information tip", "date": d.data});
-              ClickCircle(d.data.name, infoTip);
+            UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
+            //if (d3.event.shiftKey) {
+            document.getElementById('concordance-view').style.visibility =
+                'visible';
+            // get concordance
+            //var word = d.data.origin;
+            //var allConcordances = GetConcordanceTrans(word, senSet);
+            var allConcordances = GetConcordanceHighlight(d.data, senSet);
+            $('#concordance-view-content').children().remove();
+            $('#concordance-view-content').append(allConcordances);
           }
         });
 }
@@ -1041,17 +1040,19 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     .on("click", function(d, i) {
       UpdateUserLog(d3.event);
       if (d3.event.ctrlKey || d3.event.metaKey) {
-      //if (d3.event.shiftKey) {
-          document.getElementById('concordance-view').style.visibility =
-              'visible';
-          // get concordance
-          //var word = d.data.origin;
-          //var allConcordances = GetConcordanceTrans(word, senSet);
-          var allConcordances = GetConcordanceHighlight(d.data, senSet);
-          $('#concordance-view-content').children().remove();
-          $('#concordance-view-content').append(allConcordances);
+        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+        ClickCircle(d.data.name, tip);
       } else {
-          ClickCircle(d.data.name, tip);
+        //if (d3.event.shiftKey) {
+        // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
+        document.getElementById('concordance-view').style.visibility =
+            'visible';
+        // get concordance
+        //var word = d.data.origin;
+        //var allConcordances = GetConcordanceTrans(word, senSet);
+        var allConcordances = GetConcordanceHighlight(d.data, senSet);
+        $('#concordance-view-content').children().remove();
+        $('#concordance-view-content').append(allConcordances);
       }
     });
 
