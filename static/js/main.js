@@ -77,17 +77,16 @@ $("document").ready(function() {
         // create canvas
         $("#graphCanvas")
           .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
-                      <div class="col"> \
+                      <div class="row"> \
                         <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                           <span aria-hidden="true">&times;</span> \
                         </button> <span/>\
-                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin-left:10px; padding-top:3px"aria-label="btnRefresh"> \
+                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin:3px 10px 0px 10px; padding-top:3px"aria-label="btnRefresh"> \
                           <span aria-hidden="true">&#8635;</span> \
                         </button> \
                         <div class="title"><span>'+ $('#graphFile1 :selected').text() +'</span></div> \
                       </div> \
-                      <div class="col"> \
-                        <div class="row"> \
+                      <div class="row"> \
                           <div class="col" align="center"> \
                               <div class="row"> \
                                 <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
@@ -101,7 +100,6 @@ $("document").ready(function() {
                           <div class="col col-lg-2" id="transGraphContent"> \
                             <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
                           </div> \
-                        </div> \
                       </div> \
                   </div>');
 
@@ -642,6 +640,12 @@ function drawChart(data, senSet, svg, graphID) {
         })
         .on("click", function(d, i) {
           if (d3.event.ctrlKey || d3.event.metaKey) {
+            UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+            ClickCircle(d.data.name, infoTip);
+          } else if (d3.event.altKey){
+            UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
+            lockRectHighlight = true;
+          }else {
             UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
             //if (d3.event.shiftKey) {
             document.getElementById('concordance-view').style.visibility =
@@ -652,12 +656,6 @@ function drawChart(data, senSet, svg, graphID) {
             var allConcordances = GetConcordanceHighlight(d.data, senSet);
             $('#concordance-view-content').children().remove();
             $('#concordance-view-content').append(allConcordances);
-          } else if (d3.event.altKey){
-            UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
-            lockRectHighlight = true;
-          }else {
-            UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
-            ClickCircle(d.data.name, infoTip);
           }
         });
 }
@@ -822,7 +820,7 @@ function drawText(senList, table, graphID) {
       '<td style="border: 1px solid ' + transGraphColor + '; ' +
       'border-right: 7px solid ' + transGraphColor + '; ' +
       'color: rgba(100, 100, 100, 1); ' +
-      'font-family:Roboto; font-size:13pt; padding: 5px;"' +
+      'font-family:Roboto; font-size:13pt; padding: 0px 5px 0px 5px;"' +
       'class="unselectable" id="g-' + graphID + '-' + 'tag-' + i + '">' +
       i + '</td>' +
       '<td id="g-' + graphID + '-' + 'line-' + i + '" ' +
@@ -1066,6 +1064,12 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
       UpdateUserLog(d3.event);
       // console.log(d);
       if (d3.event.ctrlKey || d3.event.metaKey) {
+        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+        ClickCircle(d.data.name, tip);
+      } else if (d3.event.altKey){
+        // UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
+        lockRectHighlight = true;
+      } else {
         //if (d3.event.shiftKey) {
         // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
         document.getElementById('concordance-view').style.visibility =
@@ -1076,12 +1080,6 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         var allConcordances = GetConcordanceHighlight(d.data, senSet);
         $('#concordance-view-content').children().remove();
         $('#concordance-view-content').append(allConcordances);
-      } else if (d3.event.altKey){
-        // UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
-        lockRectHighlight = true;
-      } else {
-        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
-        ClickCircle(d.data.name, tip);
       }
     });
 
