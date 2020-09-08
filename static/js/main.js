@@ -5,6 +5,7 @@ var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
+var lockRectHighlight = false;
 var szOn = false;
 var szFrontier = 0.05; // the scale to invoke semantic zooming
 var szLevel = 7; // the number of levels to show (for semantic zooming)
@@ -494,6 +495,10 @@ function drawChart(data, senSet, svg, graphID) {
       if (d3.event.srcElement.id==="btnCloseInfoTip") {
         infoTip.hide();
         circleClicked = false;
+      } else if (d3.event.srcElement.nodeName!=="circle") {
+        lockRectHighlight = false;
+        d3.selectAll("rect")
+        .attr('fill', transGraphColor);
       }
     });
 
@@ -647,7 +652,10 @@ function drawChart(data, senSet, svg, graphID) {
             var allConcordances = GetConcordanceHighlight(d.data, senSet);
             $('#concordance-view-content').children().remove();
             $('#concordance-view-content').append(allConcordances);
-          } else {
+          } else if (d3.event.altKey){
+            UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
+            lockRectHighlight = true;
+          }else {
             UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
             ClickCircle(d.data.name, infoTip);
           }
@@ -1056,6 +1064,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     })
     .on("click", function(d, i) {
       UpdateUserLog(d3.event);
+      // console.log(d);
       if (d3.event.ctrlKey || d3.event.metaKey) {
         //if (d3.event.shiftKey) {
         // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
@@ -1067,6 +1076,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         var allConcordances = GetConcordanceHighlight(d.data, senSet);
         $('#concordance-view-content').children().remove();
         $('#concordance-view-content').append(allConcordances);
+      } else if (d3.event.altKey){
+        // UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
+        lockRectHighlight = true;
       } else {
         // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
         ClickCircle(d.data.name, tip);
@@ -1376,8 +1388,8 @@ function RecoverPath(contourColor, id, graphID, tip) {
 }
 
 function HighlightRect(id, graphID, tip=null, data=null, index=null){
-  d3.select("#" + id)
-    .attr('fill', hoverHighlight);
+  if (!lockRectHighlight)
+    d3.select("#" + id).attr('fill', hoverHighlight);
 
   // tip == null: hover over a circle
   // tip != null: hover over a rectangle
@@ -1387,6 +1399,9 @@ function HighlightRect(id, graphID, tip=null, data=null, index=null){
 }
 
 function RecoverRect(id, graphID, tip=null){
+  if (lockRectHighlight)
+    return;
+
   d3.select("#" + id)
     .attr('fill', transGraphColor);
 
