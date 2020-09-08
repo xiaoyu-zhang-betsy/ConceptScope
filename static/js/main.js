@@ -81,7 +81,7 @@ $("document").ready(function() {
                         <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                           <span aria-hidden="true">&times;</span> \
                         </button> <span/>\
-                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin-left:10px"aria-label="btnRefresh"> \
+                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin-left:10px; padding-top:3px"aria-label="btnRefresh"> \
                           <span aria-hidden="true">&#8635;</span> \
                         </button> \
                         <div class="title"><span>'+ $('#graphFile1 :selected').text() +'</span></div> \
@@ -343,7 +343,7 @@ $("document").ready(function() {
 
   // search
   $('#searchButton').on('click', function(event){
-    keyword = $('#searchInput').val();
+    keyword = $('#searchInput').val().replace(' ', '_');
     UpdateUserLog(event, {"searchKeyword": keyword});
 
     // search circles
@@ -365,7 +365,7 @@ $("document").ready(function() {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
       event.preventDefault();
-      keyword = $(this).val();
+      keyword = $(this).val().replace(' ', '_');
 
       // search circles
       idList = []
