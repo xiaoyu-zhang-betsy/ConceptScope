@@ -5,7 +5,7 @@ var hoverFadeOut = 'rgba(17, 17, 17, 0.7)'; //#111111
 var prevClickedRow = '';
 var isRowClicked = false;
 var circleClicked = false;
-var lockRectHighlight = false;
+var lockHighlight = false;
 var szOn = false;
 var szFrontier = 0.05; // the scale to invoke semantic zooming
 var szLevel = 7; // the number of levels to show (for semantic zooming)
@@ -494,9 +494,9 @@ function drawChart(data, senSet, svg, graphID) {
         infoTip.hide();
         circleClicked = false;
       } else if (d3.event.srcElement.nodeName!=="circle") {
-        lockRectHighlight = false;
-        d3.selectAll("rect")
-        .attr('fill', transGraphColor);
+        lockHighlight = false;
+        d3.selectAll("rect").attr('fill', transGraphColor); //recover rectangle
+        RecoverCircle();
       }
     });
 
@@ -613,6 +613,10 @@ function drawChart(data, senSet, svg, graphID) {
         .style("stroke-width", szStrokeWidth)
         .on("mouseover", function(d, i) {
             startTimer();
+
+            if (lockHighlight)
+              return;
+
             HighlightCircle([this.id], graphID, infoTip, d);
 
             /*d.data.location.forEach(function(location) {
@@ -644,7 +648,8 @@ function drawChart(data, senSet, svg, graphID) {
             ClickCircle(d.data.name, infoTip);
           } else if (d3.event.altKey){
             UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
-            lockRectHighlight = true;
+            HighlightCircle([this.id], graphID, infoTip, d);
+            lockHighlight = true;
           }else {
             UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
             //if (d3.event.shiftKey) {
@@ -1035,6 +1040,10 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     .style("stroke-width", szStrokeWidth)
     .on("mouseover", function(d, i) {
         startTimer();
+
+        if (lockHighlight)
+          return;
+
         HighlightCircle([this.id], graphID, tip, d);
 
         /*d.data.location.forEach(function(location) {
@@ -1068,7 +1077,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         ClickCircle(d.data.name, tip);
       } else if (d3.event.altKey){
         // UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
-        lockRectHighlight = true;
+        lockHighlight = true;
       } else {
         //if (d3.event.shiftKey) {
         // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
@@ -1205,6 +1214,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
   }
 
 function HighlightCircle(idList, graphID=-1, tip=null, evokeRect=true) {
+  if (lockHighlight)
+    return;
+
   // Use D3 to select all elements in multiple graph
   circles = d3.selectAll("circle").filter(function(circle) {
     flag = false;
@@ -1266,7 +1278,10 @@ function HighlightCircle(idList, graphID=-1, tip=null, evokeRect=true) {
     otherCircles.style("opacity", 0.1);
 }
 
-function RecoverCircle(graphID, tip) {
+function RecoverCircle(graphID, tip=null) {
+  if (lockHighlight)
+    return;
+
   // recover all circles
   d3.selectAll("circle")
     .attr("d", function(d){
@@ -1386,7 +1401,7 @@ function RecoverPath(contourColor, id, graphID, tip) {
 }
 
 function HighlightRect(id, graphID, tip=null, data=null, index=null){
-  if (!lockRectHighlight)
+  if (!lockHighlight)
     d3.select("#" + id).attr('fill', hoverHighlight);
 
   // tip == null: hover over a circle
@@ -1397,15 +1412,12 @@ function HighlightRect(id, graphID, tip=null, data=null, index=null){
 }
 
 function RecoverRect(id, graphID, tip=null){
-  if (lockRectHighlight)
-    return;
-
-  d3.select("#" + id)
-    .attr('fill', transGraphColor);
-
   if (tip) {
     tip.hide();
   }
+  
+  if (!lockHighlight)
+    d3.select("#" + id).attr('fill', transGraphColor);
 }
 
 function DrawSparkline(entityMap){
