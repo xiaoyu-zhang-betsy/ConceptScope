@@ -67,7 +67,6 @@ var userLog = [];
 $("document").ready(function() {
   //submit click function
   $('#loadGraphFileBtn').on('click', function (event) {
-      console.log("STATE ************ 8 ***********")
       UpdateUserLog(event, {"loadFile": text});
 
       // console.log($('#graphFile1').val());
@@ -80,6 +79,9 @@ $("document").ready(function() {
                       <div class="col"> \
                         <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
                           <span aria-hidden="true">&times;</span> \
+                        </button> <span/>\
+                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin-left:10px"aria-label="btnRefresh"> \
+                          <span aria-hidden="true">&#8635;</span> \
                         </button> \
                         <div class="title"><span>'+ $('#graphFile1 :selected').text() +'</span></div> \
                       </div> \
@@ -141,9 +143,11 @@ $("document").ready(function() {
         //send data to the server
         var data = {};
         data['filename'] = text;
+        var localJsonData, graphID=graphNum;
 
         $.post("/loadGraph",data,
         function(jsonData,status){
+            localJsonData = jsonData;
             console.log(jsonData);
             try {
               // draw bubble treemap
@@ -176,6 +180,19 @@ $("document").ready(function() {
 
             graphNum++;
         },"json");
+
+        $('#refreshBtn'+ graphID).on('click', function (event) {
+          try {
+            // draw bubble treemap
+            let svg = d3.select("#svgCircles"+graphID);
+            svg.selectAll("*").remove();
+            localJsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
+            drawChart(localJsonData["hierarchy"], localJsonData["sentences"], svg, graphID);
+          }
+          catch(error) {
+            console.error(error);
+          }
+        });
       }
   });
 
@@ -620,9 +637,6 @@ function drawChart(data, senSet, svg, graphID) {
         })
         .on("click", function(d, i) {
           if (d3.event.ctrlKey || d3.event.metaKey) {
-            UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
-            ClickCircle(d.data.name, infoTip);
-          } else {
             UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
             //if (d3.event.shiftKey) {
             document.getElementById('concordance-view').style.visibility =
@@ -633,6 +647,9 @@ function drawChart(data, senSet, svg, graphID) {
             var allConcordances = GetConcordanceHighlight(d.data, senSet);
             $('#concordance-view-content').children().remove();
             $('#concordance-view-content').append(allConcordances);
+          } else {
+            UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+            ClickCircle(d.data.name, infoTip);
           }
         });
 }
@@ -1040,9 +1057,6 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     .on("click", function(d, i) {
       UpdateUserLog(d3.event);
       if (d3.event.ctrlKey || d3.event.metaKey) {
-        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
-        ClickCircle(d.data.name, tip);
-      } else {
         //if (d3.event.shiftKey) {
         // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
         document.getElementById('concordance-view').style.visibility =
@@ -1053,6 +1067,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         var allConcordances = GetConcordanceHighlight(d.data, senSet);
         $('#concordance-view-content').children().remove();
         $('#concordance-view-content').append(allConcordances);
+      } else {
+        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+        ClickCircle(d.data.name, tip);
       }
     });
 
