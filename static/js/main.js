@@ -63,6 +63,7 @@ colorMap = [
   d3.lab(85, -6, 85)  //#E8D600
 ];
 var userLog = [];
+var windowHeight = window.innerHeight, windowWidth = window.innerWidth;
 
 //jQuery
 $("document").ready(function() {
@@ -483,7 +484,7 @@ function drawChart(data, senSet, svg, graphID) {
 
     let infoTip = d3.tip()
       .attr('class', 'infoTip')
-      .offset([10, 0])
+      .offset([5, 5])
       .direction('e')
       .attr("data-clicked", false);
     svg.call(infoTip);
@@ -493,7 +494,7 @@ function drawChart(data, senSet, svg, graphID) {
       if (d3.event.srcElement.id==="btnCloseInfoTip") {
         infoTip.hide();
         circleClicked = false;
-      } else if (d3.event.srcElement.nodeName!=="circle") {
+      } else if ((d3.event.srcElement.nodeName!=="circle")&& (d3.event.srcElement.className!=="EntityItem")) {
         lockHighlight = false;
         d3.selectAll("rect").attr('fill', transGraphColor); //recover rectangle
         RecoverCircle();
@@ -521,10 +522,15 @@ function drawChart(data, senSet, svg, graphID) {
     //$('#szSlicerBar')
     d3.select("#szSlicerBar")
     .on('input', function() {
+      var prevszLevel = szLevel.valueOf();
       szLevel = Math.floor(szMaxLevel * this.value/100.0);
-      UpdateUserLog(d3.event, {"szLevel": szLevel});
       $("#szSlicerLabel").html("Visible Levels: " + (szLevel+1));
-      SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, infoTip, root.height);
+
+      if(prevszLevel !== szLevel) {
+        UpdateUserLog({}, {"type": "semanticZooming", "szLevel": szLevel});
+      
+        SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, infoTip, root.height);
+      }
     })
 
     path = contourGroup.selectAll("path")
@@ -964,6 +970,7 @@ function genLegend(data, svg) {
 }
 
 function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, contourColor, tip, treeHeight) {
+  // Object.assign(prevszLevel, szLevel);
   if (szOn) {
     szLevel = 3 + Math.floor((szScale-1)/szFrontier);
     szLevel = szLevel<=treeHeight? szLevel : treeHeight;
@@ -979,7 +986,9 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
     .append("path")
     .attr("id", function(d) { 
       d["graphID"] = graphID;
-      return "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
+      var id = "g-" + graphID + "-" + "c-" + d.name.substring(d.name.lastIndexOf("/")+1, d.name.length-1).replace(/%28/g, '(').replace(/%29/g, ')');
+      // UpdateUserLog({}, {"type": "semanticZooming", "szLevel": szLevel, "action": "newPath"});
+      return id;
     })
     .attr("d", function(arc) { return arc.d; })
     .style("stroke", function(arc) {
@@ -1070,17 +1079,16 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
         });
     })
     .on("click", function(d, i) {
-      UpdateUserLog(d3.event);
       // console.log(d);
       if (d3.event.ctrlKey || d3.event.metaKey) {
-        // UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
+        UpdateUserLog(d3.event, {"action": "turn on information tip", "data": d.data});
         ClickCircle(d.data.name, tip);
       } else if (d3.event.altKey){
-        // UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
+        UpdateUserLog(d3.event, {"action": "lock rectangle highlight", "data": d.data});
         lockHighlight = true;
       } else {
         //if (d3.event.shiftKey) {
-        // UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
+        UpdateUserLog(d3.event, {"action": "turn on concordance view", "data": d.data});
         document.getElementById('concordance-view').style.visibility =
             'visible';
         // get concordance
@@ -1100,7 +1108,8 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
       } else {
         localGroup.selectAll("text").remove();
         localGroup.select("circle").style("fill", function(d) {
-          if (d.r*szScale > szWCsize){    
+          if (d.r*szScale > szWCsize){
+            UpdateUserLog({}, {"type": "semanticZooming", "szLevel": szLevel, "action": "reveal word cloud", "concpet": d.data.name});    
             localGroup.selectAll("text")
               .data(d.data.wordCloud)
               .enter().append("text")
@@ -1133,6 +1142,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               );
             //return "white";
           } else if (d.r*szScale > szTitlesize){
+            // UpdateUserLog({}, {"type": "semanticZooming", "szLevel": szLevel, "action": "reveal concept name", "concpet": d.data.name});    
             //var localGroup = d3.select(this.parentNode);
             localGroup.selectAll("text").remove();
             var textArea = localGroup.append("text")
@@ -1337,7 +1347,15 @@ function ClickCircle(uri, tip) {
             }
             labelText += '<br/><div><a href="' + uri.substring(1, uri.length-1) + '">Read more</a></div>';
             labelText += '<br/><button type="button" id="btnCloseInfoTip">Close</button>'
-            tip.html(labelText).show();
+            tip.html(labelText);            
+            
+            // console.log(windowHeight, window.innerHeight);
+            // console.log(parseInt(tip.style('bottom'), 10), d3.select(tip).node().style("height"), window.innerHeight*0.7, (window.innerHeight*0.7-parseInt(tip.style('height'), 10)))
+            // if (parseInt(tip.style('top'), 10)+parseInt(tip.style('height'), 10) > window.innerHeight*0.7)
+            //   tip.style("top", (window.innerHeight*0.7-parseInt(tip.style('height'), 10))+"px");
+
+
+            tip.show();
           }
           catch(error) {
             //console.error(error);
@@ -1415,7 +1433,7 @@ function RecoverRect(id, graphID, tip=null){
   if (tip) {
     tip.hide();
   }
-  
+
   if (!lockHighlight)
     d3.select("#" + id).attr('fill', transGraphColor);
 }
@@ -1462,6 +1480,11 @@ function DrawSparkline(entityMap){
       this.style.backgroundColor = "white";
       RecoverCircle(0, null);
   })
+  .on("click", function() {
+      UpdateUserLog(d3.event, {"action": "lock concept highlight from concept list", "data": this.textContent});
+      lockHighlight = true;
+  })
+
 }
 
 // Function to generate a text concordance view in the form of an html
@@ -1661,23 +1684,30 @@ function getIndicesOfHighlight(entity, sentences, caseSensitive) {
 }
 
 function UpdateUserLog(event, addInfo={}){
-  if(Object.keys(addInfo).length > 0){
-    for (let [key, value] of Object.entries(addInfo)) {
-      event[key] = value;
+  try {
+    if(Object.keys(addInfo).length > 0){
+      for (let [key, value] of Object.entries(addInfo)) {
+        event[key] = value;
+      }
     }
-  }
-  // console.log(event);
-  let props = ['type', 'target', 'clientX', 'clientY', 'screenX', 'screenY', 'timeStamp', 'transform'];
-  props.forEach(prop => {
-    Object.defineProperty(event, prop, {
-      value: prop==='target'? event[prop].id : event[prop],
-      enumerable: true,
-      configurable: true
+    let props = ['type', 'target', 'clientX', 'clientY', 'screenX', 'screenY', 'timeStamp', 'transform'];
+    props.forEach(prop => {
+      if (event.hasOwnProperty(prop)) {
+        Object.defineProperty(event, prop, {
+          value: prop==='target'? event[prop].id : event[prop],
+          enumerable: true,
+          configurable: true
+        });
+      }
     });
-  });
-  // console.log(typeof(event));
-  userLog.push(event);
-  // console.log(userLog);
+
+    // console.log(event);
+    // console.log(typeof(event));
+    userLog.push(event);
+    // console.log(userLog);
+  }catch(err) {
+    console.log("User log recording failed: ", event, addInfo);
+  }
 }
 
 function startTimer() {
