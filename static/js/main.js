@@ -358,6 +358,8 @@ $("document").ready(function() {
       if(path.id.includes(keyword))
         HighlightPath(path.id);
     });
+
+    lockHighlight = true;
   });
 
   $('#searchInput').keypress(function(event){
@@ -379,6 +381,8 @@ $("document").ready(function() {
         if(path.id.includes(keyword))
           HighlightPath(path.id);
       });
+
+      lockHighlight = true;
       return false;
     }
   });
@@ -494,7 +498,7 @@ function drawChart(data, senSet, svg, graphID) {
       if (d3.event.srcElement.id==="btnCloseInfoTip") {
         infoTip.hide();
         circleClicked = false;
-      } else if ((d3.event.srcElement.nodeName!=="circle")&& (d3.event.srcElement.className!=="EntityItem")) {
+      } else if ((d3.event.srcElement.nodeName!=="circle")&& (d3.event.srcElement.className!=="EntityItem") && (d3.event.srcElement.parentElement.id!=="searchButton") ) {
         lockHighlight = false;
         d3.selectAll("rect").attr('fill', transGraphColor); //recover rectangle
         RecoverCircle();
@@ -1349,6 +1353,7 @@ function ClickCircle(uri, tip) {
             labelText += '<br/><button type="button" id="btnCloseInfoTip">Close</button>'
             tip.html(labelText);            
             
+            console.log($(tip).height());
             // console.log(windowHeight, window.innerHeight);
             // console.log(parseInt(tip.style('bottom'), 10), d3.select(tip).node().style("height"), window.innerHeight*0.7, (window.innerHeight*0.7-parseInt(tip.style('height'), 10)))
             // if (parseInt(tip.style('top'), 10)+parseInt(tip.style('height'), 10) > window.innerHeight*0.7)
