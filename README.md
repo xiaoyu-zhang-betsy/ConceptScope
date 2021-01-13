@@ -1,5 +1,5 @@
-# DocViewer
-A client-server application for bubble treemap
+# ConceptScope
+A client-server application for viewing and comparing documents and their underlying concepts in the context of a domain ontology.
 
 ******
 
