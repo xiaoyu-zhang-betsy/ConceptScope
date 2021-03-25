@@ -73,6 +73,7 @@ $("document").ready(function() {
 
       // console.log($('#graphFile1').val());
       var text = $('#graphFile1').val().replace("C:\\fakepath\\", "");
+      // var canvasTitle = $('#graphFile1 :selected').text(); # for user study
 
       if (text != "") {
         // create canvas
@@ -85,7 +86,7 @@ $("document").ready(function() {
                         <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin:3px 10px 0px 10px; padding-top:3px"aria-label="btnRefresh"> \
                           <span aria-hidden="true">&#8635;</span> \
                         </button> \
-                        <div class="title"><span>'+ $('#graphFile1 :selected').text() +'</span></div> \
+                        <div class="title"><span>'+ text +'</span></div> \
                       </div> \
                       <div class="row"> \
                           <div class="col" align="center"> \
@@ -1154,7 +1155,7 @@ function SemanticZooming_1(bubbletreemap, svg, leafNodes, senSet, graphID, conto
               .attr("transform", "translate(" + d.x + "," + d.y + ")")
               .attr("dy", ".25em")
               .attr("text-anchor", "middle")
-              .attr("font-size", "8pt")
+              .attr("font-size", "7pt")
               .attr("fill", function(word){
                 return d.color.darker(5)}
               )
@@ -1353,7 +1354,7 @@ function ClickCircle(uri, tip) {
             labelText += '<br/><button type="button" id="btnCloseInfoTip">Close</button>'
             tip.html(labelText);            
             
-            console.log($(tip).height());
+            // console.log($(tip).height());
             // console.log(windowHeight, window.innerHeight);
             // console.log(parseInt(tip.style('bottom'), 10), d3.select(tip).node().style("height"), window.innerHeight*0.7, (window.innerHeight*0.7-parseInt(tip.style('height'), 10)))
             // if (parseInt(tip.style('top'), 10)+parseInt(tip.style('height'), 10) > window.innerHeight*0.7)
