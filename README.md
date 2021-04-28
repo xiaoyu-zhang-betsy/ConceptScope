@@ -1,10 +1,6 @@
 # ConceptScope
-A client-server application for viewing and comparing documents and their underlying concepts in the context of a domain ontology.
+* ConceptScope is a client-server application for viewing and comparing documents and their underlying concepts in the context of a domain ontology.
 
-******
-
-About
------
 * ConceptScope is from: Zhang, Chandrasegaran and Ma "ConceptScope: Organizing and Visualizing Knowledge in Documents based on Domain Ontology", arXiv:2003.05108, 2020.
 ******
 

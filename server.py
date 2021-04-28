@@ -5,14 +5,17 @@ import json
 import os
 import csv
 import re
+import string
 import sys
 
 import spacy
 from spacy import displacy
 from spacy.pipeline import EntityRecognizer
+from spacy.tokenizer import Tokenizer
 # from nltk.corpus import wordnet # too big to load in AWS
 # from gensim.test.utils import datapath # too big to load in AWS
 # from gensim.models import KeyedVectors # too big to load in AWS
+from gensim.models.phrases import Phrases, Phraser # used to identify bigrams in the sentences
 
 import urllib
 #from owlready2 import *
@@ -25,6 +28,8 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 
 # Global variables
 nlp = None # spacy NLP library
+tokenizer = None
+complete_stop_words = None
 csoGraph = None # CSO ontology
 word_vectors = None # word vectors from wordNet
 csoDict = None # the dictionary of all cso entities
@@ -35,40 +40,90 @@ path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
 csoGraph.parse(path, format="xml")
 
 def LoadResources():
-    global nlp, csoGraph, word_vectors, csoDict
+    global nlp, tokenizer, complete_stop_words, csoGraph, word_vectors, csoDict
 
     # load Spacy NLP dictionary
-    # print("Loading spacy dictionary...")
-    sys.stderr.write('Loading spacy dictionary...')
+    print("Loading spacy dictionary...")
+    # sys.stderr.write('Loading spacy dictionary...')
 
     nlp = spacy.load('en_core_web_sm')
-    # print("Spacy dictionary is loaded successfully!\n")
-    sys.stderr.write('Spacy dictionary is loaded successfully!')
+    spoken_stop_words = {
+    'absolutely', 'ah', 'background', 'could', 'do', 'dont', "don't", 'em', 'go', 'going', 'gonna', 'guy',
+    'hm', 'hmm', "i'm", 'im', 'kind', 'kinda', 'know', 'like', 'maybe', 'oh', 'okay', 'one', 'really', 'right',
+    'scream', 'screaming', 'something', 'that', 'thats', 'there', "there's", 'they', "they're", 'thing', 'think',
+    'u', 'um', 'unintelligible', 'would', 'wa', 'want', 'well', 'xd', 'yeah'}
+    complete_stop_words = nlp.Defaults.stop_words | spoken_stop_words
+    tokenizer = Tokenizer(nlp.vocab) # Create a blank Tokenizer with just the English vocab
 
-    # print("Loading ontology...")
-    sys.stderr.write('Loading ontology...')
+    print("Spacy dictionary is loaded successfully!\n")
+    # sys.stderr.write('Spacy dictionary is loaded successfully!')
+
+    print("Loading ontology...")
+    # sys.stderr.write('Loading ontology...')
     # csoGraph = Graph()
     # path = os.path.join(app.static_folder, 'source/CSO.3.1.owl')
     # csoGraph.parse(path, format="xml")
-    # print("Ontology is loaded successfully!\n")
-    sys.stderr.write('Ontology is loaded successfully!')
+    print("Ontology is loaded successfully!\n")
+    # sys.stderr.write('Ontology is loaded successfully!')
 
-    # print("Loading conceptNet...")
-    sys.stderr.write('Loading conceptNet...')
+    print("Loading conceptNet...")
+    # sys.stderr.write('Loading conceptNet...')
     #word_vectors = KeyedVectors.load_word2vec_format("numberbatch-en.txt", binary=False)  # C text format
-    # print("ConceptNet is loaded successfully!\n")
-    sys.stderr.write('ConceptNet is loaded successfully!\n')
+    print("ConceptNet is loaded successfully!\n")
+    # sys.stderr.write('ConceptNet is loaded successfully!\n')
 
-    # print("Loading CSO dictionary...")
-    sys.stderr.write('Loading CSO dictionary...')
+    print("Loading CSO dictionary...")
+    # sys.stderr.write('Loading CSO dictionary...')
     csoDict = dict()
     path = os.path.join(app.static_folder, 'source/cso_dict.csv')
     with open(path, 'r') as csvfile:
         dictReader = csv.reader(csvfile, delimiter=',')
         for row in dictReader:
             csoDict[row[0]] = row[1]
-    # print("CSO dictionary is loaded successfully!\n")
-    sys.stderr.write('CSO dictionary is loaded successfully!\n')
+    print("CSO dictionary is loaded successfully!\n")
+    # sys.stderr.write('CSO dictionary is loaded successfully!\n')
+
+def get_ngrams(transcript):
+    sentences = []
+    ## lem = Lemmatizer()
+    ## phrases = Phrases(sentences, min_count=1, threshold=1)
+    ## n_gram = Phraser(phrases)
+    ## n_gram = Phrases(sentences)
+    for ind, line in enumerate(transcript):
+        rawline = line.lower()
+        rawline = ''.join([c for c in list(rawline) if c not in string.punctuation])
+        tokens = [w for w in tokenizer(rawline)]
+        lemmas = [token.lemma_ for token in tokens]
+        sentences.append(lemmas)
+        #n_gram.add_vocab([lemmas])
+    phrases = Phrases(sentences, min_count=3)
+    bigram = Phraser(phrases)
+    return (bigram, phrases)
+
+def get_valid_tokens(n_gram, stop_words):
+    keys_list = [x for x in n_gram.vocab.keys()]
+    keylist = []
+    valid_tokens = []
+    for x in n_gram.vocab.keys():
+        if type(x) == bytes :
+            keylist.append(x.decode('UTF-8'))
+        else :
+            keylist.append(x)
+    for ind, key in enumerate(keylist):
+        if len(key.split("_")) > 1 :
+            # the key is an n-gram
+            subkey_is_stopword = False
+            for subkey in key.split("_") :
+                # if either of the words constituting the n-gram is a stop word, remove the n-gram
+                if subkey in stop_words :
+                    subkey_is_stopword = True
+            if not subkey_is_stopword :
+                valid_tokens.append(key)
+        else :
+            # the key is a unigram
+            if not key in stop_words :
+                valid_tokens.append(key)
+    return valid_tokens
 
 # pre-processing
 def PreProcess(senSet):
@@ -221,7 +276,9 @@ def RunNER(sen):
     entityList = []
     
     # parse sentence
-    doc = nlp(str(sen))
+    doc = nlp(str(sen.lower()))
+
+    print('Original Sentence:\n' + sen)
 
     #ents = [(e.text, e.start_char, e.end_char, e.label_) for e in doc.ents]
     chunks = []
@@ -230,6 +287,9 @@ def RunNER(sen):
             # test whether current chunk is or contains stop words
             result = ''
             doc_phrase = nlp(chunk.text)
+            start_char = -1
+            end_char = -1
+            
             for token in doc_phrase:
                 #print(token.text, token.is_stop, token.lemma_)
                 if not token.is_stop and token.lemma_ != "-PRON-":
@@ -237,9 +297,44 @@ def RunNER(sen):
                     result = result + token.text + ' '
             
             if result != '':
-                chunks.append(result[:-1])
-    
+                chunks.append([result[:-1], chunk.start_char, chunk.end_char])
     return chunks
+
+def RunNGrams(sen, n_gram, valid_transcript_tokens):
+    rawline = sen.lower()
+    rawline = ''.join([c for c in list(rawline) if c not in string.punctuation])
+    tokens = [w for w in tokenizer(rawline)]
+    lemmas = [token.lemma_ for token in tokens]
+    ngts = n_gram[lemmas]
+    #print(ngts)
+    pruned_ngts = [w for w in ngts if w in valid_transcript_tokens]
+    result = []
+    # find the index of start and end charactor for ngrams
+    for ngt in pruned_ngts:
+        for idxL, lemma in enumerate(lemmas):
+            findFlag = True
+            origin = ""
+            for idxS, subkey in enumerate(ngt.split("_")):
+                #print("(", lemmas[idxL+idxS], ",", subkey, ")")
+                if lemmas[idxL+idxS] != subkey:
+                    findFlag = False
+                    break
+                origin += tokens[idxL+idxS].text + ' '
+            if findFlag:
+                try:
+                    start_char = 0
+                    while start_char < len(sen):
+                        start_char = sen.lower().find(origin[:-1], start_char)
+                        if any(mark[0]==ngt.replace('_', ' ') and mark[1]==start_char for mark in result):
+                            start_char = start_char+len(origin)-1
+                            continue
+                        elif start_char > -1:
+                            result.append([ngt.replace('_', ' '), start_char, start_char+len(origin)-1])
+                        break
+                except ValueError:
+                    print("ValueError for　" + origin)
+                break         
+    return result
 
 # given a URI in DBPedia, query corresponding URI in CSO
 def DBPD2CSO(dbpediaURI):
@@ -436,10 +531,23 @@ def ProcessSen(senSet):
     # parse and query each sentence
     entityDict = dict()
     URIList = []
+    senList = []
+    fuzzyMatchBar = 0.8
+    
+    ######################################## n-grams #############################################
+    n_gram, phrases = get_ngrams(senSet)
+    valid_transcript_tokens = get_valid_tokens(phrases, complete_stop_words)
+    ########################################   NER   #############################################
     #for index in range(0, 3):
+
     for index in range(len(senSet)):
+        # remove empty line
+        if not re.search(r'\w', senSet[index]):
+            continue
+
+        senListIndex = len(senList)
         #index = 26
-        sampleSentence = "We examine how animating a viewpoint change in a spatial \
+        '''sampleSentence = "We examine how animating a viewpoint change in a spatial \
         information system affects a user’s ability to build a mental \
         map of the information in the space. We found that \
         real-time application improves users' ability to reconstruct the \
@@ -447,60 +555,79 @@ def ProcessSen(senSet):
         time. We believe that this study provides strong evidence \
         for adding speech recognition software in many applications with \
         fixed spatial data where the user navigates around the data \
-        space."
+        space."'''
         #sampleSentence = "We believe that this study provides strong evidence \
         #for adding animated transitions in many applications with \
         #fixed spatial data where the user navigates around the data \
         #space."
 
-        # extract named entities from current sentence
-        print('\n' + str(index) + '. Original Sentence:\n' + senSet[index])
-        #nameEntityList = RunNER(sampleSentence)
-        nameEntityList = RunNER(senSet[index])
-        #print(nameEntityList)
+        # create the object to store sentence related information
+        senList.append({
+            "sentence": senSet[index],
+            "marks":[]
+        })
 
+        # extract g-grams from current sentence
+        #nameEntityList = RunNER(sampleSentence)
+        ngtList = RunNGrams(senSet[index], n_gram, valid_transcript_tokens)
+        ngtSet = set([x[0] for x in ngtList])
+        #print("valid_ngt:", ngtList, "\n")
+
+        # extract named entities from current sentence
+        nameEntityList = RunNER(senSet[index])
+        #print("nameEntityList:", nameEntityList, "\n")
+
+        conceptList = ngtList
+        conceptList.extend([ngt for ngt in nameEntityList if not ngt[0] in ngtSet])
+        #print("conceptList:", conceptList)
+
+        locIndex = 0 # to record the index of current entity in current sentence
+
+        print(conceptList)
         # look up the URI for the entities
-        for entity in nameEntityList:
-            #print("\nFor \"" + entity + "\":")
+        for entity in conceptList:
+            #print("\nFor \"" + entity[0] + "\":")
             entityURI = None
             csoURIList = []
-            try:
-                if entity in cacheDict:
-                    entityURI = cacheDict[entity]
-                    '''if entityURI != None: 
-                        print("You mentioned", entity, "before. Do you mean", entityURI, "?")
-                    else:
-                        print("You mentioned", entity, "before, but we can't find anything about it.")'''
-                        #RIList.append(entityURI)
 
-                elif entity.replace(' - ', '-').replace(' ', '_') in csoDict:
-                    #print("Find " + entity + " directly in CSO dictionary!")
-                    entityURI = csoDict[entity.replace(' - ', '-').replace(' ', '_')]
+            try:
+                if entity[0] in cacheDict:
+                    entityURI = cacheDict[entity[0]]
+                    if entityURI != None: 
+                        print("You mentioned", entity[0], "before. Do you mean", entityURI, "?")
+                    else:
+                        print("You mentioned", entity[0], "before, but we can't find anything about it.")
+                        #RIList.append(entityURI)
+                elif entity[0].replace(' - ', '-').replace(' ', '_') in csoDict:
+                    print("Find " + entity[0] + " directly in CSO dictionary!")
+                    entityURI = csoDict[entity[0].replace(' - ', '-').replace(' ', '_')]
 
                 else:
-                    dbpdURIList = QueryURI(entity.replace(' - ', '-'))
-                    #print(dbpdURIList)
+                    dbpdURIList = QueryURI(entity[0].replace(' - ', '-'))
                     if dbpdURIList != None:
                         #URIList.append(dbpdURIList)
                         for dbpdURI in dbpdURIList:
                             csoURIList.extend(DBPD2CSO(dbpdURI))
                         if len(csoURIList):
-                            entityURI = SelectURI(entity, csoURIList)
-                            
+                            entityURI = SelectURI(entity[0], csoURIList)
+
                 # query further information and wrap them in entityInfo
                 if entityURI != None:
                     #URIList.append(entityURI)
-                    #print(entityURI)
+                    #print("Final URI: " + entityURI)
+
+                    # update graph related information
                     if entityURI in entityDict:
                         entityDict[entityURI]["size"] += 1
-                        entityDict[entityURI]["sentence"].append(senSet[index])
+                        entityDict[entityURI]["location"].append([senListIndex, locIndex, entity[1], entity[2], entity[0]]);
                     else:
                         entityInfo = {
                             "name": entityURI,
-                            "origin": entity,
+                            "origin": entity[0],
                             "strPath": "",
                             "uncertainty": 3,
-                            "sentence": [senSet[index]],
+                            # location: [senListIndex, locIndex, start_char, end_char, origin]
+                            "location": [[senListIndex, locIndex, entity[1], entity[2], entity[0]]],
                             "size": 1,
                             "children":[]
                         }
@@ -511,32 +638,62 @@ def ProcessSen(senSet):
                         #for curKey in hierarchy:
                         #    entityInfo["strPath"] = entityInfo["strPath"]  + curKey + "&-&"
                         #entityInfo["strPath"] = entityInfo["strPath"][:-3]
-                        entityDict[entityURI] = entityInfo 
-                    
+                        entityDict[entityURI] = entityInfo
+
+                # update sentence related information (for transcript view)
+                senList[senListIndex]["marks"].append({
+                    "origin": entity[0],
+                    "entityURI": entityURI,
+                    "start_char": entity[1],
+                    "end_char": entity[2],
+                    "candidates": csoURIList,
+                    "category": None
+                })
+                locIndex += 1
+
             except Exception as e: 
-                print("Can't find related url for " + entity)
+                print("Can't find related url for " + entity[0])
                 print(e)
 
-    #print(entityDict)
+    #generate word cloud for each entity in entityDict
+    for key in entityDict:
+        entity = entityDict[key]
+        print(entity)
+        if "location" in entity:
+            keywordDict = {}
+            maxOccur = 1
+            for senLoc in entity["location"]:
+                for mark in senList[senLoc[0]]["marks"]:
+                    if mark["origin"] == entity["origin"]:
+                        continue
+                    elif mark["origin"] in keywordDict:
+                        keywordDict[mark["origin"]] += 1
+                        if keywordDict[mark["origin"]] > maxOccur:
+                            maxOccur = keywordDict[mark["origin"]]
+                    else:
+                        keywordDict[mark["origin"]] = 1
+            concept = entity["name"][entity["name"].rfind("/")+1:-1].replace('_', ' ')
+            keywordDict[concept] = maxOccur * 1.5 # add the CSO concept into the ontology
+            for word in keywordDict:
+                keywordDict[word] = math.log(keywordDict[word]+1) # +1 to ensure the log result is positive
+            entity["wordCloud"] = LayoutWordCloud(keywordDict)
 
     #entityDict = {'<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>': {'uri': '<https://cso.kmi.open.ac.uk/topics/fuzzy_cognitive_maps>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/database>': {'uri': '<https://cso.kmi.open.ac.uk/topics/database>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/satellite_systems>': {'uri': '<https://cso.kmi.open.ac.uk/topics/satellite_systems>', 'strPath': '', 'sentence': 'We examine how animating a viewpoint change in a spatial information system affects a user’s ability to build a mental map of the information in the space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/software>': {'uri': '<https://cso.kmi.open.ac.uk/topics/software>', 'strPath': '', 'sentence': 'We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>': {'uri': '<https://cso.kmi.open.ac.uk/topics/graphical_user_interfaces>', 'strPath': '', 'sentence': 'We believe that this study provides strong evidence for adding animated transitions in many applications with fixed spatial data where the user navigates around the data space', 'size': 2, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/programming_models>': {'uri': '<https://cso.kmi.open.ac.uk/topics/programming_models>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/energy_savings>': {'uri': '<https://cso.kmi.open.ac.uk/topics/energy_savings>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/ontologies>': {'uri': '<https://cso.kmi.open.ac.uk/topics/ontologies>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/user_interfaces>': {'uri': '<https://cso.kmi.open.ac.uk/topics/user_interfaces>', 'strPath': '', 'sentence': '\nDuring the past decade, researchers have explored the use of animation in many aspects of user interfaces', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/iaas>': {'uri': '<https://cso.kmi.open.ac.uk/topics/iaas>', 'strPath': '', 'sentence': 'Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users’ performance', 'size': 1, 'candidate': [], 'children': []}, '<https://cso.kmi.open.ac.uk/topics/cognitive_process>': {'uri': '<https://cso.kmi.open.ac.uk/topics/cognitive_process>', 'strPath': '', 'sentence': 'Users commonly report that they prefer animation, and yet there has been very little research that attempts to understand how animation affects users’ performance', 'size': 1, 'candidate': [], 'children': []}}
 
     # output the concatenated hierarchy
-    treeList = []
+    entityTree = []
     if len(entityDict)>0:
-        ConstructTree(entityDict, treeList)
+        ConstructTree(entityDict, entityTree, senList)
 
     #treeJson = FormatToJson(treeDict)
     #print(treeJson)
-
-    #print(treeList)
 
     csIndex = FindIndex('<https://cso.kmi.open.ac.uk/topics/computer_science>', treeList)
     if (csIndex >= 0):
         #return json.dumps(treeList[csIndex], indent = 2)
         return treeList[csIndex]
     else:
-        return None
+        return []
 
 ###########################################################################
 #             Interfaces that are accessible from front-end               #
@@ -603,8 +760,8 @@ def LoadText():
     
     result = {
         "sentences": senSet,
-        #"hierarchy": ProcessSen(senSet) # run the backend algorithms
-        "hierarchy": []
+        "hierarchy": ProcessSen(senSet) # run the backend algorithms
+        # "hierarchy": []
     }
 
     return json.dumps(result, indent = 2)
