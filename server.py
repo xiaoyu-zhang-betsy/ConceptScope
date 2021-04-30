@@ -7,6 +7,7 @@ import csv
 import re
 import string
 import sys
+import math
 
 import spacy
 from spacy import displacy
@@ -25,6 +26,12 @@ import xml.etree.ElementTree as ET
 from SPARQLWrapper import SPARQLWrapper, JSON
 #from allennlp.common.testing import AllenNlpTestCase
 #from allennlp.predictors.predictor import Predictor
+
+import xml.etree.ElementTree as ET
+
+from wordcloud import WordCloud # from https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Global variables
 nlp = None # spacy NLP library
@@ -236,11 +243,16 @@ def FormatToJson(treeDict):
     return finalResult
 
 # directly construct the final hierarchical tree according to the keyword 
-def ConstructTree(entityDict, treeList):
-    for entityURI in entityDict: # uri is the key of the dict
+def ConstructTree(entityDict, treeList, senList):
+    for entityURI in entityDict: # uri is the key of the entityDict
         hierarchy = QueryHierarchy(entityURI)
+        
+        # assign the second level entity as the category
+        if len(hierarchy) > 1:
+            for location in entityDict[entityURI]["location"]:
+                senList[location[0]]["marks"][location[1]]["category"] = hierarchy[1]
+        
         curList = treeList
-
         for curURI in hierarchy:
             index = FindIndex(curURI, curList)
             if index > -1:
@@ -388,6 +400,34 @@ def SelectURI(source, candiList):
                 
     return maxURI
 
+def CleanURI(resultURI):    
+    # merge some synonyms appeared in CSO
+    synonyms = (
+        ('/computer_hardware', '/hardware'),
+        ('/computer-aided_design', '/computer_aided_design'),
+        ('/operating_systems', '/operating_system'),
+        ('/computer_systems', '/computer_system'),
+        ('/computer_networks', '/computer_network'),
+        ('/computer_communication_networks', '/computer_network'),
+        ('/human-computer_interaction', '/human_computer_interaction')
+    )
+    for syn in synonyms:
+        resultURI = resultURI.replace(syn[0], syn[1])
+        
+    # replace html codes
+    htmlCodes = (
+            ('%28', '('),
+            ('%29', ')'),
+            ('%2A', '*'),
+            ('%2B', '+'),
+            ('%2C', ','),
+            ('%2F', '/'),
+            ('%3A', ':')
+        )
+    for code in htmlCodes:
+        resultURI = resultURI.replace(code[0], code[1])
+    return resultURI
+
 # given a URI, query the ontology iteratively to get its path to root
 def QueryHierarchy(URI):
     #print("\n" + URI)
@@ -407,19 +447,56 @@ def QueryHierarchy(URI):
 
         results = csoGraph.query(qSelect).serialize(format="json")
         results = json.loads(results)
-        
+
         for result in results["results"]["bindings"]:
             resultURI = '<' + result["parentURI"]["value"] + '>'
-            #print(resultURI)
             curURI = resultURI
-            path.insert(0, resultURI)
+            #print('before:' + curURI)
+            path.insert(0, CleanURI(resultURI))
+            #print('after:' + curURI)
             endFlag = False
-            break
+            break;
      
     # insert the common root node to current path
     # path.insert(0, '<https://cso.kmi.open.ac.uk/topics/computer_science>')
     #print(path)
     return path
+
+def LayoutWordCloud(keywordDict):
+    #print("in word cloud", keywordDict)
+    x, y = np.ogrid[:200, :200]
+
+    mask = ((x - 100) ** 2 + (y - 100) ** 2) > 90 ** 2
+    mask = 255 * mask.astype(int)
+
+    wc = WordCloud(background_color="white", 
+                   repeat=True, 
+                   mask=mask, 
+                   mode="RGBA", 
+                   relative_scaling=1, 
+                   stopwords="generate_from_frequencies", 
+                   prefer_horizontal=1.0,
+                   font_path="/home/xiaoyu/Documents/Year_1/Ontology/Project/static/fonts/Helvetica-400.ttf")
+    #wc.generate(text)
+    wc.fit_words(keywordDict)
+
+    # convert the list of tuples to list of lists
+    layout = []
+    # ``layout_``list of tuples (string, int, (int, int), int, color))
+    # In order of (the string, font size, (position_x, position_y), orientation and color)
+    for tpl in wc.layout_: 
+        item = []
+        item.extend(tpl)
+        # transform the coordinates to center-oriented
+        # transform np.int to int
+        item[2] = [int(item[2][0]-100), int(item[2][1]-100)]
+        layout.append(item)
+
+    # render the word cloud with matplotlib
+    #plt.axis("off")
+    #plt.imshow(wc, interpolation="bilinear")
+    #plt.show()
+    return(layout)
 
 def SortNeighbors(e):
     return e["count"]
@@ -688,10 +765,10 @@ def ProcessSen(senSet):
     #treeJson = FormatToJson(treeDict)
     #print(treeJson)
 
-    csIndex = FindIndex('<https://cso.kmi.open.ac.uk/topics/computer_science>', treeList)
+    csIndex = FindIndex('<https://cso.kmi.open.ac.uk/topics/computer_science>', entityTree)
     if (csIndex >= 0):
         #return json.dumps(treeList[csIndex], indent = 2)
-        return treeList[csIndex]
+        return entityTree[csIndex]
     else:
         return []
 
