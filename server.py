@@ -162,7 +162,7 @@ def QueryURI(keywords, index=-2):
     
     if len(result)>0:
         for entity in result:
-            uriList.append(entity.find(prefix + "URI").text)
+            uriList.append(entity.find(prefix + "URI").text);
         return uriList
     else:
         #print("Sorry, we find nothing for this stuff :(\n")
@@ -290,7 +290,7 @@ def RunNER(sen):
     # parse sentence
     doc = nlp(str(sen.lower()))
 
-    print('Original Sentence:\n' + sen)
+    print('\nOriginal Sentence: ' + sen)
 
     #ents = [(e.text, e.start_char, e.end_char, e.label_) for e in doc.ents]
     chunks = []
@@ -347,7 +347,7 @@ def RunNGrams(sen, n_gram, valid_transcript_tokens):
                     print("ValueError for　" + origin)
                 break         
     return result
-
+    
 # given a URI in DBPedia, query corresponding URI in CSO
 def DBPD2CSO(dbpediaURI):
     csoURIList = []
@@ -359,14 +359,15 @@ def DBPD2CSO(dbpediaURI):
     results = json.loads(results)
 
     for result in results["results"]["bindings"]:
-        csoURIList.append('<' + result["csoURI"]["value"] + '>')
+        csoURIList.append('<' + result["csoURI"]["value"] + '>');
         
     return csoURIList
 
 # given a list of candidate uri, select the best one
 def SelectURI(source, candiList):
-    maxSim = 0
-    maxURI = candiList[0]
+    maxSim = fuzzyMatchBar
+    #maxURI = candiList[0]
+    maxURI = None
     
     # use conceptNet to select the url
     '''for candidate in candiList:
@@ -384,21 +385,38 @@ def SelectURI(source, candiList):
             print("can't find "+candidate[candidate.rfind("/")+1:-1])
     '''
     # use wordNet to select the url
-    for candidate in candiList:
-        #print(source.replace(' ', '_'))
-        #print(candidate[candidate.rfind("/")+1:-1])
+    '''for candidate in candiList:
+        #print('source', source.replace(' ', '_'))
+        #print('candidate', candidate[candidate.rfind("/")+1:-1])
         w1 = wordnet.synsets(source.replace(' ', '_'))
         w2 = wordnet.synsets(candidate[candidate.rfind("/")+1:-1])
         if len(w1) and len(w2):
             similarity = w1[0].wup_similarity(w2[0])
+            print(w1[0], w2[0], similarity)
             #print(similarity)
             if similarity > maxSim:
                 maxSim = similarity
                 maxURI = candidate
-                #print(candidate)
-                #print(similarity)
+    '''
+     
+    # use gensim.word2vec to compute cosine similarity between two sets of words
+    for candidate in candiList:
+        #print('source', source.replace(' ', '_'))
+        #print('candidate', candidate[candidate.rfind("/")+1:-1])
+        s1 = source.split(' ')
+        s2 = candidate[candidate.rfind("/")+1:-1].split('_')
+        try:
+            similarity = word_vectors.n_similarity(s1, s2)
+            # print(s1, s2, similarity)
+            #print(similarity)
+            if similarity > maxSim:
+                maxSim = similarity
+                maxURI = candidate
+        except:
+            continue
                 
     return maxURI
+
 
 def CleanURI(resultURI):    
     # merge some synonyms appeared in CSO
@@ -427,7 +445,8 @@ def CleanURI(resultURI):
     for code in htmlCodes:
         resultURI = resultURI.replace(code[0], code[1])
     return resultURI
-
+        
+        
 # given a URI, query the ontology iteratively to get its path to root
 def QueryHierarchy(URI):
     #print("\n" + URI)
@@ -455,7 +474,7 @@ def QueryHierarchy(URI):
             path.insert(0, CleanURI(resultURI))
             #print('after:' + curURI)
             endFlag = False
-            break;
+            break
      
     # insert the common root node to current path
     # path.insert(0, '<https://cso.kmi.open.ac.uk/topics/computer_science>')
@@ -768,9 +787,9 @@ def ProcessSen(senSet):
     csIndex = FindIndex('<https://cso.kmi.open.ac.uk/topics/computer_science>', entityTree)
     if (csIndex >= 0):
         #return json.dumps(treeList[csIndex], indent = 2)
-        return entityTree[csIndex]
+        return senList, entityTree[csIndex]
     else:
-        return []
+        return senList, []
 
 ###########################################################################
 #             Interfaces that are accessible from front-end               #
@@ -834,10 +853,11 @@ def LoadText():
     fileName = request.form.get("filename")
     print("Filename: " + fileName)
     senSet = LoadTextData(fileName)
+    senList, hierarchy = ProcessSen(senSet) 
     
     result = {
-        "sentences": senSet,
-        "hierarchy": ProcessSen(senSet) # run the backend algorithms
+        "sentences": senList,
+        "hierarchy": hierarchy# run the backend algorithms
         # "hierarchy": []
     }
 

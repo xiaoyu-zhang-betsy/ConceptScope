@@ -224,23 +224,50 @@ $("document").ready(function() {
 
     if (text1 != "") {
       // create new canvas
+      // $("#graphCanvas")
+      //   .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
+      //               <button id="closeCanvasBtn' + graphNum + '" type="button" class="close pull-left" aria-label="btnClose"> \
+      //                 <span aria-hidden="true">&times;</span> \
+      //               </button> \
+      //               <div class="row"> \
+      //                   <div class="col" id="circleRow' + graphNum + '"> \
+      //                       <div id="loader' + graphNum + '"> \
+      //                         <div class="loader"></div> \
+      //                         <h2>Processing...</h2> \
+      //                       </div> \
+      //                   </div> \
+      //                   <div class="col col-lg-2" id="transGraphContent"> \
+      //                       <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
+      //                   </div> \
+      //               </div> \
+      //           </div>');
       $("#graphCanvas")
-        .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
-                    <button id="closeCanvasBtn' + graphNum + '" type="button" class="close pull-left" aria-label="btnClose"> \
-                      <span aria-hidden="true">&times;</span> \
-                    </button> \
-                    <div class="row"> \
-                        <div class="col" id="circleRow' + graphNum + '"> \
-                            <div id="loader' + graphNum + '"> \
-                              <div class="loader"></div> \
-                              <h2>Processing...</h2> \
-                            </div> \
-                        </div> \
-                        <div class="col col-lg-2" id="transGraphContent"> \
+          .append('<div id="canvas' + graphNum + '" class="col svgGroup"> \
+                      <div class="row"> \
+                        <button id="closeCanvasBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" aria-label="btnClose"> \
+                          <span aria-hidden="true">&times;</span> \
+                        </button> <span/>\
+                        <button id="refreshBtn' + graphNum + '" type="button" class="close btn-secondary pull-left" style="margin:3px 10px 0px 10px; padding-top:3px"aria-label="btnRefresh"> \
+                          <span aria-hidden="true">&#8635;</span> \
+                        </button> \
+                        <div class="title"><span>'+ text1 +'</span></div> \
+                      </div> \
+                      <div class="row"> \
+                          <div class="col" align="center"> \
+                              <div class="row"> \
+                                <svg id="svgCircles' + graphNum + '" class="svgCircles"></svg> \
+                              </div> \
+                              <div class="row"> \
+                                <div class="divText" id="divText' + graphNum + '"> \
+                                    <table id="tableText' + graphNum + '" style="border-collapse:separate; border-spacing:0 5px;"></table> \
+                                </div> \
+                              </div> \
+                          </div> \
+                          <div class="col col-lg-2" id="transGraphContent"> \
                             <svg id="svgTrans' + graphNum + '" class="svgTrans"></svg> \
-                        </div> \
-                    </div> \
-                </div>');
+                          </div> \
+                      </div> \
+                  </div>');
       
       // close current canvas
       $('#closeCanvasBtn' + graphNum).on('click', function (event) {
@@ -248,37 +275,53 @@ $("document").ready(function() {
         $(this).parent().remove();
       });
 
+      // update existing views
+      d3.selectAll(".svgTrans").nodes().forEach(function(svgTrans){
+        if (svgTrans.id != ("svgTrans" + graphNum)){
+          var w = $("#transGraphContent").width();      
+          d3.select(svgTrans).selectAll("rect")
+          .attr("width", function (d) { return d.ratio*w; })
+        }
+      })
+
       //send data to the server
       var data = {};
       data['filename'] = text1;
       
       $.post("/loadText",data,
       function(jsonData, status){
-          console.log(jsonData)
-          try {
-            // draw bubble treemap
-            $("#loader"+graphNum).remove();
-            $("#circleRow"+graphNum).append('<svg id="svgCircles' + graphNum + '" class="svgCircles"></svg>');
-            let svgCircles= d3.select("#svgCircles"+graphNum);
-            svgCircles.selectAll("*").remove();
-            jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
-            drawChart(jsonData["hierarchy"], svgCircles, graphNum);
-          }
-          catch(error) {
-            console.error(error);
-          }
+          localJsonData = jsonData;
+            console.log(jsonData);
+            try {
+              // draw bubble treemap
+              let svg1 = d3.select("#svgCircles"+graphNum);
+              svg1.selectAll("*").remove();
+              jsonData["hierarchy"].children.sort((a,b) => (a.name > b.name ? 1 : -1));
+              drawChart(jsonData["hierarchy"], jsonData["sentences"], svg1, graphNum);
+            }
+            catch(error) {
+              console.error(error);
+            }
 
-          try {
-            // draw transcript view
-            let svgTrans = d3.select("#svgTrans"+graphNum);
-            console.log(svgTrans);
-            drawTrans(jsonData["sentences"], svgTrans, graphNum);
-          }
-          catch(error) {
-            console.error(error);
-          }
+            try {
+              // draw transcript view
+              let svgTrans = d3.select("#svgTrans"+graphNum);
+              drawTrans(jsonData["sentences"], svgTrans, graphNum);
+            }
+            catch(error) {
+              console.error(error);
+            }
 
-          graphNum++;
+            try {
+              // draw raw text view
+              let svgTrans = d3.select("#svgTrans"+graphNum);
+              drawText(jsonData["sentences"], svgTrans, graphNum);
+            }
+            catch(error) {
+              console.error(error);
+            }
+
+            graphNum++;
       },"json");
     }
   });
